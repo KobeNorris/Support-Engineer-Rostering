@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="timeTableDemo" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="TimeTableDemo.css">
+    <title>Time Table Demo</title>
+</head>
+
+<body>
+
+    <div class="mainBody">
+        <div class="timeSelecter">
+            <button class="arrow2Left" onclick="deductOneMonth()">((
+            </button>
+            <button id="timeSelecterMonthAndYear">
+                <span id="timeSelecter.Month">
+                </span>
+                <span id="timeSelecter.Year">
+                </span>
+            </button>
+            <button class="arrow2Right" onclick="addOneMonth()">))
+            </button>
+        </div>
+
+        <div>
+            <table class="timeTable" id="timeTable">
+            </table>
+        </div>
+    </div>
+
+</body>
+
+<script type="text/javascript" src="TimeTableDemo.js"></script>
+
+</html>
