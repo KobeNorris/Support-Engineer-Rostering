@@ -1,5 +1,4 @@
 var weekNameList = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-var weekCounter;
 
 refreshTimeTable();
 
