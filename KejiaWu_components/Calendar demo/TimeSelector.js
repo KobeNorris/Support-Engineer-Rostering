@@ -9,7 +9,8 @@ var Month = currentMonth;
 var Day = currentDay;
 
 var monthNameList = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-var yearChecker = /^-?[0~9]+$/;
+var yearChecker = /^\d{4}$/;
+// var yearChecker = /^-?[0~9]+$/;
 
 refreshTimeSelecter();
 
@@ -34,6 +35,7 @@ function deductOneMonth() {
 
 function setYear(selectedYear) {
     if (!yearChecker.test(selectedYear)) {
+        console.log("Bugs!" + selectedYear + "\n");
         document.getElementById("timeSelecterYear").value = Year;
         return;
     }

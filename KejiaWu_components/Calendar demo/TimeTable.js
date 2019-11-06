@@ -1,4 +1,5 @@
 var weekNameList = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+var weekCounter;
 
 refreshTimeTable();
 
@@ -20,7 +21,7 @@ function refreshTimeTable() {
     }
     timeTable += "</tr>\n";
 
-    for (var weekCounter = 0; totalDayCounter < numOfTotalDay; weekCounter++) {
+    for (weekCounter = 0; totalDayCounter < numOfTotalDay; weekCounter++) {
         timeTable += "<tr class=\"\">\n";
 
         for (var weekDayCounter = 0; weekDayCounter < 7; weekDayCounter++) {
@@ -35,13 +36,15 @@ function refreshTimeTable() {
             }
 
             totalDayCounter++;
-            timeTable += "<td id=\"\" class=\"" + blockClass + "\">" + totalDayCounter + "</td>\n";
+            timeTable += "<td id=\"" + weekCounter + "-" + weekDayCounter + "\" class=\""
+                + blockClass + "\">" + totalDayCounter + "</td>\n";
         }
 
         timeTable += "</tr>\n";
     }
 
     document.getElementById("timeTable").innerHTML = timeTable;
+    refreshBlockCounter();
 }
 
 function getMonthGreatestDate(year, month) {

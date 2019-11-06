@@ -17,8 +17,6 @@
             <button id="timeSelecterMonthAndYear">
                 <span id="timeSelecterMonth">
                 </span>
-                <!-- <span id="timeSelecter.Year">
-                </span> -->
                 <input id="timeSelecterYear" type="text" value="2019" onblur="setYear(value)">
             </button>
             <button class="arrow2Right" onclick="addOneMonth()">))
@@ -29,11 +27,28 @@
             <table class="timeTable" id="timeTable">
             </table>
         </div>
+
+        <div>
+            <span>
+                Past day =
+            </span>
+            <span id="pastday">
+            </span>
+
+            <span>
+                Coming day =
+            </span>
+            <span id="comingday">
+            </span>
+        </div>
     </div>
 
 </body>
 
+
+<!-- How to deal with the first error reprot? -->
 <script type="text/javascript" src="TimeSelector.js"></script>
 <script type="text/javascript" src="TimeTable.js"></script>
+<script type="text/javascript" src="BlockCounter.js"></script>
 
 </html>
