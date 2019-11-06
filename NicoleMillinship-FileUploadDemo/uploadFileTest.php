@@ -22,6 +22,7 @@
         <div>
             <img id="profilePicture" src="uploads/defaultImage.png" />
             <p>[Employee Name here]</p>
+
         </div>
     
         <form action="uploadFileTest.php" method="post" style="text-align: center" enctype="multipart/form-data">
