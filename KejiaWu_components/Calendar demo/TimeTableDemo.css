@@ -13,6 +13,9 @@
 #timeSelecterMonthAndYear{
     width: 120px;
 }
+#timeSelecterYear{
+    width: 40px;
+}
 
 table.timeTable{
     width: 80%;

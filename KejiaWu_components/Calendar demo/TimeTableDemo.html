@@ -15,10 +15,11 @@
             <button class="arrow2Left" onclick="deductOneMonth()">((
             </button>
             <button id="timeSelecterMonthAndYear">
-                <span id="timeSelecter.Month">
+                <span id="timeSelecterMonth">
                 </span>
-                <span id="timeSelecter.Year">
-                </span>
+                <!-- <span id="timeSelecter.Year">
+                </span> -->
+                <input id="timeSelecterYear" type="text" value="2019" onblur="setYear(value)">
             </button>
             <button class="arrow2Right" onclick="addOneMonth()">))
             </button>
@@ -32,6 +33,7 @@
 
 </body>
 
-<script type="text/javascript" src="TimeTableDemo.js"></script>
+<script type="text/javascript" src="TimeSelector.js"></script>
+<script type="text/javascript" src="TimeTable.js"></script>
 
 </html>

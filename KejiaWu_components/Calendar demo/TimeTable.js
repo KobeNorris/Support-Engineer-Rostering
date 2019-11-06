@@ -1,40 +1,4 @@
-var currentTime = new Date();
-var currentYear = currentTime.getFullYear();
-var currentMonth = currentTime.getMonth();
-var currentDay = currentTime.getDate();
-
-var currentWeekDay = currentTime.getDay();
-var Year = currentYear;
-var Month = currentMonth;
-var Day = currentDay;
-
-var monthNameList = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 var weekNameList = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-
-
-
-refreshTimeSelecter();
-
-function refreshTimeSelecter() {
-    Month = currentTime.getMonth();
-    Year = currentTime.getFullYear();
-    document.getElementById("timeSelecter.Month").innerHTML = monthNameList[Month];
-    document.getElementById("timeSelecter.Year").innerHTML = Year;
-}
-
-function addOneMonth() {
-    currentTime.setMonth(currentTime.getMonth() + 1);
-    refreshTimeSelecter();
-    refreshTimeTable();
-}
-
-function deductOneMonth() {
-    currentTime.setMonth(currentTime.getMonth() - 1);
-    refreshTimeSelecter();
-    refreshTimeTable();
-}
-
-
 
 refreshTimeTable();
 
