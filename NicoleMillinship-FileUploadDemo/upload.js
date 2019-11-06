@@ -1,9 +1,6 @@
-$("#imageUpload").change(function(){
-				
-    readURL(this);
-});
-
-function readURL(input) {
+function readURL(f) {
+    var input = document.getElementById(f);
+    alert(input);
     if (input.files && input.files[0]) {
         var reader = new FileReader();
         

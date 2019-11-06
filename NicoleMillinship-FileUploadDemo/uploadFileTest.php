@@ -3,39 +3,51 @@
 <html>
     <head>
         <title>Upload File Test</title>
+        <link rel="stylesheet" type="text/css" href="uploadFileStyles.css">
+        <script> 
+            function readURL() {
+                var input = document.getElementById("fileToUpload");
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+                    
+                    reader.onload = function (e) {
+                        $('#profilePicture').attr('src', e.target.result);
+                    }
+                    reader.readAsDataURL(input.files[0]);
+                }
+            }
+        </script>
     </head>
     <body>
         <div>
-            <img id="profilePicture" style="display: block; margin-left: auto; margin-right: auto; width:15%; height:15%" src="uploads/defaultImage.png" />
-            <p style="text-align: center">Employee Name</p>
+            <img id="profilePicture" src="uploads/defaultImage.png" />
+            <p>[Employee Name here]</p>
         </div>
     
-        <form action="upload.php" method="post" style="text-align: center">
+        <form action="uploadFileTest.php" method="post" style="text-align: center" enctype="multipart/form-data">
             Select image to upload:
-            <input id="imageUpload" type="file" name="fileToUpload" placeholder="Photo" required="" capture>
+            <label for="fileToUpload" id="browse">
+                <i id="browseOverlay"></i>Browse...
+            </label>
+            <input id="fileToUpload" type="file" name="fileToUpload" placeholder=z"Profile Picture" onchange="readURL()" required="">
             <input type="submit" value="Upload Image" name="submitImage">
-        </form>
+        </form> 
     </body>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 </html>
 
 <?php
-
 $target_dir = "uploads/"; //the directory where the file will be placed
-$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]); //the path of the file
+$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]); //the path of the file, including its file name
 $uploadOk = 1;
-$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION)); //file extension
+$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION)); //get the file extension of uploaded image
 
-if(isset($_POST["submit"])) {
+if(isset($_POST["submitImage"])) {
     $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+
     //if file isn't an image
     if($check == false) {
-        $uploadOk = 0;
-    }
-    // Check if file already exists
-    if (file_exists($target_file)) {
-        echo "Sorry, file already exists. <br>";
         $uploadOk = 0;
     }
 
@@ -46,22 +58,18 @@ if(isset($_POST["submit"])) {
     }
 
     // Allow certain file formats
-    if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif" ) {
-        echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed. <br>";
+    if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
+        echo "Sorry, only JPG, JPEG, & PNG files are allowed. <br>";
         $uploadOk = 0;
     }
 
     // Error message if the file can't be uploaded
-    if ($uploadOk == 0) {
-        echo "Error - Your file was not uploaded.";
-    // if everything is ok, try to upload file
-    } else {
-        if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-            echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
-        } else {
-            echo "Sorry, there was an error uploading your file. Please try again.";
-        }
+    if ($uploadOk == 1 && move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
+        echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
     }
+    else
+        echo "Sorry, your file was not uploaded. Please try again.";
+
 }
 
 ?>
