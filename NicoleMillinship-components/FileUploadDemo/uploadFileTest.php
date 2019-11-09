@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -30,7 +29,7 @@
             <label for="fileToUpload" id="browse">
                 <i id="browseOverlay"></i>Browse...
             </label>
-            <input id="fileToUpload" type="file" name="fileToUpload" placeholder=z"Profile Picture" onchange="readURL()" required="">
+            <input id="fileToUpload" type="file" name="fileToUpload" placeholder="Profile Picture" onchange="readURL()" required="">
             <input type="submit" value="Upload Image" name="submitImage">
         </form> 
     </body>
