@@ -49,3 +49,9 @@
     10. Three groups in total in the first stage: Customer_N, Grow, Customer_L
 
     11. Choose by click, not drag
+
+### 5. Screen shots provided
+
+![avatar](7%20Nov%202019/EmployeeInfo.png)
+
+![avatar](7%20Nov%202019/Timetable.png)
