@@ -1,0 +1,36 @@
+/* AdminInterface.html */
+html{
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height :100%;
+}
+body{
+    background-color: cadetblue;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height :100%;
+}
+#navigationBar{
+    position: relative;
+    background-color: aliceblue;
+    margin-right: auto;
+    margin-left: auto;
+    height: 10%;
+    width: 96%;
+}
+#mainSystem{
+    position: relative;
+    background-color: aliceblue;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 2%;
+    height: 82%;
+    width: 96%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: flex-start;
+}
