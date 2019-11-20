@@ -7,8 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="MainSystem.css">
     <link rel="stylesheet" type="text/css" href="EmployeeCategory.css">
-    <link rel="stylesheet" type="text/css" href="blankSpace.css">
-    <link rel="stylesheet" type="text/css" href="TimeTableDemo.css">
+    <link rel="stylesheet" type="text/css" href="BlankSpace.css">
+    <link rel="stylesheet" type="text/css" href="TimeSelector.css">
+    <link rel="stylesheet" type="text/css" href="TimeTable.css">
     <title>Engineer Rostering System</title>
 </head>
 
@@ -42,14 +43,14 @@
         </div>
 
         <div id="TimeTableFrame">
-            <div class="timeSelecter">
+            <div class="timeSelector">
                 <button class="arrow2Left" onclick="deductOneMonth()">((
                 </button>
-                <button id="timeSelecterMonthAndYear">
-                    <span id="timeSelecterMonth">
+                <div id="timeSelectorMonthAndYear">
+                    <span id="timeSelectorMonth">
                     </span>
-                    <input id="timeSelecterYear" type="text" value="2019" onblur="setYear(value)">
-                </button>
+                    <input id="timeSelectorYear" type="text" value="2019" onblur="setYear(value)">
+                </div>
                 <button class="arrow2Right" onclick="addOneMonth()">))
                 </button>
             </div>
@@ -68,7 +69,6 @@
 </body>
 
 <script type="text/javascript" src="EmployeeCategory.js"></script>
-<!-- <script type="text/javascript" src="BlockCounter.js"></script> -->
 <script type="text/javascript" src="TimeSelector.js"></script>
 <script type="text/javascript" src="TimeTable.js"></script>
 
