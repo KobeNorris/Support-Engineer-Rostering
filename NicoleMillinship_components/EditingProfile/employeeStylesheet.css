@@ -7,7 +7,17 @@ p {
     text-align: center;
 }
 
-#profilePicture {
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 5px;
+    text-align: center;
+}
+
+#profilePic {
     display: block; 
     margin-left: auto; 
     margin-right: auto; 
