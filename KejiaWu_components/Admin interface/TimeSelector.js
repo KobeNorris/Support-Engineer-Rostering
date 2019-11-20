@@ -12,34 +12,34 @@ var monthNameList = ["January", "February", "March", "April", "May", "June", "Ju
 var yearChecker = /^\d{4}$/;
 // var yearChecker = /^-?[0~9]+$/;
 
-refreshTimeSelecter();
+refreshTimeSelector();
 
-function refreshTimeSelecter() {
+function refreshTimeSelector() {
     Month = currentTime.getMonth();
     Year = currentTime.getFullYear();
-    document.getElementById("timeSelecterMonth").innerHTML = monthNameList[Month];
-    document.getElementById("timeSelecterYear").value = Year;
+    document.getElementById("timeSelectorMonth").innerHTML = monthNameList[Month];
+    document.getElementById("timeSelectorYear").value = Year;
 }
 
 function addOneMonth() {
     currentTime.setMonth(currentTime.getMonth() + 1);
-    refreshTimeSelecter();
+    refreshTimeSelector();
     refreshTimeTable();
 }
 
 function deductOneMonth() {
     currentTime.setMonth(currentTime.getMonth() - 1);
-    refreshTimeSelecter();
+    refreshTimeSelector();
     refreshTimeTable();
 }
 
 function setYear(selectedYear) {
     if (!yearChecker.test(selectedYear)) {
         console.log("Bugs!" + selectedYear + "\n");
-        document.getElementById("timeSelecterYear").value = Year;
+        document.getElementById("timeSelectorYear").value = Year;
         return;
     }
     currentTime.setFullYear(selectedYear);
-    refreshTimeSelecter();
+    refreshTimeSelector();
     refreshTimeTable();
 }

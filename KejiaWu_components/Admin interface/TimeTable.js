@@ -1,4 +1,5 @@
 var weekNameList = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+var jobRoleList = ["primary", "secondary", "escalater"]
 
 refreshTimeTable();
 
@@ -12,6 +13,7 @@ function refreshTimeTable() {
     var numOFLastTotalDay = getLastMonthGreatestDate(Year, Month);
     var totalDayCounter = 0 - weekday;
     var dayCounter;
+    var weekDayCounter;
 
     var blockClass;
     var timeTable;
@@ -23,46 +25,68 @@ function refreshTimeTable() {
     timeTable += "</tr>\n";
 
     for (weekCounter = 0; weekCounter < 6; weekCounter++) {
-        timeTable += "<tr class=\"normalDayBlockRow\">\n";
 
-        for (var weekDayCounter = 0; weekDayCounter < 7; weekDayCounter++) {
-            var blockID = weekCounter + "-" + weekDayCounter;
-            if (totalDayCounter < 0) {
+
+        timeTable += "<tbody class = \"dayTbody\"><tr class=\"normalDayBlockRow\">";
+
+        for (weekDayCounter = 0; weekDayCounter < 7; weekDayCounter++) {
+
+            var blockID = weekCounter + "-" + weekDayCounter + "-Date";
+            ++totalDayCounter
+            // Days from last month
+            if (totalDayCounter <= 0) {
                 blockClass = "blockedTimeTableBlock";
-                dayCounter = ++totalDayCounter + numOFLastTotalDay;
+                dayCounter = totalDayCounter + numOFLastTotalDay;
             }
-            else if (totalDayCounter >= numOfTotalDay) {
+            // Days form next month
+            else if (totalDayCounter > numOfTotalDay) {
                 blockClass = "blockedTimeTableBlock";
-                dayCounter = ++totalDayCounter - numOfTotalDay;
+                dayCounter = totalDayCounter - numOfTotalDay;
             }
+            // Days past && within this month
             else if (currentYear > Year || (currentYear == Year && (currentMonth > Month || (currentMonth == Month && currentDay > totalDayCounter)))) {
                 blockClass = "passedTableBlock";
-                dayCounter = ++totalDayCounter;
+                dayCounter = totalDayCounter;
             }
+            // Days in the future && with in this month
             else {
                 blockClass = "emptyTimeTableBlock";
-                dayCounter = ++totalDayCounter;
+                dayCounter = totalDayCounter;
             }
+            timeTable += "<td id=\"" + blockID + "\" class=\"" + blockClass + "\">&nbsp"
+                + dayCounter
+                + "</td>";
+        }
+        timeTable += "</tr>";
 
-            // totalDayCounter++;
-            timeTable += "<td id=\"" + blockID + "\" class=\"" + blockClass + "\">\n" +
-                "<table class=\"innerTable\">" +
-                "<tbody>" +
-                "<tr><td>" + dayCounter + "</td></tr>" +
-                "<tr id=\"" + blockID + "-1\"" + " class=\"primeryBlock\"><td></td></tr>" +
-                "<tr id=\"" + blockID + "-2\"" + " class=\"secondaryBlock\"><td></td></tr>" +
-                "<tr id=\"" + blockID + "-3\"" + " class=\"escalaterBlock\"><td></td></tr>" +
-                "</tbody>" +
-                "</table>" +
-                "</td>"
+        for (var jobRoleCounter = 0; jobRoleCounter < 3; jobRoleCounter++) {
+            timeTable += "<tr class=\"" + jobRoleList[jobRoleCounter] + "JobBlockRow\">";
+            weekDayCounter = 0;
+            if (0) {
+                for (; weekDayCounter < 2; weekDayCounter++) {
+                    timeTable += "<td class=\"emptyJobBlock\"></td>";
+                }
+            } else {
+                timeTable += "<td colspan=\"2\" class=\"JobBlock\">";
+                timeTable += "<div class=\"" + jobRoleList[jobRoleCounter] + "JobBlock\"></div></td>";
+            }
+            if (0) {
+                for (; weekDayCounter < 7; weekDayCounter++) {
+                    timeTable += "<td class=\"emptyJobBlock\"></td>";
+                }
+            } else {
+                timeTable += "<td colspan=\"5\" class=\"JobBlock\">";
+                timeTable += "<div class=\"" + jobRoleList[jobRoleCounter] + "JobBlock\"></div></td>";
+            }
+            timeTable += "</tr>";
         }
 
-        timeTable += "</tr>";
+        timeTable += "</tbody>";
     }
 
     console.log(timeTable);
     document.getElementById("timeTable").innerHTML = timeTable;
-    loadPerson();
+    // loadPerson();
 }
 
 function getMonthGreatestDate(year, month) {
@@ -75,7 +99,7 @@ function getLastMonthGreatestDate(year, month) {
         year--;
         month = 11;
     }
-    var d = new Date(year, month + 1, 0);
+    var d = new Date(year, month, 0);
     return d.getDate();
 }
 

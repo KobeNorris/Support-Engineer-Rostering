@@ -1,0 +1,17 @@
+/* TimeSelector */
+.timeSelector{
+    width: 100%;
+    margin-top: 15px;
+    position: relative;
+}
+#timeSelectorMonthAndYear{
+    width: 40%;
+    display: inline-block;
+}
+#timeSelectorMonth{
+    width: 80x;
+    margin-right: 20%;
+}
+#timeSelectorYear{
+    width: 30%;
+}
