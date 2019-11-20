@@ -1,6 +1,5 @@
 <?php
 require_once('connectionTest.php');
-$rowToGet = intval($_POST['employeeIndex']);
 $query = "SELECT * FROM employee"; 
 $employeeRecord = mysqli_query($connect, $query);
 ?>

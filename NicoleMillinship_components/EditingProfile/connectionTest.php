@@ -1,5 +1,5 @@
 <?php 
-    $connect = new mysqli("mysql.cs.nott.ac.uk", "psynm6", "DBIdatabase1", "psynm6");
+    $connect = new mysqli("localhost", "root", "GRP1", "rostering");
     if ($connect->connect_error) {
         die("Connection failed: " . $connect->connect_error);
     }
