@@ -22,23 +22,36 @@
 
         <div id="employeeCategory">
             <div id="employeeCategory_frame">
-                <ul>
-                    <li id="employeeCategory_CustomerN" onclick="showEmployeeList('CustomerN_submenu')">
-                        Customer Nottingham
-                        <ul id="CustomerN_submenu">
-                        </ul>
-                    </li>
-                    <li id="employeeCategory_Grow" onclick="showEmployeeList('Grow_submenu')">
-                        Grow
-                        <ul id="Grow_submenu">
-                        </ul>
-                    </li>
-                    <li id="employeeCategory_CustomerL" onclick="showEmployeeList('CustomerL_submenu')">
-                        Customer London
-                        <ul id="CustomerL_submenu">
-                        </ul>
-                    </li>
-                </ul>
+                <div id="employeeCategory_CustomerN" onclick="showEmployeeList('CustomerN_submenu')">
+                    Customer Nottingham
+                    <div id="CustomerNSubmenuFrame" class="subListFrame">
+                        <div>
+                            <input type="text">
+                        </div>
+                        <div id="CustomerN_submenu" class="subList">
+                        </div>
+                    </div>
+                </div>
+                <div id="employeeCategory_Grow" onclick="showEmployeeList('Grow_submenu')">
+                    Grow
+                    <div id="GrowSubmenuFrame" class="subListFrame">
+                        <div>
+                            <input type="text">
+                        </div>
+                        <div id="Grow_submenu" class="subList">
+                        </div>
+                    </div>
+                </div>
+                <div id="employeeCategory_CustomerL" onclick="showEmployeeList('CustomerL_submenu')">
+                    Customer London
+                    <div id="CustomerLSubmenuFrame" class="subListFrame">
+                        <div>
+                            <input type="text">
+                        </div>
+                        <div id="CustomerL_submenu" class="subList">
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 

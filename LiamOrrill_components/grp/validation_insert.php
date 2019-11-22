@@ -80,40 +80,42 @@ $end = $_POST['end'];
             echo "Entry has not been added to database";
           }
         }
-        $sql = "SELECT min(start) as s,max(end) as e  FROM escalationmanager
-        UNION
-        SELECT min(start) as s,max(end) as e  FROM primaryeng
-        UNION
-        SELECT min(start) as s,max(end) as e  FROM secondaryeng
-        UNION
-        SELECT min(start) as s,max(end) as e  FROM entirearchive
-        ";
-      $stmt = $conn->query($sql);
-      while($row = $stmt->fetch_assoc()){
-        $dates[] = array('Start' => $row['s'], 'End' => $row['e']);
-      }
-      echo '<table width="80%" border="1" id="display">
-       <thead>
-        <tr>
-          <th width="10%">start</th>
-          <th width="15%">end</th>
-        </tr>
-      </thead>';
-      //echo '<tbody>'
-      $lowestdate = strtotime($dates[0]['Start']);
-      $longestdate = strtotime($dates[0]['End']);
-      foreach ($dates as $date){
-         echo "<tr class = \"row\"><td>" . $date['Start'] . "</td><td>" . $date['End'] . "</tr>";
-         if(strtotime($date['Start']) < $lowestdate){
-           $lowestdate = strtotime($date['Start']);
-         }
-         if(strtotime($date['End']) > $longestdate){
-           $longestdate = strtotime($date['End']);
-         }
-     }
-      echo "</thead>";
-      echo "<p> latest date: " . date('Y-m-d', $lowestdate)   . "</p>";
-      echo "<p>earliest date: " . date('Y-m-d', $longestdate) ."</p>";
-    }
+        $sql = "INSERT INTO entireArchive(working_id, role, start,end) VALUES ('".$_POST["id"]."','".$_POST["role"]."','".$_POST["start"]."','".$_POST["end"]."')";
+        if($conn->query($sql) === TRUE){
+            echo "Entry successfully added to archive";
+        } else {
+          echo "Entry has not been added to database";
+        }
+
+
+
+$sql = "SELECT * FROM entirearchive /*WHERE start = $start AND end  = $end*/";
+$stmt = $conn->query($sql);
+while($row = $stmt->fetch_assoc()){
+    $data[] = array('working_id' => $row['working_id'], 'Role' => $row['role'], 'Start' =>$row['start'],'end' => $row['end']);
+}
+echo '<br><br><br>
+<table width="80%" border="1" id="display">
+ <thead>
+  <tr>
+    <th width="10%">ID</th>
+    <th width="10%">Role</th>
+    <th width="10%">start</th>
+    <th width="15%">end</th>
+  </tr>
+</thead>';
+foreach($data as $archiveD){
+        echo "<tr class = \"row\"><td>" . $archiveD['working_id'] . "</td><td>" . $archiveD['Role'] . "</td><td>" . $archiveD['Start'] . "</td><td>" . $archiveD['end'] . "</tr>";
+}
+echo "Working here";
+$response['dataA'] = $data;
+$fp = fopen('data.json', 'w');
+fwrite($fp, json_encode($response));
+fclose($fp);
+}
+
+
+
+
     closeCon($conn);
 ?>

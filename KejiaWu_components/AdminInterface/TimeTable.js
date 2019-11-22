@@ -1,7 +1,9 @@
 var weekNameList = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 var jobRoleList = ["primary", "secondary", "escalater"]
+var sundayList = [];
 
 refreshTimeTable();
+getMonthData();
 
 function refreshTimeTable() {
     currentWeekDay = currentTime.getDay();
@@ -18,11 +20,11 @@ function refreshTimeTable() {
     var blockClass;
     var timeTable;
 
-    timeTable = "<tr class=\"weekDayBlockRow\">\n";
+    timeTable = "<tr class=\"weekDayBlockRow\">";
     for (var counter = 0; counter < 7; counter++) {
-        timeTable += "<td>" + weekNameList[counter] + "</td>\n";
+        timeTable += "<td>" + weekNameList[counter] + "</td>";
     }
-    timeTable += "</tr>\n";
+    timeTable += "</tr>";
 
     for (weekCounter = 0; weekCounter < 6; weekCounter++) {
 
@@ -56,6 +58,13 @@ function refreshTimeTable() {
             timeTable += "<td id=\"" + blockID + "\" class=\"" + blockClass + "\">&nbsp"
                 + dayCounter
                 + "</td>";
+
+            if (weekDayCounter == 0) {
+                if (dayCounter < 10)
+                    sundayList.push(Year + "-" + Month + "-0" + dayCounter);
+                else
+                    sundayList.push(Year + "-" + Month + "-" + dayCounter);
+            }
         }
         timeTable += "</tr>";
 
@@ -84,7 +93,7 @@ function refreshTimeTable() {
         timeTable += "</tbody>";
     }
 
-    console.log(timeTable);
+    // console.log(timeTable);
     document.getElementById("timeTable").innerHTML = timeTable;
     // loadPerson();
 }
@@ -112,6 +121,30 @@ function getMonthBeginWeekDay() {
     return temp;
 }
 
-function loadPerson() {
-    document.getElementById("1-2-1").innerHTML = "<td>" + "Kobe Noriss WU" + "</td>";
+function getMonthData() {
+    var xmlhttp;
+    var monthData;
+
+    if (window.XMLHttpRequest)
+        xmlhttp = new XMLHttpRequest();
+    else
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    xmlhttp.open("GET", "./TimeTable.php", true);
+    xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            monthData = eval(xmlhttp.responseText);
+            updateRoster(monthData);
+        }
+    }
+    // xmlhttp.open("GET", "./TimeTable.php", true);
+    // xmlhttp.open("POST", "./TimeTable.php", true);
+    // xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.send();
+}
+
+function updateRoster(monthData) {
+    console.log(sundayList);
+    for (var weekIndex = 0; weekIndex < monthData.length; monthData++) {
+
+    }
 }

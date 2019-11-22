@@ -6,7 +6,6 @@
     margin-left: 1%;
     height: 94%;
     width: 20%;
-    /* display: inline-block; */
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
@@ -14,21 +13,22 @@
     align-items: flex-start;
 }
 #employeeCategory_frame{
-    width: 100%;
+    width: 90%;
+    margin-top: 5%;
+    margin-left: auto;
+    margin-right: auto;
 }
-#employeeCategory_frame>ul{
-    padding-left: 14%;
-}
-#employeeCategory_frame>ul>li{
-    list-style: none;
-    font-size: medium;
-    width: 100%;
-}
-#employeeCategory_frame>ul>li>ul{
-    padding-left: 14%;
+
+/* SubList */
+.subListFrame{
     display: none;
 }
-#employeeCategory_frame>ul>li>ul>li{
-    list-style: none;
-    font-size: small;
+.subList{
+    height:380px;
+    width:100%;
+    margin-left: auto;
+    margin-right: auto;
+
+    overflow: auto;
+    background-color: white;
 }

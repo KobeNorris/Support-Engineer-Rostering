@@ -25,3 +25,19 @@
     <script type="text/javascript" src="validation.js"></script>
   </body>
 </html>
+
+<?php
+include 'db_connection.php';
+openCon();
+
+$str = file_get_contents("data.json");
+$json = json_decode($str, true);
+ print_r($json);
+ //echo $json[1]['working_id'];
+
+foreach ($json as $field => $value) {
+    echo $value["working_id"] . ", " . $value["role"] . ", " . $value["Start"] . "<br>";
+}
+
+
+?>
