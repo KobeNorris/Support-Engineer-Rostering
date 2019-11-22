@@ -42,19 +42,18 @@ if($conn->query($sql) === TRUE){
 }
 
 
-$sql = "CREATE TABLE monthlyTimetable(
+/*$sql = "CREATE TABLE monthlyTimetable(
   unique_id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
   working_id VARCHAR(11) NOT NULL,
   role VARCHAR(20) NOT NULL,
   start DATE,
   end   DATE
-)";
-
-if($conn->query($sql) === TRUE){
+)";*/
+/*if($conn->query($sql) === TRUE){
     echo "Table EscalationManager made successfully<br>";
 }else{
     echo "Error creating table: " . $conn->error;
-}
+}*/
 
 $sql = "CREATE TABLE entireArchive (
   unique_id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
