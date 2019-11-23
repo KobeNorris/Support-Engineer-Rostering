@@ -89,7 +89,7 @@ $end = $_POST['end'];
 
 
 
-$sql = "SELECT * FROM entirearchive /*WHERE start = $start AND end  = $end*/";
+$sql = "SELECT * FROM entirearchive WHERE start = $start AND end  = $end";
 $stmt = $conn->query($sql);
 while($row = $stmt->fetch_assoc()){
     $data[] = array('working_id' => $row['working_id'], 'Role' => $row['role'], 'Start' =>$row['start'],'end' => $row['end']);
@@ -108,7 +108,7 @@ foreach($data as $archiveD){
         echo "<tr class = \"row\"><td>" . $archiveD['working_id'] . "</td><td>" . $archiveD['Role'] . "</td><td>" . $archiveD['Start'] . "</td><td>" . $archiveD['end'] . "</tr>";
 }
 echo "Working here";
-$response['dataA'] = $data;
+$response = $data;
 $fp = fopen('data.json', 'w');
 fwrite($fp, json_encode($response));
 fclose($fp);

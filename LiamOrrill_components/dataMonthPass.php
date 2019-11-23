@@ -1,5 +1,6 @@
-<?php
-function getMonthData(){
+<?php/*
+include 'sqlRetrieveMonth.php';
+function sqlMonthData(){
     $monthData = array();
     $weekDate['workingID'] = "scykw1";
     $weekDate['jobRole'] = "Primary";
@@ -37,5 +38,5 @@ function getMonthData(){
     // var_dump($monthData);
 }
 
-getMonthData();
-?>
+ sqlMonthData();
+*/?>

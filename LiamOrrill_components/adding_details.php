@@ -35,8 +35,8 @@ $json = json_decode($str, true);
  print_r($json);
  //echo $json[1]['working_id'];
 
-foreach ($json as $field => $value) {
-    echo $value["working_id"] . ", " . $value["role"] . ", " . $value["Start"] . "<br>";
+foreach ($json as $value) {
+    echo "workingID: ". $value["working_id"] . "   Role: " . $value["Role"] . "   Start: " . $value["Start"] . "   End: " . $value["end"] . "<br>"  ;
 }
 
 

@@ -6,8 +6,8 @@ $sql = "CREATE TABLE primaryEng (
 unique_id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
 working_id VARCHAR(11) NOT NULL,
 role VARCHAR(20) NOT NULL,
-start DATE,
-end   DATE)";
+start DATETIME,
+end   DATETIME)";
 
 if($conn->query($sql) === TRUE){
     echo "Table Primary made successfully<br>";
@@ -19,8 +19,8 @@ $sql = "CREATE TABLE secondaryEng (
   unique_id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
   working_id VARCHAR(11) NOT NULL,
   role VARCHAR(20) NOT NULL,
-  start DATE,
-  end   DATE)";
+  start DATETIME,
+  end   DATETIME)";
 
 if($conn->query($sql) === TRUE){
     echo "Table Secondary made successfully<br>";
@@ -32,8 +32,8 @@ $sql = "CREATE TABLE escalationManager (
   unique_id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
   working_id VARCHAR(11) NOT NULL,
   role VARCHAR(20) NOT NULL,
-  start DATE,
-  end   DATE)";
+  start DATETIME,
+  end   DATETIME)";
 
 if($conn->query($sql) === TRUE){
     echo "Table EscalationManager made successfully<br>";
@@ -59,8 +59,8 @@ $sql = "CREATE TABLE entireArchive (
   unique_id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
   working_id VARCHAR(11) NOT NULL,
   role VARCHAR(20) NOT NULL,
-  start DATE,
-  end   DATE
+  start DATETIME,
+  end   DATETIME
 )";
 
 if($conn->query($sql) === TRUE){
