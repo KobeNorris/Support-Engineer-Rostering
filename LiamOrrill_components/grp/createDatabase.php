@@ -7,6 +7,6 @@ if($conn->query($sql) === TRUE){
 }else{
   echo "Error creating database:" . $conn->error;
 }
-
+//closes connection
 closeCon($conn);
 ?>
