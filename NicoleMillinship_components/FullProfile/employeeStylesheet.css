@@ -1,0 +1,24 @@
+p {
+    text-align: center;
+}
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 5px;
+    text-align: center;
+}
+
+#profileDisplay{
+    display: block; 
+    margin-left: auto; 
+    margin-right: auto; 
+    width:200px; 
+    height:200px;
+    border-style: solid;
+    border-radius: 50%;
+    border-color: #172D5C;
+}
