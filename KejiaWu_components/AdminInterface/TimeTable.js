@@ -1,3 +1,8 @@
+// Description:     This file contians functions to set up the timetable for the adminstrator
+//                  interface.
+// Writer:          Kejia Wu
+// Reliance:        None
+
 var weekNameList = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 var jobRoleList = ["primary", "secondary", "escalater"]
 var sundayList = [];
@@ -70,22 +75,24 @@ function refreshTimeTable() {
 
         for (var jobRoleCounter = 0; jobRoleCounter < 3; jobRoleCounter++) {
             timeTable += "<tr class=\"" + jobRoleList[jobRoleCounter] + "JobBlockRow\">";
-            weekDayCounter = 0;
+            // weekDayCounter = 0;
             if (0) {
-                for (; weekDayCounter < 2; weekDayCounter++) {
-                    timeTable += "<td class=\"emptyJobBlock\"></td>";
-                }
+                // for (; weekDayCounter < 2; weekDayCounter++) {
+                //     timeTable += "<td class=\"JobBlock\"></td>";
+                timeTable += "<td colspan=\"2\" class=\"JobBlock\">";
+                // }
             } else {
                 timeTable += "<td colspan=\"2\" class=\"JobBlock\">";
-                timeTable += "<div class=\"" + jobRoleList[jobRoleCounter] + "JobBlock\"></div></td>";
+                timeTable += "<div id=\"" + weekCounter + "-" + jobRoleCounter + "-0\" class=\"" + jobRoleList[jobRoleCounter] + "JobBlock\"></div></td>";
             }
-            if (0) {
-                for (; weekDayCounter < 7; weekDayCounter++) {
-                    timeTable += "<td class=\"emptyJobBlock\"></td>";
-                }
+            if (1) {
+                // for (; weekDayCounter < 7; weekDayCounter++) {
+                //     timeTable += "<td class=\"JobBlock\"></td>";
+                // }
+                timeTable += "<td colspan=\"5\" class=\"JobBlock\">";
             } else {
                 timeTable += "<td colspan=\"5\" class=\"JobBlock\">";
-                timeTable += "<div class=\"" + jobRoleList[jobRoleCounter] + "JobBlock\"></div></td>";
+                timeTable += "<div id=\"" + weekCounter + "-" + jobRoleCounter + "-1\" class=\"" + jobRoleList[jobRoleCounter] + "JobBlock\"></div></td>";
             }
             timeTable += "</tr>";
         }
