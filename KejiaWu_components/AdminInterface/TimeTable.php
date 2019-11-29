@@ -1,4 +1,12 @@
 <?php
+include 'TimeTable.js';
+function getMaxAndMinDates(){
+      $earlyDate = numOfTotalDay;
+      $maxDate = numOFLastTotalDay;
+      echo $earlyDate;
+      echo $maxDate;
+}
+
 function getMonthData(){
     $monthData = array();
     $weekDate['workingID'] = "scykw1";
@@ -38,4 +46,6 @@ function getMonthData(){
 }
 
 getMonthData();
+
+getMaxAndMinDates();
 ?>
