@@ -6,11 +6,9 @@
     fwrite($fileMonth, $dataMonth);
     fclose($fileMonth);
 
-    $monthDataSQL = sqlMonthData();
+    
     $monthSQL = fopen('sqlMonth.json', 'w');
     fwrite($monthSQL, $monthDataSQL);
     fclose($monthSQL);
-
-
 
 ?>
