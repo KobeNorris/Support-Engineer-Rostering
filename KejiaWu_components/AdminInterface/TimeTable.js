@@ -11,6 +11,7 @@ refreshTimeTable();
 getMonthData();
 
 function refreshTimeTable() {
+  
     currentWeekDay = currentTime.getDay();
     Year = currentTime.getFullYear();
     Month = currentTime.getMonth();
@@ -103,6 +104,17 @@ function refreshTimeTable() {
     // console.log(timeTable);
     document.getElementById("timeTable").innerHTML = timeTable;
     // loadPerson();
+
+    var date = "123";
+         $.ajax({
+             url: './TimeTable.php',
+             type: "POST",
+             dataType:'text',
+             data: {'date': date},
+             success: function(data){
+                 alert("successfully");
+             }
+         });
 }
 
 function getMonthGreatestDate(year, month) {

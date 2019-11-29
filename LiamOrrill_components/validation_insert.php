@@ -1,4 +1,5 @@
 <?php
+session_start();
 $id = $_POST['id'];
 
 $role = $_POST['role'];
@@ -87,10 +88,41 @@ $end = $_POST['end'];
           echo "Entry has not been added to database";
         }
 
+}
 
 
-$sql = "SELECT * FROM entirearchive WHERE start = $start AND end  = $end";
+
+
+
+
+$start = $_SESSION['minDate'];
+$startEnd = date("Y-m-d h:i:s", strtotime("$start +6 weeks"));
+$end = $_SESSION['maxDate'];
+
+//echo $start . "<br><br>";
+
+//echo $startEnd . "<br><br>";
+//echo $end . "<br><br>";
+//echo $startEnd . "<br><br>";
+//echo  $_SESSION['minDate']. "<br>";
+//echo $_SESSION['maxDate'] ."<br>";
+//print_r($_SESSION);
+$sql = "SELECT * FROM entirearchive WHERE start between '$start' AND '$startEnd'";
 $stmt = $conn->query($sql);
+$row = $stmt->fetch_assoc();
+if($row > 0){
+  echo "more than one row found<br>";
+}
+else{
+  echo "no rows found<br>";
+}
+/*while($row = $stmt->fetch_assoc()){
+    $data[] = array('working_id' => $row['working_id'], 'Role' => $row['role'], 'Start' =>$row['start'],'end' => $row['end']);
+}*/
+echo "<br>";
+/*foreach($data as $archiveD){
+        echo "<tr class = \"row\"><td>  " . $archiveD['working_id'] . "</td><td>  " . $archiveD['Role'] . "</td><td>   " . $archiveD['Start'] . "</td><td>   " . $archiveD['end'] . "</tr><br>";
+}*/
 while($row = $stmt->fetch_assoc()){
     $data[] = array('working_id' => $row['working_id'], 'Role' => $row['role'], 'Start' =>$row['start'],'end' => $row['end']);
 }
@@ -112,9 +144,6 @@ $response = $data;
 $fp = fopen('data.json', 'w');
 fwrite($fp, json_encode($response));
 fclose($fp);
-}
-
-
 
 
     closeCon($conn);
