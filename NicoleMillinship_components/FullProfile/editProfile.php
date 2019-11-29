@@ -7,26 +7,39 @@ $query = "SELECT * FROM employee WHERE WorkID = '$employeeID'";
 $employeeRecord = mysqli_query($connect, $query);
 $employeeDetails = mysqli_fetch_assoc($employeeRecord);
 
-// if (isset($_POST['editDetails'])) {
-//     $WorkID = $employeeDetails["WorkID"];
-//     $ProfilePicture = $_POST['ProfilePicture'];
-//     $ProfilePicture = ltrim($ProfilePicture, 'uploads/');
-//     echo $ProfilePicture;
-//     $FirstName = $_POST['FirstName'];
-//     $Surname = $_POST['Surname'];
-//     $EmailAddress = $_POST['EmailAddress'];
-//     $TelephoneNumber = $_POST['TelephoneNumber'];
+if (isset($_POST['editDetails'])) {
+    $WorkID = $employeeDetails["WorkID"];
+    
+    $ProfilePicture = $_POST['profileImage'];
+    $ProfilePicture = ltrim($ProfilePicture, 'uploads/');
+    if($ProfilePicture == "")
+        $ProfilePicture = $employeeDetails['ProfilePicture'];
+    $FirstName = $_POST['FirstName'];
+    $Surname = $_POST['Surname'];
+    $EmailAddress = $_POST['EmailAddress'];
+    $TelephoneNumber = $_POST['TelephoneNumber'];
 
-//     $query = "UPDATE employee
-//                 SET ProfilePicture = '$ProfilePicture',
-//                 FirstName = '$FirstName',
-//                 Surname = '$Surname',
-//                 EmailAddress = '$EmailAddress',
-//                 TelephoneNumber = '$TelephoneNumber'
-//                 WHERE WorkID = '$WorkID'";
+    $query = "UPDATE employee
+                SET ProfilePicture = '$ProfilePicture',
+                FirstName = '$FirstName',
+                Surname = '$Surname',
+                EmailAddress = '$EmailAddress',
+                TelephoneNumber = '$TelephoneNumber'
+                WHERE WorkID = '$WorkID'";
 
-//     mysqli_query($connect, $query);
-// }
+    mysqli_query($connect, $query);
+    header("Location: index.php");
+    exit;
+}
+if (isset($_POST['addHoliday'])) {
+    $WorkID = $employeeDetails["WorkID"];
+    $startDate = $_POST['hStartDate'];
+    $endDate = $_POST['hEndDate'];
+    echo $startDate;
+
+    $query = "INSERT INTO holiday
+                VALUES ('$WorkID', '$startDate' '$endDate')";
+}
 ?>
 
 <!DOCTYPE html>
@@ -40,7 +53,7 @@ $employeeDetails = mysqli_fetch_assoc($employeeRecord);
     <body>
         <h1> Change Details </h1>
             <form action = "" method = "post">
-                <div class="EditPic">
+                <div class="EditPic" style="margin-bottom:10px">
                     <?php $profilePics = "uploads/";
                         if($employeeDetails['ProfilePicture'])
                             $profilePics .= $employeeDetails['ProfilePicture'];
@@ -48,12 +61,11 @@ $employeeDetails = mysqli_fetch_assoc($employeeRecord);
                             $profilePics .= "defaultImage.png";
                         echo "<img id='profileDisplay' name='profileDisplay' src=$profilePics onclick='triggerClick()'>"; 
                     ?>
-                    <br>
-                    <label id="editPic" for = "profileImage"><i>Change Profile Picture here</i></label>
-                    <input type ="file" name="profileImage" onchange ="displayImage(this)" id="profileImage" style ="display: none;">
+                    <label id="editPic" for="profileImage"><i>Change Profile Picture here</i></label>
+                    <input type="file" name="profileImage" onchange ="displayImage(this)" id="profileImage" style ="display:none;">
                 </div>
 
-                <br>First Name: 
+                First Name: 
                 <?php 
                     $firstName = $employeeDetails['FirstName'];
                     echo "<input type='text' name='FirstName' value='$firstName' pattern='[a-zA-Z]+'>"; 
@@ -73,30 +85,30 @@ $employeeDetails = mysqli_fetch_assoc($employeeRecord);
                     $TelephoneNumber = $employeeDetails['TelephoneNumber'];
                     echo "<input type='text' name='TelephoneNumber' value='$TelephoneNumber' pattern='[0-9]{11}'>"; 
                 ?>
-                <br><br>
-                <input type="submit" name="editDetails" value="Save">
+                <br>
+                <input type="submit" name="editDetails" value="Save" style="margin-top:10px; margin-bottom:10px">
             </form>          
 
         <h2> Add a new holiday: </h2>
-            <form action = "" method = "get">
+            <form action = "" method = "post">
                 <?php 
                     $dateToday = date("Y-m-d");
-                    echo "Start date: <input type='date' id='startDate' min = '$dateToday' onchange='checkDates()'>";
+                    echo "Start date: <input type='date' id='startDate' name='hStartDate' min = '$dateToday' onchange='checkDates()'>";
                 ?>
                 <br> <br>
-                End date: <input type="date" id="endDate" min="">
-                <br><br> <input type="submit" value="Add">
+                End date: <input type="date" id="endDate" name="hEndDate" min="">
+                <br><input type="submit" name="addHoliday" value="Add" style="margin-top:10px; margin-bottom:10px">
             </form> 
             
         <h2> Add a new deployment: </h2>
-            <form action = "" method = "get">
+            <form action = "" method = "post">
                 <?php 
                     $dateToday = date("Y-m-d");
-                    echo "Start date: <input type='date' id='startDate' min = '$dateToday' onchange='checkDates()'>";
+                    echo "Start date: <input type='date' id='startDate' name='dStartDate' min = '$dateToday' onchange='checkDates()'>";
                 ?>
                 <br> <br>
-                End date: <input type="date" id="endDate" min="">
-                <br><br> <input type="submit" value="Add">
+                End date: <input type="date" id="endDate" name="dEndDate" min="">
+                <br><input type="submit" name="addDeployment" value="Add" style="margin-top:10px">
             </form>           
     </body>
 </html>

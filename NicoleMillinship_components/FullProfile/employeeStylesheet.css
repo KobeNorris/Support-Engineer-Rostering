@@ -1,4 +1,5 @@
-p {
+body {
+    font-family: 'Muli', sans-serif;
     text-align: center;
 }
 
@@ -12,7 +13,7 @@ th, td {
     text-align: center;
 }
 
-#profileDisplay{
+#profileDisplay, #profilePic {
     display: block; 
     margin-left: auto; 
     margin-right: auto; 
@@ -21,4 +22,12 @@ th, td {
     border-style: solid;
     border-radius: 50%;
     border-color: #172D5C;
+}
+
+input[type=submit] {
+    display: inline-block;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }

@@ -5,11 +5,13 @@ $query = "SELECT * FROM employee WHERE WorkID = '$employeeID'";
 $employeeRecord = mysqli_query($connect, $query);
 
 $query2 = "SELECT * FROM holiday 
-            WHERE HolidayStartDate > CURDATE() 
-            AND WorkID = '$employeeID'";
+            WHERE HolidayEndDate > CURDATE() 
+            AND WorkID = '$employeeID'
+            ORDER BY HolidayStartDate";
 $query3 = "SELECT * FROM deployment 
-            WHERE DeploymentStartDate > CURDATE() 
-            AND WorkID = '$employeeID'";
+            WHERE DeploymentEndDate > CURDATE() 
+            AND WorkID = '$employeeID'
+            ORDER BY DeploymentStartDate";
 
 $eRow = mysqli_fetch_assoc($employeeRecord);
 ?>
@@ -18,6 +20,7 @@ $eRow = mysqli_fetch_assoc($employeeRecord);
 <html>
     <head>
         <title>View Profile</title>
+        <link rel = "stylesheet" href = "https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" crossorigin = "anonymous">
         <link rel="stylesheet" type="text/css" href="employeeStylesheet.css">
     </head>
     <body>
@@ -29,9 +32,9 @@ $eRow = mysqli_fetch_assoc($employeeRecord);
                 $profilePics .= "defaultImage.png";
             echo "<img id=profilePic src=$profilePics>"; ?> 
         </div>
-        <br>
+
         <form action="editProfile.php" method="get">
-            <input type="submit" value="Edit Profile">
+            <input type="submit" value="Edit Profile" style="margin-top:10px; margin-bottom:10px">
         </form>
         <p>
             Employee Name:
