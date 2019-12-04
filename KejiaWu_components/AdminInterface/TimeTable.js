@@ -83,7 +83,7 @@ function refreshTimeTable() {
                 timeTable += "<td colspan=\"2\" class=\"JobBlock\">";
                 timeTable += "<div id=\"" + weekCounter + "-" + jobRoleCounter + "-0\" class=\"" + jobRoleList[jobRoleCounter] + "JobBlock\"></div></td>";
             }
-            if (1) {
+            if (0) {
                 // for (; weekDayCounter < 7; weekDayCounter++) {
                 //     timeTable += "<td class=\"JobBlock\"></td>";
                 // }
@@ -156,6 +156,63 @@ function getMonthData() {
               console.log('response', this.response); // JSON response
             monthData = JSON.parse(xmlhttp.responseText);
             document.getElementById("Demo").innerHTML = monthData[0].end;
+            /*var dateNumber = monthData[0].Start;
+            dateNumber = dateNumber.slice(8,10);
+            if(dateNumber < 10){
+              dateNumber = dateNumber.slice(1);
+            }*/
+            document.getElementById("Demo").innerHTML = dateNumber;
+
+            for (var weekIndex = 0; weekIndex < monthData.length; weekIndex++) {
+
+              var dateNumber = monthData[weekIndex].Start;
+              dateNumber = dateNumber.slice(8,10);
+              if(dateNumber < 10){
+                dateNumber = dateNumber.slice(1);
+              }
+              //for(var dayIndex = 0; dayIndex < 7; dayIndex++)
+                if(monthData[weekIndex].Role == "primary" && dateNumber > 2 && dateNumber < 10 /*&&  document.getElementById("")   == dateNumber*/  ){
+                  document.getElementById("0-0-1").innerHTML = monthData[weekIndex].working_id;
+                  document.getElementById("1-0-0").innerHTML = monthData[weekIndex].working_id;
+                }
+                if(monthData[weekIndex].Role == "Secondary" && dateNumber > 2 && dateNumber < 10){
+                  document.getElementById("0-1-1").innerHTML = monthData[weekIndex].working_id;
+                  document.getElementById("1-1-0").innerHTML = monthData[weekIndex].working_id;
+
+                }
+                if(monthData[weekIndex].Role == "manager" && dateNumber > 2 && dateNumber < 10){
+                  document.getElementById("0-2-1").innerHTML = monthData[weekIndex].working_id;
+                  document.getElementById("1-2-0").innerHTML = monthData[weekIndex].working_id;
+                }
+
+
+                if(monthData[weekIndex].Role == "primary" && dateNumber > 2 && dateNumber < 10 /*&&  document.getElementById("")   == dateNumber*/  ){
+                  document.getElementById("1-0-1").innerHTML = monthData[weekIndex].working_id;
+                  document.getElementById("1-0-0").innerHTML = monthData[weekIndex].working_id;
+                }
+                if(monthData[weekIndex].Role == "Secondary" && dateNumber > 2 && dateNumber < 10){
+                  document.getElementById("0-1-1").innerHTML = monthData[weekIndex].working_id;
+                  document.getElementById("1-1-0").innerHTML = monthData[weekIndex].working_id;
+
+                }
+                if(monthData[weekIndex].Role == "manager" && dateNumber > 2 && dateNumber < 10){
+                  document.getElementById("0-2-1").innerHTML = monthData[weekIndex].working_id;
+                  document.getElementById("1-2-0").innerHTML = monthData[weekIndex].working_id;
+                }
+                //document.getElementById("Demo").innerHTML = year;
+
+
+
+
+
+                document.getElementById("Demo").innerHTML = "loop" + weekIndex;
+                //document.getElementById("Demo").innerHTML = year;
+
+
+
+
+
+            }
         }
     }
 
@@ -164,17 +221,6 @@ function getMonthData() {
     updateRoster(monthData);
 }
 
-function updateRoster(monthData) {
-    console.log(sundayList);
-
-    console.log(monthData);
-
-    //for(var webIndex = 0; weekIndex < )
-    //for (var weekIndex = 0; weekIndex < monthData.length; monthData++) {
-        //document.getElementById("0-0-0").innerHTML = monthData[weekIndex].working_id;
-        //document.getElementById("Demo").innerHTML = year;
-    //}
-}
 
 
 function passData(){
@@ -193,6 +239,4 @@ function passData(){
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
     xhr.send(encodeURIComponent(year + "-" + month + "-" + tableData));
-
-
-}
+  }
