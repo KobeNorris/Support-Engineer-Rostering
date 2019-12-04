@@ -9,9 +9,8 @@ var sundayList = [];
 
 refreshTimeTable();
 getMonthData();
-
 function refreshTimeTable() {
-  
+
     currentWeekDay = currentTime.getDay();
     Year = currentTime.getFullYear();
     Month = currentTime.getMonth();
@@ -22,10 +21,8 @@ function refreshTimeTable() {
     var totalDayCounter = 0 - weekday;
     var dayCounter;
     var weekDayCounter;
-
     var blockClass;
     var timeTable;
-
     timeTable = "<tr class=\"weekDayBlockRow\">";
     for (var counter = 0; counter < 7; counter++) {
         timeTable += "<td>" + weekNameList[counter] + "</td>";
@@ -100,25 +97,21 @@ function refreshTimeTable() {
 
         timeTable += "</tbody>";
     }
-
     // console.log(timeTable);
     document.getElementById("timeTable").innerHTML = timeTable;
     // loadPerson();
-
-    var date = "123";
-         $.ajax({
-             url: './TimeTable.php',
-             type: "POST",
-             dataType:'text',
-             data: {'date': date},
-             success: function(data){
-                 alert("successfully");
-             }
-         });
+    passData();
+    getMonthData();
 }
 
 function getMonthGreatestDate(year, month) {
     var d = new Date(year, month + 1, 0);
+    return d.getDate();
+}
+
+
+function getMonthEarliestDate(year, month) {
+    var d = new Date(year, month - 1, 0);
     return d.getDate();
 }
 
@@ -136,34 +129,70 @@ function getMonthBeginWeekDay() {
     if (temp > 6) {
         temp -= 7;
     }
-
     return temp;
 }
 
+
 function getMonthData() {
+/*
+  const xhr = new XMLHttpRequest();
+  xhr.open('GET', '../../LiamOrrill_components/data.json');
+  xhr.responseType = 'json';
+  xhr.onload = function(e) {
+    if (this.status == 200) {
+      console.log('response', this.response); // JSON response
+    }
+  };
+  xhr.send();*/
     var xmlhttp;
     var monthData;
-
     if (window.XMLHttpRequest)
         xmlhttp = new XMLHttpRequest();
     else
         xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-    xmlhttp.open("GET", "./TimeTable.php", true);
+
     xmlhttp.onreadystatechange = function () {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-            monthData = eval(xmlhttp.responseText);
-            updateRoster(monthData);
+              console.log('response', this.response); // JSON response
+            monthData = JSON.parse(xmlhttp.responseText);
+            document.getElementById("Demo").innerHTML = monthData[0].end;
         }
     }
-    // xmlhttp.open("GET", "./TimeTable.php", true);
-    // xmlhttp.open("POST", "./TimeTable.php", true);
-    // xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+    xmlhttp.open('GET', "../../LiamOrrill_components/data.json", true);
     xmlhttp.send();
+    updateRoster(monthData);
 }
 
 function updateRoster(monthData) {
     console.log(sundayList);
-    for (var weekIndex = 0; weekIndex < monthData.length; monthData++) {
 
+    console.log(monthData);
+
+    //for(var webIndex = 0; weekIndex < )
+    //for (var weekIndex = 0; weekIndex < monthData.length; monthData++) {
+        //document.getElementById("0-0-0").innerHTML = monthData[weekIndex].working_id;
+        //document.getElementById("Demo").innerHTML = year;
+    //}
+}
+
+
+function passData(){
+    // Create our XMLHttpRequest object
+    var tableData = document.getElementById("0-0-Date").innerHTML;
+    var month = currentTime.getMonth();
+    var year = currentTime.getFullYear();
+    var xhr = new XMLHttpRequest();
+  //  var tableData = document.getElementById("0-0-Date").innerHTML;
+    xhr.onload = function() {
+      const serverResponse = document.getElementById("Demo");
+      serverResponse.innerHTML = this.responseText;
     }
+    var d = 12
+    xhr.open("POST","TimeTable.php",true);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+    xhr.send(encodeURIComponent(year + "-" + month + "-" + tableData));
+
+
 }

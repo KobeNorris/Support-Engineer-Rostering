@@ -28,7 +28,6 @@ foreach ($dataMonth as $key => $value) {
         }
 }
 
-//array_push($minMaxDates, $earliestDate,$mostRecent);
 $_SESSION['minDate'] = $earliestDate;
 $_SESSION['maxDate'] = $mostRecent;
 
@@ -50,13 +49,7 @@ foreach ($dataMonth as $key => $value) {
   echo $value["workingID"]."<br />" . $value["startDate"]."<br />" . $value["endDate"]."<br />" . $value["jobRole"]."<br />";
   echo "<br><br>";
 }
-
 closeCon($conn);
-
 }
-sqlMonthData();
-
-
-
-
+sqlMonthData(); 
 ?>

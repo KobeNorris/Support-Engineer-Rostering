@@ -42,4 +42,5 @@ function setYear(selectedYear) {
     currentTime.setFullYear(selectedYear);
     refreshTimeSelector();
     refreshTimeTable();
+
 }
