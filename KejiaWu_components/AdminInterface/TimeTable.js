@@ -5,6 +5,8 @@ var sundayList = [];
 refreshTimeTable();
 getMonthData();
 
+// This method will rebuild the entire time table accroding to present date information
+// and demonstrate it to the user.
 function refreshTimeTable() {
     currentWeekDay = currentTime.getDay();
     Year = currentTime.getFullYear();
@@ -20,17 +22,16 @@ function refreshTimeTable() {
     var blockClass;
     var timeTable;
 
+    // Construct the weekdays in the first role
     timeTable = "<tr class=\"weekDayBlockRow\">";
     for (var counter = 0; counter < 7; counter++) {
         timeTable += "<td>" + weekNameList[counter] + "</td>";
     }
     timeTable += "</tr>";
 
+    // Contruct specific date of the timetable and demonstrate its status: Last month? Next month?
     for (weekCounter = 0; weekCounter < 6; weekCounter++) {
-
-
         timeTable += "<tbody class = \"dayTbody\"><tr class=\"normalDayBlockRow\">";
-
         for (weekDayCounter = 0; weekDayCounter < 7; weekDayCounter++) {
 
             var blockID = weekCounter + "-" + weekDayCounter + "-Date";
@@ -68,24 +69,21 @@ function refreshTimeTable() {
         }
         timeTable += "</tr>";
 
+        // Demonstrate the job roles allocation during one week period
         for (var jobRoleCounter = 0; jobRoleCounter < 3; jobRoleCounter++) {
             timeTable += "<tr class=\"" + jobRoleList[jobRoleCounter] + "JobBlockRow\">";
             weekDayCounter = 0;
             if (0) {
-                for (; weekDayCounter < 2; weekDayCounter++) {
-                    timeTable += "<td class=\"emptyJobBlock\"></td>";
-                }
+                timeTable += "<td colspan=\"2\" class=\"JobBlock\">";
             } else {
                 timeTable += "<td colspan=\"2\" class=\"JobBlock\">";
-                timeTable += "<div class=\"" + jobRoleList[jobRoleCounter] + "JobBlock\"></div></td>";
+                timeTable += "<div id=\"" + weekCounter + "-" + jobRoleCounter + "-0\" class=\"" + jobRoleList[jobRoleCounter] + "JobBlock\"></div></td>";
             }
             if (0) {
-                for (; weekDayCounter < 7; weekDayCounter++) {
-                    timeTable += "<td class=\"emptyJobBlock\"></td>";
-                }
+                timeTable += "<td colspan=\"5\" class=\"JobBlock\">";
             } else {
                 timeTable += "<td colspan=\"5\" class=\"JobBlock\">";
-                timeTable += "<div class=\"" + jobRoleList[jobRoleCounter] + "JobBlock\"></div></td>";
+                timeTable += "<div id=\"" + weekCounter + "-" + jobRoleCounter + "-1\" class=\"" + jobRoleList[jobRoleCounter] + "JobBlock\"></div></td>";
             }
             timeTable += "</tr>";
         }
@@ -93,16 +91,19 @@ function refreshTimeTable() {
         timeTable += "</tbody>";
     }
 
+    // Insert the data structure into the HTML file 
     // console.log(timeTable);
     document.getElementById("timeTable").innerHTML = timeTable;
     // loadPerson();
 }
 
+// This function delivers the greatest day within present month
 function getMonthGreatestDate(year, month) {
     var d = new Date(year, month + 1, 0);
     return d.getDate();
 }
 
+// This function delivers the greatest day within last month
 function getLastMonthGreatestDate(year, month) {
     if (month == 0) {
         year--;
@@ -112,6 +113,7 @@ function getLastMonthGreatestDate(year, month) {
     return d.getDate();
 }
 
+//This function get the weekday of the first day of present month
 function getMonthBeginWeekDay() {
     var temp = currentWeekDay + (7 - currentDay % 7) + 1;
     if (temp > 6) {
@@ -121,6 +123,7 @@ function getMonthBeginWeekDay() {
     return temp;
 }
 
+// This function gets the data of present month's roster plan
 function getMonthData() {
     var xmlhttp;
     var monthData;
@@ -142,6 +145,7 @@ function getMonthData() {
     xmlhttp.send();
 }
 
+//This function will update present roster plan to the backend 
 function updateRoster(monthData) {
     console.log(sundayList);
     for (var weekIndex = 0; weekIndex < monthData.length; monthData++) {
