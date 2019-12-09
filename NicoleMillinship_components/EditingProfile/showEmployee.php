@@ -1,8 +1,17 @@
+<!-- 
+    This file demonstrates what a user would see when they view someone's profile. 
+    It includes the details for every user stored in the database (although in practice you'd only be looking at one person's details).
+    The employee table contains the personal details for each employee, including the file name of their profile picture. 
+    The holiday and deployment tables contain each employee's holiday and deployment dates
+ -->
+
 <?php
 require_once('connectionTest.php');
-$query = "SELECT * FROM employee"; 
-$employeeRecord = mysqli_query($connect, $query);
+//Get every record in the employee table 
+$query = "SELECT * FROM employee";
+$employeeRecords = mysqli_query($connect, $query);
 
+//Get the holidays and deployments which are in the future
 $query2 = "SELECT * FROM holiday WHERE HolidayStartDate > CURDATE()";
 $query3 = "SELECT * FROM deployment WHERE DeploymentStartDate > CURDATE()";
 ?>
@@ -14,10 +23,12 @@ $query3 = "SELECT * FROM deployment WHERE DeploymentStartDate > CURDATE()";
         <link rel="stylesheet" type="text/css" href="employeeStylesheet.css">
     </head>
     <body>
-        
-        <?php while ($eRow = mysqli_fetch_array($employeeRecord)) { ?>
+        <!-- Get each employee record from employee and store it in $eRow -->
+        <?php while ($eRow = mysqli_fetch_array($employeeRecords)) { ?>
             <div>
+                <!-- Profile pictures are stored in the uploads folder -->
                 <?php $profilePics = "uploads/";
+                //Add the file name to the file path, so the image can be loaded
                 $profilePics .= $eRow['ProfilePicture'];
                 echo "<img id=profilePic src=$profilePics>"; ?> 
             </div>
@@ -69,7 +80,9 @@ $query3 = "SELECT * FROM deployment WHERE DeploymentStartDate > CURDATE()";
                     <th> End Date </th>
                 </tr>
                 <?php $holidays = mysqli_query($connect, $query2);
+                //Get each record in the holidays table
                 while ($hRow = mysqli_fetch_array($holidays)) {
+                    // If the employee associated with this holiday record is the same as the current employee (i.e work ids are the same)
                     if ($eRow['WorkID'] == $hRow['WorkID']) {
                         echo "<tr>";
                         echo "<td>" . $hRow['HolidayStartDate'] . "</td>";
@@ -82,6 +95,7 @@ $query3 = "SELECT * FROM deployment WHERE DeploymentStartDate > CURDATE()";
             </p>
 
             <p>
+                <!-- Same code as Future holidays -->
                 Future Deployments:
                 <table align="center">
                     <tr> 
@@ -99,10 +113,8 @@ $query3 = "SELECT * FROM deployment WHERE DeploymentStartDate > CURDATE()";
                         }
                     }
                     ?>
-                    </table>
+                </table>
             </p>
-
         <?php }; ?>
-
     </body>
 </html>

@@ -3,10 +3,7 @@ body {
     text-align: center;
 }
 
-p {
-    text-align: center;
-}
-
+/* The table for employee holidays and deployments */
 table, th, td {
     border: 1px solid black;
     border-collapse: collapse;
@@ -17,32 +14,14 @@ th, td {
     text-align: center;
 }
 
+/* The employee's profile picture */
 #profilePic {
-    display: block; 
-    margin-left: auto; 
-    margin-right: auto; 
-    width:200px; 
-    height:200px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 200px; 
+    height: 200px;
     border-style: solid;
     border-radius: 50%;
     border-color: #172D5C;
 }
-
-#previous, #next, input[submit] {
-    display: inline-block;
-    margin-left: 5%;
-    margin-right: 5%;
-    height: 30px;
-}
-
-.triangles {
-   text-align: center;
-}
-
-/* .employeeInfo {
-    border-style: solid;
-    border-color: #172D5C;
-    padding: 2px;
-    width: 25%;
-    margin: auto;
-} */
