@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="MainSystem.css">
+    <link rel="stylesheet" type="text/css" href="EmployeeCategory.css">
+    <link rel="stylesheet" type="text/css" href="BlankSpace.css">
+    <link rel="stylesheet" type="text/css" href="TimeSelector.css">
+    <link rel="stylesheet" type="text/css" href="TimeTable.css">
+    <title>Engineer Rostering System</title>
+</head>
+
+<body>
+    <div id="navigationBar">
+    </div>
+
+
+    <div id="mainSystem">
+
+        <div id="employeeCategory">
+            <div id="employeeCategory_frame">
+                <div id="employeeCategory_CustomerN" onclick="showEmployeeList('CustomerN_submenu')">
+                    Customer Nottingham
+                    <div id="CustomerNSubmenuFrame" class="subListFrame">
+                        <div>
+                            <input type="text">
+                        </div>
+                        <div id="CustomerN_submenu" class="subList">
+                        </div>
+                    </div>
+                </div>
+                <div id="employeeCategory_Grow" onclick="showEmployeeList('Grow_submenu')">
+                    Grow
+                    <div id="GrowSubmenuFrame" class="subListFrame">
+                        <div>
+                            <input type="text">
+                        </div>
+                        <div id="Grow_submenu" class="subList">
+                        </div>
+                    </div>
+                </div>
+                <div id="employeeCategory_CustomerL" onclick="showEmployeeList('CustomerL_submenu')">
+                    Customer London
+                    <div id="CustomerLSubmenuFrame" class="subListFrame">
+                        <div>
+                            <input type="text">
+                        </div>
+                        <div id="CustomerL_submenu" class="subList">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="TimeTableFrame">
+            <div class="timeSelector">
+                <button class="arrow2Left" onclick="deductOneMonth()">((
+                </button>
+                <div id="timeSelectorMonthAndYear">
+                    <span id="timeSelectorMonth">
+                    </span>
+                    <input id="timeSelectorYear" type="text" value="2019" onblur="setYear(value)">
+                </div>
+                <button class="arrow2Right" onclick="addOneMonth()">))
+                </button>
+            </div>
+
+            <div>
+                <table class="timeTable" id="timeTable">
+                </table>
+            </div>
+        </div>
+
+        <div id="blankSave">
+        </div>
+    </div>
+
+
+</body>
+
+<script type="text/javascript" src="EmployeeCategory.js"></script>
+<script type="text/javascript" src="TimeSelector.js"></script>
+<script type="text/javascript" src="TimeTable.js"></script>
+
+</html>
