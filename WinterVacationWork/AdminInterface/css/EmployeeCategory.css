@@ -6,11 +6,11 @@
     margin-left: 1%;
     height: 94%;
     width: 20%;
-    display: flex;
+    /* display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: flex-start; */
 }
 #employeeCategory_frame{
     width: 90%;
@@ -20,15 +20,9 @@
 }
 
 /* SubList */
-.subListFrame{
-    display: none;
-}
-.subList{
-    height:380px;
-    width:100%;
-    margin-left: auto;
-    margin-right: auto;
-
-    overflow: auto;
-    background-color: white;
+.employeeNameList{
+    width:350px;
+    height:300px;
+    margin-left: 50px;
+    overflow-y:scroll;
 }
