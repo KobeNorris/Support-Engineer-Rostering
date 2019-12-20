@@ -26,6 +26,10 @@ function getMonthBeginWeekDay() {
     return temp;
 }
 
+function editTimeTable(event) {
+    document.getElementById("")
+}
+
 // // This function gets the data of present month's roster plan
 // function getMonthData() {
 //     var xmlhttp;

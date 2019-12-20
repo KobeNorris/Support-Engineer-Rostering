@@ -1,0 +1,38 @@
+/* Edit window */
+#editWindow>Label{
+    position: relative;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    display: inline-block;
+}
+.editWindowFrame{
+    width: 100%;
+    text-align: center;
+}
+.leftEditWindowFrame{
+    text-align: right;
+}
+.rightEditWindowFrame{
+    text-align: left;
+    padding-left: 10px; 
+}
+.dateContainer{
+    width: 110px;
+    border: 1px solid rgb(50, 50, 50);
+    border-radius:2px;
+    /* background-color: rgb(210, 210, 210); */
+    text-align: center;
+}
+.weekContainer{
+    width: 30px;
+    border: 1px solid rgb(50, 50, 50);
+    border-radius:2px;
+    /* background-color: rgb(210, 210, 210); */
+    text-align: center;
+}
+#enableRepeatButton{
+    width: 60%;
+    text-align: center;
+}
