@@ -14,7 +14,7 @@ var monthData = {
         },
         {
             "working_id": "M03",
-            "Role": "manager",
+            "Role": "Manager",
             "start": "2019-11-26",
             "end": "2019-12-02"
         },
@@ -32,7 +32,7 @@ var monthData = {
         },
         {
             "working_id": "M03",
-            "Role": "manager",
+            "Role": "Manager",
             "start": "2019-12-03",
             "end": "2019-12-09"
         },
@@ -50,7 +50,7 @@ var monthData = {
         },
         {
             "working_id": "M03",
-            "Role": "manager",
+            "Role": "Manager",
             "start": "2019-12-10",
             "end": "2019-12-16"
         },
@@ -68,7 +68,7 @@ var monthData = {
         },
         {
             "working_id": "M03",
-            "Role": "manager",
+            "Role": "Manager",
             "start": "2019-12-17",
             "end": "2019-12-23"
         },
@@ -86,7 +86,7 @@ var monthData = {
         },
         {
             "working_id": "M03",
-            "Role": "manager",
+            "Role": "Manager",
             "start": "2019-12-24",
             "end": "2019-12-30"
         },
@@ -104,7 +104,7 @@ var monthData = {
         },
         {
             "working_id": "",
-            "Role": "manager",
+            "Role": "Manager",
             "start": "2019-12-31",
             "end": "2020-01-06"
         },
@@ -112,19 +112,19 @@ var monthData = {
             "working_id": "",
             "Role": "Primary",
             "start": "2020-01-07",
-            "end": "2019-01-13"
+            "end": "2020-01-13"
         },
         {
             "working_id": "",
             "Role": "Secondary",
             "start": "2020-01-07",
-            "end": "2019-01-13"
+            "end": "2020-01-13"
         },
         {
             "working_id": "",
-            "Role": "manager",
+            "Role": "Manager",
             "start": "2020-01-07",
-            "end": "2019-01-13"
+            "end": "2020-01-13"
         }
     ]
 }

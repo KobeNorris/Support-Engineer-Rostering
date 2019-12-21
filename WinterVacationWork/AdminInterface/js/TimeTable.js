@@ -1,6 +1,5 @@
 var weekNameList = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-var jobRoleList = ["primary", "secondary", "escalater"]
-var sundayList = [];
+var roleList = ["Primary", "Secondary", "Manager"]
 
 refreshTimeTable();
 
@@ -58,13 +57,6 @@ function refreshTimeTable() {
             timeTable += "<td id=\"" + blockID + "\" class=\"" + blockClass + "\">&nbsp"
                 + dayCounter
                 + "</td>";
-
-            if (weekDayCounter == 0) {
-                if (dayCounter < 10)
-                    sundayList.push(Year + "-" + Month + "-0" + dayCounter);
-                else
-                    sundayList.push(Year + "-" + Month + "-" + dayCounter);
-            }
         }
         timeTable += "</tr>";
 
@@ -73,26 +65,45 @@ function refreshTimeTable() {
         for (var jobRoleCounter = 0; jobRoleCounter < 3; jobRoleCounter++) {
             SunToMon = monthData.dataA[3 * weekCounter + jobRoleCounter];
             TueToSat = monthData.dataA[3 * weekCounter + jobRoleCounter + 3];
-            timeTable += "<tr class=\"" + jobRoleList[jobRoleCounter] + "JobBlockRow\">";
+            timeTable += "<tr>";
+
+            timeTable += "<td colspan=\"2\" class=\"JobBlock\">";
             if (SunToMon.working_id == "") {
-                timeTable += "<td colspan=\"2\" class=\"JobBlock\" role=\"" + SunToMon.Role
-                    + "\" start=\"" + SunToMon.start + "\" end=\"" + SunToMon.end + "\">";
-            } else {
-                timeTable += "<td colspan=\"2\" class=\"JobBlock\">";
                 timeTable += "<div id=\"" + weekCounter + "-" + jobRoleCounter +
-                    "-0\" class=\"" + jobRoleList[jobRoleCounter] + "JobBlock\"role=\""
-                    + SunToMon.Role + "\" start=\"" + SunToMon.start + "\" end=\""
-                    + SunToMon.end + "\">&nbsp&nbsp" + SunToMon.working_id + "</div></td>";
+                    "-0\" class=\"emptyJobBlock\"" +
+                    "working_id=\"" + SunToMon.working_id + "\" " +
+                    "role=\"" + SunToMon.Role + "\" " +
+                    "start=\"" + SunToMon.start + "\" " +
+                    "end=\"" + SunToMon.end + "\" " +
+                    "onclick=\"popWindow(event)\"" + "></div></td>";
+            } else {
+                timeTable += "<div id=\"" + weekCounter + "-" + jobRoleCounter +
+                    "-0\" class=\"" + roleList[jobRoleCounter] + "JobBlock\"" +
+                    "working_id=\"" + SunToMon.working_id + "\" " +
+                    "role=\"" + SunToMon.Role + "\" " +
+                    "start=\"" + SunToMon.start + "\" " +
+                    "end=\"" + SunToMon.end + "\" " +
+                    "onclick=\"popWindow(event)\"" +
+                    ">&nbsp&nbsp" + SunToMon.working_id + "</div></td>";
             }
+            timeTable += "<td colspan=\"5\" class=\"JobBlock\">";
             if (TueToSat.working_id == "") {
-                timeTable += "<td colspan=\"5\" class=\"JobBlock\" role=\"" + TueToSat.Role
-                    + "\" start=\"" + TueToSat.start + "\" end=\"" + TueToSat.end + "\">";
-            } else {
-                timeTable += "<td colspan=\"5\" class=\"JobBlock\">";
                 timeTable += "<div id=\"" + weekCounter + "-" + jobRoleCounter +
-                    "-0\" class=\"" + jobRoleList[jobRoleCounter] + "JobBlock\"role=\""
-                    + TueToSat.Role + "\" start=\"" + TueToSat.start + "\" end=\""
-                    + TueToSat.end + "\">&nbsp&nbsp" + TueToSat.working_id + "</div></td>";
+                    "-0\" class=\"emptyJobBlock\"" +
+                    "working_id=\"" + TueToSat.working_id + "\" " +
+                    "role=\"" + TueToSat.Role + "\" " +
+                    "start=\"" + TueToSat.start + "\" " +
+                    "end=\"" + TueToSat.end + "\" " +
+                    "onclick=\"popWindow(event)\"" + "></div></td>";
+            } else {
+                timeTable += "<div id=\"" + weekCounter + "-" + jobRoleCounter +
+                    "-0\" class=\"" + roleList[jobRoleCounter] + "JobBlock\"" +
+                    "working_id=\"" + TueToSat.working_id + "\" " +
+                    "role=\"" + TueToSat.Role + "\" " +
+                    "start=\"" + TueToSat.start + "\" " +
+                    "end=\"" + TueToSat.end + "\" " +
+                    "onclick=\"popWindow(event)\"" +
+                    ">&nbsp&nbsp" + TueToSat.working_id + "</div></td>";
             }
             timeTable += "</tr>";
         }
@@ -100,7 +111,6 @@ function refreshTimeTable() {
         timeTable += "</tbody>";
     }
 
-    // Insert the data structure into the HTML file 
-    // console.log(monthData.dataA);
+    // Insert the data structure into the HTML file
     document.getElementById("timeTable").innerHTML = timeTable;
 }

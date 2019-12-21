@@ -21,3 +21,29 @@ function checkRepeat() {
         });
     }
 }
+
+function popWindow(event) {
+    event = event ? event : window.event;
+    var obj = event.srcElement ? event.srcElement : event.target;
+    var editWindow = document.getElementById('editWindow');
+    document.getElementById('jobRoleSelection')[getRoleIndex(obj.getAttribute('role'))].selected = true;
+    document.getElementById('inputStartDate').value = obj.getAttribute('start');
+    document.getElementById('inputEndDate').value = obj.getAttribute('end');
+    document.getElementById('modal').style.display = "block";
+    editWindow.style.display = "block";
+}
+
+function hideWindow() {
+    document.getElementById('modal').style.display = "none";
+    document.getElementById('editWindow').style.display = "none";
+}
+
+function getRoleIndex(targetRole) {
+    var iTemp;
+    for (iTemp = 0; iTemp < roleList.length; iTemp++) {
+        if (roleList[iTemp] == targetRole) {
+            break;
+        }
+    }
+    return iTemp
+}
