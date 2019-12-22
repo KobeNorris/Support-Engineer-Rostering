@@ -21,6 +21,13 @@ for($blockCounter = 0; $blockCounter < sizeof($strJsonFileContents); $blockCount
     else
         $sql  = $sql.";";
 }
-
-echo($sql);
+try {
+    $dbh=new PDO($dsn,$user,$password);
+    $dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+    $stmt=$dbh->prepare($sql);
+    $stmt->execute();
+} catch (PDOException $error) {
+    echo 'SQL Query:'.$sql.'</br>';
+    echo 'Connection failed:'.$error->getMessage();
+}
 ?>
