@@ -42,5 +42,5 @@ input[type=submit]{
 
 
 #fileToUpload {
-    display: none;
+    /* display: none; */
 }

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Employee Profile</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='employeeProfile.css'>
+</head>
+
+<table>
+
+
+    <tbody>
+        <tr>
+            <td colspan="10">
+                <div id="profilePic"></div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="10" class="buttonContainer">
+                <label for="imageUpload">Upload new image</label>
+                <input id="imageUpload" name="imageUpload" type="file" onchange="upLoadImage('imageUpload')">
+            </td>
+        </tr>
+    </tbody>
+
+    <tbody>
+        <tr>
+            <td colspan=" 3" class="leftEditWindowFrame">
+                Name
+            </td>
+            <td></td>
+            <td colspan="6" class="rightEditWindowFrame">
+                <input id="name" type="text" disabled>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3" class="leftEditWindowFrame">
+                Status
+            </td>
+            <td></td>
+            <td colspan="6" class="rightEditWindowFrame">
+                <label><input id="status" type="checkbox" disabled />Active</label>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3" class="leftEditWindowFrame">
+                Working Id
+            </td>
+            <td></td>
+            <td colspan="6" class="rightEditWindowFrame">
+                <input id="working_id" type="text" disabled>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3" class="leftEditWindowFrame">
+                Slack Id
+            </td>
+            <td></td>
+            <td colspan="6" class="rightEditWindowFrame">
+                <input id="slack_id" type="text" disabled>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3" class="leftEditWindowFrame">
+                Group
+            </td>
+            <td></td>
+            <td colspan="6" class="rightEditWindowFrame">
+                <input id="group_id" type="text" disabled>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3" class="leftEditWindowFrame">
+                Email
+            </td>
+            <td></td>
+            <td colspan="6" class="rightEditWindowFrame">
+                <input id="email" type="text" disabled>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3" class="leftEditWindowFrame">
+                Telephone
+            </td>
+            <td></td>
+            <td colspan="6" class="rightEditWindowFrame">
+                <input id="phone_number" type="text" disabled>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="10" id="profileEditButton" class="buttonContainer">
+                <button onclick="editEmployeeProfile()">Edit</button>
+            </td>
+        </tr>
+    </tbody>
+
+
+    <tr>
+        <td colspan="3" class="leftEditWindowFrame">
+            Holiday
+        </td>
+        <td></td>
+        <td colspan="6" class="buttonContainer">
+            <button>Edit</button>
+        </td>
+    </tr>
+    <tbody id="holidayTimetable" class="timeTable">
+    </tbody>
+
+
+    <tr>
+        <td colspan="3" class="leftEditWindowFrame">
+            Deployment
+        </td>
+        <td></td>
+        <td colspan="6" class="buttonContainer">
+            <button>Edit</button>
+        </td>
+    </tr>
+    <tbody id="deploymentTimetable" class="timeTable">
+    </tbody>
+
+
+</table>
+
+<script type="text/javascript" src="./js/uploadImage.js"></script>
+<script type="text/javascript" src="./js/employeeProfile.js"></script>
+
+</html>
