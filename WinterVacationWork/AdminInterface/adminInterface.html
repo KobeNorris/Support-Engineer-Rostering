@@ -17,7 +17,8 @@
             <td>Name</td>
             <td>Status</td>
             <td>Working_id</td>
-            <td>Group_id</td>
+            <!-- <td>Group_id</td> -->
+            <td></td>
             <td></td>
             <td></td>
         </thead>
@@ -25,14 +26,31 @@
         </tbody>
     </table>
 
-    <table>
+    <table style="display: block;">
+        <thead>
+            <td>New employee</td>
+        </thead>
         <tr>
+            <td>Working_id</td>
+            <td>
+                <input id="newWorking_id" type="text" />
+            </td>
         </tr>
         <tr>
+            <td>Password</td>
             <td>
+                <input id="newPassword" type="password">
             </td>
-
+        </tr>
+        <tr>
+            <td>Check_password</td>
             <td>
+                <input id="checkPassword" type="password">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <button onclick="createNewEmployee()">submit</button>
             </td>
         </tr>
     </table>

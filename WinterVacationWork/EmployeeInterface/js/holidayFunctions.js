@@ -5,8 +5,8 @@ var holidayList = [];
 getEmployeeHoliday();
 
 function upLoadHoliday() {
-    newStart_date = document.getElementById("newHolidayStart_date").value;
-    newEnd_date = document.getElementById("newHolidayEnd_date").value;
+    newHolidayStart_date = document.getElementById("newHolidayStart_date").value;
+    newHolidayEnd_date = document.getElementById("newHolidayEnd_date").value;
 
     if (checkLoadHoliday()) {
         var xmlhttp;
@@ -27,7 +27,7 @@ function upLoadHoliday() {
 
         xmlhttp.open("POST", "./php/timeManagement.php", true);
         xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        xmlhttp.send("target=holiday&action=upload&start_date=" + newHolidayStart_date + "&end_date=" + newHolidayEnd_date + "&working_id=" + working_id);
+        xmlhttp.send("target=holiday&action=upload&start_date=" + newHolidayStart_date + "&end_date=" + newHolidayEnd_date + "&working_id=" + targetWorking_id);
     }
 }
 
@@ -59,14 +59,14 @@ function getEmployeeHoliday() {
 
     xmlhttp.open("POST", "./php/timeManagement.php", true);
     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xmlhttp.send("target=holiday&action=refresh&working_id=" + working_id);
+    xmlhttp.send("target=holiday&action=refresh&working_id=" + targetWorking_id);
 }
 
 function checkLoadHoliday() {
-    if (newStart_date == "" || newEnd_date == "") {
+    if (newHolidayStart_date == "" || newHolidayEnd_date == "") {
         alert("Blank space detected");
         return false;
-    } else if (newStart_date > newEnd_date) {
+    } else if (newHolidayStart_date > newHolidayEnd_date) {
         alert("Wrong time")
         return false;
     }
@@ -98,5 +98,5 @@ function deleteHoliday(event) {
 
     xmlhttp.open("POST", "./php/timeManagement.php", true);
     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xmlhttp.send("target=holiday&action=delete&start_date=" + newHolidayStart_date + "&end_date=" + newHolidayEnd_date + "&working_id=" + working_id);
+    xmlhttp.send("target=holiday&action=delete&start_date=" + newHolidayStart_date + "&end_date=" + newHolidayEnd_date + "&working_id=" + targetWorking_id);
 }

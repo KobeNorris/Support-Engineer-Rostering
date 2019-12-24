@@ -1,4 +1,4 @@
-var working_id = "scykw1";
+var targetWorking_id = "scykw1";
 var employeeProfile;
 
 refreshEmployePicture();
@@ -16,13 +16,13 @@ function refreshEmployePicture() {
             if (xmlhttp.responseText == "default")
                 document.getElementById("profilePic").style.backgroundImage = "url(./Image/default.png)"
             else
-                document.getElementById("profilePic").style.backgroundImage = "url(./Image/" + working_id + "." + xmlhttp.responseText + ")";
+                document.getElementById("profilePic").style.backgroundImage = "url(./Image/" + targetWorking_id + "." + xmlhttp.responseText + ")";
         }
     }
 
     xmlhttp.open("POST", "./php/getEmployeePicture.php", true);
     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xmlhttp.send("working_id=" + working_id);
+    xmlhttp.send("targetWorking_id=" + targetWorking_id);
 }
 
 function refreshEmployeProfile() {
@@ -34,9 +34,11 @@ function refreshEmployeProfile() {
         xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
     xmlhttp.onreadystatechange = function () {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            // console.log(xmlhttp.responseText);
             employeeProfile = JSON.parse(xmlhttp.responseText);
             document.getElementById("name").value = employeeProfile[0]["name"];
-            document.getElementById("working_id").value = working_id;
+            document.getElementById("working_id").value = employeeProfile[0]["working_id"];
+            document.getElementById("account_type").value = employeeProfile[0]["account_type"];
             document.getElementById("slack_id").value = employeeProfile[0]["slack_id"];
             document.getElementById("group_id").value = employeeProfile[0]["group_id"];
             document.getElementById("email").value = employeeProfile[0]["email"];
@@ -50,7 +52,7 @@ function refreshEmployeProfile() {
 
     xmlhttp.open("POST", "./php/getEmployeeProfile.php", true);
     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xmlhttp.send("working_id=" + working_id);
+    xmlhttp.send("targetWorking_id=" + targetWorking_id);
 }
 
 function editEmployeeProfile() {
@@ -63,7 +65,8 @@ function editEmployeeProfile() {
 
     if (true) {
         document.getElementById("status").disabled = false;
-        document.getElementById("working_id").disabled = false;
+        document.getElementById("targetWorking_id").disabled = false;
+        document.getElementById("account_type").disabled = false;
     }
 
 }
@@ -75,7 +78,8 @@ function updateEmployeeProfile() {
     employeeProfile[0]["email"] = document.getElementById("email").value;
     employeeProfile[0]["phone_number"] = document.getElementById("phone_number").value;
     if (true) {
-        employeeProfile[0]["working_id"] = document.getElementById("working_id").value;
+        employeeProfile[0]["targetWorking_id"] = document.getElementById("targetWorking_id").value;
+        employeeProfile[0]["account_type"] = document.getElementById("account_type").value;
         employeeProfile[0]["status"] = (document.getElementById("status").checked);
     }
 
@@ -87,7 +91,8 @@ function updateEmployeeProfile() {
     document.getElementById("email").disabled = true;
     document.getElementById("phone_number").disabled = true;
     document.getElementById("status").disabled = true;
-    document.getElementById("working_id").disabled = true;
+    document.getElementById("targetWorking_id").disabled = true;
+    document.getElementById("account_type").disabled = true;
 
     document.getElementById("profileEditButton").innerHTML = "<button onclick=\"editEmployeeProfile()\">Edit</button>";
 }
@@ -108,5 +113,5 @@ function sendEmployeeProfile() {
 
     xmlhttp.open("POST", "./php/updateEmployeeProfile.php", true);
     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xmlhttp.send("employeeProfile=" + JSON.stringify(employeeProfile) + "&&working_id=" + working_id);
+    xmlhttp.send("employeeProfile=" + JSON.stringify(employeeProfile) + "&&targetWorking_id=" + targetWorking_id);
 }

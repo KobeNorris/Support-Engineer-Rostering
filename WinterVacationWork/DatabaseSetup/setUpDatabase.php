@@ -1,6 +1,6 @@
 <?php
-require_once('employeeDatabaseSetUp/setUpEmployeeProfileDatabase.php');
-require_once('employeeDatabaseSetUp/setUpEmployeeHolidayDatabase.php');
-require_once('employeeDatabaseSetUp/setUpEmployeeDeploymentDatabase.php');
-require_once('employeeDatabaseSetUp/initEmployeeProfile.php');
+require_once('employeeDatabase/setUpEmployeeProfileDatabase.php');
+require_once('employeeDatabase/setUpEmployeeHolidayDatabase.php');
+require_once('employeeDatabase/setUpEmployeeDeploymentDatabase.php');
+require_once('loginSystemDatabase/setUpAccountDatabase.php');
 ?>

@@ -27,7 +27,7 @@ function upLoadDeployment() {
 
         xmlhttp.open("POST", "./php/timeManagement.php", true);
         xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        xmlhttp.send("target=deployment&action=upload&start_date=" + newDeploymentStart_date + "&end_date=" + newDeploymentEnd_date + "&working_id=" + working_id);
+        xmlhttp.send("target=deployment&action=upload&start_date=" + newDeploymentStart_date + "&end_date=" + newDeploymentEnd_date + "&working_id=" + targetWorking_id);
     }
 }
 
@@ -59,7 +59,7 @@ function getEmployeeDeployment() {
 
     xmlhttp.open("POST", "./php/timeManagement.php", true);
     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xmlhttp.send("target=deployment&action=refresh&working_id=" + working_id);
+    xmlhttp.send("target=deployment&action=refresh&working_id=" + targetWorking_id);
 }
 
 function checkLoadDeployment() {
@@ -98,5 +98,5 @@ function deleteDeployment(event) {
 
     xmlhttp.open("POST", "./php/timeManagement.php", true);
     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xmlhttp.send("target=deployment&action=delete&start_date=" + newDeploymentStart_date + "&end_date=" + newDeploymentEnd_date + "&working_id=" + working_id);
+    xmlhttp.send("target=deployment&action=delete&start_date=" + newDeploymentStart_date + "&end_date=" + newDeploymentEnd_date + "&working_id=" + targetWorking_id);
 }

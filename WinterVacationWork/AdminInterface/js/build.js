@@ -10,9 +10,12 @@ function buildEmployeeTable() {
         html += "<tr><td>"
             + employeeInfo[index]["name"] + "</td><td>"
             + status + "</td><td>"
-            + employeeInfo[index]["working_id"] + "</td><td>"
-            + employeeInfo[index]["group_id"] + "</td>"
-            + "<td><button>generate report</button></td><td><button>delete</botton></td></tr>";
+            + employeeInfo[index]["working_id"] + "</td>"
+            //+ "<td>" + employeeInfo[index]["group_id"] + "</td>"
+            + "<td><button>view</botton></td>"
+            + "<td><button>report</button></td>"
+            + "<td><button onclick=\"deleteEmployee(event)\">delete</botton></td>"
+            + "</tr>";
     }
     document.getElementById("employeeTable").innerHTML = html;
 }

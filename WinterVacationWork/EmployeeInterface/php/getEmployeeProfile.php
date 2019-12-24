@@ -11,6 +11,7 @@ $profileList = array();
 $working_id = "scykw1";
 
 $sql = "SELECT * FROM employee_profile WHERE working_id = \"".$working_id."\";";
+
 try {
     $dbh=new PDO($dsn,$user,$password);
     $dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
@@ -26,6 +27,7 @@ try {
         $profile['phone_number'] = $row['phone_number'];
         $profile['status'] = $row['status'];
         $profile['working_id'] = $row['working_id'];
+        $profile['account_type'] = $row['account_type'];
         array_push($profileList, $profile);
     }
 
