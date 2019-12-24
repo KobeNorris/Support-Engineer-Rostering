@@ -6,4 +6,5 @@
 
 (10/Dec/2019 - ) Develop administrator edit window -- Kejia Wu
 (11/Dec/2019 - 11/Dec/2019) Set up employee profile --  Kejia Wu
-(12/Dec/2019 - ) Develop employee interface -- Kejia Wu
+(12/Dec/2019 - 13/DEC/2019) Develop employee interface -- Kejia Wu
+(13/Dec/2019 - ) Develop admin interface -- Kejia Wu
