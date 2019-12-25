@@ -11,6 +11,7 @@
     <link rel="stylesheet" type="text/css" href="./css/TimeSelector.css">
     <link rel="stylesheet" type="text/css" href="./css/TimeTable.css">
     <link rel="stylesheet" type="text/css" href="./css/EditWindow.css">
+    <link rel="stylesheet" type="text/css" href="./css/login.css">
     <title>Engineer Rostering System</title>
 </head>
 
@@ -49,12 +50,6 @@
         <div id="blankSave">
         </div>
     </div>
-
-    <div id="modal">
-    </div>
-
-
-
 
     <!-- Section for edit window -->
     <div id="editWindow">
@@ -146,12 +141,37 @@
                     </td>
                 </tr>
             </tbody>
-            </tbody>
+        </table>
     </div>
 
+    <div id="loginFrame">
+        <div class="modal-content animate">
+            <div class="imgcontainer">
+                <span onclick="closeLogin()" class="close">×</span>
+                <img src="./image/capital-one-logo.png" alt="Avatar" class="avatar">
+            </div>
+
+            <div class="container">
+                <div id="loginWarning">
+                </div>
+
+                <div>
+                    <label for="uname"><b>Username</b></label><br>
+                    <input id="username" type="text" placeholder="Enter Username">
+                </div>
+                <div>
+                    <label for="psw"><b>Password</b></label><br>
+                    <input id="password" type="password" placeholder="Enter Password">
+                </div>
+
+                <button class="loginButton" onclick="login()">Login</button>
+            </div>
 
 
+        </div>
+    </div>
 
+    <div id="modal"></div>
 
 </body>
 
@@ -162,5 +182,6 @@
 <script type="text/javascript" src="./js/JSON.js"></script>
 <script type="text/javascript" src="./js/TimeTableFunction.js"></script>
 <script type="text/javascript" src="./js/TimeTable.js"></script>
+<script type="text/javascript" src="./js/login.js"></script>
 
 </html>

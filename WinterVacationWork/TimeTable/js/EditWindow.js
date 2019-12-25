@@ -1,5 +1,6 @@
 checkRepeat();
 
+//Whether editor want to treat this event as repeatable event
 function checkRepeat() {
     var inputs = $('#repeatAttribute input');
 
@@ -26,6 +27,7 @@ function popWindow(event) {
     event = event ? event : window.event;
     var obj = event.srcElement ? event.srcElement : event.target;
     var editWindow = document.getElementById('editWindow');
+
     document.getElementById('jobRoleSelection')[getRoleIndex(obj.getAttribute('role'))].selected = true;
     document.getElementById('inputStartDate').value = obj.getAttribute('start');
     document.getElementById('inputEndDate').value = obj.getAttribute('end');
@@ -46,4 +48,29 @@ function getRoleIndex(targetRole) {
         }
     }
     return iTemp
+}
+
+function openEditWindow(event) {
+    var username = document.getElementById("username").value;
+    var password = document.getElementById("password").value;
+
+    var xmlhttp;
+
+    if (window.XMLHttpRequest)
+        xmlhttp = new XMLHttpRequest();
+    else
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            if (xmlhttp.responseText == "admin") {
+                popWindow(event);
+            } else {
+                alert("No access permission");
+            }
+        }
+    }
+
+    xmlhttp.open("POST", "./php/checkLogin.php", true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.send("working_id=" + username + "&password=" + password);
 }

@@ -75,7 +75,7 @@ function refreshTimeTable() {
                     "role=\"" + SunToMon.Role + "\" " +
                     "start=\"" + SunToMon.start + "\" " +
                     "end=\"" + SunToMon.end + "\" " +
-                    "onclick=\"popWindow(event)\"" + "></div></td>";
+                    "onclick=\"openEditWindow(event)\"" + "></div></td>";
             } else {
                 timeTable += "<div id=\"" + weekCounter + "-" + jobRoleCounter +
                     "-0\" class=\"" + roleList[jobRoleCounter] + "JobBlock\"" +
@@ -83,7 +83,7 @@ function refreshTimeTable() {
                     "role=\"" + SunToMon.Role + "\" " +
                     "start=\"" + SunToMon.start + "\" " +
                     "end=\"" + SunToMon.end + "\" " +
-                    "onclick=\"popWindow(event)\"" +
+                    "onclick=\"openEditWindow(event)\"" +
                     ">&nbsp&nbsp" + SunToMon.working_id + "</div></td>";
             }
             timeTable += "<td colspan=\"5\" class=\"JobBlock\">";
@@ -94,7 +94,7 @@ function refreshTimeTable() {
                     "role=\"" + TueToSat.Role + "\" " +
                     "start=\"" + TueToSat.start + "\" " +
                     "end=\"" + TueToSat.end + "\" " +
-                    "onclick=\"popWindow(event)\"" + "></div></td>";
+                    "onclick=\"openEditWindow(event)\"" + "></div></td>";
             } else {
                 timeTable += "<div id=\"" + weekCounter + "-" + jobRoleCounter +
                     "-0\" class=\"" + roleList[jobRoleCounter] + "JobBlock\"" +
@@ -102,7 +102,7 @@ function refreshTimeTable() {
                     "role=\"" + TueToSat.Role + "\" " +
                     "start=\"" + TueToSat.start + "\" " +
                     "end=\"" + TueToSat.end + "\" " +
-                    "onclick=\"popWindow(event)\"" +
+                    "onclick=\"openEditWindow(event)\"" +
                     ">&nbsp&nbsp" + TueToSat.working_id + "</div></td>";
             }
             timeTable += "</tr>";
