@@ -1,11 +1,9 @@
-startLogin();
-
-function startLogin() {
+function popLoginWindow() {
     document.getElementById("loginFrame").style.display = "block";
     document.getElementById("modal").style.display = "block";
 }
 
-function closeLogin() {
+function hideLoginWindow() {
     document.getElementById("loginFrame").style.display = "none";
     document.getElementById("modal").style.display = "none";
     document.getElementById("username").value = "";
@@ -16,23 +14,16 @@ function login() {
     var username = document.getElementById("username").value;
     var password = document.getElementById("password").value;
 
-    var xmlhttp;
+    var url = "./php/login.php";
+    var data = "action=login&working_id=" + username + "&password=" + password;
 
-    if (window.XMLHttpRequest)
-        xmlhttp = new XMLHttpRequest();
-    else
-        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-    xmlhttp.onreadystatechange = function () {
-        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-            if (xmlhttp.responseText == "Success") {
-                closeLogin();
+    AJAX.post(url, data,
+        function (responseText) {
+            if (responseText == "Success") {
+                hideLoginWindow();
             } else {
                 document.getElementById("loginWarning").innerHTML = "Wrong username or password";
             }
         }
-    }
-
-    xmlhttp.open("POST", "./php/login.php", true);
-    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xmlhttp.send("working_id=" + username + "&password=" + password);
+    )
 }

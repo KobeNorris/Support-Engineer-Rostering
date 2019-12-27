@@ -10,9 +10,6 @@ var Day = currentDay;
 
 var monthNameList = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 var yearChecker = /^\d{4}$/;
-// var yearChecker = /^-?[0~9]+$/;
-
-refreshTimeSelector();
 
 function refreshTimeSelector() {
     Month = currentTime.getMonth();
@@ -24,13 +21,13 @@ function refreshTimeSelector() {
 function addOneMonth() {
     currentTime.setMonth(currentTime.getMonth() + 1);
     refreshTimeSelector();
-    refreshTimeTable();
+    buildTimeTable();
 }
 
 function deductOneMonth() {
     currentTime.setMonth(currentTime.getMonth() - 1);
     refreshTimeSelector();
-    refreshTimeTable();
+    buildTimeTable();
 }
 
 function setYear(selectedYear) {
@@ -41,5 +38,5 @@ function setYear(selectedYear) {
     }
     currentTime.setFullYear(selectedYear);
     refreshTimeSelector();
-    refreshTimeTable();
+    buildTimeTable();
 }

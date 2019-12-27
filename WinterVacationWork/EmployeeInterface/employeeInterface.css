@@ -11,8 +11,8 @@ label{
     background-color: darkgoldenrod;
 }
 #profilePic{
-    width: 200px;
-    height: 200px;
+    width: 100px;
+    height: 100px;
     margin-right:auto;
     margin-left: auto;
     /* border: 2px solid black; */
@@ -27,4 +27,7 @@ label{
 }
 .buttonContainer{
     text-align: center;
+}
+#passwordWindow{
+    display: none;
 }

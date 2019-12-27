@@ -1,17 +1,24 @@
 /* TimeSelector */
 .timeSelector{
     width: 100%;
-    margin-top: 15px;
+    margin-top: 10px;
     position: relative;
+    display: flex;
 }
 #timeSelectorMonthAndYear{
-    width: 40%;
-    display: inline-block;
+    width: 160px;
+    text-align: center;
 }
 #timeSelectorMonth{
-    width: 80x;
-    margin-right: 20%;
+    margin-left: 10px;
+    margin-right: 5px;
 }
 #timeSelectorYear{
-    width: 30%;
+    width: 50px;
+    text-align: center;
+    margin-left: 5px;
+    margin-right: 10px;
+}
+.timeSelectorbutton{
+    width: 20px;
 }

@@ -21,8 +21,7 @@
 
 /* SubList */
 .employeeNameList{
-    width:350px;
-    height:300px;
+    width:200px;
     margin-left: 50px;
     overflow-y:scroll;
 }

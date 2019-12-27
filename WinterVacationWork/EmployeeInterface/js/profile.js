@@ -1,41 +1,13 @@
-var targetWorking_id = "scykw1";
+var targetWorking_id;
 var employeeProfile;
 
-refreshEmployePicture();
-refreshEmployeProfile();
-
-function refreshEmployePicture() {
-    var xmlhttp;
-
-    if (window.XMLHttpRequest)
-        xmlhttp = new XMLHttpRequest();
-    else
-        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-    xmlhttp.onreadystatechange = function () {
-        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-            if (xmlhttp.responseText == "default")
-                document.getElementById("profilePic").style.backgroundImage = "url(./Image/default.png)"
-            else
-                document.getElementById("profilePic").style.backgroundImage = "url(./Image/" + targetWorking_id + "." + xmlhttp.responseText + ")";
-        }
-    }
-
-    xmlhttp.open("POST", "./php/getEmployeePicture.php", true);
-    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xmlhttp.send("targetWorking_id=" + targetWorking_id);
-}
-
 function refreshEmployeProfile() {
-    var xmlhttp;
+    var url = "./php/employeeProfile.php";
+    var data = "action=get&targetWorking_id=" + targetWorking_id;
 
-    if (window.XMLHttpRequest)
-        xmlhttp = new XMLHttpRequest();
-    else
-        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-    xmlhttp.onreadystatechange = function () {
-        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-            // console.log(xmlhttp.responseText);
-            employeeProfile = JSON.parse(xmlhttp.responseText);
+    AJAX.post(url, data,
+        function (responseText) {
+            employeeProfile = JSON.parse(responseText);
             document.getElementById("name").value = employeeProfile[0]["name"];
             document.getElementById("working_id").value = employeeProfile[0]["working_id"];
             document.getElementById("account_type").value = employeeProfile[0]["account_type"];
@@ -48,11 +20,7 @@ function refreshEmployeProfile() {
             else
                 document.getElementById("status").checked = false;
         }
-    }
-
-    xmlhttp.open("POST", "./php/getEmployeeProfile.php", true);
-    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xmlhttp.send("targetWorking_id=" + targetWorking_id);
+    );
 }
 
 function editEmployeeProfile() {
@@ -65,7 +33,7 @@ function editEmployeeProfile() {
 
     if (true) {
         document.getElementById("status").disabled = false;
-        document.getElementById("targetWorking_id").disabled = false;
+        document.getElementById("working_id").disabled = false;
         document.getElementById("account_type").disabled = false;
     }
 
@@ -78,7 +46,7 @@ function updateEmployeeProfile() {
     employeeProfile[0]["email"] = document.getElementById("email").value;
     employeeProfile[0]["phone_number"] = document.getElementById("phone_number").value;
     if (true) {
-        employeeProfile[0]["targetWorking_id"] = document.getElementById("targetWorking_id").value;
+        employeeProfile[0]["working_id"] = document.getElementById("working_id").value;
         employeeProfile[0]["account_type"] = document.getElementById("account_type").value;
         employeeProfile[0]["status"] = (document.getElementById("status").checked);
     }
@@ -91,27 +59,74 @@ function updateEmployeeProfile() {
     document.getElementById("email").disabled = true;
     document.getElementById("phone_number").disabled = true;
     document.getElementById("status").disabled = true;
-    document.getElementById("targetWorking_id").disabled = true;
+    document.getElementById("working_id").disabled = true;
     document.getElementById("account_type").disabled = true;
 
     document.getElementById("profileEditButton").innerHTML = "<button onclick=\"editEmployeeProfile()\">Edit</button>";
 }
 
 function sendEmployeeProfile() {
-    var xmlhttp;
+    var url = "./php/employeeProfile.php";
+    var data = "action=update&employeeProfile=" + JSON.stringify(employeeProfile)
+        + "&&working_id=" + targetWorking_id;
 
-    if (window.XMLHttpRequest)
-        xmlhttp = new XMLHttpRequest();
-    else
-        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-    xmlhttp.onreadystatechange = function () {
-        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-            if (xmlhttp.responseText == "Success")
+    AJAX.post(url, data,
+        function (responseText) {
+            if (responseText == "Success")
                 refreshEmployeProfile();
+            else
+                console.log(responseText);
         }
-    }
+    );
+}
 
-    xmlhttp.open("POST", "./php/updateEmployeeProfile.php", true);
-    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xmlhttp.send("employeeProfile=" + JSON.stringify(employeeProfile) + "&&targetWorking_id=" + targetWorking_id);
+/**
+ * Image process
+ */
+var targetImage;
+
+function upLoadImage(elementId) {
+    var input = document.getElementById(elementId);
+    // console.log(input);
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (imageObj) {
+            targetImage = imageObj.target.result;
+            sendImageToPHP(targetImage)
+        }
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+function refreshEmployePicture() {
+    var url = "./php/avatar.php";
+    var data = "action=search&working_id=" + targetWorking_id;
+    var picture = document.getElementById("profilePic");
+
+    AJAX.post(url, data,
+        function (responseText) {
+            if (responseText == "default")
+                picture.style.backgroundImage = "url(./Image/default.png)"
+            else
+                picture.style.backgroundImage = "url(./Image/" + targetWorking_id + "." + responseText + ")";
+        }
+    );
+}
+
+function sendImageToPHP(targetImage) {
+    var url = "./php/avatar.php";
+    var data = "action=upload&targetImage=" + targetImage + "&working_id=" + targetWorking_id;
+
+    AJAX.post(url, data,
+        function (responseText) {
+            if (responseText == "Success")
+                location.reload();
+            else if (responseText == "Fail 1")
+                alert("Wrong file type");
+            else
+                alert(responseText);
+        }
+    );
 }

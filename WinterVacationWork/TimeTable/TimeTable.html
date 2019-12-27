@@ -17,7 +17,16 @@
 
 <body>
     <div id="navigationBar">
+        <!-- Section for table title -->
+        <div style="display: inline-block; width: 100%;">
+            <div id="tableTitle">
+                Customer Nottingham
+            </div>
+            <div id="profilePic" onclick="jumpToProfile()">
+            </div>
+        </div>
     </div>
+
 
 
     <div id="mainSystem">
@@ -26,18 +35,19 @@
         </div>
 
         <div id="TimeTableFrame">
+
             <!-- Section for time selector-->
             <div class="timeSelector">
-                <button class="arrow2Left" onclick="deductOneMonth()">((
-                </button>
+                <img src="./image/prev.png" alt="next" class="timeSelectorbutton" onclick=" deductOneMonth()">
                 <div id="timeSelectorMonthAndYear">
                     <span id="timeSelectorMonth">
                     </span>
                     <input id="timeSelectorYear" type="text" value="2019" onblur="setYear(value)">
                 </div>
-                <button class="arrow2Right" onclick="addOneMonth()">))
-                </button>
+                <img src="./image/next.png" alt="next" class="timeSelectorbutton" onclick="addOneMonth()">
             </div>
+
+
 
             <!-- Section for time table -->
             <div>
@@ -45,6 +55,7 @@
                 </table>
             </div>
         </div>
+
 
         <!-- Space for blank saves-->
         <div id="blankSave">
@@ -74,9 +85,10 @@
                     <td class="leftEditWindowFrame" colspan="2">Employee</td>
                     <td></td>
                     <td class="rightEditWindowFrame" colspan="7">
-                        <button>
-
-                        </button>
+                        <input id="inputWorking_id" type="text" placeholder="working id">
+                        <!-- <button class="SearchingBotton" onclick="requestSearch()">
+                            search
+                        </button> -->
                     </td>
                 </tr>
                 <tr>
@@ -144,10 +156,11 @@
         </table>
     </div>
 
+    <!-- login window -->
     <div id="loginFrame">
         <div class="modal-content animate">
             <div class="imgcontainer">
-                <span onclick="closeLogin()" class="close">×</span>
+                <span onclick="hideLoginWindow()" class="close">×</span>
                 <img src="./image/capital-one-logo.png" alt="Avatar" class="avatar">
             </div>
 
@@ -176,12 +189,19 @@
 </body>
 
 <script src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript" src="./js/AJAX.js"></script>
+<script type="text/javascript" src="./js/build.js"></script>
+<script type="text/javascript" src="./js/navigator.js"></script>
+<script type="text/javascript" src="./js/JSON.js"></script>
+
 <script type="text/javascript" src="./js/EditWindow.js"></script>
 <script type="text/javascript" src="./js/EmployeeCategory.js"></script>
 <script type="text/javascript" src="./js/TimeSelector.js"></script>
-<script type="text/javascript" src="./js/JSON.js"></script>
-<script type="text/javascript" src="./js/TimeTableFunction.js"></script>
 <script type="text/javascript" src="./js/TimeTable.js"></script>
 <script type="text/javascript" src="./js/login.js"></script>
+<script type="text/javascript" src="./js/navigator.js"></script>
+<script type="text/javascript" src="./js/EmployeeCategory.js"></script>
+
+<script type="text/javascript" src="./js/init.js"></script>
 
 </html>

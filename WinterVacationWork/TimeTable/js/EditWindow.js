@@ -1,5 +1,3 @@
-checkRepeat();
-
 //Whether editor want to treat this event as repeatable event
 function checkRepeat() {
     var inputs = $('#repeatAttribute input');
@@ -23,7 +21,49 @@ function checkRepeat() {
     }
 }
 
-function popWindow(event) {
+function getRoleIndex(targetRole) {
+    var iTemp;
+    for (iTemp = 0; iTemp < roleList.length; iTemp++) {
+        if (roleList[iTemp] == targetRole) {
+            break;
+        }
+    }
+    return iTemp
+}
+
+function openEditWindowTT(event) {
+    var url = "./php/login.php";
+    var data = "action=check";
+
+    AJAX.post(url, data,
+        function (responseText) {
+            if (responseText == "admin")
+                popWindowTT(event);
+            else if (responseText == "employee")
+                alert("No access permission ");
+            else
+                popLoginWindow();
+        }
+    )
+}
+
+function openEditWindowEC(event) {
+    var url = "./php/login.php";
+    var data = "action=check";
+
+    AJAX.post(url, data,
+        function (responseText) {
+            if (responseText == "admin")
+                popWindowEC(event);
+            else if (responseText == "employee")
+                alert("No access permission ");
+            else
+                popLoginWindow();
+        }
+    )
+}
+
+function popWindowTT(event) {
     event = event ? event : window.event;
     var obj = event.srcElement ? event.srcElement : event.target;
     var editWindow = document.getElementById('editWindow');
@@ -35,42 +75,17 @@ function popWindow(event) {
     editWindow.style.display = "block";
 }
 
+function popWindowEC(event) {
+    event = event ? event : window.event;
+    var obj = event.srcElement ? event.srcElement : event.target;
+    var editWindow = document.getElementById('editWindow');
+
+    document.getElementById('inputWorking_id').value = obj.getAttribute('working_id');
+    document.getElementById('modal').style.display = "block";
+    editWindow.style.display = "block";
+}
+
 function hideWindow() {
     document.getElementById('modal').style.display = "none";
     document.getElementById('editWindow').style.display = "none";
-}
-
-function getRoleIndex(targetRole) {
-    var iTemp;
-    for (iTemp = 0; iTemp < roleList.length; iTemp++) {
-        if (roleList[iTemp] == targetRole) {
-            break;
-        }
-    }
-    return iTemp
-}
-
-function openEditWindow(event) {
-    var username = document.getElementById("username").value;
-    var password = document.getElementById("password").value;
-
-    var xmlhttp;
-
-    if (window.XMLHttpRequest)
-        xmlhttp = new XMLHttpRequest();
-    else
-        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-    xmlhttp.onreadystatechange = function () {
-        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-            if (xmlhttp.responseText == "admin") {
-                popWindow(event);
-            } else {
-                alert("No access permission");
-            }
-        }
-    }
-
-    xmlhttp.open("POST", "./php/checkLogin.php", true);
-    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xmlhttp.send("working_id=" + username + "&password=" + password);
 }

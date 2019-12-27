@@ -6,12 +6,12 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Admin interface</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <!-- <link rel='stylesheet' type='text/css' media='screen' href='main.css'> -->
+    <link rel='stylesheet' type='text/css' media='screen' href='adminInterface.css'>
 </head>
 
 <body>
-    <button>time table</button>
-    <button>new</button>
+    <button onclick="jumpToTimeTable()">time table</button>
+    <button onclick="popCreateEmployeeWindow()">new</button>
     <table>
         <thead>
             <td>Name</td>
@@ -26,10 +26,13 @@
         </tbody>
     </table>
 
-    <table style="display: block;">
+    <table id="createEmployeeWindow">
         <thead>
-            <td>New employee</td>
+            <td colspan="2"><button onclick="hideCreateEmployeeWindow()">×</button></td>
         </thead>
+        <tr>
+            <td colspan="2">New employee</td>
+        </tr>
         <tr>
             <td>Working_id</td>
             <td>
@@ -56,7 +59,13 @@
     </table>
 </body>
 
-<script src='./js/adminInterface.js'></script>
+<script src='./js/AJAX.js'></script>
 <script src='./js/build.js'></script>
+<script src='./js/navigator.js'></script>
+
+<script src='./js/employeeWindow.js'></script>
+<script src='./js/employeeManipulation.js'></script>
+
+<script src='./js/init.js'></script>
 
 </html>

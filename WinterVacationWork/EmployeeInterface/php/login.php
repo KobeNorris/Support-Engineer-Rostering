@@ -14,6 +14,18 @@ switch ($_POST['action']) {
         checkLogin();
         break;
 
+    case 'logout':
+        session_destroy();
+        echo "Success";
+        break;
+
+    case 'getWorkingId':
+        if(isset($_SESSION['targetWorking_id']))
+            echo $_SESSION['targetWorking_id'];
+        else
+            echo "Fail";
+        break;
+
     default:
         echo "Wrong instruction ".$_POST['action'];
         break;

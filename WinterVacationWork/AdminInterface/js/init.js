@@ -1,0 +1,5 @@
+pageInit()
+
+function pageInit() {
+    getEmployeeInfo();
+}
