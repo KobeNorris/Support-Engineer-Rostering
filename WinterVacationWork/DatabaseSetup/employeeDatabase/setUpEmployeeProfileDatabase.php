@@ -14,6 +14,7 @@ $sql="CREATE TABLE employee_profile (".
     "group_id VARCHAR(255),".
     "phone_number VARCHAR(40),".
     "account_type VARCHAR(40) NOT NULL,".
+    "job_role VARCHAR(40) NOT NULL,".
     "status boolean NOT NULL".
     ");";
     
@@ -23,7 +24,7 @@ try {
     $stmt=$dbh->prepare($sql);
     $stmt->execute();
 
-    echo "Set up employee profile Success"
+    echo "Set up employee profile Success";
 } catch (PDOException $error) {
     echo 'SQL Query:'.$sql.'</br>';
     echo 'Connection failed:'.$error->getMessage();

@@ -36,6 +36,7 @@ function getEmployeeProfile(){
             $profile['status'] = $row['status'];
             $profile['working_id'] = $row['working_id'];
             $profile['account_type'] = $row['account_type'];
+            $profile['job_role'] = $row['job_role'];
             array_push($profileList, $profile);
         }
 
@@ -50,7 +51,16 @@ function updateEmployeeProfile(){
     $employeeProfile = json_decode($_POST['employeeProfile']);
     $old_working_id = $_POST['working_id'];
 
-    $sql = "UPDATE employee_profile SET name = \"".$employeeProfile[0]->name."\", working_id = \"".$employeeProfile[0]->working_id."\", slack_id = \"".$employeeProfile[0]->slack_id."\", email = \"".$employeeProfile[0]->email."\", group_id = \"".$employeeProfile[0]->group_id."\", phone_number = \"".$employeeProfile[0]->phone_number."\", status = ".$employeeProfile[0]->status." WHERE working_id = \"".$old_working_id."\";";
+    $sql = "UPDATE employee_profile SET name = \"".$employeeProfile[0]->name.
+    "\", working_id = \"".$employeeProfile[0]->working_id
+    ."\", job_role=\"".$employeeProfile[0]->job_role
+    ."\", slack_id = \"".$employeeProfile[0]->slack_id
+    ."\", email = \"".$employeeProfile[0]->email
+    ."\", group_id = \"".$employeeProfile[0]->group_id
+    ."\", phone_number = \"".$employeeProfile[0]->phone_number
+    ."\", status = ".$employeeProfile[0]->status
+    ." WHERE working_id = \"".$old_working_id
+    ."\";";
 
     if($employeeProfile[0]->working_id != $old_working_id){
         if(isset($_SESSION['working_id'])){

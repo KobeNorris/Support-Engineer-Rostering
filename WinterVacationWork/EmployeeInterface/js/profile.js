@@ -11,14 +11,12 @@ function refreshEmployeProfile() {
             document.getElementById("name").value = employeeProfile[0]["name"];
             document.getElementById("working_id").value = employeeProfile[0]["working_id"];
             document.getElementById("account_type").value = employeeProfile[0]["account_type"];
+            document.getElementById(employeeProfile[0]["job_role"] + " option").setAttribute("selected", "true");
             document.getElementById("slack_id").value = employeeProfile[0]["slack_id"];
             document.getElementById("group_id").value = employeeProfile[0]["group_id"];
             document.getElementById("email").value = employeeProfile[0]["email"];
             document.getElementById("phone_number").value = employeeProfile[0]["phone_number"];
-            if (employeeProfile[0]["status"])
-                document.getElementById("status").checked = true;
-            else
-                document.getElementById("status").checked = false;
+            document.getElementById("status").checked = employeeProfile[0]["status"]
         }
     );
 }
@@ -40,6 +38,7 @@ function editEmployeeProfile() {
                 document.getElementById("status").disabled = false;
                 document.getElementById("working_id").disabled = false;
                 document.getElementById("account_type").disabled = false;
+                document.getElementById("job_role").disabled = false;
             }
             else
                 console.log(responseText);
@@ -61,15 +60,15 @@ function updateEmployeeProfile() {
         function (responseText) {
             if (responseText == "admin") {
                 employeeProfile[0]["working_id"] = document.getElementById("working_id").value;
-                employeeProfile[0]["account_type"] = document.getElementById("account_type").value;
                 employeeProfile[0]["status"] = (document.getElementById("status").checked);
+                employeeProfile[0]["account_type"] = document.getElementById("account_type").value;
+                employeeProfile[0]["job_role"] = document.getElementById("job_role").value;
+                sendEmployeeProfile();
             }
             else
                 console.log(responseText);
         }
     );
-
-    sendEmployeeProfile();
 
     document.getElementById("name").disabled = true;
     document.getElementById("slack_id").disabled = true;
@@ -79,6 +78,7 @@ function updateEmployeeProfile() {
     document.getElementById("status").disabled = true;
     document.getElementById("working_id").disabled = true;
     document.getElementById("account_type").disabled = true;
+    document.getElementById("job_role").disabled = true;
 
     document.getElementById("profileEditButton").innerHTML = "<button onclick=\"editEmployeeProfile()\">Edit</button>";
 }

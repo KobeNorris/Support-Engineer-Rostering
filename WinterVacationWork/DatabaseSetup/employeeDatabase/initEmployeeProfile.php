@@ -7,7 +7,7 @@ $user = 'team35';
 $password = 'team35';
 
 $strJsonFileContents = json_decode(file_get_contents("./employeeProfile.json"), true);
-$sql = "INSERT INTO employee_profile (name, working_id, slack_id, email, group_id, phone_number, account_type, status) VALUES ";
+$sql = "INSERT INTO employee_profile (name, working_id, slack_id, email, group_id, phone_number, account_type, job_role, status) VALUES ";
 for($blockCounter = 0; $blockCounter < sizeof($strJsonFileContents); $blockCounter++){
     $sql = $sql."(\"".$strJsonFileContents[$blockCounter]["name"].
     "\", \"".$strJsonFileContents[$blockCounter]["working_id"].
@@ -16,6 +16,7 @@ for($blockCounter = 0; $blockCounter < sizeof($strJsonFileContents); $blockCount
     "\", \"".$strJsonFileContents[$blockCounter]["group_id"].
     "\", \"".$strJsonFileContents[$blockCounter]["phone_number"].
     "\", \"".$strJsonFileContents[$blockCounter]["account_type"].
+    "\", \"".$strJsonFileContents[$blockCounter]["job_role"].
     "\", ".$strJsonFileContents[$blockCounter]["status"].")";
     if($blockCounter < sizeof($strJsonFileContents) - 1)
         $sql = $sql.",";
