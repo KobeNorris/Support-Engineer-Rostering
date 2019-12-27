@@ -21,15 +21,15 @@ function checkRepeat() {
     }
 }
 
-function getRoleIndex(targetRole) {
-    var iTemp;
-    for (iTemp = 0; iTemp < roleList.length; iTemp++) {
-        if (roleList[iTemp] == targetRole) {
-            break;
-        }
-    }
-    return iTemp
-}
+// function getRoleIndex(targetRole) {
+//     var iTemp;
+//     for (iTemp = 0; iTemp < roleList.length; iTemp++) {
+//         if (roleList[iTemp] == targetRole) {
+//             break;
+//         }
+//     }
+//     return iTemp
+// }
 
 function openEditWindowTT(event) {
     var url = "./php/login.php";
@@ -68,7 +68,7 @@ function popWindowTT(event) {
     var obj = event.srcElement ? event.srcElement : event.target;
     var editWindow = document.getElementById('editWindow');
 
-    document.getElementById('jobRoleSelection')[getRoleIndex(obj.getAttribute('role'))].selected = true;
+    document.getElementById('jobRoleSelection').innerHTML = obj.getAttribute('role');
     document.getElementById('inputStartDate').value = obj.getAttribute('start');
     document.getElementById('inputEndDate').value = obj.getAttribute('end');
 
@@ -81,6 +81,7 @@ function popWindowEC(event) {
     var obj = event.srcElement ? event.srcElement : event.target;
     var editWindow = document.getElementById('editWindow');
 
+    document.getElementById('jobRoleSelection').innerHTML = obj.getAttribute('job_role');
     document.getElementById('inputWorking_id').value = obj.getAttribute('working_id');
     document.getElementById('modal').style.display = "block";
     editWindow.style.display = "block";

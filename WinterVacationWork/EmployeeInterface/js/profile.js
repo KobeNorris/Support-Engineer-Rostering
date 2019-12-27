@@ -11,7 +11,7 @@ function refreshEmployeProfile() {
             document.getElementById("name").value = employeeProfile[0]["name"];
             document.getElementById("working_id").value = employeeProfile[0]["working_id"];
             document.getElementById("account_type").value = employeeProfile[0]["account_type"];
-            document.getElementById(employeeProfile[0]["job_role"] + " option").setAttribute("selected", "true");
+            document.getElementById(employeeProfile[0]["job_role"] + "Option").setAttribute("selected", "true");
             document.getElementById("slack_id").value = employeeProfile[0]["slack_id"];
             document.getElementById("group_id").value = employeeProfile[0]["group_id"];
             document.getElementById("email").value = employeeProfile[0]["email"];

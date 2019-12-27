@@ -26,6 +26,7 @@ function getNameList(){
             $employeeInfo['name'] = $row['name'];
             $employeeInfo['working_id'] = $row['working_id'];
             $employeeInfo['group_id'] = $row['group_id'];
+            $employeeInfo['job_role'] = $row['job_role'];
             array_push($employeeList[$row['group_id']], $employeeInfo);
         }
             

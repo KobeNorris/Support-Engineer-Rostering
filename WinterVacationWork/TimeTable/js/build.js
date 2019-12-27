@@ -1,5 +1,5 @@
 var weekNameList = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-var roleList = ["Primary", "Secondary", "Manager"];
+var roleList = ["PrimaryEngineer", "SecondaryEngineer", "EscalationManager"];
 
 // This method builds up the employee category
 function buildEmployeeList() {
@@ -11,8 +11,9 @@ function buildEmployeeList() {
         var List = nameList[groupList[groupIndex]];
         if (List != null) {
             for (var iCountNameList = 0; iCountNameList < List.length; iCountNameList++) {
-                html += "<div working_id=\"" + List[iCountNameList]['working_id'] + "\","
-                    + " onclick=\"openEditWindowEC(event)\">"
+                html += "<div working_id=\"" + List[iCountNameList]['working_id'] + "\" "
+                    + "job_role=\"" + List[iCountNameList]['job_role'] + "\" "
+                    + "onclick=\"openEditWindowEC(event)\">"
                     + List[iCountNameList]['name'] + "</div>";
             }
         }

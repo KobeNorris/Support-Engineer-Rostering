@@ -7,7 +7,7 @@
         "group_id": "Customer Nottingham",
         "phone_number": "18030700990",
         "account_type": "admin",
-        "job_role": "Primary engineer",
+        "job_role": "PrimaryEngineer",
         "status": true
     },
     {
@@ -18,7 +18,7 @@
         "group_id": "Customer Nottingham",
         "phone_number": "14324120990",
         "account_type": "employee",
-        "job_role": "Primary engineer",
+        "job_role": "PrimaryEngineer",
         "status": true
     },
     {
@@ -29,7 +29,7 @@
         "group_id": "Customer Nottingham",
         "phone_number": "12345678901",
         "account_type": "employee",
-        "job_role": "Secondary engineer",
+        "job_role": "SecondaryEngineer",
         "status": true
     },
     {
@@ -40,7 +40,7 @@
         "group_id": "Customer Nottingham",
         "phone_number": "10987654321",
         "account_type": "employee",
-        "job_role": "Secondary engineer",
+        "job_role": "SecondaryEngineer",
         "status": true
     },
     {
@@ -51,7 +51,7 @@
         "group_id": "Customer Nottingham",
         "phone_number": "77777777777",
         "account_type": "employee",
-        "job_role": "Escalation manager",
+        "job_role": "EscalationManager",
         "status": true
     },
     {
@@ -62,7 +62,7 @@
         "group_id": "Customer Nottingham",
         "phone_number": "00000000000",
         "account_type": "employee",
-        "job_role": "Escalation manager",
+        "job_role": "EscalationManager",
         "status": true
     }
 ]
