@@ -31,12 +31,20 @@ function editEmployeeProfile() {
     document.getElementById("phone_number").disabled = false;
     document.getElementById("profileEditButton").innerHTML = "<button onclick=\"updateEmployeeProfile()\">Update</button>";
 
-    if (true) {
-        document.getElementById("status").disabled = false;
-        document.getElementById("working_id").disabled = false;
-        document.getElementById("account_type").disabled = false;
-    }
+    var url = "./php/login.php";
+    var data = "action=check";
 
+    AJAX.post(url, data,
+        function (responseText) {
+            if (responseText == "admin") {
+                document.getElementById("status").disabled = false;
+                document.getElementById("working_id").disabled = false;
+                document.getElementById("account_type").disabled = false;
+            }
+            else
+                console.log(responseText);
+        }
+    );
 }
 
 function updateEmployeeProfile() {
@@ -45,11 +53,21 @@ function updateEmployeeProfile() {
     employeeProfile[0]["group_id"] = document.getElementById("group_id").value;
     employeeProfile[0]["email"] = document.getElementById("email").value;
     employeeProfile[0]["phone_number"] = document.getElementById("phone_number").value;
-    if (true) {
-        employeeProfile[0]["working_id"] = document.getElementById("working_id").value;
-        employeeProfile[0]["account_type"] = document.getElementById("account_type").value;
-        employeeProfile[0]["status"] = (document.getElementById("status").checked);
-    }
+
+    var url = "./php/login.php";
+    var data = "action=check";
+
+    AJAX.post(url, data,
+        function (responseText) {
+            if (responseText == "admin") {
+                employeeProfile[0]["working_id"] = document.getElementById("working_id").value;
+                employeeProfile[0]["account_type"] = document.getElementById("account_type").value;
+                employeeProfile[0]["status"] = (document.getElementById("status").checked);
+            }
+            else
+                console.log(responseText);
+        }
+    );
 
     sendEmployeeProfile();
 

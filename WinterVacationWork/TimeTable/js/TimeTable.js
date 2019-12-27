@@ -10,7 +10,7 @@ function getMonthGreatestDate(year, month) {
 function getLastMonthGreatestDate(year, month) {
     if (month == 0) {
         year--;
-        month = 11;
+        month = 12;
     }
     var d = new Date(year, month, 0);
     return d.getDate();
@@ -26,9 +26,18 @@ function getMonthBeginWeekDay() {
     return temp;
 }
 
-function editTimeTable(event) {
-    document.getElementById("")
+function datePHPToJS(time) {
+    var date = new Date(parseInt(time) * 1000);
+    Y = date.getFullYear() + '-';
+    M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
+    D = date.getDate() + ' ';
+
+    return Y + M + D;
 }
+
+// function dateJSToPHP() {
+
+// }
 
 // // This function gets the data of present month's roster plan
 // function getMonthData() {

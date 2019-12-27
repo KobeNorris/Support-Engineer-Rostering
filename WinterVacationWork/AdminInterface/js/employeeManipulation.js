@@ -35,16 +35,16 @@ function createNewEmployee() {
 
     if (checkInput()) {
         var url = "./php/employeeManipulation.php";
-        var data = "action=createt&working_id=" + newWorking_id + "&password=" + newPassword;
+        var data = "action=create&working_id=" + newWorking_id + "&password=" + newPassword;
 
         AJAX.post(url, data,
             function (responseText) {
-                if (xmlhttp.responseText == "Success") {
+                if (responseText == "Success") {
                     getEmployeeInfo();
                     hideCreateEmployeeWindow();
                 }
                 else
-                    alert(xmlhttp.responseText);
+                    alert(responseText);
             }
         );
     }
@@ -64,10 +64,10 @@ function deleteEmployee(event) {
 
     AJAX.post(url, data,
         function (responseText) {
-            if (xmlhttp.responseText == "Success")
+            if (responseText == "Success")
                 getEmployeeInfo();
             else
-                alert(xmlhttp.responseText);
+                alert(responseText);
         }
     );
 }

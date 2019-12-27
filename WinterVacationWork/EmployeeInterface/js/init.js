@@ -12,7 +12,9 @@ function initPage() {
                 refreshEmployeProfile();
                 getEmployeeDeployment();
                 getEmployeeHoliday();
+            } else {
+                window.location.href = "../TimeTable/TimeTable.html";
             }
         }
-    )
+    );
 }

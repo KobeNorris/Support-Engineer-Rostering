@@ -60,10 +60,10 @@ function deleteHoliday(event) {
 
     AJAX.post(url, data,
         function (responseText) {
-            if (xmlhttp.responseText == "Success")
+            if (responseText == "Success")
                 getEmployeeHoliday();
             else
-                console.log(xmlhttp.responseText);
+                console.log(responseText);
         }
     );
 }

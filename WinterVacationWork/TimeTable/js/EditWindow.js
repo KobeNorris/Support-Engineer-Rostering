@@ -71,6 +71,7 @@ function popWindowTT(event) {
     document.getElementById('jobRoleSelection')[getRoleIndex(obj.getAttribute('role'))].selected = true;
     document.getElementById('inputStartDate').value = obj.getAttribute('start');
     document.getElementById('inputEndDate').value = obj.getAttribute('end');
+
     document.getElementById('modal').style.display = "block";
     editWindow.style.display = "block";
 }
@@ -88,4 +89,8 @@ function popWindowEC(event) {
 function hideWindow() {
     document.getElementById('modal').style.display = "none";
     document.getElementById('editWindow').style.display = "none";
+
+    document.getElementById('inputWorking_id').value = "";
+    document.getElementById('inputStartDate').value = "";
+    document.getElementById('inputEndDate').value = "";
 }
