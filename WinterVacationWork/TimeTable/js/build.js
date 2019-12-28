@@ -85,30 +85,30 @@ function buildTimeTable() {
         // Demonstrate the job roles allocation during one week period
         var SunToMon, TueToSat, SunToMonClass, TueToSatClass;
         for (var jobRoleCounter = 0; jobRoleCounter < 3; jobRoleCounter++) {
-            SunToMon = monthData.dataA[3 * weekCounter + jobRoleCounter];
-            TueToSat = monthData.dataA[3 * weekCounter + jobRoleCounter + 3];
-            SunToMonClass = (SunToMon.working_id == "" ? "emptyJobBlock" : roleList[jobRoleCounter]);
-            TueToSatClass = (TueToSat.working_id == "" ? "emptyJobBlock" : roleList[jobRoleCounter]);
+            SunToMon = monthData[3 * weekCounter + jobRoleCounter];
+            TueToSat = monthData[3 * weekCounter + jobRoleCounter + 3];
+            SunToMonClass = (SunToMon.working_id == null ? "emptyJobBlock" : roleList[jobRoleCounter]);
+            TueToSatClass = (TueToSat.working_id == null ? "emptyJobBlock" : roleList[jobRoleCounter]);
 
             timeTable += "<tr>";
             timeTable += "<td colspan=\"2\" class=\"JobBlock\">";
             timeTable += "<div id=\"" + weekCounter + "-" + jobRoleCounter +
                 "-0\" class=\"" + SunToMonClass + "JobBlock\"" +
                 "working_id=\"" + SunToMon.working_id + "\" " +
-                "role=\"" + SunToMon.Role + "\" " +
-                "start=\"" + SunToMon.start + "\" " +
-                "end=\"" + SunToMon.end + "\" " +
+                "job_role=\"" + SunToMon.job_role + "\" " +
+                "start_date=\"" + SunToMon.start_date + "\" " +
+                "end_date=\"" + SunToMon.end_date + "\" " +
                 "onclick=\"openEditWindowTT(event)\"" +
-                ">&nbsp&nbsp" + SunToMon.working_id + "</div></td>";
+                ">&nbsp&nbsp" + SunToMon.name + "</div></td>";
             timeTable += "<td colspan=\"5\" class=\"JobBlock\">";
             timeTable += "<div id=\"" + weekCounter + "-" + jobRoleCounter +
                 "-0\" class=\"" + TueToSatClass + "JobBlock\"" +
                 "working_id=\"" + TueToSat.working_id + "\" " +
-                "role=\"" + TueToSat.Role + "\" " +
-                "start=\"" + TueToSat.start + "\" " +
-                "end=\"" + TueToSat.end + "\" " +
+                "job_role=\"" + TueToSat.job_role + "\" " +
+                "start_date=\"" + TueToSat.start_date + "\" " +
+                "end_date=\"" + TueToSat.end_date + "\" " +
                 "onclick=\"openEditWindowTT(event)\"" +
-                ">&nbsp&nbsp" + TueToSat.working_id + "</div></td>";
+                ">&nbsp&nbsp" + TueToSat.name + "</div></td>";
             timeTable += "</tr>";
         }
         timeTable += "</tbody>";

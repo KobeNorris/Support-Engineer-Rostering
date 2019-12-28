@@ -1,3 +1,5 @@
+var monthData;
+var firstDate;
 var currentWeekDay;
 
 // This function delivers the greatest day within present month
@@ -35,31 +37,37 @@ function datePHPToJS(time) {
     return Y + M + D;
 }
 
-// function dateJSToPHP() {
+function getFirstDate() {
+    currentWeekDay = currentTime.getDay();
+    Year = currentTime.getFullYear();
+    Month = currentTime.getMonth();
+    Day = currentTime.getDate();
 
-// }
+    if (getMonthBeginWeekDay() != 0) {
+        if (Month == 0) {
+            Year--;
+            Month = 12;
+        }
+        Day = getLastMonthGreatestDate(Year, Month) - getMonthBeginWeekDay() + 1;
+        firstDate = Year + "-" + Month + "-" + Day;
+    }
+    else
+        firstDate = Year + "-" + Month + "-" + "01";
+}
 
-// // This function gets the data of present month's roster plan
-// function getMonthData() {
-//     var xmlhttp;
-//     var monthData;
+// This function gets the data of present month's roster plan
+function getMonthData() {
+    getFirstDate();
+    var url = "./php/timeTable.php";
+    var data = "action=get&firstDate=" + firstDate;
 
-//     if (window.XMLHttpRequest)
-//         xmlhttp = new XMLHttpRequest();
-//     else
-//         xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-//     xmlhttp.open("GET", "./TimeTable.php", true);
-//     xmlhttp.onreadystatechange = function () {
-//         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-//             monthData = eval(xmlhttp.responseText);
-//             updateRoster(monthData);
-//         }
-//     }
-//     // xmlhttp.open("GET", "./TimeTable.php", true);
-//     // xmlhttp.open("POST", "./TimeTable.php", true);
-//     // xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-//     xmlhttp.send();
-// }
+    AJAX.post(url, data,
+        function (responseText) {
+            monthData = JSON.parse(responseText);
+            buildTimeTable();
+        }
+    )
+}
 
 // //This function will update present roster plan to the backend 
 // function updateRoster(monthData) {

@@ -68,9 +68,13 @@ function popWindowTT(event) {
     var obj = event.srcElement ? event.srcElement : event.target;
     var editWindow = document.getElementById('editWindow');
 
-    document.getElementById('jobRoleSelection').innerHTML = obj.getAttribute('role');
-    document.getElementById('inputStartDate').value = obj.getAttribute('start');
-    document.getElementById('inputEndDate').value = obj.getAttribute('end');
+    if (obj.getAttribute('working_id') == "null")
+        document.getElementById('inputWorking_id').value = "";
+    else
+        document.getElementById('inputWorking_id').value = obj.getAttribute('working_id');
+    document.getElementById('jobRoleSelection').innerHTML = obj.getAttribute('job_role');
+    document.getElementById('inputStartDate').value = obj.getAttribute('start_date');
+    document.getElementById('inputEndDate').value = obj.getAttribute('end_date');
 
     document.getElementById('modal').style.display = "block";
     editWindow.style.display = "block";

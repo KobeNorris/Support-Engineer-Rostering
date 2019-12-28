@@ -16,6 +16,7 @@ function refreshTimeSelector() {
     Year = currentTime.getFullYear();
     document.getElementById("timeSelectorMonth").innerHTML = monthNameList[Month];
     document.getElementById("timeSelectorYear").value = Year;
+    getMonthData();
 }
 
 function addOneMonth() {
