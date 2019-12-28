@@ -63,6 +63,7 @@ function getMonthData() {
 
     AJAX.post(url, data,
         function (responseText) {
+            console.log(responseText);
             monthData = JSON.parse(responseText);
             buildTimeTable();
         }
