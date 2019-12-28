@@ -87,8 +87,8 @@ function buildTimeTable() {
         for (var jobRoleCounter = 0; jobRoleCounter < 3; jobRoleCounter++) {
             SunToMon = monthData[3 * weekCounter + jobRoleCounter];
             TueToSat = monthData[3 * weekCounter + jobRoleCounter + 3];
-            SunToMonClass = (SunToMon.working_id == null ? "emptyJobBlock" : roleList[jobRoleCounter]);
-            TueToSatClass = (TueToSat.working_id == null ? "emptyJobBlock" : roleList[jobRoleCounter]);
+            SunToMonClass = (SunToMon.working_id == "" ? "emptyJobBlock" : roleList[jobRoleCounter]);
+            TueToSatClass = (TueToSat.working_id == "" ? "emptyJobBlock" : roleList[jobRoleCounter]);
 
             timeTable += "<tr>";
             timeTable += "<td colspan=\"2\" class=\"JobBlock\">";
