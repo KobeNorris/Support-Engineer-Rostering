@@ -44,6 +44,8 @@ function updatePassword(){
         $dbh=PDOProvider();
         $stmt=$dbh->prepare($sql);
         $stmt->execute();
+
+        $_SESSION['password'] = $_POST['newPassword'];
     
         echo "Success";
     } catch (PDOException $error) {

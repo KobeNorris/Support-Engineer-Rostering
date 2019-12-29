@@ -69,11 +69,3 @@ function getMonthData() {
         }
     )
 }
-
-// //This function will update present roster plan to the backend 
-// function updateRoster(monthData) {
-//     // console.log(sundayList);
-//     for (var weekIndex = 0; weekIndex < monthData.length; monthData++) {
-
-//     }
-// }

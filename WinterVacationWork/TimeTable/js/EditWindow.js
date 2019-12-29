@@ -21,16 +21,6 @@ function checkRepeat() {
     }
 }
 
-// function getRoleIndex(targetRole) {
-//     var iTemp;
-//     for (iTemp = 0; iTemp < roleList.length; iTemp++) {
-//         if (roleList[iTemp] == targetRole) {
-//             break;
-//         }
-//     }
-//     return iTemp
-// }
-
 function openEditWindowTT(event) {
     var url = "./php/login.php";
     var data = "action=check";
@@ -98,4 +88,26 @@ function hideWindow() {
     document.getElementById('inputWorking_id').value = "";
     document.getElementById('inputStartDate').value = "";
     document.getElementById('inputEndDate').value = "";
+}
+
+function sendInfo() {
+    var block = new Object();
+    block['group_id'] = group_id;
+    block['working_id'] = document.getElementById("inputWorking_id").value;
+    block['start_date'] = document.getElementById("inputStartDate").value;
+    block['end_date'] = document.getElementById("inputEndDate").value;
+
+    var url = "./php/timeTable.php";
+    var data = "action=normalInsert&block=" + JSON.stringify(block);
+
+    AJAX.post(url, data,
+        function (responseText) {
+            if (responseText == "Success") {
+                getMonthData();
+                hideWindow();
+            }
+            else
+                alert(responseText);
+        }
+    );
 }
