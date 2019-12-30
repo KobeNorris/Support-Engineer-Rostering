@@ -22,6 +22,8 @@ function checkNameList(event) {
     }
     else
         targetObj.style.display = 'none';
+
+    getMonthData();
 }
 
 function getNameList() {

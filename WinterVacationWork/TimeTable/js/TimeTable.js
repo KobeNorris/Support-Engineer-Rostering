@@ -47,7 +47,7 @@ function getMonthData() {
     getFirstDate();
     // console.log(firstDate);
     var url = "./php/timeTable.php";
-    var data = "action=get&firstDate=" + firstDate;
+    var data = "action=get&firstDate=" + firstDate + "&group_id=" + currentGroup;
 
     AJAX.post(url, data,
         function (responseText) {

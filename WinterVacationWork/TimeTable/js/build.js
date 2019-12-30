@@ -13,7 +13,7 @@ function buildEmployeeList() {
             for (var iCountNameList = 0; iCountNameList < List.length; iCountNameList++) {
                 html += "<div working_id=\"" + List[iCountNameList]['working_id'] + "\" "
                     + "job_role=\"" + List[iCountNameList]['job_role'] + "\" "
-                    + "onclick=\"openEditWindowEC(event)\">"
+                    + "onclick=\"openEditWindow(event, \'employeeCategory\')\">"
                     + List[iCountNameList]['name'] + "</div>";
             }
         }
@@ -99,7 +99,7 @@ function buildTimeTable() {
                 "job_role=\"" + SunToMon.job_role + "\" " +
                 "start_date=\"" + SunToMon.start_date + "\" " +
                 "end_date=\"" + SunToMon.end_date + "\" " +
-                "onclick=\"openEditWindowTT(event)\"" +
+                "onclick=\"openEditWindow(event, \'timeTable\')\"" +
                 ">&nbsp&nbsp" + SunToMon.name + "</div></td>";
             timeTable += "<td colspan=\"5\" class=\"JobBlock\">";
             timeTable += "<div id=\"" + weekCounter + "-" + jobRoleCounter +
@@ -108,7 +108,7 @@ function buildTimeTable() {
                 "job_role=\"" + TueToSat.job_role + "\" " +
                 "start_date=\"" + TueToSat.start_date + "\" " +
                 "end_date=\"" + TueToSat.end_date + "\" " +
-                "onclick=\"openEditWindowTT(event)\"" +
+                "onclick=\"openEditWindow(event, \'timeTable\')\"" +
                 ">&nbsp&nbsp" + TueToSat.name + "</div></td>";
             timeTable += "</tr>";
         }
