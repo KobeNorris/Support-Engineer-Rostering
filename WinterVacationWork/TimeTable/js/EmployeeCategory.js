@@ -1,5 +1,4 @@
 var groupList = ["Customer Nottingham", "Grow", "Customer London"];
-var groupIdList = ["CustomerNottingham", "Grow", "CustomerLondon"];
 var submenuListFrame = ["CustomerNSubmenuFrame", "GrowSubmenuFrame", "CustomerLSubmenuFrame"];
 var nameList;
 var currentGroup = groupList[0];
@@ -16,7 +15,7 @@ function checkNameList(event) {
                 document.getElementById(groupList[iTemp] + "NameList").style.display = "none";
             else {
                 document.getElementById("tableTitle").innerHTML = groupList[iTemp];
-                group_id = groupIdList[iTemp];
+                group_id = groupList[iTemp];
                 currentGroup = groupList[iTemp];
             }
         }

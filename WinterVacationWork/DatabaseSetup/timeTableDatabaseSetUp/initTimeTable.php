@@ -7,9 +7,9 @@ $strJsonFileContents = json_decode(file_get_contents("./timeTable.json"), true);
 $PE_flag = false;
 $SE_flag = false;
 $EM_flag = false;
-$PE_sql = "INSERT INTO primary_engineer (working_id, group_id, start, end) VALUES ";
-$SE_sql = "INSERT INTO secondary_engineer (working_id, group_id, start, end) VALUES ";
-$EM_sql = "INSERT INTO escalation_manager (working_id, group_id, start, end) VALUES ";
+$PE_sql = "INSERT INTO primary_engineer (working_id, group_id, start_date, end_date) VALUES ";
+$SE_sql = "INSERT INTO secondary_engineer (working_id, group_id, start_date, end_date) VALUES ";
+$EM_sql = "INSERT INTO escalation_manager (working_id, group_id, start_date, end_date) VALUES ";
 
 for($index = 0; $index < sizeof($strJsonFileContents); $index++){
     switch ($strJsonFileContents[$index]['job_role']) {

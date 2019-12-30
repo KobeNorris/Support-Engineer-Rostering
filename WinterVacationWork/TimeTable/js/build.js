@@ -31,11 +31,12 @@ function buildTimeTable() {
     currentWeekDay = currentTime.getDay();
     Year = currentTime.getFullYear();
     Month = currentTime.getMonth();
-    Day = currentTime.getDate();
-    var weekday = getMonthBeginWeekDay();
+    // Day = currentTime.getDate();
+    var weekday = getMonthBeginWeekDay(Year, Month);
     var numOfTotalDay = getMonthGreatestDate(Year, Month);
     var numOFLastTotalDay = getLastMonthGreatestDate(Year, Month);
     var totalDayCounter = 0 - weekday;
+    // console.log(weekday);
     var dayCounter;
     var weekDayCounter;
 

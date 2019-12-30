@@ -7,6 +7,8 @@ function checkRepeat() {
         targetButton.innerHTML = 'Disable weekly repeat';
         targetButton.status = 'enabled';
         document.getElementById("repeatAttribute").style.color = 'black';
+        document.getElementById("EWUpload").onclick = repeatUploadInfo;
+        document.getElementById("EWDelete").onclick = repeatDeleteInfo;
         inputs.each(function () {
             this.disabled = false;
         });
@@ -15,6 +17,8 @@ function checkRepeat() {
         targetButton.innerHTML = 'Enable weekly repeat';
         targetButton.status = 'disabled';
         document.getElementById("repeatAttribute").style.color = 'grey';
+        document.getElementById("EWUpload").onclick = normalUploadInfo;
+        document.getElementById("EWDelete").onclick = normalDeleteInfo;
         inputs.each(function () {
             this.disabled = true;
         });
@@ -90,9 +94,10 @@ function hideWindow() {
     document.getElementById('inputEndDate').value = "";
 }
 
-function sendInfo() {
+function normalUploadInfo() {
     var block = new Object();
     block['group_id'] = group_id;
+    block['job_role'] = document.getElementById("jobRoleSelection").innerHTML;
     block['working_id'] = document.getElementById("inputWorking_id").value;
     block['start_date'] = document.getElementById("inputStartDate").value;
     block['end_date'] = document.getElementById("inputEndDate").value;
@@ -110,4 +115,69 @@ function sendInfo() {
                 alert(responseText);
         }
     );
+}
+
+function normalDeleteInfo() {
+    var block = new Object();
+    block['group_id'] = group_id;
+    block['job_role'] = document.getElementById("jobRoleSelection").innerHTML;
+    block['working_id'] = document.getElementById("inputWorking_id").value;
+    block['start_date'] = document.getElementById("inputStartDate").value;
+    block['end_date'] = document.getElementById("inputEndDate").value;
+
+    // console.log(block);
+
+    var url = "./php/timeTable.php";
+    var data = "action=normalDelete&block=" + JSON.stringify(block);
+
+    AJAX.post(url, data,
+        function (responseText) {
+            if (responseText == "Success") {
+                getMonthData();
+                hideWindow();
+            }
+            else
+                alert(responseText);
+        }
+    );
+}
+
+function repeatUploadInfo() {
+    var block = new Object();
+    block['group_id'] = group_id;
+    block['job_role'] = document.getElementById("jobRoleSelection").innerHTML;
+    block['working_id'] = document.getElementById("inputWorking_id").value;
+    block['start_date'] = document.getElementById("inputStartDate").value;
+    block['end_date'] = document.getElementById("inputEndDate").value;
+    block['interval'] = document.getElementById("inputRepeatInterval").value;
+    if (document.getElementById("yearEnd").checked == true)
+        block['end'] = "Year";
+    else if (document.getElementById("timeEnd").checked == true) {
+        block['end'] = "Time";
+        block['endValue'] = document.getElementById("inputEndTime").value;
+    }
+    else if (document.getElementById("dateEnd").checked == true) {
+        block['end'] = "Date";
+        block['endValue'] = document.getElementById("inputEndDate").value;
+    }
+
+    console.log(block);
+
+    var url = "./php/timeTable.php";
+    var data = "action=repeatInsert&block=" + JSON.stringify(block);
+
+    AJAX.post(url, data,
+        function (responseText) {
+            if (responseText == "Success") {
+                getMonthData();
+                hideWindow();
+            }
+            else
+                // alert(responseText);
+                console.log(responseText);
+        }
+    );
+}
+
+function repeatDeleteInfo() {
 }

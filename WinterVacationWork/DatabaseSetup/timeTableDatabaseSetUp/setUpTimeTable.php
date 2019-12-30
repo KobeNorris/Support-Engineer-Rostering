@@ -4,28 +4,28 @@ $user = 'team35';
 $password = 'team35';
 
 $sql = "CREATE TABLE primary_engineer (
-    unique_id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    -- unique_id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
     working_id VARCHAR(40) NOT NULL,
     group_id VARCHAR(40) NOT NULL,
     -- role VARCHAR(40) NOT NULL,
-    start DATETIME,
-    end   DATETIME);";
+    start_date DATETIME,
+    end_date   DATETIME);";
 
 $sql = $sql."CREATE TABLE secondary_engineer (
-    unique_id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    -- unique_id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
     working_id VARCHAR(40) NOT NULL,
     group_id VARCHAR(40) NOT NULL,
     -- role VARCHAR(40) NOT NULL,
-    start DATETIME,
-    end   DATETIME);";
+    start_date DATETIME,
+    end_date   DATETIME);";
 
 $sql = $sql."CREATE TABLE escalation_manager (
-    unique_id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    -- unique_id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
     working_id VARCHAR(40) NOT NULL,
     group_id VARCHAR(40) NOT NULL,
     -- role VARCHAR(40) NOT NULL,
-    start DATETIME,
-    end   DATETIME);";
+    start_date DATETIME,
+    end_date   DATETIME);";
 
 try {
     $dbh=new PDO($dsn,$user,$password);

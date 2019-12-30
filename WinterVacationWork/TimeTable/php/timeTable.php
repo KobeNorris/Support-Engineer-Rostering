@@ -2,86 +2,36 @@
 include_once("./db_connection.php");
 $roleList = ['PrimaryEngineer','SecondaryEngineer','EscalationManager'];
 $tableList = ['primary_engineer','secondary_engineer','escalation_manager'];
-$GLOBALS['job_role'] = "";
 
-
-// switch ($_POST['action']) {
-//     case 'get':
-//         getTimeTableOfMonth();
-//         break;
+switch ($_POST['action']) {
+    case 'get':
+        getTimeTableOfMonth();
+        break;
     
-//     case 'normalInsert':
-//         insertBlockIntoTimeTable();
-//         break;
+    case 'normalInsert':
+        normalInsert();
+        break;
 
-//     default:
-//         # code...
-//         break;
-// }
+    case 'normalDelete':
+        normalDelete();
+        break;
 
-getTimeTableOfMonth();
+    case 'repeatInsert':
+        repeatInsert();
+        break;
 
-// insertBlockIntoTimeTable();
+    default:
+        # code...
+        break;
+}
 
 function getTimeTableOfMonth(){
     global $roleList, $tableList;
 
-    // // $date = strtotime("2019-12-01");
-    // // $date = strtotime("2019-10-27");
-    // $date = strtotime($_POST['firstDate']);
+    $group_id = "Customer Nottingham";
 
-    // $group_id = "Customer Nottingham";
-    // $date = strtoTime("-5 day", $date);
-
-    // $monthData = array();
-
-    // for($weekCounter = 0; $weekCounter < 7; $weekCounter++){
-    //     $tempStart = date("Y-m-d", $date);
-    //     $tempEnd = date("Y-m-d", strtoTime("+6 day", $date));
-    //     $date = strtoTime("+1 week", $date);
-
-    //     for($index = 0; $index < sizeof($roleList); $index++){
-    //         $block = array();
-    //         $sql = "SELECT * FROM ".$tableList[$index]." WHERE group_id=\"".$group_id.
-    //         "\" AND (start=\"".$tempStart."\" AND end=\"".$tempEnd."\");";
-
-    //         try {
-    //             $dbh=PDOProvider();
-    //             $stmt=$dbh->prepare($sql);
-    //             $stmt->execute();
-            
-    //             $row=$stmt->fetch(PDO::FETCH_ASSOC);
-    //             $block['working_id'] = $row['working_id'];
-    //             $block['job_role'] = $roleList[$index];
-    //             $block['start_date'] = date("Y-m-d", strtoTime($tempStart))."";
-    //             $block['end_date'] = date("Y-m-d", strtoTime($tempEnd))."";
-    //         } catch (PDOException $error) {
-    //             echo 'SQL Query:'.$sql.'</br>';
-    //             echo 'Connection failed:'.$error->getMessage();
-    //         }
-            
-    //         $sql = "SELECT * FROM employee_profile WHERE working_id=\"".$block['working_id']."\";";
-
-    //         try {
-    //             $dbh=PDOProvider();
-    //             $stmt=$dbh->prepare($sql);
-    //             $stmt->execute();
-            
-    //             $row=$stmt->fetch(PDO::FETCH_ASSOC);
-    //             $block['name'] = $row['name'];
-    //         } catch (PDOException $error) {
-    //             echo 'SQL Query:'.$sql.'</br>';
-    //             echo 'Connection failed:'.$error->getMessage();
-    //         }
-
-    //         array_push($monthData, $block);
-    //     }
-    // }
-
-    $group_id = "CustomerNottingham";
-
-    $date = strtotime("2019-11-24");
-    // $date = strtotime($_POST['firstDate']);
+    // $date = strtotime("2019-12-01");
+    $date = strtotime($_POST['firstDate']);
     $date = strtoTime("-5 day", $date);
     $startDate = array(7);
     $endDate = array(7);
@@ -107,19 +57,18 @@ function getTimeTableOfMonth(){
     }
 
     $sql_tail = " WHERE a.group_id=\"".$group_id."\" AND (".
-                "(start=\"".$startDate[0]."\" AND end=\"".$endDate[0]."\") OR ".
-                "(start=\"".$startDate[1]."\" AND end=\"".$endDate[1]."\") OR ".
-                "(start=\"".$startDate[2]."\" AND end=\"".$endDate[2]."\") OR ".
-                "(start=\"".$startDate[3]."\" AND end=\"".$endDate[3]."\") OR ".
-                "(start=\"".$startDate[4]."\" AND end=\"".$endDate[4]."\") OR ".
-                "(start=\"".$startDate[5]."\" AND end=\"".$endDate[5]."\") OR ".
-                "(start=\"".$startDate[6]."\" AND end=\"".$endDate[6]."\"))".
-                "ORDER BY start ASC;";
+                "(start_date=\"".$startDate[0]."\" AND end_date=\"".$endDate[0]."\") OR ".
+                "(start_date=\"".$startDate[1]."\" AND end_date=\"".$endDate[1]."\") OR ".
+                "(start_date=\"".$startDate[2]."\" AND end_date=\"".$endDate[2]."\") OR ".
+                "(start_date=\"".$startDate[3]."\" AND end_date=\"".$endDate[3]."\") OR ".
+                "(start_date=\"".$startDate[4]."\" AND end_date=\"".$endDate[4]."\") OR ".
+                "(start_date=\"".$startDate[5]."\" AND end_date=\"".$endDate[5]."\") OR ".
+                "(start_date=\"".$startDate[6]."\" AND end_date=\"".$endDate[6]."\"))".
+                "ORDER BY start_date ASC;";
 
     for($job_roleCounter = 0; $job_roleCounter < 3; $job_roleCounter++){
         $sql = "SELECT * FROM employee_profile AS a INNER JOIN ".$tableList[$job_roleCounter]." AS b ON a.working_id = b.working_id".$sql_tail;
 
-        echo $sql;
         try {
             $dbh=PDOProvider();
             $stmt=$dbh->prepare($sql);
@@ -128,11 +77,11 @@ function getTimeTableOfMonth(){
             $row_flag = true;
             while($row=$stmt->fetch(PDO::FETCH_ASSOC)){
                 $newWeekCounter = 0;
-                while($row['start'] != $monthData[3 * $newWeekCounter + $job_roleCounter]['start_date']." 00:00:00"){
+                while($row['start_date'] != $monthData[3 * $newWeekCounter + $job_roleCounter]['start_date']." 00:00:00"){
                     $newWeekCounter++;
                     if($newWeekCounter >= 7){
                         $row_flag = false;
-                        echo "error: row.start = ".$row['start'];
+                        echo "error: row.start_date = ".$row['start_date'];
                         break;
                     }
                 }
@@ -150,40 +99,50 @@ function getTimeTableOfMonth(){
     echo json_encode($monthData);
 }
 
-function insertBlockIntoTimeTable(){
+function normalInsert(){
     global $tableList;
 
     $block = json_decode($_POST['block']);
+    // (Object)$block = new stdClass;
+    // $block->working_id = "scykw1";
+    // $block->group_id = "Customer Nottingham";
+    // $block->start_date = "2020-01-14";
+    // $block->end_date = "2020-01-20";
 
-    if(check($block)){
-        if($GLOBALS['job_role'] == ""){
-            echo "Database error";
-            return false;
-        }else{
-            $sql =  "INSERT INTO ".$tableList[getJobRoleIndex($GLOBALS['job_role'])]." (working_id, group_id, start, end) VALUES (\"".
-                    $block->working_id."\", \"".
-                    $block->group_id."\", \"".
-                    $block->start_date."\", \"".
-                    $block->end_date."\");";
+    if(normalCheck($block)){
+        $sql =  "INSERT INTO ".$tableList[getJobRoleIndex($block->job_role)].
+                " (working_id, group_id, start_date, end_date) VALUES (\"".
+                $block->working_id."\", \"".
+                $block->group_id."\", \"".
+                $block->start_date."\", \"".
+                $block->end_date."\");";
 
-            try{
-                $dbh=PDOProvider();
-                $stmt=$dbh->prepare($sql);
-                $stmt->execute();
+        try{
+            $dbh=PDOProvider();
+            $stmt=$dbh->prepare($sql);
+            $stmt->execute();
 
-                echo "Success";
-            }catch(PDOException $error){
-                echo 'SQL Query:'.$sql.'</br>';
-                echo 'Connection failed:'.$error->getMessage();
-            }
+            echo "Success";
+            return true;
+        }catch(PDOException $error){
+            echo 'SQL Query:'.$sql.'</br>';
+            echo 'Connection failed:'.$error->getMessage();
         }
     }else{
         return false;
     }
 }
 
-function check($block){
+function normalCheck($block){
     global $roleList, $tableList;
+
+    //Check empty
+    foreach($block as $key => $value){
+        if($value == ""){
+            echo $key." is emptied";
+            return false;
+        }
+    }
 
     //Status
     $profile_sql = "SELECT * FROM employee_profile WHERE working_id=\"".$block->working_id."\";";
@@ -197,8 +156,9 @@ function check($block){
         if(!$row['status']){
             echo "The employee is inactive";
             return false;
-        }else{
-            $GLOBALS['job_role'] = $row['job_role'];
+        }else if($row['job_role'] != $block->job_role){
+            echo "The employee's correct job role is ".$row['job_role'];
+            return false;
         }
     }catch(PDOException $error){
         echo 'SQL Query:'.$profile_sql.'</br>';
@@ -248,7 +208,17 @@ function check($block){
     }
 
     //TimeTable
-    $employeeNum = getNumOfEmployeeWithSameJobInOneGroup($block->group_id, $GLOBALS['job_role']);
+    if(date("Y-m-d",strtotime("+6 day",strtotime($block->start_date))) != $block->end_date){
+        echo "Wrong time interval".$block->start_date." ".$block->end_date;
+        return false;
+    }else if(date("w", strtotime($block->start_date)) != 2){
+        echo "Wrong weekday";
+        return false;
+    }
+
+
+    $employeeNum = getNumOfEmployeeWithSameJobInOneGroup($block->group_id, $block->job_role);
+    // echo $employeeNum;
     if($employeeNum >= 2){
         $employeeNum = $employeeNum - 2;
     }else{
@@ -256,9 +226,14 @@ function check($block){
     }
     $newStart = date("Y-m-d",strtotime("-".$employeeNum." week",strtotime($block->start_date)));
     $newEnd = date("Y-m-d",strtotime("+".$employeeNum." week",strtotime($block->end_date)));
-    $timeTable_sql =    "SELECT * FROM ".$tableList[getJobRoleIndex($GLOBALS['job_role'])]." WHERE group_id=\"".$block->group_id."\" ".
-                        "AND (( start>=\"".$newStart."\" AND start<=\"".$newEnd."\") ".
-                        "OR ( end>=\"".$newStart."\" AND end<=\"".$newEnd."\"));";
+    $timeTable_sql =    "SELECT * FROM ".$tableList[getJobRoleIndex($block->job_role)]." WHERE group_id=\"".$block->group_id."\" ".
+                        "AND working_id=\"".$block->working_id."\" ".
+                        "AND (( start_date>=\"".$newStart."\" AND start_date<=\"".$newEnd."\") ".
+                        "OR ( end_date>=\"".$newStart."\" AND end_date<=\"".$newEnd."\"));";
+
+    // echo $timeTable_sql;
+
+
 
     try{
         $dbh=PDOProvider();
@@ -266,15 +241,14 @@ function check($block){
         $stmt->execute();
                     
         $row=$stmt->fetch(PDO::FETCH_ASSOC);
-                    
         if($row != null){
-            if($row['start'] == $block->start_date." 00:00:00"){
+            if($row['start_date'] == $block->start_date." 00:00:00" && $row['end_date'] == $block->end_date." 00:00:00")
                 echo "Position occupied by ".$block->working_id;
-            }else{
+            else
                 echo "The employee is over working";
-            } 
             return false;
         }
+
     }catch(PDOException $error){
         echo 'SQL Query:'.$timeTable_sql.'</br>';
         echo 'Connection failed:'.$error->getMessage();
@@ -300,14 +274,186 @@ function getNumOfEmployeeWithSameJobInOneGroup($group_id, $job_role){
     }
 }
 
-function getJobRoleIndex($group_id){
+function getJobRoleIndex($job_role){
     global $roleList;
 
     for($iTemp = 0; $iTemp < sizeof($roleList); $iTemp++){
-        if($group_id == $roleList[$iTemp])
+        if($job_role == $roleList[$iTemp])
             break;
     }
 
     return $iTemp;
+}
+
+function normalDelete(){
+    global $tableList;
+
+    $block = json_decode($_POST['block']);
+
+    $sql =  "DELETE FROM ".$tableList[getJobRoleIndex(getJobRole($block->working_id))].
+            " WHERE working_id=\"".$block->working_id."\"".
+            " AND group_id=\"".$block->group_id."\"".
+            " AND start_date=\"".$block->start_date."\"".
+            " AND end_date=\"".$block->end_date."\";";
+
+    // echo $sql;
+
+    try{
+        $dbh=PDOProvider();
+        $stmt=$dbh->prepare($sql);
+        $stmt->execute();
+                            
+        echo "Success";
+    }catch(PDOException $error){
+        echo 'SQL Query:'.$sql.'</br>';
+        echo 'Connection failed:'.$error->getMessage();
+    }
+}
+
+function getJobRole($working_id){
+    $sql = "SELECT * FROM employee_profile WHERE working_id=\"".$working_id."\";";
+
+    try{
+        $dbh=PDOProvider();
+        $stmt=$dbh->prepare($sql);
+        $stmt->execute();
+                    
+        $row=$stmt->fetch(PDO::FETCH_ASSOC);
+                    
+        return $row['job_role'];
+    }catch(PDOException $error){
+        echo 'SQL Query:'.$sql.'</br>';
+        echo 'Connection failed:'.$error->getMessage();
+    }
+}
+
+function repeatInsert(){
+    $block = json_decode($_POST['block']);
+    // (Object)$block = new stdClass;
+    // $block->working_id = "scykw1";
+    // $block->job_role = "PrimaryEngineer";
+    // $block->group_id = "Customer Nottingham";
+    // $block->start_date = "2020-01-14";
+    // $block->end_date = "2020-01-20";
+    // $block->interval = "2"; //Bigger than 0
+    // $block->end = "Year";
+    // // $block->endValue = "";
+    // // $block->endValue = "5";
+    // $block->endValue = "2020-05-01";
+
+    //Check empty
+    foreach($block as $key => $value){
+        if($value == ""){
+            echo $key." is emptied";
+            return false;
+        }
+    }
+
+    switch($block->end){
+        case 'Year':
+            yearRepeat($block);
+            break;
+
+        case 'Time':
+            timeRepeat($block);
+            break;
+        
+        case 'Date':
+            dateRepeat($block);
+            break;
+
+        default:
+            echo "Database error";
+    }
+}
+
+function yearRepeat($block){
+    $initStart = date("Y-m-d", strtotime($block->start_date));
+    $initEnd = date("Y-m-d", strtotime($block->end_date));
+
+    $tardetStart = date("Y-m-d", strtotime("+1 year", strtotime($block->start_date)));
+    $tardetEnd = date("Y-m-d", strtotime("+1 year", strtotime($block->end_date)));
+
+    repeatInsertAction($block, $initStart, $initEnd, $tardetStart, $tardetEnd);
+}
+
+function timeRepeat($block){
+    $initStart = $block->start_date;
+    $initEnd = $block->end_date;
+
+    $tardetStart = $block->start_date;
+    $tardetEnd = $block->end_date;
+    for($iTemp = 0; $iTemp < $block->endValue * $block->interval; $iTemp++){
+        $tardetStart = date("Y-m-d", strtotime("+1 week", strtotime($tardetStart)));
+        $tardetEnd = date("Y-m-d", strtotime("+1 week", strtotime($tardetEnd)));
+    }
+
+    repeatInsertAction($block, $initStart, $initEnd, $tardetStart, $tardetEnd);
+}
+
+function dateRepeat($block){
+    $initStart = $block->start_date;
+    $initEnd = $block->end_date;
+
+    $tardetStart = $block->endValue;
+    $tardetEnd = $block->endValue;
+
+    repeatInsertAction($block, $initStart, $initEnd, $tardetStart, $tardetEnd);
+}
+
+function repeatInsertAction($block, $initStart, $initEnd, $tardetStart, $tardetEnd){
+    $flag = true;
+    $repeat_time = 0;
+
+    while($block->start_date < $tardetStart && $block->start_date < $tardetEnd){
+        $repeat_time++;
+        if(normalCheck($block)){
+            // $sql =  "INSERT INTO ".$tableList[getJobRoleIndex($block->job_role)].
+            //         " (working_id, group_id, start_date, end_date) VALUES (\"".
+            //         $block->working_id."\", \"".
+            //         $block->group_id."\", \"".
+            //         $block->start_date."\", \"".
+            //         $block->end_date."\");";
+
+            // try{
+            //     $dbh=PDOProvider();
+            //     $stmt=$dbh->prepare($sql);
+            //     $stmt->execute();
+            // }catch(PDOException $error){
+            //     echo 'SQL Query:'.$sql.'</br>';
+            //     echo 'Connection failed:'.$error->getMessage();
+            // }
+            echo "Success";
+        }else{
+            repeatDelete();
+            $flag = false;
+            break;
+        }
+
+        $block->start_date = date("Y-m-d", strtotime("+".$block->interval." week", strtotime($block->start_date)));
+        $block->end_date = date("Y-m-d", strtotime("+".$block->interval." week", strtotime($block->end_date)));
+    }
+    if($flag){
+        $sql =  "INSERT INTO repeat_task".
+        " (working_id, group_id, job_role, start_date, end_date, repeat_interval, repeat_time) VALUES (\"".
+        $block->working_id."\", \"".
+        $block->group_id."\", \"".
+        $block->job_role."\", \"".
+        $initStart."\", \"".
+        $initEnd."\", \"".
+        $block->interval."\", \"".
+        $repeat_time."\");";
+
+        try{
+            $dbh=PDOProvider();
+            $stmt=$dbh->prepare($sql);
+            $stmt->execute();
+
+            echo "Final Success";
+        }catch(PDOException $error){
+            echo 'SQL Query:'.$sql.'</br>';
+            echo 'Connection failed:'.$error->getMessage();
+        } 
+    }
 }
 ?>
