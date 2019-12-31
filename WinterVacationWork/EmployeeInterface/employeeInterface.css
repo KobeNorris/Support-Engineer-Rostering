@@ -4,9 +4,6 @@ body{
   -webkit-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-
-  border: 1px solid red;
-
 }
 #window{
   text-align: center;
