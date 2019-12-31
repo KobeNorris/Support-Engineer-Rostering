@@ -1,26 +1,48 @@
+body{
+  background: url('Image/background.png') no-repeat top center;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+  border: 1px solid red;
+
+}
+#window{
+  text-align: center;
+  padding-top:11.5%;
+}
+#wrapper{
+    padding-top:1%;
+    padding-bottom: 1%;
+    display: inline-block;
+    background-color: #c3c3c3;
+    border-radius:25px;
+}
 label{
-    background-color: lightgray;
+    background-color: darkgray;
+    color:black;
 }
 .leftEditWindowFrame{
     text-align: right;
-    background-color: aqua;
+    font-weight: bold;
 }
 .rightEditWindowFrame{
     text-align: left;
-    padding-left: 10px; 
-    background-color: darkgoldenrod;
+    padding-left: 11.5%;
+}
+button{
+  border-radius: 25px;
 }
 #profilePic{
     width: 100px;
     height: 100px;
     margin-right:auto;
     margin-left: auto;
-    /* border: 2px solid black; */
-    /* border-radius: 100px; */
-    /* text-align: center; */
-    background-image: url("Image/default.png");
+    background-image: url("Image/default_gray.png");
     background-size: cover;
     background-position: center;
+    border-radius: 25px;
 }
 #imageUpload {
     display: none;
@@ -28,6 +50,10 @@ label{
 .buttonContainer{
     text-align: center;
 }
+
 #passwordWindow{
     display: none;
 }
+
+/* need to come back and add media queries for responsive design*/
+/*issue when screen is small white space at bottom*/

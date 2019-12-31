@@ -10,14 +10,14 @@ $sql="CREATE TABLE account (".
     "working_id VARCHAR(255) NOT NULL UNIQUE,".
     "password VARCHAR(255) NOT NULL".
     ");";
-    
+
 try {
     $dbh=new PDO($dsn,$user,$password);
     $dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
     $stmt=$dbh->prepare($sql);
     $stmt->execute();
 
-    echo "Set up account database Success"
+    echo "Set up account database Success";
 } catch (PDOException $error) {
     echo 'SQL Query:'.$sql.'</br>';
     echo 'Connection failed:'.$error->getMessage();
