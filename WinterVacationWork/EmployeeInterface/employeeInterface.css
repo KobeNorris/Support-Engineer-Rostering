@@ -1,5 +1,10 @@
+html{
+  min-height:100%;
+  min-width:100%;
+}
 body{
-  background: url('Image/background.png') no-repeat top center;
+  height:100%;
+  background: url('Image/background.png') no-repeat center center;
   -moz-background-size: cover;
   -webkit-background-size: cover;
   -o-background-size: cover;
@@ -7,7 +12,16 @@ body{
 }
 #window{
   text-align: center;
-  padding-top:11.5%;
+}
+#logo{
+  margin-top:1%;
+  width: 300px;
+  height: 120px;
+  margin-right:auto;
+  margin-left: auto;
+  background-image: url("Image/capital-one-logo.png");
+  background-size: cover;
+  background-position: center;
 }
 #wrapper{
     padding-top:1%;
@@ -30,6 +44,7 @@ label{
 }
 button{
   border-radius: 25px;
+  margin:2%;
 }
 #profilePic{
     width: 100px;
@@ -49,8 +64,6 @@ button{
 }
 
 #passwordWindow{
-    display: none;
+    display:none;
 }
-
 /* need to come back and add media queries for responsive design*/
-/*issue when screen is small white space at bottom*/
