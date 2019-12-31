@@ -1,10 +1,35 @@
+html{
+  min-height:100%;
+  text-align: center;
+}
 body{
+  height:100%;
   background: url('Image/background.png') no-repeat top center;
   -moz-background-size: cover;
   -webkit-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  border: 1px solid red;
+}
+.topButton{
+display:inline-block;
+margin:3%;
+}
+
+#tableemployee{
+    margin-top:11%;
+    background-color: #c3c3c3;
+    display: inline-block;
+}
+#employeeTable{
+  text-align:center;
+  background-color: #c3c3c3;
+  border-radius:25px;
+}
+#newEmployee{
+text-align: center;
+}
+#centralEmployeeNew{
+  display: inline-block;
 }
 #createEmployeeWindow{
     display: none;

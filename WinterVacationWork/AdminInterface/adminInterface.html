@@ -8,11 +8,8 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='adminInterface.css'>
 </head>
-
 <body>
-    <button onclick="jumpToTimeTable()">time table</button>
-    <button onclick="popCreateEmployeeWindow()">new</button>
-    <table>
+    <table id="tableemployee">
         <thead>
             <td>Name</td>
             <td>Status</td>
@@ -25,6 +22,12 @@
         <tbody id="employeeTable">
         </tbody>
     </table>
+    <div class=""></div>
+    <button onclick="jumpToTimeTable()" class="topButton">time table</button>
+    <button onclick="popCreateEmployeeWindow()" class="topButton">new</button>
+    <div id="newEmployee">
+      <div id="centralEmployeeNew">
+
 
     <table id="createEmployeeWindow">
         <thead>
@@ -57,6 +60,8 @@
             </td>
         </tr>
     </table>
+  </div>
+  </div>
 </body>
 
 <script src='./js/AJAX.js'></script>
