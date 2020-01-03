@@ -1,10 +1,5 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
-$dsn = 'mysql:host=localhost;dbname=rosteringsystem';
-$user = 'team35';
-$password = 'team35';
+// include_once("../db_connection.php");
 
 $sql="CREATE TABLE employee_profile (".
     "name VARCHAR(255) NOT NULL,".
@@ -19,8 +14,7 @@ $sql="CREATE TABLE employee_profile (".
     ");";
     
 try {
-    $dbh=new PDO($dsn,$user,$password);
-    $dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+    $dbh=PDOProvider();
     $stmt=$dbh->prepare($sql);
     $stmt->execute();
 

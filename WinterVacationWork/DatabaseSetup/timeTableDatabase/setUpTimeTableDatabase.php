@@ -1,7 +1,5 @@
 <?php
-$dsn = 'mysql:host=localhost;dbname=rosteringsystem';
-$user = 'team35';
-$password = 'team35';
+// include_once("../db_connection.php");
 
 $sql = "CREATE TABLE primary_engineer (
     -- unique_id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -28,8 +26,7 @@ $sql = $sql."CREATE TABLE escalation_manager (
     end_date   DATETIME);";
 
 try {
-    $dbh=new PDO($dsn,$user,$password);
-    $dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+    $dbh=PDOProvider();
     $stmt=$dbh->prepare($sql);
     $stmt->execute();
 

@@ -1,7 +1,5 @@
 <?php
-$dsn = 'mysql:host=localhost;dbname=rosteringsystem';
-$user = 'team35';
-$password = 'team35';
+// include_once("../db_connection.php");
 
 $sql = "CREATE TABLE repeat_task (
     working_id VARCHAR(40) NOT NULL,
@@ -14,8 +12,7 @@ $sql = "CREATE TABLE repeat_task (
     );";
 
 try {
-    $dbh=new PDO($dsn,$user,$password);
-    $dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+    $dbh=PDOProvider();
     $stmt=$dbh->prepare($sql);
     $stmt->execute();
 

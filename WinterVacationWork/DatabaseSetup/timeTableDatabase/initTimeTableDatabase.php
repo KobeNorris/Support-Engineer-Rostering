@@ -1,9 +1,9 @@
 <?php
-$dsn = 'mysql:host=localhost;dbname=rosteringsystem';
-$user = 'team35';
-$password = 'team35';
+// include_once("../db_connection.php");
 
-$strJsonFileContents = json_decode(file_get_contents("./timeTable.json"), true);
+// $strJsonFileContents = json_decode(file_get_contents("./timeTable.json"), true);
+$strJsonFileContents = json_decode(file_get_contents("./timeTableDatabase/timeTable.json"), true);
+
 $PE_flag = false;
 $SE_flag = false;
 $EM_flag = false;
@@ -63,8 +63,7 @@ $sql = $PE_sql.$SE_sql.$EM_sql;
 // echo $sql;
 
 try {
-    $dbh=new PDO($dsn,$user,$password);
-    $dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+    $dbh=PDOProvider();
     $stmt=$dbh->prepare($sql);
     $stmt->execute();
 

@@ -11,6 +11,7 @@
     <link rel="stylesheet" type="text/css" href="./css/TimeSelector.css">
     <link rel="stylesheet" type="text/css" href="./css/TimeTable.css">
     <link rel="stylesheet" type="text/css" href="./css/EditWindow.css">
+    <link rel="stylesheet" type="text/css" href="./css/RequestWindow.css">
     <link rel="stylesheet" type="text/css" href="./css/login.css">
     <title>Engineer Rostering System</title>
 </head>
@@ -129,7 +130,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class=" leftEditWindowFrame" colspan="2"></td>
+                    <td class="leftEditWindowFrame" colspan="2"></td>
                     <td></td>
                     <td class="rightEditWindowFrame" colspan="7">
                         <label><input id="timeEnd" name="endRepeat" type="radio" disabled /> After
@@ -137,7 +138,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class=" leftEditWindowFrame" colspan="2"></td>
+                    <td class="leftEditWindowFrame" colspan="2"></td>
                     <td></td>
                     <td class="rightEditWindowFrame" colspan="7">
                         <label><input id="dateEnd" name="endRepeat" type="radio" disabled /> On date
@@ -150,11 +151,30 @@
                     <td class="rightEditWindowFrame" colspan="5">
                         <button id="EWUpload">Upload</button>
                     </td>
-                    <td class=" leftEditWindowFrame" colspan="5">
+                    <td class="leftEditWindowFrame" colspan="5">
                         <button id="EWDelete">Delete</button>
                     </td>
                 </tr>
             </tbody>
+        </table>
+    </div>
+
+    <!-- request window -->
+    <div id="requestWindow">
+        <table>
+            <tr>
+                <td colspan="2" style="text-align: right;">
+                    <button onclick="hideRequestWindow()">×</button>
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: left;">
+                    <button onclick="requestLeave()">Take leave</buttononclick="">
+                </td>
+                <td style="text-align: right;">
+                    <button onclick="requestEdit()">Edit</button>
+                </td>
+            </tr>
         </table>
     </div>
 
@@ -202,6 +222,7 @@
 <script type="text/javascript" src="./js/login.js"></script>
 <script type="text/javascript" src="./js/navigator.js"></script>
 <script type="text/javascript" src="./js/EmployeeCategory.js"></script>
+<script type="text/javascript" src="./js/RequestWindow.js"></script>
 
 <script type="text/javascript" src="./js/init.js"></script>
 

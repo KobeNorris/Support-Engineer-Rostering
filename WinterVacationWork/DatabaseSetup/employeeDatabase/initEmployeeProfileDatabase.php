@@ -1,12 +1,8 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+// include_once("../db_connection.php");
 
-$dsn = 'mysql:host=localhost;dbname=rosteringsystem';
-$user = 'team35';
-$password = 'team35';
-
-$strJsonFileContents = json_decode(file_get_contents("./employeeProfile.json"), true);
+// $strJsonFileContents = json_decode(file_get_contents("./employeeProfile.json"), true);
+$strJsonFileContents = json_decode(file_get_contents("./employeeDatabase/employeeProfile.json"), true);
 $sql = "INSERT INTO employee_profile (name, working_id, slack_id, email, group_id, phone_number, account_type, job_role, status) VALUES ";
 for($blockCounter = 0; $blockCounter < sizeof($strJsonFileContents); $blockCounter++){
     $sql = $sql."(\"".$strJsonFileContents[$blockCounter]["name"].
@@ -24,8 +20,7 @@ for($blockCounter = 0; $blockCounter < sizeof($strJsonFileContents); $blockCount
         $sql  = $sql.";";
 }
 try {
-    $dbh=new PDO($dsn,$user,$password);
-    $dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+    $dbh=PDOProvider();
     $stmt=$dbh->prepare($sql);
     $stmt->execute();
 

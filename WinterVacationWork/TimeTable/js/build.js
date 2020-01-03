@@ -99,7 +99,8 @@ function buildTimeTable() {
                 "job_role=\"" + SunToMon.job_role + "\" " +
                 "start_date=\"" + SunToMon.start_date + "\" " +
                 "end_date=\"" + SunToMon.end_date + "\" " +
-                "onclick=\"openEditWindow(event, \'timeTable\')\"" +
+                // "onclick=\"openEditWindow(event, \'timeTable\')\"" +
+                "onclick=\"popRequestWindow(event)\"" +
                 ">&nbsp&nbsp" + SunToMon.name + "</div></td>";
             timeTable += "<td colspan=\"5\" class=\"JobBlock\">";
             timeTable += "<div id=\"" + weekCounter + "-" + jobRoleCounter +
@@ -108,7 +109,8 @@ function buildTimeTable() {
                 "job_role=\"" + TueToSat.job_role + "\" " +
                 "start_date=\"" + TueToSat.start_date + "\" " +
                 "end_date=\"" + TueToSat.end_date + "\" " +
-                "onclick=\"openEditWindow(event, \'timeTable\')\"" +
+                // "onclick=\"openEditWindow(event, \'timeTable\')\"" +
+                "onclick=\"popRequestWindow(event)\"" +
                 ">&nbsp&nbsp" + TueToSat.name + "</div></td>";
             timeTable += "</tr>";
         }
