@@ -3,10 +3,10 @@
 
 $sql="CREATE TABLE employee_deployment (".
     "working_id VARCHAR(255) NOT NULL,".
-    "start_date DATE NOT NULL,". 
-    "end_date DATE NOT NULL". 
+    "start_date DATE NOT NULL,".
+    "end_date DATE NOT NULL".
     ");";
-    
+
 try {
     $dbh=PDOProvider();
     $stmt=$dbh->prepare($sql);

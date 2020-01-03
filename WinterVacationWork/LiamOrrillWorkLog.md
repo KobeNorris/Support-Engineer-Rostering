@@ -5,3 +5,5 @@ need to include validation to ensure that only valid entries are being added and
 
 
 Current task is to make interface for the employee and admin profile pages more presentable
+
+employee interface is nearly completed just issue with white space at bottom of the page
