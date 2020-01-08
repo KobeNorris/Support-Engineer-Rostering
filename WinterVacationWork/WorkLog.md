@@ -26,3 +26,10 @@
 3. Documentation
 4. Mail system
 ----
+
+## Sponsor requests:
+1. Drag functionality
+2. Mail system
+3. Style design
+4. Debug
+----
