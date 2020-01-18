@@ -18,6 +18,8 @@
 * (27/Dec/2019 - 28/Dec/2019) Low loading speed bug -- Kejia Wu
 * (29/Dec/2019 - 30/Dec/2019) Add repeatable tasks -- Kejia Wu
 * (30/Dec/2019 - ) Refining structure & functions -- Kejia Wu
+
+* (18/Jan/2019 - ) Complete documentation -- Kejia Wu
 ----
 
 ## TODO:

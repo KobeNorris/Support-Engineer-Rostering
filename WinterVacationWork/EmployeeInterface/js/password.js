@@ -1,7 +1,18 @@
+/**
+ * Password related methods
+ * @copyright 2018-2019 University of Nottingham, Nottingham, United Kingdom
+ * @version 1.0
+ * @author Kejia Wu (KobeNorrisWu@gmail.com)
+ * All rights are reserved.
+ */
+
 var oldPassword;
 var newPassword;
 var checkPassword;
 
+/**
+ * Check the log in state and pop up the password modification window
+ */
 function popPasswordWindow() {
     var url = "./php/account.php"
     var data = "action=checkPermission";
@@ -16,6 +27,9 @@ function popPasswordWindow() {
     );
 }
 
+/**
+ * Hide the password modification window and clean the data
+ */
 function hidePasswordWindow() {
     document.getElementById("passwordWindow").style.display = "none";
     document.getElementById("oldPassword").value = "";
@@ -23,6 +37,9 @@ function hidePasswordWindow() {
     document.getElementById("checkPassword").value = "";
 }
 
+/**
+ * Check blank space and double correctness
+ */
 function checkNewPassword() {
     var flag = true;
 
@@ -41,6 +58,9 @@ function checkNewPassword() {
     return flag;
 }
 
+/**
+ * Update the old password with new password
+ */
 function updatePassword() {
     if (checkNewPassword()) {
         var url = "./php/account.php"

@@ -1,7 +1,22 @@
+/**
+ * Ecapsulation of page navigators
+ * @copyright 2018-2019 University of Nottingham, Nottingham, United Kingdom
+ * @version 1.0
+ * @author Kejia Wu (KobeNorrisWu@gmail.com)
+ * All rights are reserved.
+ */
+
+/**
+ * Navigator jumps to the time table
+ */
 function jumpToTimeTable() {
     window.location.href = "../TimeTable/TimeTable.html";
 }
 
+/**
+ * Navigator jumps to the taget employee profile
+ * @param {*event} event The event triggered by user's action
+ */
 function jumpToTargetProfile(event) {
     event = event ? event : window.event;
     var obj = (event.srcElement ? event.srcElement : event.target).parentElement.parentElement;

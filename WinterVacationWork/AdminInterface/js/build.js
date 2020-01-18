@@ -1,3 +1,14 @@
+/**
+ * Encapsulation of all HTML build in methods
+ * @copyright 2018-2019 University of Nottingham, Nottingham, United Kingdom
+ * @version 1.0
+ * @author Kejia Wu (KobeNorrisWu@gmail.com)
+ * All rights are reserved.
+ */
+
+/**
+ * Build Employee Table of Admin Interface
+ */
 function buildEmployeeTable() {
     var html = "";
     var status;

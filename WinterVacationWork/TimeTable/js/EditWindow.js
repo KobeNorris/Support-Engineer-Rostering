@@ -1,3 +1,11 @@
+/**
+ * Edit window related methods
+ * @copyright 2018-2019 University of Nottingham, Nottingham, United Kingdom
+ * @version 1.0
+ * @author Kejia Wu (KobeNorrisWu@gmail.com)
+ * All rights are reserved.
+ */
+
 //Whether editor want to treat this event as repeatable event
 function checkRepeat() {
     var inputs = $('#repeatAttribute input');

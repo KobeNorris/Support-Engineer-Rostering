@@ -1,7 +1,18 @@
+/**
+ * Encapsulation of deployment related methods
+ * @copyright 2018-2019 University of Nottingham, Nottingham, United Kingdom
+ * @version 1.0
+ * @author Kejia Wu (KobeNorrisWu@gmail.com)
+ * All rights are reserved.
+ */
+
 var newDeploymentStart_date;
 var newDeploymentEnd_date;
 var deploymentList = [];
 
+/**
+ * Upload new deployment period to database
+ */
 function upLoadDeployment() {
     newDeploymentStart_date = document.getElementById("newDeploymentStart_date").value;
     newDeploymentEnd_date = document.getElementById("newDeploymentEnd_date").value;
@@ -23,6 +34,9 @@ function upLoadDeployment() {
     }
 }
 
+/**
+ * Get employee deployment from database
+ */
 function getEmployeeDeployment() {
     var url = "./php/timeManagement.php";
     var data = "target=deployment&action=refresh&working_id=" + targetWorking_id;
@@ -35,6 +49,9 @@ function getEmployeeDeployment() {
     );
 }
 
+/**
+ * Check blank space and wrong time order of deployment period
+ */
 function checkLoadDeployment() {
     if (newDeploymentStart_date == "" || newDeploymentEnd_date == "") {
         alert("Blank space detected");
@@ -47,6 +64,9 @@ function checkLoadDeployment() {
     return true;
 }
 
+/**
+ * Delete selected employee deployment from database
+ */
 function deleteDeployment(event) {
     event = event ? event : window.event;
     var obj = (event.srcElement ? event.srcElement : event.target).parentElement.parentElement;

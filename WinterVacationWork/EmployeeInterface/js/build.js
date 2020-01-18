@@ -1,3 +1,14 @@
+/**
+ * Encapsulation of all HTML build in methods
+ * @copyright 2018-2019 University of Nottingham, Nottingham, United Kingdom
+ * @version 1.0
+ * @author Kejia Wu (KobeNorrisWu@gmail.com)
+ * All rights are reserved.
+ */
+
+/**
+ * Build Employee Deployeement Table of Employee Interface
+ */
 function buildEmployeeDeployment() {
     var html = "";
     for (var deploymentCounter = 0; deploymentCounter < deploymentList.length; deploymentCounter++) {
@@ -10,6 +21,9 @@ function buildEmployeeDeployment() {
     document.getElementById("deploymentTimetable").innerHTML = html;
 }
 
+/**
+ * Build Employee Holiday Table of Employee Interface
+ */
 function buildEmployeeHoliday() {
     var html = "";
     for (var holidayCounter = 0; holidayCounter < holidayList.length; holidayCounter++) {
