@@ -1,6 +1,18 @@
+/**
+ * Employee profile related methods
+ * @copyright 2018-2019 University of Nottingham, Nottingham, United Kingdom
+ * @version 1.0
+ * @author Kejia Wu (KobeNorrisWu@gmail.com)
+ * All rights are reserved.
+ */
+
 var targetWorking_id;
 var employeeProfile;
 
+/**
+ * Get the employee profile data from database and refresh current page's employee profile 
+ * according to the data
+ */
 function refreshEmployeProfile() {
     var url = "./php/employeeProfile.php";
     var data = "action=get&targetWorking_id=" + targetWorking_id;
@@ -21,6 +33,9 @@ function refreshEmployeProfile() {
     );
 }
 
+/**
+ * Check user's login status and release corresponding modification accesses
+ */
 function editEmployeeProfile() {
     document.getElementById("name").disabled = false;
     document.getElementById("slack_id").disabled = false;
@@ -40,12 +55,18 @@ function editEmployeeProfile() {
                 document.getElementById("account_type").disabled = false;
                 document.getElementById("job_role").disabled = false;
             }
+            else if (responseText == "employee") {
+                //TODO employee special settings ?
+            }
             else
                 console.log(responseText);
         }
     );
 }
 
+/**
+ * Update the employee data package according to user's login status
+ */
 function updateEmployeeProfile() {
     employeeProfile[0]["name"] = document.getElementById("name").value;
     employeeProfile[0]["slack_id"] = document.getElementById("slack_id").value;
@@ -63,6 +84,10 @@ function updateEmployeeProfile() {
                 employeeProfile[0]["status"] = (document.getElementById("status").checked);
                 employeeProfile[0]["account_type"] = document.getElementById("account_type").value;
                 employeeProfile[0]["job_role"] = document.getElementById("job_role").value;
+                sendEmployeeProfile();
+            }
+            else if (responseText == "employee") {
+                //TODO employee special settings ?
                 sendEmployeeProfile();
             }
             else
@@ -83,6 +108,9 @@ function updateEmployeeProfile() {
     document.getElementById("profileEditButton").innerHTML = "<button onclick=\"editEmployeeProfile()\">Edit</button>";
 }
 
+/**
+ * Update current employee data package to the database
+ */
 function sendEmployeeProfile() {
     var url = "./php/employeeProfile.php";
     var data = "action=update&employeeProfile=" + JSON.stringify(employeeProfile)
@@ -103,6 +131,11 @@ function sendEmployeeProfile() {
  */
 var targetImage;
 
+/**
+ * Upload taget image with corresponding image id
+ * 
+ * @param {*} elementId Target image id
+ */
 function upLoadImage(elementId) {
     var input = document.getElementById(elementId);
     // console.log(input);
@@ -118,6 +151,9 @@ function upLoadImage(elementId) {
     }
 }
 
+/**
+ * Refresh current page's employee picture
+ */
 function refreshEmployePicture() {
     var url = "./php/avatar.php";
     var data = "action=search&working_id=" + targetWorking_id;
@@ -133,6 +169,11 @@ function refreshEmployePicture() {
     );
 }
 
+/**
+ * Upload target image to the database
+ * 
+ * @param {*} targetImage Target image
+ */
 function sendImageToPHP(targetImage) {
     var url = "./php/avatar.php";
     var data = "action=upload&targetImage=" + targetImage + "&working_id=" + targetWorking_id;
