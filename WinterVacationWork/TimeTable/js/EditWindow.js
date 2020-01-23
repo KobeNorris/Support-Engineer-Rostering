@@ -33,6 +33,15 @@ function checkRepeat() {
     }
 }
 
+/**
+ * Handle the open edit window request:
+ *      1. From time table: Load target period and working id if
+ *      possible;
+ *      2. From employee category: Load target employee's working id
+ *
+ * @param {*} event 
+ * @param {*} parent 
+ */
 function openEditWindow(event, parent) {
     var url = "./php/login.php";
     var data = "action=check";
@@ -55,6 +64,10 @@ function openEditWindow(event, parent) {
     )
 }
 
+/**
+ * Pop up edit window from time table
+ * @param {*} event 
+ */
 function popWindowTT(event) {
     event = event ? event : window.event;
     var obj = event.srcElement ? event.srcElement : event.target;
@@ -72,6 +85,10 @@ function popWindowTT(event) {
     document.getElementById('editWindow').style.display = "block";
 }
 
+/**
+ * Pop up edit window from employee category
+ * @param {*} event 
+ */
 function popWindowEC(event) {
     event = event ? event : window.event;
     var obj = event.srcElement ? event.srcElement : event.target;
@@ -84,16 +101,22 @@ function popWindowEC(event) {
     document.getElementById('editWindow').style.display = "block";
 }
 
+/**
+ * Hide the edit window and clean current value
+ */
 function hideWindow() {
     document.getElementById('inputWorking_id').value = "";
     document.getElementById('inputStartDate').value = "";
     document.getElementById('inputEndDate').value = "";
-    clearRepeatTask();
+    cleanRepeatTask();
 
     document.getElementById('modal').style.display = "none";
     document.getElementById('editWindow').style.display = "none";
 }
 
+/**
+ * Single schedule period upload
+ */
 function normalUpload() {
     var block = createNormalBlock();
     var url = "./php/timeTable.php";
@@ -111,6 +134,9 @@ function normalUpload() {
     );
 }
 
+/**
+ * Single schedule period delete
+ */
 function normalDelete() {
     var block = createNormalBlock();
     var url = "./php/timeTable.php";
@@ -128,6 +154,9 @@ function normalDelete() {
     );
 }
 
+/**
+ * Create single schedule data block
+ */
 function createNormalBlock() {
     var block = new Object();
     block['group_id'] = group_id;
@@ -139,6 +168,9 @@ function createNormalBlock() {
     return block;
 }
 
+/**
+ * Repeatable schedule period upload
+ */
 function repeatUpload() {
     var block = createRepeatBlock();
     var url = "./php/timeTable.php";
@@ -156,6 +188,9 @@ function repeatUpload() {
     );
 }
 
+/**
+ * Repeatable schedule period delete
+ */
 function repeatDelete() {
     var block = createRepeatBlock();
     var url = "./php/timeTable.php";
@@ -173,6 +208,9 @@ function repeatDelete() {
     );
 }
 
+/**
+ * Create repeatable schedule data block
+ */
 function createRepeatBlock() {
     var block = new Object();
     block['group_id'] = group_id;
@@ -195,6 +233,9 @@ function createRepeatBlock() {
     return block;
 }
 
+/**
+ * Get the data of current repeatable schedule task if it exists
+ */
 function getRepeatTask() {
     var block = new Object();
     block['group_id'] = group_id;
@@ -223,7 +264,10 @@ function getRepeatTask() {
     );
 }
 
-function clearRepeatTask() {
+/**
+ * Clean the repeatable task's data kept in the edit window
+ */
+function cleanRepeatTask() {
     document.getElementById("inputRepeatInterval").value = "";
     document.getElementById("yearEnd").checked = true;
     document.getElementById("inputTimeEnd").value = "";

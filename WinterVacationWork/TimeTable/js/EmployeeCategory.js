@@ -1,8 +1,21 @@
+/**
+ * Employee category manipulation methods collection
+ * @copyright 2018-2019 University of Nottingham, Nottingham, United Kingdom
+ * @version 1.0
+ * @author Kejia Wu (KobeNorrisWu@gmail.com)
+ * All rights are reserved.
+ */
+
 var groupList = ["Customer Nottingham", "Grow", "Customer London"];
 var submenuListFrame = ["CustomerNSubmenuFrame", "GrowSubmenuFrame", "CustomerLSubmenuFrame"];
 var nameList;
 var currentGroup = groupList[0];
 
+/**
+ * Check the status of each group's name list,
+ * ensuer only one name list could be display simultaneously
+ * @param {*} event 
+ */
 function checkNameList(event) {
     event = event ? event : window.event;
     var obj = event.srcElement ? event.srcElement : event.target;
@@ -26,6 +39,9 @@ function checkNameList(event) {
     getMonthData();
 }
 
+/**
+ * Get current employee name list
+ */
 function getNameList() {
     var url = "./php/getInfo.php";
     var data = "action=name";

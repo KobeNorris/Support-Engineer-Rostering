@@ -6,6 +6,9 @@
  * All rights are reserved.
  */
 
+/**
+*  Navigator jumps to the time table page
+*/
 function jumpToTimeTable() {
     window.location.href = "../TimeTable/TimeTable.html";
 }

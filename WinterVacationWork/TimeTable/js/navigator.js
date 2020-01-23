@@ -1,3 +1,15 @@
+/**
+ * Ecapsulation of page navigators
+ * @copyright 2018-2019 University of Nottingham, Nottingham, United Kingdom
+ * @version 1.0
+ * @author Kejia Wu (KobeNorrisWu@gmail.com)
+ * All rights are reserved.
+ */
+
+/**
+ * Navigator jumps to the specific employee profile according 
+ * to target working id
+ */
 function jumpToProfile() {
     var url = "./php/login.php";
     var data = "action=check";
@@ -14,6 +26,9 @@ function jumpToProfile() {
     )
 }
 
+/**
+ * Set current target working id
+ */
 function setTargetWorkingId() {
     var url = "./php/setTarget.php";
     var data = "target=self";
