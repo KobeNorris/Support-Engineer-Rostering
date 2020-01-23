@@ -19,7 +19,7 @@
 * (29/Dec/2019 - 30/Dec/2019) Add repeatable tasks -- Kejia Wu
 * (30/Dec/2019 - ) Refining structure & functions -- Kejia Wu
 
-* (18/Jan/2019 - ) Complete documentation -- Kejia Wu
+* (18/Jan/2019 - 23/Jan/2019) Complete documentation -- Kejia Wu
 ----
 
 ## TODO:
