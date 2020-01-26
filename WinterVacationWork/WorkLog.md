@@ -20,6 +20,7 @@
 * (30/Dec/2019 - ) Refining structure & functions -- Kejia Wu
 
 * (18/Jan/2019 - 23/Jan/2019) Complete documentation -- Kejia Wu
+* (26/Jan/2019 - 26/Jan/2019) Debugged the malfunction during switching between repeat task and normal task -- Kejia Wu
 ----
 
 ## TODO:
