@@ -33,6 +33,6 @@
 1. Drag functionality
 2. Mail system
 3. Style design
-4. Debug
+4. Debug (Miss date when disabled the repeatable task)
 5. Face to face conference next time
 ----

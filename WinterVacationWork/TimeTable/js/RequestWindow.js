@@ -6,14 +6,16 @@
  * All rights are reserved.
  */
 
-var currentEvent;
+var targetBlock = null;
 
 /**
  * Pop up the request window and set current event object
  * @param {*} event 
  */
 function popRequestWindow(event) {
-    currentEvent = event;
+    event = event ? event : window.event;
+    targetBlock = event.srcElement ? event.srcElement : event.target;
+
     document.getElementById("modal").style.display = "block";
     document.getElementById("requestWindow").style.display = "block";
 }
@@ -35,6 +37,6 @@ function requestLeave() { }
  * Request to edit schedule
  */
 function requestEdit() {
-    openEditWindow(currentEvent, "timeTable");
+    openEditWindow(targetBlock, "timeTable");
     hideRequestWindow();
 }

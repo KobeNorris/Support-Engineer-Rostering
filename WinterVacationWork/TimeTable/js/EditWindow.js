@@ -20,6 +20,7 @@ function checkRepeat() {
         inputs.each(function () {
             this.disabled = false;
         });
+        getRepeatTask();
     }
     else {
         targetButton.innerHTML = 'Enable weekly repeat';
@@ -30,6 +31,8 @@ function checkRepeat() {
         inputs.each(function () {
             this.disabled = true;
         });
+        if (targetBlock != null)
+            getNormalTask();
     }
 }
 
@@ -68,18 +71,18 @@ function openEditWindow(event, parent) {
  * Pop up edit window from time table
  * @param {*} event 
  */
-function popWindowTT(event) {
-    event = event ? event : window.event;
-    var obj = event.srcElement ? event.srcElement : event.target;
-
-    if (obj.getAttribute('working_id') == "null")
+function popWindowTT() {
+    if (targetBlock.getAttribute('working_id') == "null")
         document.getElementById('inputWorking_id').value = "";
     else
-        document.getElementById('inputWorking_id').value = obj.getAttribute('working_id');
-    document.getElementById('jobRoleSelection').innerHTML = obj.getAttribute('job_role');
-    document.getElementById('inputStartDate').value = obj.getAttribute('start_date');
-    document.getElementById('inputEndDate').value = obj.getAttribute('end_date');
-    getRepeatTask();
+        document.getElementById('inputWorking_id').value = targetBlock.getAttribute('working_id');
+    document.getElementById('jobRoleSelection').innerHTML = targetBlock.getAttribute('job_role');
+    document.getElementById('inputStartDate').value = targetBlock.getAttribute('start_date');
+    document.getElementById('inputEndDate').value = targetBlock.getAttribute('end_date');
+    // if (document.getElementById('inputWorking_id').innerHTML == "Disable weekly repeat") {
+    //     alert("Hello");
+    // }
+    // // getRepeatTask();
 
     document.getElementById('modal').style.display = "block";
     document.getElementById('editWindow').style.display = "block";
@@ -90,12 +93,8 @@ function popWindowTT(event) {
  * @param {*} event 
  */
 function popWindowEC(event) {
-    event = event ? event : window.event;
-    var obj = event.srcElement ? event.srcElement : event.target;
-
-    document.getElementById('jobRoleSelection').innerHTML = obj.getAttribute('job_role');
-    document.getElementById('inputWorking_id').value = obj.getAttribute('working_id');
-    getRepeatTask();
+    document.getElementById('jobRoleSelection').innerHTML = targetBlock.getAttribute('job_role');
+    document.getElementById('inputWorking_id').value = targetBlock.getAttribute('working_id');
 
     document.getElementById('modal').style.display = "block";
     document.getElementById('editWindow').style.display = "block";
@@ -112,6 +111,15 @@ function hideWindow() {
 
     document.getElementById('modal').style.display = "none";
     document.getElementById('editWindow').style.display = "none";
+}
+
+/**
+ * Inser single schedule period info into the edit window
+ */
+function getNormalTask() {
+    document.getElementById('inputWorking_id').value = targetBlock.getAttribute('working_id');
+    document.getElementById('inputStartDate').value = targetBlock.getAttribute('start_date');
+    document.getElementById('inputEndDate').value = targetBlock.getAttribute('end_date');
 }
 
 /**
