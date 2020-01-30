@@ -24,7 +24,9 @@ $eRow = mysqli_fetch_assoc($employeeRecord);
         <link rel="stylesheet" type="text/css" href="employeeStylesheet.css">
     </head>
     <body>
-        <div>
+        <br>
+        <div class="profileCard">
+        <div class="pictureBox">
             <?php $profilePics = "uploads/";
             if($eRow['ProfilePicture'])
                 $profilePics .= $eRow['ProfilePicture'];
@@ -37,28 +39,28 @@ $eRow = mysqli_fetch_assoc($employeeRecord);
             <input type="submit" value="Edit Profile" style="margin-top:10px; margin-bottom:10px">
         </form>
         <p>
-            Employee Name:
+            Employee Name: 
             <?php echo $eRow['FirstName'];?> 
             <?php echo $eRow['Surname'];?>
         </p>
         
         <p>
-            Work ID:
+            Work ID: 
             <?php echo $eRow['WorkID'];?> 
         </p>
 
         <p>
-            Email Address:
+            Email Address: 
             <?php echo $eRow['EmailAddress'];?> 
         </p>
 
         <p>
-            Telephone Number:
+            Telephone Number: 
             <?php echo $eRow['TelephoneNumber'];?> 
         </p>
 
         <p>
-            Current Job Role:
+            Current Job Role: 
             <?php echo $eRow['CurrentJobRole'];?> 
         </p>
 
@@ -77,7 +79,7 @@ $eRow = mysqli_fetch_assoc($employeeRecord);
         </p>
 
         <p>
-            Future Holidays:
+            <div class="futureText">Future Holidays: </div>
             <table align="center">
                 <?php $holidays = mysqli_query($connect, $query2);
                 if(mysqli_num_rows($holidays)!=0) {
@@ -100,7 +102,7 @@ $eRow = mysqli_fetch_assoc($employeeRecord);
         </p>
 
         <p>
-            Future Deployments:
+            <div class="futureText">Future Deployments: </div>
             <table align="center">                    
                 <?php $deployments = mysqli_query($connect, $query3);
                 if(mysqli_num_rows($deployments)!=0) {
@@ -121,6 +123,7 @@ $eRow = mysqli_fetch_assoc($employeeRecord);
                 ?>
             </table>
         </p>
+        </div>
     </body>
 </html>
 

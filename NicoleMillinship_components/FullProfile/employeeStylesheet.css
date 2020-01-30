@@ -1,33 +1,85 @@
 body {
-    font-family: 'Muli', sans-serif;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     text-align: center;
+}
+
+h1, h2 {
+    font-size: large;
+}
+
+div.indexForm
+{
+    display: block;
+    text-align: center;
+}
+
+form.selectEmployee
+{
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+}
+
+.profileCard {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 20%;
+    margin: auto;
+    text-align: center;
+    padding: 1%;
+}
+
+.pictureBox {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    color: white;
+    background-color: #172D5C;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+}
+
+.futureText {
+    font-size: medium;
+    background-color: #172D5C;
+    color: #fff;
 }
 
 table, th, td {
-    border: 1px solid black;
     border-collapse: collapse;
+    text-align: center;
+    padding: 5px;
 }
 
-th, td {
-    padding: 5px;
-    text-align: center;
+th {
+	text-align: center;
+    padding: 18 0;
+    font-weight: normal;
+    text-transform: uppercase;
 }
 
 #profileDisplay, #profilePic {
     display: block; 
     margin-left: auto; 
     margin-right: auto; 
-    width:200px; 
-    height:200px;
+    width: 100px;
+    height: 100px;
     border-style: solid;
     border-radius: 50%;
     border-color: #172D5C;
 }
 
 input[type=submit] {
-    display: inline-block;
-    margin-left: 5%;
-    margin-right: 5%;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    background-color: #172D5C;
+    padding: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border: none;
+    color: #fff;
+    outline: none;
+    border-radius: 10px;
+    margin-left: 10px;
 }

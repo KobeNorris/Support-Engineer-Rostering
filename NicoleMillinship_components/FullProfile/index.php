@@ -4,7 +4,11 @@ $query = "SELECT WorkID FROM employee ORDER BY WorkID ASC";
 $ids = mysqli_query($connect, $query);
 ?>
 
-<form action="viewProfile.php" method="get">
+<head>
+    <link rel="stylesheet" type="text/css" href="employeeStylesheet.css">
+</head>
+<div class="indexForm">
+<form class="selectEmployee" action="viewProfile.php" method="get">
     <select name="employees">
         <option value="">Select an Employee:</option>
     <?php
@@ -16,3 +20,4 @@ $ids = mysqli_query($connect, $query);
     </select>
     <input type="submit">
 </form>
+</div>
