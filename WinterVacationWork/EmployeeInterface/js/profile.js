@@ -28,7 +28,11 @@ function refreshEmployeProfile() {
             document.getElementById("group_id").value = employeeProfile[0]["group_id"];
             document.getElementById("email").value = employeeProfile[0]["email"];
             document.getElementById("phone_number").value = employeeProfile[0]["phone_number"];
-            document.getElementById("status").checked = employeeProfile[0]["status"]
+
+            if (employeeProfile[0]["status"] == 1)
+                document.getElementById("status").checked = true;
+            else
+                document.getElementById("status").checked = false;
         }
     );
 }
@@ -81,9 +85,15 @@ function updateEmployeeProfile() {
         function (responseText) {
             if (responseText == "admin") {
                 employeeProfile[0]["working_id"] = document.getElementById("working_id").value;
-                employeeProfile[0]["status"] = (document.getElementById("status").checked);
+
+                if (document.getElementById("status").checked)
+                    employeeProfile[0]["status"] = 1;
+                else
+                    employeeProfile[0]["status"] = 0;
+
                 employeeProfile[0]["account_type"] = document.getElementById("account_type").value;
                 employeeProfile[0]["job_role"] = document.getElementById("job_role").value;
+                console.log(employeeProfile[0]);
                 sendEmployeeProfile();
             }
             else if (responseText == "employee") {
