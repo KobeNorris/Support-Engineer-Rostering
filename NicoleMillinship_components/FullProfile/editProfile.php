@@ -63,7 +63,7 @@ if (isset($_POST['addDeployment'])) {
         </form>
         <div class="profileCard">
         <h1> Change Details </h1>
-            <form action = "#" method = "post">
+            <form action = "editProfile.php" method = "post" enctype="multipart/form-data">
                 <div class="EditPic" style="margin-bottom:10px">
                     <?php $profilePics = "uploads/";
                         if($employeeDetails['ProfilePicture'])
@@ -88,7 +88,7 @@ if (isset($_POST['addDeployment'])) {
                 <br><br> Email Address:
                 <?php 
                     $EmailAddress = $employeeDetails['EmailAddress'];
-                    echo "<input type='text' name='EmailAddress' value='$EmailAddress' pattern='[a-zA-Z]{3,}@[a-zA-Z]{3,}[.]{1}[a-zA-Z]{2,}' required>"; 
+                    echo "<input type='text' name='EmailAddress' value='$EmailAddress' pattern='[a-zA-Z0-9]{3,}@[a-zA-Z]{3,}[.]{1}[a-zA-Z0-9]{2,}' required>"; 
                 ?>
                 <br><br> Telephone Number:
                 <?php 
@@ -126,8 +126,7 @@ if (isset($_POST['addDeployment'])) {
 
 <?php
 $uploadOk = 1;
-
-if(isset($_POST['editDetails']) && isset($_FILES['profileImage'])) {
+if(isset($_POST['editDetails']) && isset($_FILES["profileImage"])) {
     $target_dir = "uploads/";
     $target_file = $target_dir . basename($_FILES["profileImage"]["name"]);
     $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
@@ -175,7 +174,7 @@ if ($uploadOk == 1 && isset($_POST['editDetails'])) {
                 WHERE WorkID = '$WorkID'";
 
     mysqli_query($connect, $query);
-    header("Location: index.php");
-    exit;
+    // header("Location: index.php");
+    // exit;
 }
 ?>
