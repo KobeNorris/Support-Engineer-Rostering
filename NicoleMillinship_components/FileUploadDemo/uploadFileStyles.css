@@ -38,5 +38,5 @@ input[type=submit]{
 
 /* Hides the 'Choose file' file input button (so that you can have your own styled browse button)  */
 #fileToUpload {
-    display: none;
+    /* display: none; */
 }

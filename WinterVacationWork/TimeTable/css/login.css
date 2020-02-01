@@ -1,11 +1,17 @@
 /* <style> */
-
-/* style adapted from example on W3schools.com */
-
-body {font-family: Arial, Helvetica, sans-serif;}
+#loginFrame{
+    font-family: Arial, Helvetica, sans-serif;
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 2; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+}
 
 /* Full-width input fields */
-input[type=text], input[type=password] {
+#username, #password {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -15,7 +21,7 @@ input[type=text], input[type=password] {
 }
 
 /* Set a style for all buttons */
-button {
+.loginButton {
   background-color: #457edf;
   color: white;
   padding: 14px 20px;
@@ -55,21 +61,6 @@ img.avatar {
 span.psw {
   float: right;
   padding-top: 16px;
-}
-
-/* The Modal (background) */
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-  padding-top: 60px;
 }
 
 /* Modal Content/Box */
