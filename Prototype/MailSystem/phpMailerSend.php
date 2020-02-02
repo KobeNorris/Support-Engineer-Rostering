@@ -2,8 +2,6 @@
 
 require "../../vendor/autoload.php";
 
-echo 'Yes';
-
 $robo = 'kobewu522@163.com';
 
 use PHPMailer\PHPMailer\PHPMailer;
@@ -29,13 +27,13 @@ try {
     }
 
 
-    $mailer->Host = 'smtp.gmail.com';
-    $mailer->SMTPAuth = false;
+    $mailer->Host = 'smtp.163.com';
+    $mailer->SMTPAuth = true;
     $mailer->Username = 'kobenorriswu@gmail.com';
     $mailer->Password = 'kobewkj990522';
-    $mailer->SMTPSecure = false; //'tls'
-    $mailer->Port = 465; //587
-    // $mail->SMTPAutoTLS = false;
+    $mailer->SMTPSecure = 'tls'; //'tls'
+    // $mailer->SMTPAutoTLS = false;
+    $mailer->Port = 587; //587 // 465
 
     $mailer->setFrom('kobenorriswu@gmail.com', 'Kobe sender');
     $mailer->addAddress('969074817@qq.com', 'Kobe recipient');
@@ -47,7 +45,7 @@ try {
     $mailer->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
     $mailer->send();
-    $mailer->ClearAllRecipients();
+    // $mailer->ClearAllRecipients();
     echo "MAIL HAS BEEN SENT SUCCESSFULLY";
 
 } catch (Exception $e) {
