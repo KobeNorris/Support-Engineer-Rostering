@@ -1,3 +1,4 @@
+<!-- Documentation could be found on https://github.com/PHPMailer/PHPMailer -->
 <?php
 
 require "../../vendor/autoload.php";
@@ -28,14 +29,14 @@ $mailer->SMTPDebug = 3;
 
     $mailer->Host = "smtp.gmail.com";
     $mailer->SMTPAuth = true;
-    $mailer->Username = 'kobenorriswu@gmail.com';
-    $mailer->Password = 'kobewkj990522';
+    $mailer->Username = 'sender@email.com';
+    $mailer->Password = 'password';
     $mailer->SMTPSecure = "ssl"; //'tls'
     // $mailer->SMTPAutoTLS = false;
     $mailer->Port = 465; //587 // 465
 
-    $mailer->setFrom('kobenorriswu@gmail.com', 'Kobe sender');
-    $mailer->addAddress('969074817@qq.com', 'Kobe recipient');
+    $mailer->setFrom('sender@email.com', 'Sender');
+    $mailer->addAddress('receiver@email.com', 'Recipient');
 
     //Content
     $mailer->isHTML(true); // Set email format to HTML
