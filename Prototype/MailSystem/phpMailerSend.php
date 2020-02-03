@@ -11,8 +11,7 @@ use PHPMailer\PHPMailer\Exception;
 $developmentMode = false;
 $mailer = new PHPMailer($developmentMode);
 
-try {
-    $mailer->SMTPDebug = 3;
+$mailer->SMTPDebug = 3;
 
     $mailer->isSMTP();
 
@@ -27,13 +26,13 @@ try {
     }
 
 
-    $mailer->Host = 'smtp.163.com';
+    $mailer->Host = "smtp.gmail.com";
     $mailer->SMTPAuth = true;
     $mailer->Username = 'kobenorriswu@gmail.com';
     $mailer->Password = 'kobewkj990522';
-    $mailer->SMTPSecure = 'tls'; //'tls'
+    $mailer->SMTPSecure = "ssl"; //'tls'
     // $mailer->SMTPAutoTLS = false;
-    $mailer->Port = 587; //587 // 465
+    $mailer->Port = 465; //587 // 465
 
     $mailer->setFrom('kobenorriswu@gmail.com', 'Kobe sender');
     $mailer->addAddress('969074817@qq.com', 'Kobe recipient');
@@ -44,6 +43,7 @@ try {
     $mailer->Body = 'This is the HTML message body <b>in bold!</b>';
     $mailer->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
+try {
     $mailer->send();
     // $mailer->ClearAllRecipients();
     echo "MAIL HAS BEEN SENT SUCCESSFULLY";
