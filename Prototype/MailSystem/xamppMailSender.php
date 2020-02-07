@@ -1,7 +1,8 @@
+<!-- Follow the instruction on https://www.youtube.com/watch?v=9W644cyDyNM -->
 <?php
-$sub = "kobenorriswu@gmail.com";
+$sub = "sender@email.com";
 $msg = "Hello world";
-$rec = "scykw1@nottingham.ac.uk";
+$rec = "receiver@email.com";
 try {
     mail($rec, $sub, $msg);
     echo "Success";
