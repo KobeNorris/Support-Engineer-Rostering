@@ -21,7 +21,7 @@ function buildEmployeeList() {
             for (var iCountNameList = 0; iCountNameList < List.length; iCountNameList++) {
                 html += "<div working_id=\"" + List[iCountNameList]['working_id'] + "\" "
                     + "job_role=\"" + List[iCountNameList]['job_role'] + "\" "
-                    + "onclick=\"openEditWindow(event, \'employeeCategory\')\">"
+                    + "onclick=\"popRequestWindow(event)\">"
                     + List[iCountNameList]['name'] + "</div>";
             }
         }
