@@ -37,6 +37,7 @@ function requestLeave() { }
  * Request to edit schedule
  */
 function requestEdit() {
-    openEditWindow(targetBlock, "timeTable");
+    // openEditWindow(targetBlock, "timeTable");
+    openEditWindow(targetBlock);
     hideRequestWindow();
 }

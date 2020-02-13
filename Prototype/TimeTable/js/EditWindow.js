@@ -52,12 +52,13 @@ function openEditWindow(event, parent) {
     AJAX.post(url, data,
         function (responseText) {
             if (responseText == "admin") {
-                if (parent == "timeTable")
-                    popWindowTT(event);
-                else if (parent == "employeeCategory")
-                    popWindowTT(event);
-                else
-                    alert("Wrong parent -> " + parent);
+                popWindow();
+                // if (parent == "timeTable")
+                //     popWindowTT(event);
+                // else if (parent == "employeeCategory")
+                //     popWindowEC(event);
+                // else
+                //     alert("Wrong parent -> " + parent);
             }
             else if (responseText == "employee")
                 alert("No access permission ");
@@ -65,6 +66,23 @@ function openEditWindow(event, parent) {
                 popLoginWindow();
         }
     )
+}
+
+function popWindow() {
+    if (targetBlock.getAttribute('working_id') == "null")
+        document.getElementById('inputWorking_id').value = "";
+    else
+        document.getElementById('inputWorking_id').value = targetBlock.getAttribute('working_id');
+    document.getElementById('jobRoleSelection').innerHTML = targetBlock.getAttribute('job_role');
+    document.getElementById('inputStartDate').value = targetBlock.getAttribute('start_date');
+    document.getElementById('inputEndDate').value = targetBlock.getAttribute('end_date');
+    // if (document.getElementById('inputWorking_id').innerHTML == "Disable weekly repeat") {
+    //     alert("Hello");
+    // }
+    // // getRepeatTask();
+
+    document.getElementById('modal').style.display = "block";
+    document.getElementById('editWindow').style.display = "block";
 }
 
 /**
@@ -93,6 +111,7 @@ function popWindowTT() {
  * @param {*} event 
  */
 function popWindowEC(event) {
+    console.log("From EC");
     document.getElementById('jobRoleSelection').innerHTML = targetBlock.getAttribute('job_role');
     document.getElementById('inputWorking_id').value = targetBlock.getAttribute('working_id');
 
