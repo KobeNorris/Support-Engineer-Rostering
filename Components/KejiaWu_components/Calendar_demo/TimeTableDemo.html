@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="timeTableDemo" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="TimeTableDemo.css">
+    <title>Time Table Demo</title>
+</head>
+
+<body>
+
+    <div class="mainBody">
+        <div class="timeSelecter">
+            <button class="arrow2Left" onclick="deductOneMonth()">((
+            </button>
+            <button id="timeSelecterMonthAndYear">
+                <span id="timeSelecterMonth">
+                </span>
+                <input id="timeSelecterYear" type="text" value="2019" onblur="setYear(value)">
+            </button>
+            <button class="arrow2Right" onclick="addOneMonth()">))
+            </button>
+        </div>
+
+        <div>
+            <table class="timeTable" id="timeTable">
+            </table>
+        </div>
+
+        <div>
+            <span>
+                Past day =
+            </span>
+            <span id="pastday">
+            </span>
+
+            <span>
+                Coming day =
+            </span>
+            <span id="comingday">
+            </span>
+        </div>
+    </div>
+
+</body>
+
+
+<!-- How to deal with the first error reprot? -->
+<script type="text/javascript" src="BlockCounter.js"></script>
+<script type="text/javascript" src="TimeSelector.js"></script>
+<script type="text/javascript" src="TimeTable.js"></script>
+
+</html>

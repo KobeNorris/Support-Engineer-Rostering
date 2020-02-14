@@ -1,0 +1,27 @@
+body {
+    font-family: 'Muli', sans-serif;
+    text-align: center;
+}
+
+/* The table for employee holidays and deployments */
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 5px;
+    text-align: center;
+}
+
+/* The employee's profile picture */
+#profilePic {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 200px; 
+    height: 200px;
+    border-style: solid;
+    border-radius: 50%;
+    border-color: #172D5C;
+}

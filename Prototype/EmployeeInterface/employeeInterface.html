@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Employee Profile</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='employeeInterface.css'>
+</head>
+
+<body>
+  <div id="window">
+    <div id="logo"></div>
+    <div id="wrapper">
+      <table>
+          <tbody>
+              <tr>
+                  <td colspan="5"><button onclick="jumpToTimeTable()">Time table</button></td>
+                  <td colspan="5"><button onclick="jumpToAdminInterface()">Admin interface</button></td>
+              </tr>
+          </tbody>
+
+          <tbody>
+              <tr>
+                  <td colspan="10">
+                      <div id="profilePic"></div>
+                  </td>
+              </tr>
+              <tr>
+                  <td colspan="10" class="buttonContainer">
+                      <label for="imageUpload">Upload new image</label>
+                      <input id="imageUpload" name="imageUpload" type="file" onchange="upLoadImage('imageUpload')">
+                  </td>
+              </tr>
+          </tbody>
+          <tbody>
+              <tr>
+                  <td colspan=" 3" class="leftEditWindowFrame">
+                      Name
+                  </td>
+                  <td></td>
+                  <td colspan="6" class="rightEditWindowFrame">
+                      <input id="name" type="text" disabled>
+                  </td>
+              </tr>
+              <tr>
+                  <td colspan="3" class="leftEditWindowFrame">
+                      Status
+                  </td>
+                  <td></td>
+                  <td colspan="6" class="rightEditWindowFrame">
+                      <label><input id="status" type="checkbox" disabled />Active</label>
+                  </td>
+              </tr>
+              <tr>
+                  <td colspan="3" class="leftEditWindowFrame">
+                      Working Id
+                  </td>
+                  <td></td>
+                  <td colspan="6" class="rightEditWindowFrame">
+                      <input id="working_id" type="text" disabled>
+                  </td>
+              </tr>
+              <tr>
+                  <td colspan=" 3" class="leftEditWindowFrame">
+                      Account type
+                  </td>
+                  <td></td>
+                  <td colspan="6" class="rightEditWindowFrame">
+                      <input id="account_type" type="text" disabled>
+                  </td>
+              </tr>
+              <tr>
+                  <td colspan=" 3" class="leftEditWindowFrame">
+                      Job role
+                  </td>
+                  <td></td>
+                  <td colspan="6" class="rightEditWindowFrame">
+                      <select id="job_role" disabled>
+                          <option id="PrimaryEngineerOption" value="PrimaryEngineer">Primary Engineer</option>
+                          <option id="SecondaryEngineerOption" value="SecondaryEngineer">Secondary Engineer</option>
+                          <option id="EscalationManagerOption" value="EscalationManager">Escalation manager</option>
+                      </select>
+                  </td>
+              </tr>
+              <tr>
+                  <td colspan="3" class="leftEditWindowFrame">
+                      Slack Id
+                  </td>
+                  <td></td>
+                  <td colspan="6" class="rightEditWindowFrame">
+                      <input id="slack_id" type="text" disabled>
+                  </td>
+              </tr>
+              <tr>
+                  <td colspan="3" class="leftEditWindowFrame">
+                      Group
+                  </td>
+                  <td></td>
+                  <td colspan="6" class="rightEditWindowFrame">
+                      <input id="group_id" type="text" disabled>
+                  </td>
+              </tr>
+              <tr>
+                  <td colspan="3" class="leftEditWindowFrame">
+                      Email
+                  </td>
+                  <td></td>
+                  <td colspan="6" class="rightEditWindowFrame">
+                      <input id="email" type="text" disabled>
+                  </td>
+              </tr>
+              <tr>
+                  <td colspan="3" class="leftEditWindowFrame">
+                      Telephone
+                  </td>
+                  <td></td>
+                  <td colspan="6" class="rightEditWindowFrame">
+                      <input id="phone_number" type="text" disabled>
+                  </td>
+              </tr>
+              <tr>
+                  <td colspan="10" id="profileEditButton" class="buttonContainer">
+                      <button onclick="editEmployeeProfile()">Edit</button>
+                  </td>
+              </tr>
+          </tbody>
+
+
+          <tr>
+              <td colspan="3" class="leftEditWindowFrame">
+                  Holiday
+              </td>
+              <td></td>
+              <td colspan="2">
+                  Start date
+              </td>
+              <td colspan="2">
+                  End date
+              </td>
+              <td colspan="2"></td>
+          </tr>
+          <tbody id="holidayTimetable" class="timeTable">
+          </tbody>
+          <tr>
+              <td colspan="4">
+              </td>
+              <td colspan="2">
+                  <input id="newHolidayStart_date" type="date">
+              </td>
+              <td colspan="2">
+                  <input id="newHolidayEnd_date" type="date">
+              </td>
+              <td colspan="2"><button onclick="upLoadHoliday()">submit</button></td>
+          </tr>
+
+
+          <tr>
+              <td colspan="3" class="leftEditWindowFrame">
+                  Deployment
+              </td>
+              <td></td>
+              <td colspan="2">
+                  Start date
+              </td>
+              <td colspan="2">
+                  End date
+              </td>
+              <td colspan="2"></td>
+          </tr>
+          <tbody id="deploymentTimetable" class="timeTable">
+          </tbody>
+          <tr>
+              <td colspan="4">
+              </td>
+              <td colspan="2">
+                  <input id="newDeploymentStart_date" type="date">
+              </td>
+              <td colspan="2">
+                  <input id="newDeploymentEnd_date" type="date">
+              </td>
+              <td colspan="2"><button onclick="upLoadDeployment()">submit</button></td>
+          </tr>
+          <tr>
+              <td colspan="5"><button onclick="popPasswordWindow()">Change password</button></td>
+              <td colspan="5"><button onclick="logout()">Log out</button></td>
+          </tr>
+      </table>
+
+      <table id="passwordWindow">
+          <tr>
+              <td colspan="2"><button onclick="hidePasswordWindow()">×</button></td>
+          </tr>
+          <tr>
+              <td>
+                  Old password
+              </td>
+              <td>
+                  <input id="oldPassword" type="password">
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  New password
+              </td>
+              <td>
+                  <input id="newPassword" type="password">
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  Check password
+              </td>
+              <td>
+                  <input id="checkPassword" type="password">
+              </td>
+          </tr>
+          <tr>
+              <td colspan="2">
+                  <button onclick="updatePassword()">submit</button>
+              </td>
+          </tr>
+      </table>
+    </div>
+  </div>
+</body>
+
+<script type="text/javascript" src="./js/AJAX.js"></script>
+<script type="text/javascript" src="./js/build.js"></script>
+<script type="text/javascript" src="./js/navigator.js"></script>
+
+<script type="text/javascript" src="./js/profile.js"></script>
+<script type="text/javascript" src="./js/holiday.js"></script>
+<script type="text/javascript" src="./js/deployment.js"></script>
+<script type="text/javascript" src="./js/password.js"></script>
+
+<script type="text/javascript" src="./js/init.js"></script>
+
+</html>
