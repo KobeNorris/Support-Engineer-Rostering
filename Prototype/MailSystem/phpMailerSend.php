@@ -3,7 +3,7 @@
 
 require "../../vendor/autoload.php";
 
-$robo = 'kobewu522@163.com';
+// $robo = 'kobewu522@163.com';
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -29,14 +29,14 @@ $mailer->SMTPDebug = 3;
 
     $mailer->Host = "smtp.gmail.com";
     $mailer->SMTPAuth = true;
-    $mailer->Username = 'sender@email.com';
-    $mailer->Password = 'password';
+    $mailer->Username = 'kobenorriswu@gmail.com';
+    $mailer->Password = 'Kobewkj990522$';
     $mailer->SMTPSecure = "ssl"; //'tls'
     // $mailer->SMTPAutoTLS = false;
-    $mailer->Port = 465; //587 // 465
+    $mailer->Port = 80; //587 // 465
 
-    $mailer->setFrom('sender@email.com', 'Sender');
-    $mailer->addAddress('receiver@email.com', 'Recipient');
+    $mailer->setFrom('kobenorriswu@gmail.com', 'Sender');
+    $mailer->addAddress('969074817@qq.com', 'Recipient');
 
     //Content
     $mailer->isHTML(true); // Set email format to HTML
