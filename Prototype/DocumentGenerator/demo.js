@@ -3,11 +3,13 @@ function generateDocument() {
 
     // saveAs(file);
 
-    var blob = new Blob(["Hello, world!"], { type: "text/plain;charset=utf-8" });
+    // var blob = new Blob(["Hello, world!"], { type: "text/plain;charset=utf-8" });
 
-    saveAs(blob, "hello world.txt");
+    // saveAs(blob, "hello world.txt");
+
+    var EmployeeProfile = new Blob(["Welcome to Websparrow.org."], { type: "txt/plain;charset=utf-8" });
+
+    // console.log(EmployeeProfile);
+
+    saveAs(EmployeeProfile, "static.txt");
 }
-
-
-    // var res = ['Header 1, Header 2, Header 3, Header 4', 'data 1, data 2, data 3, data 4']
-    // var file = new File([res.join('\r\n')], "EmployeeReport.csv", { type: "csv/plain;charset=utf-8" });
