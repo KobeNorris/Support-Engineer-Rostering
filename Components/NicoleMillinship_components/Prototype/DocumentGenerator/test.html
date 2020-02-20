@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="text/javascript" src="./FileSaver.js"></script>
+    <script>
+        let htmls = `<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40">
+
+                        <head>
+                                <meta charset="UTF-8">
+                            <!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet><x:Name>{worksheet}</x:Name><x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions></x:ExcelWorksheet></x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]-->
+                        </head>
+
+                        <body>
+                            <table>
+                                <tr>
+                                    <td>dfdsf</td>
+                                    <td>dfdsf</td>
+                                    <td>dfdsf哈哈哈</td>
+                                </tr>
+                                <tr>
+                                    <td>dfdsf</td>
+                                    <td>dfdsf</td>
+                                    <td>dfdsf哈哈哈</td>
+                                </tr>
+                                <tr>
+                                    <td>dfdsf</td>
+                                    <td>dfdsf</td>
+                                    <td>dfdsf哈哈哈</td>
+                                </tr>
+                            </table>
+                        </body>
+
+                        </html>`;
+        // var blob = new Blob([htmls], { type: "application/octet-stream" });
+        // saveAs(blob, 'test.xlsx');
+        var blob = new Blob([htmls], { type: "application/x-xls;charset=utf-8" });
+        let aDom = document.createElement("a");
+        aDom.href = URL.createObjectURL(blob);
+        aDom.download = "导出数据.xls";
+        aDom.click();
+    </script>
+</body>
+
+</html>
