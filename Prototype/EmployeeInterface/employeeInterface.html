@@ -147,7 +147,7 @@
               <td colspan="4">
               </td>
               <td colspan="2">
-                  <input id="newHolidayStart_date" type="date">
+                  <input id="newHolidayStart_date" type="date" onchange='setEndDateMin(this.value,"newHolidayEnd_date")'>
               </td>
               <td colspan="2">
                   <input id="newHolidayEnd_date" type="date">
@@ -175,7 +175,7 @@
               <td colspan="4">
               </td>
               <td colspan="2">
-                  <input id="newDeploymentStart_date" type="date">
+                <input id="newDeploymentStart_date" type="date" onchange='setEndDateMin(this.value,"newDeploymentEnd_date")'>
               </td>
               <td colspan="2">
                   <input id="newDeploymentEnd_date" type="date">
@@ -234,6 +234,7 @@
 <script type="text/javascript" src="./js/holiday.js"></script>
 <script type="text/javascript" src="./js/deployment.js"></script>
 <script type="text/javascript" src="./js/password.js"></script>
+<script type="text/javascript" src="./js/calendar.js"></script>
 
 <script type="text/javascript" src="./js/init.js"></script>
 
