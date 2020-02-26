@@ -9,19 +9,26 @@
     <link rel='stylesheet' type='text/css' media='screen' href='adminInterface.css'>
 </head>
 <body>
-    <table id="tableemployee">
-        <thead>
-            <td>Name</td>
-            <td>Status</td>
-            <td>Working_id</td>
-            <!-- <td>Group_id</td> -->
-            <td></td>
-            <td></td>
-            <td></td>
-        </thead>
-        <tbody id="employeeTable">
-        </tbody>
-    </table>
+    <div class="rows">
+        <div class="groupNavigationBar">
+            <!-- Group tabs are created here -->
+        </div>
+        <div class="employeeInfo">
+            <table id="tableemployee">
+                <thead>
+                    <td>Name</td>
+                    <td>Status</td>
+                    <td>Work ID</td>
+                    <td></td> <!-- View button -->
+                    <td></td> <!-- Report button -->
+                    <td></td> <!-- Delete button -->
+                </thead>
+                <tbody id="employeeTable">
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
     <div class=""></div>
     <button onclick="jumpToTimeTable()" class="topButton">time table</button>
     <button onclick="popCreateEmployeeWindow()" class="topButton">new</button>

@@ -49,7 +49,7 @@ function deleteEmployee(){
 function getEmployeeInfo(){
     $profileList = array();
 
-    $sql = "SELECT * FROM employee_profile;";
+    $sql = "SELECT * FROM employee_profile ORDER BY group_id;";
     try {
         $dbh=PDOProvider();
         $stmt=$dbh->prepare($sql);
