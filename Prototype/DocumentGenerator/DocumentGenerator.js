@@ -1,4 +1,8 @@
 var employeeReport;
+var targetWorking_id = "scykw1";
+var payment = 35.72;
+var targetYear = 2019;
+var targetMonth = 12;
 
 function generateDocument() {
     var wb = XLSX.utils.book_new();
@@ -11,7 +15,6 @@ function generateDocument() {
     wb.SheetNames.push("Test Sheet");
 
     var ws_data = generateReport();
-    // var ws_data = [["S", "h", "e", "e", "t", "J", "S"], [1, 2, 3, 4, 5]];
 
     var ws = XLSX.utils.aoa_to_sheet(ws_data);
 
@@ -27,7 +30,7 @@ function generateDocument() {
 
     var wbout = XLSX.write(wb, { bookType: 'xlsx', type: 'binary' });
 
-    saveAs(new Blob([s2ab(wbout)], { type: "application/octet-stream" }), 'test.xlsx');
+    saveAs(new Blob([s2ab(wbout)], { type: "application/octet-stream" }), targetWorking_id + '-' + targetMonth + ' ' + targetYear + '.xlsx');
 }
 
 function getReport() {
@@ -43,24 +46,27 @@ function getReport() {
 }
 
 function generateReport() {
+    var ondutyCounter = 0;
     var report = [
         [],
         ["Associate Name", ""],
         ["Department Name", "Software Engineering"],
         ["Cost Centre", "50587"],
-        ["Employee ID", ""],
+        ["Employee ID", targetWorking_id],
         ["Employee Number", ""],
-        ["Claim Month/Year", ""],
+        ["Claim Month/Year", targetMonth + "/" + targetYear],
         []
     ]
 
     employeeReport.forEach(element => {
         report.push([element["date"], element["onDuty"]]);
+        if (element["onDuty"] == "Y")
+            ondutyCounter++;
     });
 
     report.push([]);
-    report.push(["Payroll Instruction: ", ""]);
-    report.push(["Total: ", ""]);
+    report.push(["Payroll Instruction: ", "Please pay " + ondutyCounter + " days ( £" + payment + "/day )"]);
+    report.push(["Total: ", "£" + ondutyCounter * payment]);
 
     return report;
 }
