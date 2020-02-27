@@ -9,4 +9,7 @@ function PDOProvider(){
 
     return $dbh;
 }
+
+
+//connection to the database using pdo straightforward
 ?>
