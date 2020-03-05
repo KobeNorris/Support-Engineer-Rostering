@@ -7,6 +7,7 @@
     <title>Admin interface</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='adminInterface.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='reportEditionWindow.css'>
 </head>
 
 <body>
@@ -33,10 +34,9 @@
     <div class=""></div>
     <button onclick="jumpToTimeTable()" class="topButton">time table</button>
     <button onclick="popCreateEmployeeWindow()" class="topButton">new</button>
+
     <div id="newEmployee">
         <div id="centralEmployeeNew">
-
-
             <table id="createEmployeeWindow">
                 <thead>
                     <td colspan="2"><button onclick="hideCreateEmployeeWindow()">×</button></td>
@@ -70,6 +70,58 @@
             </table>
         </div>
     </div>
+
+    <div id="reportEditionWindow">
+        <table id="reportEditionTable" style="display: none;">
+            <tr>
+                <td colspan="2">
+                    Report Edition Window
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Target period
+                </td>
+                <td>
+                    <input id="reportTargetPeriod" type="month">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Target job role
+                </td>
+                <td>
+                    <select id='reportTargetJobRole'>
+                        <option value="PrimaryEngineer">
+                            PrimaryEngineer
+                        </option>
+                        <option value="SecondaryEngineer">
+                            SecondaryEngineer
+                        </option>
+                        <option value="EscalationManager">
+                            EscalationManager
+                        </option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Target payment
+                </td>
+                <td>
+                    <input id="reportTargetPayment" type="number">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button onclick="reportDownloadRequest()">Download</button>
+                </td>
+                <td>
+                    <button onclick="hideReportEditionWindow()">Cancel</button>
+                </td>
+            </tr>
+        </table>
+    </div>
 </body>
 
 <script src='./js/AJAX.js'></script>
@@ -81,6 +133,7 @@
 <script src='./js/employeeWindow.js'></script>
 <script src='./js/employeeManipulation.js'></script>
 <script src='./js/documentGenerator.js'></script>
+<script src='./js/reportEditionWindow.js'></script>
 
 <script src='./js/init.js'></script>
 

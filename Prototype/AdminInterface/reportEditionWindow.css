@@ -1,0 +1,15 @@
+#reportEditionWindow{
+    font-size: 1.2em;
+    text-align: center;
+    display: block;
+}
+
+#reportEditionTable{
+    text-align: center;
+    /* display: none; */
+}
+
+/* #reportEditionTable.tbody{
+    margin-right: auto;
+    margin-left: auto;
+} */

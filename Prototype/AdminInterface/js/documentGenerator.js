@@ -23,13 +23,13 @@ function getReport() {
         function (responseText) {
             // console.log(responseText);
             employeeReport = JSON.parse(responseText);
-            getEmployeeInfo();
+            getEmployeeProfile();
         }
     )
 }
 
 // Get employee profile information from database
-function getEmployeeInfo() {
+function getEmployeeProfile() {
     var url = "./php/employeeReport.php";
     var data = "action=getEmployeeInfo&working_id=" + targetWorking_id;
 

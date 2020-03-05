@@ -56,7 +56,7 @@ function buildGroupEmployees(group) {
             + status + "</td><td>"
             + employeeInfo[index]["working_id"] + "</td>"
             + "<td><button onclick=\"jumpToTargetProfile(event)\">view</botton></td>"
-            + "<td><button onclick=\"requestToGenerateReport()\">report</button></td>"
+            + "<td><button onclick=\"popReportEditionWindow(event)\">report</button></td>"
             + "<td><button onclick=\"deleteEmployee(event)\">delete</botton></td>"
             + "</tr>";
     }
