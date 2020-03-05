@@ -1,5 +1,6 @@
 var employeeReport;
 var targetWorking_id = "scykw1";
+var targetJobrole = "PrimaryEngineer";
 var payment = 35.72;
 var targetYear = 2019;
 var targetMonth = 12;
@@ -35,7 +36,8 @@ function generateDocument() {
 
 function getReport() {
     var url = "./php/employeeReport.php";
-    var data = "action=getInfo";
+    var data = "action=getInfo&wokring_id=" + targetWorking_id +
+        "&job_Role" + "";
 
     AJAX.post(url, data,
         function (responseText) {
