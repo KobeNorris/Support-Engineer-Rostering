@@ -3,24 +3,46 @@ include_once("db_connection.php");
 
 // getEmployeeReport();
 switch ($_POST['action']) {
-    case 'getInfo':
+    case 'getReportData':
         getEmployeeReport();
         break;
 
+    case 'getEmployeeInfo':
+        getEmployeeInfo();
+        break;
+
     default:
-        # code...
+        echo "Undefined action ".$_POST['action'];
         break;
 }
 
 function getEmployeeReport(){
-    // $year = $_POST['year'];
-    // $month = $_POST['month'];
-    // $working_id = $_POST['working_id'];
+    $year = $_POST['year'];
+    $month = $_POST['month'];
+    $working_id = $_POST['working_id'];
 
-    $year = "2019";
-    $month = "12";
-    $working_id = "scykw1";
-    $job_role = "primary_engineer";
+    switch ($_POST['job_role']) {
+        case 'PrimaryEngineer':
+            $job_role = "primary_engineer";
+            break;
+
+        case 'SecondaryEngineer':
+            $job_role = "secondary_engineer";
+            break;
+
+        case 'EscalationManager':
+            $job_role = "escalation_manager";
+            break;
+        
+        default:
+            echo "Undefined job role :".$_POST['job_role'];
+            break;
+    }
+
+    // $year = "2019";
+    // $month = "12";
+    // $working_id = "scykw1";
+    // $job_role = "primary_engineer";
 
     $start_date = date("Y-m-d",strtotime($year."-".$month."-00"));
     $end_date = date("Y-m-d",strtotime("+1 day", strtotime("+1 month",strtotime($start_date))));
@@ -52,6 +74,32 @@ function getEmployeeReport(){
         }
 
         echo json_encode($report);
+        
+    }catch(PDOException $error){
+        echo 'SQL Query:'.$sql.'</br>';
+        echo 'Connection failed:'.$error->getMessage();
+    }
+}
+
+function getEmployeeInfo(){
+    $working_id = $_POST['working_id'];
+
+    $sql = "SELECT * FROM employee_profile WHERE working_id =\"".$working_id."\";";
+
+    try{
+        $dbh=PDOProvider();
+        $stmt=$dbh->prepare($sql);
+        $stmt->execute();
+
+        $employeeProfile = array();
+        $row=$stmt->fetch(PDO::FETCH_ASSOC);
+
+        $employeeProfile['name'] = $row['name'];
+        $employeeProfile['working_id'] = $row['working_id'];
+        $employeeProfile['phone_number'] = $row['phone_number'];
+        $employeeProfile['group_id'] = $row['group_id'];
+
+        echo json_encode($employeeProfile);
         
     }catch(PDOException $error){
         echo 'SQL Query:'.$sql.'</br>';

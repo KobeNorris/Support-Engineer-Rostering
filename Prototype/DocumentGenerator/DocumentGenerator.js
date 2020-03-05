@@ -1,10 +1,48 @@
 var employeeReport;
-var targetWorking_id = "scykw1";
-var targetJobrole = "PrimaryEngineer";
-var payment = 35.72;
-var targetYear = 2019;
-var targetMonth = 12;
+var employeeProfile;
+// var targetWorking_id = "scykw1";
+// var targetJobRole = "PrimaryEngineer";
+// var payment = 35.72;
+// var targetYear = 2019;
+// var targetMonth = 12;
+var targetWorking_id;
+var targetJobRole;
+var payment;
+var targetYear;
+var targetMonth;
 
+// Get report data from database
+function getReport() {
+    var url = "./php/employeeReport.php";
+    var data = "action=getReportData&working_id=" + targetWorking_id +
+        "&job_role=" + targetJobRole +
+        "&year=" + targetYear +
+        "&month=" + targetMonth;
+
+    AJAX.post(url, data,
+        function (responseText) {
+            // console.log(responseText);
+            employeeReport = JSON.parse(responseText);
+            getEmployeeInfo();
+        }
+    )
+}
+
+// Get employee profile information from database
+function getEmployeeInfo() {
+    var url = "./php/employeeReport.php";
+    var data = "action=getEmployeeInfo&working_id=" + targetWorking_id;
+
+    AJAX.post(url, data,
+        function (responseText) {
+            // console.log(responseText);
+            employeeProfile = JSON.parse(responseText);
+            generateDocument();
+        }
+    )
+}
+
+// Generate a downloadable document containing empolyee's report
 function generateDocument() {
     var wb = XLSX.utils.book_new();
     wb.Props = {
@@ -34,28 +72,17 @@ function generateDocument() {
     saveAs(new Blob([s2ab(wbout)], { type: "application/octet-stream" }), targetWorking_id + '-' + targetMonth + ' ' + targetYear + '.xlsx');
 }
 
-function getReport() {
-    var url = "./php/employeeReport.php";
-    var data = "action=getInfo&wokring_id=" + targetWorking_id +
-        "&job_Role" + "";
-
-    AJAX.post(url, data,
-        function (responseText) {
-            employeeReport = JSON.parse(responseText);
-            generateDocument();
-        }
-    )
-}
-
+// Generate the content of the report
 function generateReport() {
     var ondutyCounter = 0;
     var report = [
         [],
-        ["Associate Name", ""],
+        ["Associate Name", employeeProfile['group_id']],
         ["Department Name", "Software Engineering"],
         ["Cost Centre", "50587"],
         ["Employee ID", targetWorking_id],
-        ["Employee Number", ""],
+        ["Employee Number", employeeProfile['phone_number']],
+        ["Employee Job Role", targetJobRole],
         ["Claim Month/Year", targetMonth + "/" + targetYear],
         []
     ]
@@ -73,6 +100,7 @@ function generateReport() {
     return report;
 }
 
+// S to ab transform
 function s2ab(s) {
     var buf = new ArrayBuffer(s.length); //convert s to arrayBuffer
     var view = new Uint8Array(buf);  //create uint8array as viewer
