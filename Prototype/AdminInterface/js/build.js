@@ -21,9 +21,9 @@ function buildEmployeeTable() {
             lastGroup = employeeInfo[index]["group_id"];
         }
     }
-    
+
     for (var index = 0; index < groups.length; index++) {
-        html += "<button id='groupButton' onclick=\"buildGroupEmployees('" + groups[index] + "')\">"+ groups[index] + "</button>";
+        html += "<button id='groupButton' onclick=\"buildGroupEmployees('" + groups[index] + "')\">" + groups[index] + "</button>";
     }
     html += "<button id='groupButton' onclick=\"buildGroupEmployees('')\">Other</button>";
     document.getElementsByClassName("groupNavigationBar")[0].innerHTML = html;
@@ -41,7 +41,7 @@ function buildGroupEmployees(group) {
 
     for (var index = 0; index < employeeInfo.length; index++) {
         // if employee isn't in this group, move to the next employee
-        if(employeeInfo[index]["group_id"] != group.toString()) {
+        if (employeeInfo[index]["group_id"] != group.toString()) {
             continue;
         }
 
@@ -51,12 +51,12 @@ function buildGroupEmployees(group) {
             status = "Inactive";
         }
         //Put the current employee's info into the employee table
-        html += "<tr><td>" 
+        html += "<tr><td>"
             + employeeInfo[index]["name"] + "</td><td>"
             + status + "</td><td>"
             + employeeInfo[index]["working_id"] + "</td>"
             + "<td><button onclick=\"jumpToTargetProfile(event)\">view</botton></td>"
-            + "<td><button>report</button></td>"
+            + "<td><button onclick=\"requestToGenerateReport()\">report</button></td>"
             + "<td><button onclick=\"deleteEmployee(event)\">delete</botton></td>"
             + "</tr>";
     }
