@@ -96,7 +96,7 @@ function checkDuplicate($working_id, $employeePassword){
 function uploadEmployee($working_id, $employeePassword){
 
     $sql = "INSERT INTO account VALUES (\"".$working_id."\", \"".$employeePassword."\");";
-    $sql =  $sql."INSERT INTO employee_profile (working_id, status, account_type) VALUES (\"".$working_id."\", \"".false."\", \"employee\");";
+    $sql =  $sql."INSERT INTO employee_profile (working_id, status, account_type, group_id) VALUES (\"".$working_id."\", \"".false."\", \"employee\", \"\");";
     
     try {
         $dbh=PDOProvider();

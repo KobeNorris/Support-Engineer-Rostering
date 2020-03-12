@@ -16,22 +16,25 @@
             <!-- Group tabs are created here -->
         </div>
         <div class="employeeInfo">
-            <table id="tableemployee">
-                <thead>
-                    <td>Name</td>
-                    <td>Status</td>
-                    <td>Work ID</td>
-                    <td></td> <!-- View button -->
-                    <td></td> <!-- Report button -->
-                    <td></td> <!-- Delete button -->
-                </thead>
-                <tbody id="employeeTable">
+            <table id="employeeTable">
+                <tbody id="employeeTableHead">
+                    <tr>
+                        <td>Name</td>
+                        <td>Status</td>
+                        <td>Work ID</td>
+                        <td>View</td>
+                        <td>Report</td>
+                        <td>Delete</td>
+                    </tr>
+                </tbody>
+
+                <tbody id="employeeTableBody">
                 </tbody>
             </table>
         </div>
     </div>
 
-    <div class=""></div>
+    <!-- <div class=""></div> -->
     <button onclick="jumpToTimeTable()" class="topButton">time table</button>
     <button onclick="popCreateEmployeeWindow()" class="topButton">new</button>
 

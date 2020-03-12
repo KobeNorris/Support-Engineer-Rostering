@@ -17,15 +17,17 @@ body{
   margin:3%;
 }
 
-#tableemployee{
-  background-color: #c3c3c3;
-  display: inline-block;
+#employeeTable{
+    width: 30em;
 }
 
-#employeeTable{
+#employeeTableHead{
+  background-color: #c3c3c3;
+}
+
+#employeeTableBody{
   text-align:center;
   background-color: #c3c3c3;
-  border-radius:25px;
 }
 
 #newEmployee{
@@ -41,7 +43,7 @@ body{
 .rows {
   display:flex;
   justify-content: center;
-  margin-top: 11%;
+  margin-top: 13%;
 }
 
 .employeeInfo {

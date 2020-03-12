@@ -16,19 +16,20 @@ function buildEmployeeTable() {
 
     //Get the different groups employees are in and store them in groups
     for (var index = 0; index < employeeInfo.length; index++) {
-        if (employeeInfo[index]["group_id"] != lastGroup) {
+        if (employeeInfo[index]["group_id"] != lastGroup && employeeInfo[index]["group_id"] != "") {
             groups.push(employeeInfo[index]["group_id"]);
             lastGroup = employeeInfo[index]["group_id"];
         }
     }
+    console.log(employeeInfo);
 
     for (var index = 0; index < groups.length; index++) {
         html += "<button id='groupButton' onclick=\"buildGroupEmployees('" + groups[index] + "')\">" + groups[index] + "</button>";
     }
-    html += "<button id='groupButton' onclick=\"buildGroupEmployees('')\">Other</button>";
+    html += "<button id='groupButton' onclick=\"buildGroupEmployees('Other')\">Other</button>";
     document.getElementsByClassName("groupNavigationBar")[0].innerHTML = html;
 
-    buildGroupEmployees("Customer London");
+    buildGroupEmployees(groups[0]);
 }
 
 /**
@@ -42,10 +43,13 @@ function buildGroupEmployees(group) {
     for (var index = 0; index < employeeInfo.length; index++) {
         // if employee isn't in this group, move to the next employee
         if (employeeInfo[index]["group_id"] != group.toString()) {
-            continue;
+            console.log(group.toString() + " " + employeeInfo[index]["group_id"]);
+            if (group.toString() != "Other" || employeeInfo[index]["group_id"] != "") {
+                continue;
+            }
         }
 
-        if (employeeInfo[index]["status"]) {
+        if (employeeInfo[index]["status"] == 1) {
             status = "Active";
         } else {
             status = "Inactive";
@@ -60,5 +64,5 @@ function buildGroupEmployees(group) {
             + "<td><button onclick=\"deleteEmployee(event)\">delete</botton></td>"
             + "</tr>";
     }
-    document.getElementById("employeeTable").innerHTML = html;
+    document.getElementById("employeeTableBody").innerHTML = html;
 }
