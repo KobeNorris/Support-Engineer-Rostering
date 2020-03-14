@@ -51,12 +51,6 @@ function openEditWindow() {
         function (responseText) {
             if (responseText == "admin") {
                 popWindow();
-                // if (parent == "timeTable")
-                //     popWindowTT(event);
-                // else if (parent == "employeeCategory")
-                //     popWindowEC(event);
-                // else
-                //     alert("Wrong parent -> " + parent);
             }
             else if (responseText == "employee")
                 alert("No access permission ");
@@ -76,10 +70,6 @@ function popWindow() {
     document.getElementById('jobRoleSelection').innerHTML = targetBlock.getAttribute('job_role');
     document.getElementById('inputStartDate').value = targetBlock.getAttribute('start_date');
     document.getElementById('inputEndDate').value = targetBlock.getAttribute('end_date');
-    // if (document.getElementById('inputWorking_id').innerHTML == "Disable weekly repeat") {
-    //     alert("Hello");
-    // }
-    // // getRepeatTask();
 
     document.getElementById('modal').style.display = "block";
     document.getElementById('editWindow').style.display = "block";
@@ -97,10 +87,6 @@ function popWindowTT() {
     document.getElementById('jobRoleSelection').innerHTML = targetBlock.getAttribute('job_role');
     document.getElementById('inputStartDate').value = targetBlock.getAttribute('start_date');
     document.getElementById('inputEndDate').value = targetBlock.getAttribute('end_date');
-    // if (document.getElementById('inputWorking_id').innerHTML == "Disable weekly repeat") {
-    //     alert("Hello");
-    // }
-    // // getRepeatTask();
 
     document.getElementById('modal').style.display = "block";
     document.getElementById('editWindow').style.display = "block";
@@ -136,7 +122,8 @@ function hideWindow() {
  * Inser single schedule period info into the edit window
  */
 function getNormalTask() {
-    document.getElementById('inputWorking_id').value = targetBlock.getAttribute('working_id');
+    if (targetBlock.getAttribute('working_id') != "")
+        document.getElementById('inputWorking_id').value = targetBlock.getAttribute('working_id');
     document.getElementById('inputStartDate').value = targetBlock.getAttribute('start_date');
     document.getElementById('inputEndDate').value = targetBlock.getAttribute('end_date');
 }
@@ -295,8 +282,19 @@ function getRepeatTask() {
  * Clean the repeatable task's data kept in the edit window
  */
 function cleanRepeatTask() {
-    document.getElementById("inputRepeatInterval").value = "";
-    document.getElementById("yearEnd").checked = true;
-    document.getElementById("inputTimeEnd").value = "";
-    document.getElementById("inputDateEnd").value = "";
+    // document.getElementById("inputRepeatInterval").value = "";
+    // document.getElementById("yearEnd").checked = true;
+    // document.getElementById("inputTimeEnd").value = "";
+    // document.getElementById("inputDateEnd").value = "";
+    var inputs = $('#repeatAttribute input');
+    var targetButton = document.getElementById("enableRepeatButton");
+
+    targetButton.innerHTML = 'Enable weekly repeat';
+    targetButton.status = 'disabled';
+    document.getElementById("repeatAttribute").style.color = 'grey';
+    document.getElementById("EWUpload").onclick = normalUpload;
+    document.getElementById("EWDelete").onclick = normalDelete;
+    inputs.each(function () {
+        this.disabled = true;
+    });
 }
