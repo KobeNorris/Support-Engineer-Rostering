@@ -42,10 +42,8 @@ function checkRepeat() {
  *      possible;
  *      2. From employee category: Load target employee's working id
  *
- * @param {*} event 
- * @param {*} parent 
  */
-function openEditWindow(event, parent) {
+function openEditWindow() {
     var url = "./php/login.php";
     var data = "action=check";
 
@@ -62,8 +60,10 @@ function openEditWindow(event, parent) {
             }
             else if (responseText == "employee")
                 alert("No access permission ");
-            else
+            else if (responseText == "Not log in")
                 popLoginWindow();
+            else
+                console.log(responseText);
         }
     )
 }
