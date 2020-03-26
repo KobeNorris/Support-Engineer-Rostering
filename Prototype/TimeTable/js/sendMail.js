@@ -6,8 +6,10 @@ function requestLeaveRequest() {
         function (responseText) {
             if (responseText == "Succeed")
                 sendLeaveRequest();
-            else if (responseText == "Failed")
-                alert("No permission, try correct account");
+            else if (responseText == "Failed") {
+                popWarningWindow("No permission, try correct account");
+                // alert("No permission, try correct account");
+            }
             else if (responseText == "Not log in")
                 popLoginWindow();
             else
@@ -52,10 +54,13 @@ function sendLeaveRequest() {
             subject: subject,
             body: body
         }, success: function (response) {
-            if (response.status == "success")
-                alert('Email Has Been Sent!');
+            if (response.status == "success") {
+                popWarningWindow('Email Has Been Sent!');
+                // alert('Email Has Been Sent!');
+            }
             else {
-                alert('Please Try Again!');
+                popWarningWindow('Please Try Again!');
+                // alert('Please Try Again!');
                 console.log(response);
             }
         }

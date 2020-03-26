@@ -13,6 +13,7 @@
     <link rel="stylesheet" type="text/css" href="./css/EditWindow.css">
     <link rel="stylesheet" type="text/css" href="./css/RequestWindow.css">
     <link rel="stylesheet" type="text/css" href="./css/login.css">
+    <link rel="stylesheet" type="text/css" href="./css/warningWindow.css">
     <title>Engineer Rostering System</title>
 </head>
 
@@ -210,6 +211,25 @@
         </div>
     </div>
 
+    <!-- Warning Window -->
+    <div id="warningWindow">
+        <table id="warningTable">
+            <thead>
+                <tr>
+                    <td>Warning</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td id="warningMessage"></td>
+                </tr>
+                <tr>
+                    <td><button onclick="hideWarningWindow()">confirmed</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
     <div id="modal"></div>
 
 </body>
@@ -228,6 +248,7 @@
 <script type="text/javascript" src="./js/EmployeeCategory.js"></script>
 <script type="text/javascript" src="./js/RequestWindow.js"></script>
 <script type="text/javascript" src="./js/sendMail.js"></script>
+<script type="text/javascript" src="./js/warningWindow.js"></script>
 
 <script type="text/javascript" src="./js/init.js"></script>
 

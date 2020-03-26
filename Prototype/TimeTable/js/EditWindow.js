@@ -52,8 +52,10 @@ function openEditWindow() {
             if (responseText == "admin") {
                 popWindow();
             }
-            else if (responseText == "employee")
-                alert("No access permission ");
+            else if (responseText == "employee") {
+                popWarningWindow("No access permission");
+                // alert("No access permission ");
+            }
             else if (responseText == "Not log in")
                 popLoginWindow();
             else
@@ -142,8 +144,10 @@ function normalUpload() {
                 getMonthData();
                 hideWindow();
             }
-            else
-                alert(responseText);
+            else {
+                popWarningWindow(responseText);
+                // alert(responseText);
+            }
         }
     );
 }
@@ -162,8 +166,10 @@ function normalDelete() {
                 getMonthData();
                 hideWindow();
             }
-            else
-                alert(responseText);
+            else {
+                popWarningWindow(responseText);
+                // alert(responseText);
+            }
         }
     );
 }
@@ -196,8 +202,10 @@ function repeatUpload() {
                 getMonthData();
                 hideWindow();
             }
-            else
-                alert(responseText);
+            else {
+                popWarningWindow(responseText);
+                // alert(responseText);
+            }
         }
     );
 }
@@ -216,8 +224,10 @@ function repeatDelete() {
                 getMonthData();
                 hideWindow();
             }
-            else
-                alert(responseText);
+            else {
+                popWarningWindow(responseText);
+                // alert(responseText);
+            }
         }
     );
 }
