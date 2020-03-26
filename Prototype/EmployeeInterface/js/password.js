@@ -20,7 +20,7 @@ function popPasswordWindow() {
     AJAX.post(url, data,
         function (responseText) {
             if (responseText == "Success")
-                document.getElementById("passwordWindow").style.display = "block";
+                document.getElementById("changePasswordWindow").style.display = "block";
             else
                 alert("No permission" + responseText);
         }
@@ -31,7 +31,7 @@ function popPasswordWindow() {
  * Hide the password modification window and clean the data
  */
 function hidePasswordWindow() {
-    document.getElementById("passwordWindow").style.display = "none";
+    document.getElementById("changePasswordWindow").style.display = "none";
     document.getElementById("oldPassword").value = "";
     document.getElementById("newPassword").value = "";
     document.getElementById("checkPassword").value = "";
