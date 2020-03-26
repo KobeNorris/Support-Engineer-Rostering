@@ -21,7 +21,7 @@ function buildEmployeeTable() {
             lastGroup = employeeInfo[index]["group_id"];
         }
     }
-    console.log(employeeInfo);
+    // console.log(employeeInfo);
 
     for (var index = 0; index < groups.length; index++) {
         html += "<button id='groupButton' onclick=\"buildGroupEmployees('" + groups[index] + "')\">" + groups[index] + "</button>";
@@ -43,7 +43,7 @@ function buildGroupEmployees(group) {
     for (var index = 0; index < employeeInfo.length; index++) {
         // if employee isn't in this group, move to the next employee
         if (employeeInfo[index]["group_id"] != group.toString()) {
-            console.log(group.toString() + " " + employeeInfo[index]["group_id"]);
+            // console.log(group.toString() + " " + employeeInfo[index]["group_id"]);
             if (group.toString() != "Other" || employeeInfo[index]["group_id"] != "") {
                 continue;
             }

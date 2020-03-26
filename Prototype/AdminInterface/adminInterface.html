@@ -6,9 +6,9 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Admin interface</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='adminInterface.css'>
-    <link rel='stylesheet' type='text/css' media='screen' href='reportEditionWindow.css'>
-    <link rel='stylesheet' type='text/css' media='screen' href='createEmployeeWindow.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='./css/adminInterface.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='./css/reportEditionWindow.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='./css/createEmployeeWindow.css'>
 </head>
 
 <body>
@@ -40,15 +40,12 @@
     <button onclick="popCreateEmployeeWindow()" class="topButton">new</button>
 
     <!-- New employee window framework -->
-    <div id="newEmployee">
-        <div id="centralEmployeeNew">
-            <table id="createEmployeeWindow">
-                <thead>
-                    <td colspan="2"><button onclick="hideCreateEmployeeWindow()">×</button></td>
-                </thead>
-                <tr>
-                    <td colspan="2">New employee</td>
-                </tr>
+    <div id="createEmployeeWindow">
+        <table id="createEmployeeTable">
+            <thead>
+                <td colspan="2">New employee</td>
+            </thead>
+            <tbody>
                 <tr>
                     <td>Working_id</td>
                     <td>
@@ -68,12 +65,11 @@
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="2">
-                        <button onclick="createNewEmployee()">submit</button>
-                    </td>
+                    <td><button onclick="createNewEmployee()">submit</button></td>
+                    <td><button onclick="hideCreateEmployeeWindow()">cancel</button></td>
                 </tr>
-            </table>
-        </div>
+            </tbody>
+        </table>
     </div>
 
     <!-- Report edition window framewark -->
