@@ -8,6 +8,7 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='adminInterface.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='reportEditionWindow.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='createEmployeeWindow.css'>
 </head>
 
 <body>
@@ -38,6 +39,7 @@
     <button onclick="jumpToTimeTable()" class="topButton">time table</button>
     <button onclick="popCreateEmployeeWindow()" class="topButton">new</button>
 
+    <!-- New employee window framework -->
     <div id="newEmployee">
         <div id="centralEmployeeNew">
             <table id="createEmployeeWindow">
@@ -74,54 +76,73 @@
         </div>
     </div>
 
+    <!-- Report edition window framewark -->
     <div id="reportEditionWindow">
-        <table id="reportEditionTable" style="display: none;">
+        <table id="reportEditionTable">
+            <thead>
+                <tr>
+                    <td colspan="2">
+                        Report Edition Window
+                    </td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        Target period
+                    </td>
+                    <td>
+                        <input id="reportTargetPeriod" type="month">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Target job role
+                    </td>
+                    <td>
+                        <select id='reportTargetJobRole'>
+                            <option value="PrimaryEngineer">
+                                PrimaryEngineer
+                            </option>
+                            <option value="SecondaryEngineer">
+                                SecondaryEngineer
+                            </option>
+                            <option value="EscalationManager">
+                                EscalationManager
+                            </option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Target payment
+                    </td>
+                    <td>
+                        <input id="reportTargetPayment" type="number">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button onclick="reportDownloadRequest()">Download</button>
+                    </td>
+                    <td>
+                        <button onclick="hideReportEditionWindow()">Cancel</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div id="warningWindow">
+        <table>
             <tr>
-                <td colspan="2">
-                    Report Edition Window
-                </td>
+                <td></td>
             </tr>
             <tr>
-                <td>
-                    Target period
-                </td>
-                <td>
-                    <input id="reportTargetPeriod" type="month">
-                </td>
+                <td></td>
             </tr>
             <tr>
-                <td>
-                    Target job role
-                </td>
-                <td>
-                    <select id='reportTargetJobRole'>
-                        <option value="PrimaryEngineer">
-                            PrimaryEngineer
-                        </option>
-                        <option value="SecondaryEngineer">
-                            SecondaryEngineer
-                        </option>
-                        <option value="EscalationManager">
-                            EscalationManager
-                        </option>
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Target payment
-                </td>
-                <td>
-                    <input id="reportTargetPayment" type="number">
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <button onclick="reportDownloadRequest()">Download</button>
-                </td>
-                <td>
-                    <button onclick="hideReportEditionWindow()">Cancel</button>
-                </td>
+                <td></td>
             </tr>
         </table>
     </div>

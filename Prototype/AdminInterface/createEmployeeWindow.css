@@ -1,0 +1,11 @@
+#newEmployee{
+    text-align: center;
+}
+
+#centralEmployeeNew{
+    display: inline-block;
+}
+
+#createEmployeeWindow{
+    display: none;
+}

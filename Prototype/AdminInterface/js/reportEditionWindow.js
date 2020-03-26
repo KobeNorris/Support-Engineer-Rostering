@@ -3,7 +3,7 @@ function popReportEditionWindow(event) {
     var obj = (event.srcElement ? event.srcElement : event.target).parentElement.parentElement;
     targetWorking_id = obj.children[2].innerHTML;
 
-    obj = document.getElementById('reportEditionTable');
+    obj = document.getElementById('reportEditionWindow');
     obj.style.display = "block";
 }
 
@@ -23,6 +23,6 @@ function reportDownloadRequest() {
 
 function hideReportEditionWindow() {
     // TODO clear blocks
-    var obj = document.getElementById('reportEditionTable');
+    var obj = document.getElementById('reportEditionWindow');
     obj.style.display = "none";
 }
