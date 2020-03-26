@@ -9,6 +9,7 @@
     <link rel='stylesheet' type='text/css' media='screen' href='./css/adminInterface.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='./css/reportEditionWindow.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='./css/createEmployeeWindow.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='./css/warningWindow.css'>
 </head>
 
 <body>
@@ -129,17 +130,22 @@
         </table>
     </div>
 
+    <!-- Warning Window -->
     <div id="warningWindow">
-        <table>
-            <tr>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-            </tr>
+        <table id="warningTable">
+            <thead>
+                <tr>
+                    <td>Warning</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td id="warningMessage"></td>
+                </tr>
+                <tr>
+                    <td><button onclick="hideWarningWindow()">confirmed</button></td>
+                </tr>
+            </tbody>
         </table>
     </div>
 </body>
@@ -154,6 +160,7 @@
 <script src='./js/employeeManipulation.js'></script>
 <script src='./js/documentGenerator.js'></script>
 <script src='./js/reportEditionWindow.js'></script>
+<script src='./js/warningWindow.js'></script>
 
 <script src='./js/init.js'></script>
 
