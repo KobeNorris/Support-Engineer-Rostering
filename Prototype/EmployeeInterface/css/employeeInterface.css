@@ -4,7 +4,7 @@ html{
 }
 body{
   height:100%;
-  background: url('Image/background.png') no-repeat center center;
+  background: url('../Image/background.png') no-repeat center center;
   -moz-background-size: cover;
   -webkit-background-size: cover;
   -o-background-size: cover;
@@ -19,7 +19,7 @@ body{
   height: 120px;
   margin-right:auto;
   margin-left: auto;
-  background-image: url("Image/capital-one-logo.png");
+  background-image: url("../Image/capital-one-logo.png");
   background-size: cover;
   background-position: center;
 }
@@ -51,7 +51,7 @@ button{
     height: 100px;
     margin-right:auto;
     margin-left: auto;
-    background-image: url("Image/default_gray.png");
+    background-image: url("../Image/default_gray.png");
     background-size: cover;
     background-position: center;
     border-radius: 25px;
