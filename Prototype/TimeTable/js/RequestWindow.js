@@ -31,13 +31,15 @@ function hideRequestWindow() {
 /**
  * TODO To develop the mail system
  */
-function requestLeave() { }
+function requestLeave() {
+    requestLeaveRequest();
+    hideRequestWindow();
+}
 
 /**
  * Request to edit schedule
  */
 function requestEdit() {
-    // openEditWindow(targetBlock, "timeTable");
-    openEditWindow(targetBlock);
+    openEditWindow();
     hideRequestWindow();
 }

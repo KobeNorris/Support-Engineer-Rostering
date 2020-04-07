@@ -54,10 +54,12 @@ function getEmployeeDeployment() {
  */
 function checkLoadDeployment() {
     if (newDeploymentStart_date == "" || newDeploymentEnd_date == "") {
-        alert("Blank space detected");
+        popWarningWindow("Blank space detected");
+        // alert("Blank space detected");
         return false;
     } else if (newDeploymentStart_date > newDeploymentEnd_date) {
-        alert("Wrong time")
+        popWarningWindow("Wrong time");
+        // alert("Wrong time");
         return false;
     }
 
