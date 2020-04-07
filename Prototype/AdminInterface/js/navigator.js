@@ -30,7 +30,8 @@ function jumpToTargetProfile(event) {
             if (responseText == "Success")
                 window.location.href = "../EmployeeInterface/employeeInterface.html";
             else
-                alert(responseText);
+                popWarningWindow(responseText);
+            // alert(responseText);
         }
     )
 }

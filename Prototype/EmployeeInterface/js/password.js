@@ -20,9 +20,11 @@ function popPasswordWindow() {
     AJAX.post(url, data,
         function (responseText) {
             if (responseText == "Success")
-                document.getElementById("passwordWindow").style.display = "block";
-            else
-                alert("No permission" + responseText);
+                document.getElementById("changePasswordWindow").style.display = "block";
+            else {
+                popWarningWindow("No permission" + responseText);
+                // alert("No permission" + responseText);
+            }
         }
     );
 }
@@ -31,7 +33,7 @@ function popPasswordWindow() {
  * Hide the password modification window and clean the data
  */
 function hidePasswordWindow() {
-    document.getElementById("passwordWindow").style.display = "none";
+    document.getElementById("changePasswordWindow").style.display = "none";
     document.getElementById("oldPassword").value = "";
     document.getElementById("newPassword").value = "";
     document.getElementById("checkPassword").value = "";
@@ -48,10 +50,12 @@ function checkNewPassword() {
     checkPassword = document.getElementById("checkPassword").value;
 
     if (oldPassword == "" || newPassword == "" || checkPassword == "") {
-        alert("Blank space detected");
+        popWarningWindow("Blank space detected");
+        // alert("Blank space detected");
         flag = false;
     } else if (newPassword != checkPassword) {
-        alert("Different new passwords");
+        popWarningWindow("Different new passwords");
+        // alert("Different new passwords");
         flag = false;
     }
 
@@ -71,8 +75,10 @@ function updatePassword() {
             function (responseText) {
                 if (responseText == "Success")
                     hidePasswordWindow();
-                else
-                    alert(responseText);
+                else {
+                    popWarningWindow(responseText);
+                    // alert(responseText);
+                }
             }
         );
     }

@@ -6,70 +6,161 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Admin interface</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='adminInterface.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='./css/adminInterface.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='./css/reportEditionWindow.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='./css/createEmployeeWindow.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='./css/warningWindow.css'>
 </head>
+
 <body>
-    <table id="tableemployee">
-        <thead>
-            <td>Name</td>
-            <td>Status</td>
-            <td>Working_id</td>
-            <!-- <td>Group_id</td> -->
-            <td></td>
-            <td></td>
-            <td></td>
-        </thead>
-        <tbody id="employeeTable">
-        </tbody>
-    </table>
-    <div class=""></div>
+    <div class="rows">
+        <div class="groupNavigationBar">
+            <!-- Group tabs are created here -->
+        </div>
+        <div class="employeeInfo">
+            <table id="employeeTable">
+                <tbody id="employeeTableHead">
+                    <tr>
+                        <td>Name</td>
+                        <td>Status</td>
+                        <td>Work ID</td>
+                        <td>View</td>
+                        <td>Report</td>
+                        <td>Delete</td>
+                    </tr>
+                </tbody>
+
+                <tbody id="employeeTableBody">
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- <div class=""></div> -->
     <button onclick="jumpToTimeTable()" class="topButton">time table</button>
     <button onclick="popCreateEmployeeWindow()" class="topButton">new</button>
-    <div id="newEmployee">
-      <div id="centralEmployeeNew">
 
+    <!-- New employee window framework -->
+    <div id="createEmployeeWindow">
+        <table id="createEmployeeTable">
+            <thead>
+                <td colspan="2">New employee</td>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Working_id</td>
+                    <td>
+                        <input id="newWorking_id" type="text" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>Password</td>
+                    <td>
+                        <input id="newPassword" type="password">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Check_password</td>
+                    <td>
+                        <input id="checkPassword" type="password">
+                    </td>
+                </tr>
+                <tr>
+                    <td><button onclick="createNewEmployee()">submit</button></td>
+                    <td><button onclick="hideCreateEmployeeWindow()">cancel</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
-    <table id="createEmployeeWindow">
-        <thead>
-            <td colspan="2"><button onclick="hideCreateEmployeeWindow()">×</button></td>
-        </thead>
-        <tr>
-            <td colspan="2">New employee</td>
-        </tr>
-        <tr>
-            <td>Working_id</td>
-            <td>
-                <input id="newWorking_id" type="text" />
-            </td>
-        </tr>
-        <tr>
-            <td>Password</td>
-            <td>
-                <input id="newPassword" type="password">
-            </td>
-        </tr>
-        <tr>
-            <td>Check_password</td>
-            <td>
-                <input id="checkPassword" type="password">
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                <button onclick="createNewEmployee()">submit</button>
-            </td>
-        </tr>
-    </table>
-  </div>
-  </div>
+    <!-- Report edition window framewark -->
+    <div id="reportEditionWindow">
+        <table id="reportEditionTable">
+            <thead>
+                <tr>
+                    <td colspan="2">
+                        Report Edition Window
+                    </td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        Target period
+                    </td>
+                    <td>
+                        <input id="reportTargetPeriod" type="month">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Target job role
+                    </td>
+                    <td>
+                        <select id='reportTargetJobRole'>
+                            <option value="PrimaryEngineer">
+                                PrimaryEngineer
+                            </option>
+                            <option value="SecondaryEngineer">
+                                SecondaryEngineer
+                            </option>
+                            <option value="EscalationManager">
+                                EscalationManager
+                            </option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Target payment
+                    </td>
+                    <td>
+                        <input id="reportTargetPayment" type="number">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button onclick="reportDownloadRequest()">Download</button>
+                    </td>
+                    <td>
+                        <button onclick="hideReportEditionWindow()">Cancel</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Warning Window -->
+    <div id="warningWindow">
+        <table id="warningTable">
+            <thead>
+                <tr>
+                    <td>Warning</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td id="warningMessage"></td>
+                </tr>
+                <tr>
+                    <td><button onclick="hideWarningWindow()">confirmed</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </body>
 
 <script src='./js/AJAX.js'></script>
 <script src='./js/build.js'></script>
 <script src='./js/navigator.js'></script>
+<script src='./js/xlsx.full.min.js'></script>
+<script src='./js/FileSaver.js'></script>
 
 <script src='./js/employeeWindow.js'></script>
 <script src='./js/employeeManipulation.js'></script>
+<script src='./js/documentGenerator.js'></script>
+<script src='./js/reportEditionWindow.js'></script>
+<script src='./js/warningWindow.js'></script>
 
 <script src='./js/init.js'></script>
 

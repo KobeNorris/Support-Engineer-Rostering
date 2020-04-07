@@ -45,7 +45,8 @@ function createNewEmployee() {
                     hideCreateEmployeeWindow();
                 }
                 else
-                    alert(responseText);
+                    popWarningWindow(responseText);
+                // alert(responseText);
             }
         );
     }
@@ -68,7 +69,8 @@ function deleteEmployee(event) {
             if (responseText == "Success")
                 getEmployeeInfo();
             else
-                alert(responseText);
+                popWarningWindow(responseText);
+            // alert(responseText);
         }
     );
 }
@@ -87,17 +89,20 @@ function checkInput() {
     var flag = true;
 
     if (checkPassword != newPassword) {
-        alert("Wrong password check");
+        popWarningWindow("Wrong password check");
+        // alert("Wrong password check");
         flag = false;
     }
 
     if (newWorking_id == "") {
-        alert("Working_id could not be empty");
+        popWarningWindow("Working_id could not be empty");
+        // alert("Working_id could not be empty");
         flag = false;
     }
 
     if (newPassword == "") {
-        alert("Password could not be empty");
+        popWarningWindow("Password could not be empty");
+        // alert("Password could not be empty");
         flag = false;
     }
 

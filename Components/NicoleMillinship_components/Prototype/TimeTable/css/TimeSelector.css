@@ -1,0 +1,25 @@
+/* TimeSelector */
+.timeSelector{
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    position: relative;
+    display: flex;
+}
+#timeSelectorMonthAndYear{
+    width: 180px;
+    text-align: center;
+}
+#timeSelectorMonth{
+    margin-left: 10px;
+    margin-right: 5px;
+}
+#timeSelectorYear{
+    width: 50px;
+    text-align: center;
+    margin-left: 5px;
+    margin-right: 10px;
+}
+.timeSelectorbutton{
+    width: 20px;
+}

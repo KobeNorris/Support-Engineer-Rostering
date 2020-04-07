@@ -24,8 +24,10 @@ function jumpToAdminInterface() {
         function (responseText) {
             if (responseText == "admin")
                 window.location.href = "../AdminInterface/AdminInterface.html";
-            else
-                alert("No permission");
+            else {
+                popWarningWindow("No permission");
+                // alert("No permission");
+            }
         }
     )
 }
@@ -41,8 +43,10 @@ function logout() {
         function (responseText) {
             if (responseText == "Success")
                 jumpToTimeTable();
-            else
-                alert(responseText);
+            else {
+                popWarningWindow(responseText);
+                // alert(responseText);
+            }
         }
     )
 }
