@@ -54,10 +54,12 @@ function getEmployeeHoliday() {
  */
 function checkLoadHoliday() {
     if (newHolidayStart_date == "" || newHolidayEnd_date == "") {
-        alert("Blank space detected");
+        popWarningWindow("Blank space detected");
+        // alert("Blank space detected");
         return false;
     } else if (newHolidayStart_date > newHolidayEnd_date) {
-        alert("Wrong time")
+        popWarningWindow("Wrong time");
+        // alert("Wrong time")
         return false;
     }
 

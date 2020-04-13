@@ -1,0 +1,108 @@
+/*TimeTable*/
+
+/* TimeTable_block */
+table.timeTable{
+    width: 100%;
+    margin-top: 8px;
+    position: relative;
+    background-color: white;
+    border: 1.5px;
+    border-style: solid;
+    border-color: rgb(100, 100, 100);
+    border-collapse: collapse;
+}
+.weekDayBlockRow{
+    font-size: 12px;
+    background-color: lightgrey;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.weekDayBlockRow>td{
+    width: 14.3%;
+    border: 1px;
+    border-style: solid;
+    border-color:rgb(100, 100, 100);
+    border-collapse: collapse;
+}
+.normalDayBlockRow{
+    font-size: 13px;
+    height: 13px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+
+/* TimeTableBlocks */
+.blockedTimeTableBlock{
+    padding: 0;
+    margin: 0;
+    color: rgb(163, 163, 163);
+    border: 1px;
+    border-style: solid;
+    border-color: rgb(100, 100, 100);
+    border-collapse: collapse;
+}
+.passedTableBlock{
+    padding: 0;
+    margin: 0;
+    border: 1px;
+    border-style: solid;
+    border-color: rgb(100, 100, 100);
+    border-collapse: collapse;
+}
+.emptyTimeTableBlock{
+    padding: 0;
+    margin: 0;
+    border: 1px;
+    border-style: solid;
+    border-color: rgb(100, 100, 100);
+    border-collapse: collapse;
+}
+
+
+
+/* Job blocks */
+.JobBlock{
+    width: 100%;
+    height: 1.3em;
+    border: 1px;
+    color: white;
+    font-size: 13px;
+    font-family: Arial, Helvetica, sans-serif;
+    border-style: solid;
+    border-top: none;
+    border-bottom: none;
+    border-color: rgb(100, 100, 100);
+    border-collapse: collapse;
+}
+.PrimaryEngineerJobBlock{
+    width: 100%;
+    height: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgb(160, 0, 0);
+    border-radius: 4px;
+}
+.SecondaryEngineerJobBlock{
+    width: 100%;
+    height: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgb(0, 0, 160);
+    border-radius: 4px;
+}
+.EscalationManagerJobBlock{
+    width: 100%;
+    height: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgb(220, 100, 0);
+    border-radius: 4px;
+}
+.emptyJobBlock{
+    width: 100%;
+    height: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+    border-radius: 4px;
+}

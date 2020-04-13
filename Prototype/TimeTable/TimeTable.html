@@ -16,6 +16,7 @@
     <link rel="stylesheet" type="text/css" href="./css/EditWindow.css">
     <link rel="stylesheet" type="text/css" href="./css/RequestWindow.css">
     <link rel="stylesheet" type="text/css" href="./css/login.css">
+    <link rel="stylesheet" type="text/css" href="./css/warningWindow.css">
     <title>Engineer Rostering System</title>
 </head>
 
@@ -74,22 +75,26 @@
     <!-- Section for edit window -->
     <div id="editWindow">
         <table class="editWindowFrame">
-            <tbody>
+            <thead>
                 <td class="leftEditWindowFrame" colspan="10">
                     <button onclick="hideWindow()">×</button>
-            </tbody>
+            </thead>
             <tbody>
-                <td class="leftEditWindowFrame" colspan="2">Job Role</td>
-                <td></td>
-                <td class="rightEditWindowFrame" colspan="7">
-                    <!-- <select id="jobRoleSelection">
+                <tr>
+                    <td colspan="2">Edit Window</td>
+                </tr>
+                <tr>
+                    <td class="leftEditWindowFrame" colspan="2">Job Role</td>
+                    <td></td>
+                    <td class="rightEditWindowFrame" colspan="7">
+                        <!-- <select id="jobRoleSelection">
                         <option value="primary">Primary engineer</option>
                         <option value="secondary">Secondary engineer</option>
                         <option value="manager">Manager</option>
                         <option value="empty"></option>
                     </select> -->
-                    <div id="jobRoleSelection"></div>
-                </td>
+                        <div id="jobRoleSelection"></div>
+                    </td>
                 </tr>
                 <tr>
                     <td class="leftEditWindowFrame" colspan="2">Employee</td>
@@ -214,6 +219,25 @@
         </div>
     </div>
 
+    <!-- Warning Window -->
+    <div id="warningWindow">
+        <table id="warningTable">
+            <thead>
+                <tr>
+                    <td>Warning</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td id="warningMessage"></td>
+                </tr>
+                <tr>
+                    <td><button onclick="hideWarningWindow()">confirmed</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
     <div id="modal"></div>
   </div>
 </body>
@@ -231,6 +255,8 @@
 <script type="text/javascript" src="./js/navigator.js"></script>
 <script type="text/javascript" src="./js/EmployeeCategory.js"></script>
 <script type="text/javascript" src="./js/RequestWindow.js"></script>
+<script type="text/javascript" src="./js/sendMail.js"></script>
+<script type="text/javascript" src="./js/warningWindow.js"></script>
 
 <script type="text/javascript" src="./js/init.js"></script>
 

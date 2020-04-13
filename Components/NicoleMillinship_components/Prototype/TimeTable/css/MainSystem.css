@@ -1,0 +1,74 @@
+/* AdminInterface.html */
+html{
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height :100%;
+}
+body{
+    background-color: darkgray;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height :100%;
+}
+#navigationBar{
+    position: relative;
+    background-color: white;
+    margin-right: auto;
+    margin-left: auto;
+    height: 10%;
+    width: 96%;
+}
+#mainSystem{
+    position: relative;
+    background-color: white;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 0.5%;
+    height: 88%;
+    width: 96%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+#TimeTableFrame{
+    width: 50%;
+}
+
+/* Table Title */
+#tableTitle{
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 30px;
+    text-align: center;
+    width: 100%;
+}
+
+#profilePic{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    top: 5px;
+    right: 10px;
+    position: absolute;
+    background-image: url("../../EmployeeInterface/Image/default.png");
+    background-size: cover;
+    background-position: center;
+}
+
+/* Modal */
+#modal{
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.6); /* Black w/ opacity */
+}

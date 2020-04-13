@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="./css/MainSystem.css">
+    <link rel="stylesheet" type="text/css" href="./css/EmployeeCategory.css">
+    <link rel="stylesheet" type="text/css" href="./css/BlankSpace.css">
+    <link rel="stylesheet" type="text/css" href="./css/TimeSelector.css">
+    <link rel="stylesheet" type="text/css" href="./css/TimeTable.css">
+    <link rel="stylesheet" type="text/css" href="./css/EditWindow.css">
+    <link rel="stylesheet" type="text/css" href="./css/RequestWindow.css">
+    <link rel="stylesheet" type="text/css" href="./css/login.css">
+    <title>Engineer Rostering System</title>
+</head>
+
+<body>
+    <div id="navigationBar">
+        <!-- Section for table title -->
+        <div style="display: inline-block; width: 100%;">
+            <div id="tableTitle">
+                Customer Nottingham
+            </div>
+            <div id="profilePic" onclick="jumpToProfile()">
+            </div>
+        </div>
+    </div>
+
+
+
+    <div id="mainSystem">
+
+        <div id="employeeCategory">
+        </div>
+
+        <div id="TimeTableFrame">
+
+            <!-- Section for time selector-->
+            <div class="timeSelector">
+                <img src="./image/prev.png" alt="next" class="timeSelectorbutton" onclick=" deductOneMonth()">
+                <div id="timeSelectorMonthAndYear">
+                    <span id="timeSelectorMonth">
+                    </span>
+                    <input id="timeSelectorYear" type="text" value="2019" onblur="setYear(value)">
+                </div>
+                <img src="./image/next.png" alt="next" class="timeSelectorbutton" onclick="addOneMonth()">
+            </div>
+
+
+
+            <!-- Section for time table -->
+            <div>
+                <table class="timeTable" id="timeTable">
+                </table>
+            </div>
+        </div>
+
+
+        <!-- Space for blank saves-->
+        <div id="blankSave">
+        </div>
+    </div>
+
+    <!-- Section for edit window -->
+    <div id="editWindow">
+        <table class="editWindowFrame">
+            <tbody>
+                <td class="leftEditWindowFrame" colspan="10">
+                    <button onclick="hideWindow()">×</button>
+            </tbody>
+            <tbody>
+                <td class="leftEditWindowFrame" colspan="2">Job Role</td>
+                <td></td>
+                <td class="rightEditWindowFrame" colspan="7">
+                    <!-- <select id="jobRoleSelection">
+                        <option value="primary">Primary engineer</option>
+                        <option value="secondary">Secondary engineer</option>
+                        <option value="manager">Manager</option>
+                        <option value="empty"></option>
+                    </select> -->
+                    <div id="jobRoleSelection"></div>
+                </td>
+                </tr>
+                <tr>
+                    <td class="leftEditWindowFrame" colspan="2">Employee</td>
+                    <td></td>
+                    <td class="rightEditWindowFrame" colspan="7">
+                        <input id="inputWorking_id" type="text" placeholder="working id">
+                        <!-- <button class="SearchingBotton" onclick="requestSearch()">
+                            search
+                        </button> -->
+                    </td>
+                </tr>
+                <tr>
+                    <td class="leftEditWindowFrame" class="leftEditWindowFrame" colspan="2">Time</td>
+                    <td></td>
+                    <td class="rightEditWindowFrame" colspan="3">
+                        <input id="inputStartDate" type="date" class="dateContainer" />
+                    </td>
+                    <td colspan="1">to</td>
+                    <td class="rightEditWindowFrame" colspan="3">
+                        <input id="inputEndDate" type="date" class="dateContainer" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="leftEditWindowFrame" colspan="2">Repeat</td>
+                    <td></td>
+                    <td class="rightEditWindowFrame" colspan="7">
+                        <button class="rightEditWindowFrame" id="enableRepeatButton" status="enabled"
+                            onclick="checkRepeat()">Disable weekly repeat</button>
+                    </td>
+                </tr>
+            </tbody>
+            <tbody id="repeatAttribute" style="color: grey;">
+                <tr>
+                    <td class="leftEditWindowFrame" colspan="2">Interval</td>
+                    <td></td>
+                    <td class="rightEditWindowFrame" colspan="7">
+                        Every <input id="inputRepeatInterval" type="number" class="weekContainer" disabled /> weeks
+                    </td>
+                </tr>
+                <tr>
+                    <td class="leftEditWindowFrame" colspan="2">End</td>
+                    <td></td>
+                    <td class="rightEditWindowFrame" colspan="7">
+                        <label><input id="yearEnd" name="endRepeat" type="radio" disabled checked /> 1 Year (52
+                            weeks)</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="leftEditWindowFrame" colspan="2"></td>
+                    <td></td>
+                    <td class="rightEditWindowFrame" colspan="7">
+                        <label><input id="timeEnd" name="endRepeat" type="radio" disabled /> After
+                            <input id="inputTimeEnd" type=" week" class="weekContainer" disabled /> times</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="leftEditWindowFrame" colspan="2"></td>
+                    <td></td>
+                    <td class="rightEditWindowFrame" colspan="7">
+                        <label><input id="dateEnd" name="endRepeat" type="radio" disabled /> On date
+                            <input id="inputDateEnd" type="date" class="dateContainer" disabled></label>
+                    </td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <td class="rightEditWindowFrame" colspan="5">
+                        <button id="EWUpload">Upload</button>
+                    </td>
+                    <td class="leftEditWindowFrame" colspan="5">
+                        <button id="EWDelete">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- request window -->
+    <div id="requestWindow">
+        <table>
+            <tr>
+                <td colspan="2" style="text-align: right;">
+                    <button onclick="hideRequestWindow()">×</button>
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: left;">
+                    <button onclick="requestLeave()">Take leave</buttononclick="">
+                </td>
+                <td style="text-align: right;">
+                    <button onclick="requestEdit()">Edit</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- login window -->
+    <div id="loginFrame">
+        <div class="modal-content animate">
+            <div class="imgcontainer">
+                <span onclick="hideLoginWindow()" class="close">×</span>
+                <img src="./image/capital-one-logo.png" alt="Avatar" class="avatar">
+            </div>
+
+            <div class="container">
+                <div id="loginWarning">
+                </div>
+
+                <div>
+                    <label for="uname"><b>Username</b></label><br>
+                    <input id="username" type="text" placeholder="Enter Username">
+                </div>
+                <div>
+                    <label for="psw"><b>Password</b></label><br>
+                    <input id="password" type="password" placeholder="Enter Password">
+                </div>
+
+                <button class="loginButton" onclick="login()">Login</button>
+            </div>
+
+
+        </div>
+    </div>
+
+    <div id="modal"></div>
+
+</body>
+
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript" src="./js/AJAX.js"></script>
+<script type="text/javascript" src="./js/build.js"></script>
+<script type="text/javascript" src="./js/navigator.js"></script>
+
+<script type="text/javascript" src="./js/EditWindow.js"></script>
+<script type="text/javascript" src="./js/EmployeeCategory.js"></script>
+<script type="text/javascript" src="./js/TimeSelector.js"></script>
+<script type="text/javascript" src="./js/TimeTable.js"></script>
+<script type="text/javascript" src="./js/login.js"></script>
+<script type="text/javascript" src="./js/navigator.js"></script>
+<script type="text/javascript" src="./js/EmployeeCategory.js"></script>
+<script type="text/javascript" src="./js/RequestWindow.js"></script>
+
+<script type="text/javascript" src="./js/init.js"></script>
+
+</html>

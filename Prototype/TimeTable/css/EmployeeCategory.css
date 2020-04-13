@@ -26,6 +26,7 @@
     width:200px;
     margin-left: 30px;
     overflow-y:scroll;
+<<<<<<< HEAD
     /*margin-bottom: 2000px;*/
 }
 #Grow{
@@ -47,3 +48,12 @@
   #heighty{
     /*height:20%;*/
   }
+=======
+}
+
+#employeeCategory > div{
+    margin-top: 10%;
+    margin-left: 10%;
+    cursor: pointer;
+}
+>>>>>>> 23549952ed4f9d1474e851730b172ed10dba93fe

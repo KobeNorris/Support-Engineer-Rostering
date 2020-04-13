@@ -42,10 +42,8 @@ function checkRepeat() {
  *      possible;
  *      2. From employee category: Load target employee's working id
  *
- * @param {*} event 
- * @param {*} parent 
  */
-function openEditWindow(event, parent) {
+function openEditWindow() {
     var url = "./php/login.php";
     var data = "action=check";
 
@@ -53,17 +51,15 @@ function openEditWindow(event, parent) {
         function (responseText) {
             if (responseText == "admin") {
                 popWindow();
-                // if (parent == "timeTable")
-                //     popWindowTT(event);
-                // else if (parent == "employeeCategory")
-                //     popWindowEC(event);
-                // else
-                //     alert("Wrong parent -> " + parent);
             }
-            else if (responseText == "employee")
-                alert("No access permission ");
-            else
+            else if (responseText == "employee") {
+                popWarningWindow("No access permission");
+                // alert("No access permission ");
+            }
+            else if (responseText == "Not log in")
                 popLoginWindow();
+            else
+                console.log(responseText);
         }
     )
 }
@@ -76,10 +72,6 @@ function popWindow() {
     document.getElementById('jobRoleSelection').innerHTML = targetBlock.getAttribute('job_role');
     document.getElementById('inputStartDate').value = targetBlock.getAttribute('start_date');
     document.getElementById('inputEndDate').value = targetBlock.getAttribute('end_date');
-    // if (document.getElementById('inputWorking_id').innerHTML == "Disable weekly repeat") {
-    //     alert("Hello");
-    // }
-    // // getRepeatTask();
 
     document.getElementById('modal').style.display = "block";
     document.getElementById('editWindow').style.display = "block";
@@ -97,10 +89,6 @@ function popWindowTT() {
     document.getElementById('jobRoleSelection').innerHTML = targetBlock.getAttribute('job_role');
     document.getElementById('inputStartDate').value = targetBlock.getAttribute('start_date');
     document.getElementById('inputEndDate').value = targetBlock.getAttribute('end_date');
-    // if (document.getElementById('inputWorking_id').innerHTML == "Disable weekly repeat") {
-    //     alert("Hello");
-    // }
-    // // getRepeatTask();
 
     document.getElementById('modal').style.display = "block";
     document.getElementById('editWindow').style.display = "block";
@@ -136,7 +124,8 @@ function hideWindow() {
  * Inser single schedule period info into the edit window
  */
 function getNormalTask() {
-    document.getElementById('inputWorking_id').value = targetBlock.getAttribute('working_id');
+    if (targetBlock.getAttribute('working_id') != "")
+        document.getElementById('inputWorking_id').value = targetBlock.getAttribute('working_id');
     document.getElementById('inputStartDate').value = targetBlock.getAttribute('start_date');
     document.getElementById('inputEndDate').value = targetBlock.getAttribute('end_date');
 }
@@ -155,8 +144,10 @@ function normalUpload() {
                 getMonthData();
                 hideWindow();
             }
-            else
-                alert(responseText);
+            else {
+                popWarningWindow(responseText);
+                // alert(responseText);
+            }
         }
     );
 }
@@ -175,8 +166,10 @@ function normalDelete() {
                 getMonthData();
                 hideWindow();
             }
-            else
-                alert(responseText);
+            else {
+                popWarningWindow(responseText);
+                // alert(responseText);
+            }
         }
     );
 }
@@ -209,8 +202,10 @@ function repeatUpload() {
                 getMonthData();
                 hideWindow();
             }
-            else
-                alert(responseText);
+            else {
+                popWarningWindow(responseText);
+                // alert(responseText);
+            }
         }
     );
 }
@@ -229,8 +224,10 @@ function repeatDelete() {
                 getMonthData();
                 hideWindow();
             }
-            else
-                alert(responseText);
+            else {
+                popWarningWindow(responseText);
+                // alert(responseText);
+            }
         }
     );
 }
@@ -295,8 +292,19 @@ function getRepeatTask() {
  * Clean the repeatable task's data kept in the edit window
  */
 function cleanRepeatTask() {
-    document.getElementById("inputRepeatInterval").value = "";
-    document.getElementById("yearEnd").checked = true;
-    document.getElementById("inputTimeEnd").value = "";
-    document.getElementById("inputDateEnd").value = "";
+    // document.getElementById("inputRepeatInterval").value = "";
+    // document.getElementById("yearEnd").checked = true;
+    // document.getElementById("inputTimeEnd").value = "";
+    // document.getElementById("inputDateEnd").value = "";
+    var inputs = $('#repeatAttribute input');
+    var targetButton = document.getElementById("enableRepeatButton");
+
+    targetButton.innerHTML = 'Enable weekly repeat';
+    targetButton.status = 'disabled';
+    document.getElementById("repeatAttribute").style.color = 'grey';
+    document.getElementById("EWUpload").onclick = normalUpload;
+    document.getElementById("EWDelete").onclick = normalDelete;
+    inputs.each(function () {
+        this.disabled = true;
+    });
 }

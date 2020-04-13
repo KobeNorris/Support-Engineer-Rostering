@@ -14,6 +14,10 @@ switch ($_POST['action']) {
         checkLogin();
         break;
 
+    case 'match':
+        checkMatch();
+        break;
+
     default:
         echo "Wrong instruction ".$_POST['action'];
         break;
@@ -46,23 +50,28 @@ function login(){
 }
 
 function checkLogin(){
-    $sql = "SELECT (password) FROM account WHERE working_id=\"".$_SESSION['working_id']."\";";
+    if(isset($_SESSION['working_id'])){
+        $sql = "SELECT (password) FROM account WHERE working_id=\"".$_SESSION['working_id']."\";";
 
-    try {
-        $dbh = PDOProvider();
-        $stmt=$dbh->prepare($sql);
-        $stmt->execute();
-
-        $row=$stmt->fetch(PDO::FETCH_ASSOC);
-            
-        if($row != null && implode($row) == $_SESSION['password']){
-            checkAccountType();
-        }else{
-            echo "Fail";
+        try {
+            $dbh = PDOProvider();
+            $stmt=$dbh->prepare($sql);
+            $stmt->execute();
+    
+            $row=$stmt->fetch(PDO::FETCH_ASSOC);
+                
+            if($row != null && implode($row) == $_SESSION['password']){
+                checkAccountType();
+            }else{
+                echo "Fail";
+            }
+        } catch (PDOException $error) {
+            echo 'SQL Query:'.$sql.'</br>';
+            echo 'Connection failed:'.$error->getMessage();
         }
-    } catch (PDOException $error) {
-        echo 'SQL Query:'.$sql.'</br>';
-        echo 'Connection failed:'.$error->getMessage();
+    }
+    else{
+        echo "Not log in";
     }
 }
 
@@ -80,6 +89,37 @@ function checkAccountType(){
     } catch (PDOException $error) {
         echo 'SQL Query:'.$sql.'</br>';
         echo 'Connection failed:'.$error->getMessage();
+    }
+}
+
+function checkMatch(){
+    if(isset($_SESSION['working_id'])){
+        $sql = "SELECT (password) FROM account WHERE working_id=\"".$_SESSION['working_id']."\";";
+
+        try {
+            $dbh = PDOProvider();
+            $stmt=$dbh->prepare($sql);
+            $stmt->execute();
+    
+            $row=$stmt->fetch(PDO::FETCH_ASSOC);
+                
+            if($row != null && implode($row) == $_SESSION['password']){
+                $targetWorking_id = $_POST['targetWorking_id'];
+                if ($targetWorking_id == $_SESSION['working_id']){
+                    echo 'Succeed';
+                }else{
+                    // echo 'Failed'.$_POST['targetWorking_id']." - ".$_SESSION['working_id'];
+                    echo 'Failed';
+                }
+            }else{
+                echo "Not log in";
+            }
+        } catch (PDOException $error) {
+            echo 'SQL Query:'.$sql.'</br>';
+            echo 'Connection failed:'.$error->getMessage();
+        }
+    }else{
+        echo "Not log in";
     }
 }
 ?>
