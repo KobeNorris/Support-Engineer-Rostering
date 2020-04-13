@@ -1,3 +1,11 @@
+/**
+ * Generate, edit and send emails to target mailbox
+ * @copyright 2018-2019 University of Nottingham, Nottingham, United Kingdom
+ * @version 1.0
+ * @author Liam Orrill
+ * All rights are reserved.
+ */
+
 function requestLeaveRequest() {
     var url = "./php/login.php";
     var data = "action=match&targetWorking_id=" + targetBlock.getAttribute('working_id');
@@ -19,18 +27,10 @@ function requestLeaveRequest() {
 }
 
 function sendLeaveRequest() {
-    // var startDate = "2019-12-31";
-    // var endDate = "2020-01-06";
-    // var targetWorking_id = "scykw1";
-    // var jobRole = "PrimeryEngineer";
-
-    // var name = "Kejia Wu";
     var targetStartDate = targetBlock.getAttribute('start_date');
     var targetEndDate = targetBlock.getAttribute('end_date');
     var targetWorking_id = targetBlock.getAttribute('working_id');
     var targetJobRole = targetBlock.getAttribute('job_role');
-
-    // console.log(targetStartDate + " " + targetEndDate + " " + targetWorking_id + " " + targetJobRole);
 
     var name = targetBlock.innerHTML;
     var email = "null";
