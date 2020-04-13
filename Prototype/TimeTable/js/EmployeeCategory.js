@@ -14,7 +14,7 @@ var currentGroup = groupList[0];
 /**
  * Check the status of each group's name list,
  * ensuer only one name list could be display simultaneously
- * @param {*} event 
+ * @param {*} event
  */
 function checkNameList(event) {
     event = event ? event : window.event;

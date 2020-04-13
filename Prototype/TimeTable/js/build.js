@@ -13,7 +13,9 @@ var roleList = ["PrimaryEngineer", "SecondaryEngineer", "EscalationManager"];
 function buildEmployeeList() {
     var html = "";
 
+    html+= "<div class=\"row\">"
     for (var groupIndex = 0; groupIndex < groupList.length; groupIndex++) {
+<<<<<<< HEAD
         html+="<div class=\"row   top-buffer" + groupIndex + "\">"
         html += "<button class=\" btn  btn-secondary customMain\" style=\"min-width:193px;min-height:100px;\"  id=\"" + groupList[groupIndex] + "\" onclick=\"checkNameList(event)\">" + groupList[groupIndex] + "</button>";
         html += "<div id=\"" + groupList[groupIndex] + "NameList\" class=\"employeeNameList\" style=\"display: none;\">";
@@ -32,7 +34,28 @@ function buildEmployeeList() {
         html += "</div>";
         html += "</div>";
     }
+=======
 
+        html+= "<div class=\"row row-w\" id=\"\"   >";
+
+        html += "<button id=\"" + groupList[groupIndex] + "\" onclick=\"checkNameList(event)\" class=\"things btn btn-info\">"  + groupList[groupIndex] + "</button>";
+        html += "<div class=\"nameWidth\" id=\"" + groupList[groupIndex] + "NameList\"  style=\"display: none;\">";
+        var List = nameList[groupList[groupIndex]];
+        if (List != null) {
+            for (var iCountNameList = 0; iCountNameList < List.length; iCountNameList++) {
+                html += "<button class=\"nameWidth  btn btn-info \" working_id=\"" + List[iCountNameList]['working_id'] + "\" "
+                    + "job_role=\"" + List[iCountNameList]['job_role'] + "\" "
+                    + "onclick=\"popRequestWindow(event)\">"
+                    + List[iCountNameList]['name']
+                    + "</button>";
+            }
+        }
+        html += "</div>";
+>>>>>>> a44b64766782f68bad8ff7f53457cf490c20bb00
+
+        html += "</div>";
+    }
+    html+="</div>";
     document.getElementById("employeeCategory").innerHTML = html;
 }
 

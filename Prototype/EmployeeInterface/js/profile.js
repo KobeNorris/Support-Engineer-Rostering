@@ -192,10 +192,14 @@ function sendImageToPHP(targetImage) {
         function (responseText) {
             if (responseText == "Success")
                 location.reload();
-            else if (responseText == "Fail 1")
-                alert("Wrong file type");
-            else
-                alert(responseText);
+            else if (responseText == "Fail 1") {
+                popWarningWindow("Wrong file type");
+                // alert("Wrong file type");
+            }
+            else {
+                popWarningWindow(responseText);
+                // alert(responseText);
+            }
         }
     );
 }

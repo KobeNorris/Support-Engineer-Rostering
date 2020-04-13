@@ -37,8 +37,10 @@ function setTargetWorkingId() {
         function (responseText) {
             if (responseText == "Success")
                 window.location.href = "../EmployeeInterface/employeeInterface.html";
-            else
-                alert(responseText);
+            else {
+                popWarningWindow(responseText);
+                // alert(responseText);
+            }
         }
     )
 }

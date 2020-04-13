@@ -14,16 +14,36 @@ var checkPassword;
  * Check the log in state and pop up the password modification window
  */
 function popPasswordWindow() {
+<<<<<<< HEAD
     document.getElementById("passwordWindow").style.display = "block";
     document.getElementById("modal").style.display = "block";
+=======
+    var url = "./php/account.php"
+    var data = "action=checkPermission";
+
+    AJAX.post(url, data,
+        function (responseText) {
+            if (responseText == "Success")
+                document.getElementById("changePasswordWindow").style.display = "block";
+            else {
+                popWarningWindow("No permission" + responseText);
+                // alert("No permission" + responseText);
+            }
+        }
+    );
+>>>>>>> a44b64766782f68bad8ff7f53457cf490c20bb00
 }
 
 /**
  * Hide the password modification window and clean the data
  */
 function hidePasswordWindow() {
+<<<<<<< HEAD
     document.getElementById("passwordWindow").style.display = "none";
       document.getElementById("modal").style.display = "none";
+=======
+    document.getElementById("changePasswordWindow").style.display = "none";
+>>>>>>> a44b64766782f68bad8ff7f53457cf490c20bb00
     document.getElementById("oldPassword").value = "";
     document.getElementById("newPassword").value = "";
     document.getElementById("checkPassword").value = "";
@@ -40,10 +60,12 @@ function checkNewPassword() {
     checkPassword = document.getElementById("checkPassword").value;
 
     if (oldPassword == "" || newPassword == "" || checkPassword == "") {
-        alert("Blank space detected");
+        popWarningWindow("Blank space detected");
+        // alert("Blank space detected");
         flag = false;
     } else if (newPassword != checkPassword) {
-        alert("Different new passwords");
+        popWarningWindow("Different new passwords");
+        // alert("Different new passwords");
         flag = false;
     }
 
@@ -64,8 +86,10 @@ function updatePassword() {
             function (responseText) {
                 if (responseText == "Success")
                     hidePasswordWindow();
-                else
-                    alert(responseText);
+                else {
+                    popWarningWindow(responseText);
+                    // alert(responseText);
+                }
             }
         );
     }

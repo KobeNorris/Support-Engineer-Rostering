@@ -58,6 +58,7 @@
     border-collapse: collapse;
 }
 
+<<<<<<< HEAD
 #logo{
   margin-top:0%;
   width: 300px;
@@ -69,6 +70,8 @@
   background-position: center;
 }
 
+=======
+>>>>>>> a44b64766782f68bad8ff7f53457cf490c20bb00
 /* Job blocks */
 .JobBlock{
     width: 100%;

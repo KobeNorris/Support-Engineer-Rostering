@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Admin interface</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='adminInterface.css'>
+</head>
+<body>
+    <div class="rows">
+        <div class="groupNavigationBar">
+            <!-- Group tabs are created here -->
+        </div>
+        <div class="employeeInfo">
+            <table id="tableemployee">
+                <thead>
+                    <td>Name</td>
+                    <td>Status</td>
+                    <td>Work ID</td>
+                    <td></td> <!-- View button -->
+                    <td></td> <!-- Report button -->
+                    <td></td> <!-- Delete button -->
+                </thead>
+                <tbody id="employeeTable">
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    <div class=""></div>
+    <button onclick="jumpToTimeTable()" class="topButton">time table</button>
+    <button onclick="popCreateEmployeeWindow()" class="topButton">new</button>
+    <div id="newEmployee">
+      <div id="centralEmployeeNew">
+
+
+    <table id="createEmployeeWindow">
+        <thead>
+            <td colspan="2"><button onclick="hideCreateEmployeeWindow()">×</button></td>
+        </thead>
+        <tr>
+            <td colspan="2">New employee</td>
+        </tr>
+        <tr>
+            <td>Working_id</td>
+            <td>
+                <input id="newWorking_id" type="text" />
+            </td>
+        </tr>
+        <tr>
+            <td>Password</td>
+            <td>
+                <input id="newPassword" type="password">
+            </td>
+        </tr>
+        <tr>
+            <td>Check_password</td>
+            <td>
+                <input id="checkPassword" type="password">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <button onclick="createNewEmployee()">submit</button>
+            </td>
+        </tr>
+    </table>
+  </div>
+  </div>
+</body>
+
+<script src='./js/AJAX.js'></script>
+<script src='./js/build.js'></script>
+<script src='./js/navigator.js'></script>
+
+<script src='./js/employeeWindow.js'></script>
+<script src='./js/employeeManipulation.js'></script>
+
+<script src='./js/init.js'></script>
+
+</html>

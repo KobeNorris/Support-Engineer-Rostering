@@ -11,17 +11,55 @@
  */
 function buildEmployeeTable() {
     var html = "";
-    var status;
+    var groups = [];
+    var lastGroup = "";
+
+    //Get the different groups employees are in and store them in groups
     for (var index = 0; index < employeeInfo.length; index++) {
-        if (employeeInfo[index]["status"]) {
+        if (employeeInfo[index]["group_id"] != lastGroup && employeeInfo[index]["group_id"] != "") {
+            groups.push(employeeInfo[index]["group_id"]);
+            lastGroup = employeeInfo[index]["group_id"];
+        }
+    }
+    // console.log(employeeInfo);
+
+    for (var index = 0; index < groups.length; index++) {
+        html += "<button id='groupButton' onclick=\"buildGroupEmployees('" + groups[index] + "')\">" + groups[index] + "</button>";
+    }
+    html += "<button id='groupButton' onclick=\"buildGroupEmployees('Other')\">Other</button>";
+    document.getElementsByClassName("groupNavigationBar")[0].innerHTML = html;
+
+    buildGroupEmployees(groups[0]);
+}
+
+/**
+ * Display all the employees from a particular group
+ * @param {string} group - The group to display
+ */
+function buildGroupEmployees(group) {
+    var status;
+    var html = "";
+
+    for (var index = 0; index < employeeInfo.length; index++) {
+        // if employee isn't in this group, move to the next employee
+        if (employeeInfo[index]["group_id"] != group.toString()) {
+            // console.log(group.toString() + " " + employeeInfo[index]["group_id"]);
+            if (group.toString() != "Other" || employeeInfo[index]["group_id"] != "") {
+                continue;
+            }
+        }
+
+        if (employeeInfo[index]["status"] == 1) {
             status = "Active";
         } else {
             status = "Inactive";
         }
+        //Put the current employee's info into the employee table
         html += "<tr><td>"
             + employeeInfo[index]["name"] + "</td><td>"
             + status + "</td><td>"
             + employeeInfo[index]["working_id"] + "</td>"
+<<<<<<< HEAD
             //+ "<td>" + employeeInfo[index]["group_id"] + "</td>"
             + "<td><button class=\"btn btn-secondary\" onclick=\"jumpToTargetProfile(event)\">view</botton></td>"
             + "<td><button class=\"btn btn-secondary\">report</button></td>"
@@ -30,3 +68,12 @@ function buildEmployeeTable() {
     }
     document.getElementById("employeeTable").innerHTML = html;
 }
+=======
+            + "<td><button onclick=\"jumpToTargetProfile(event)\">view</botton></td>"
+            + "<td><button onclick=\"popReportEditionWindow(event)\">report</button></td>"
+            + "<td><button onclick=\"deleteEmployee(event)\">delete</botton></td>"
+            + "</tr>";
+    }
+    document.getElementById("employeeTableBody").innerHTML = html;
+}
+>>>>>>> a44b64766782f68bad8ff7f53457cf490c20bb00
