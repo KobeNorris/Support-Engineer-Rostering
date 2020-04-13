@@ -1,16 +1,18 @@
 /* AdminInterface.html */
 #employeeCategory{
-    position: relative;
+
     background-color: darkgrey;
-    margin-top: 1%;
-    margin-left: 1%;
+    margin-left: 15%;
     height: 94%;
-    width: 20%;
-    /* display: flex;
+    width: 90%;
+    position: absolute;
+    z-index: 100;
+    bottom: 200px;
+     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
     justify-content: space-between;
-    align-items: flex-start; */
+    align-items: flex-start;
 }
 #employeeCategory_frame{
     width: 90%;
@@ -22,6 +24,26 @@
 /* SubList */
 .employeeNameList{
     width:200px;
-    margin-left: 50px;
+    margin-left: 30px;
     overflow-y:scroll;
+    /*margin-bottom: 2000px;*/
 }
+#Grow{
+
+}
+#Customer\ Nottingham{
+  /*margin-top: 33%;*/
+}
+
+
+#Customer\ London{
+}
+
+.nameWidth{
+  width:70%;
+  height: 30px;
+}
+
+  #heighty{
+    /*height:20%;*/
+  }
