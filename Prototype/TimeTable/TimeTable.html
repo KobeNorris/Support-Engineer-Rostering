@@ -5,7 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" type="text/css" href="./css/MainSystem.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/main.css">
+
     <link rel="stylesheet" type="text/css" href="./css/EmployeeCategory.css">
     <link rel="stylesheet" type="text/css" href="./css/BlankSpace.css">
     <link rel="stylesheet" type="text/css" href="./css/TimeSelector.css">
@@ -13,173 +15,186 @@
     <link rel="stylesheet" type="text/css" href="./css/EditWindow.css">
     <link rel="stylesheet" type="text/css" href="./css/RequestWindow.css">
     <link rel="stylesheet" type="text/css" href="./css/login.css">
+
     <title>Engineer Rostering System</title>
 </head>
 
 <body>
-    <div id="navigationBar">
-        <!-- Section for table title -->
-        <div style="display: inline-block; width: 100%;">
-            <div id="tableTitle">
-                Customer Nottingham
+      <div id="logo"></div>
+      <div class="container-fluid">
+        <div class="row h">
+          <div class="col">
+                <h4>Timetable for <span id="tableTitle">Customer Nottingham</span> </h2>
+          </div>
+          <div class="col d-flex">
+            <div class="ml-auto">
+              <a style="text-align:center;" class="navbar-brand" href="#" id="navRight">
+                <img id="profilePic" onclick="jumpToProfile()" src="../EmployeeInterface/Image/default.png" alt="Logo" style="width:70px;">
+              </a>
             </div>
-            <div id="profilePic" onclick="jumpToProfile()">
-            </div>
+          </div>
         </div>
+      </div>
+
+      <hr>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-3 d-flex ">
+              <div id="employeeCategory"></div>
+          </div>
+          <div class="col-md-9 d-flex justify-content-center">
+            <div id="TimeTableFrame" style="margin-top:20px;">
+              <!-- Section for time selector-->
+             <div class="timeSelector row">
+                  <img src="./image/prev.png" alt="next" class="timeSelectorbutton" onclick=" deductOneMonth()">
+                  <div id="timeSelectorMonthAndYear">
+                      <span id="timeSelectorMonth">
+                      </span>
+                      <input id="timeSelectorYear" class="timeEdge" type="text" value="2019" onblur="setYear(value)">
+                  </div>
+                  <img src="./image/next.png" alt="next" class="timeSelectorbutton" onclick="addOneMonth()">
+              </div>
+              <!-- Section for time table -->
+              <div class="row w-100 table-responsive-lg">
+                  <table class=" table-hover table-bordered table-dark timeTable" id="timeTable"></table>
+              </div>
+          </div>
+        </div>
+  </div>
+    <!-- Space for blank saves-->
+    <div id="blankSave">
     </div>
-
-
-
-    <div id="mainSystem">
-
-        <div id="employeeCategory">
-        </div>
-
-        <div id="TimeTableFrame">
-
-            <!-- Section for time selector-->
-            <div class="timeSelector">
-                <img src="./image/prev.png" alt="next" class="timeSelectorbutton" onclick=" deductOneMonth()">
-                <div id="timeSelectorMonthAndYear">
-                    <span id="timeSelectorMonth">
-                    </span>
-                    <input id="timeSelectorYear" type="text" value="2019" onblur="setYear(value)">
-                </div>
-                <img src="./image/next.png" alt="next" class="timeSelectorbutton" onclick="addOneMonth()">
-            </div>
-
-
-
-            <!-- Section for time table -->
-            <div>
-                <table class="timeTable" id="timeTable">
-                </table>
-            </div>
-        </div>
-
-
-        <!-- Space for blank saves-->
-        <div id="blankSave">
-        </div>
-    </div>
-
     <!-- Section for edit window -->
-    <div id="editWindow">
-        <table class="editWindowFrame">
-            <tbody>
-                <td class="leftEditWindowFrame" colspan="10">
-                    <button onclick="hideWindow()">×</button>
-            </tbody>
-            <tbody>
-                <td class="leftEditWindowFrame" colspan="2">Job Role</td>
-                <td></td>
-                <td class="rightEditWindowFrame" colspan="7">
-                    <!-- <select id="jobRoleSelection">
-                        <option value="primary">Primary engineer</option>
-                        <option value="secondary">Secondary engineer</option>
-                        <option value="manager">Manager</option>
-                        <option value="empty"></option>
-                    </select> -->
-                    <div id="jobRoleSelection"></div>
-                </td>
-                </tr>
-                <tr>
-                    <td class="leftEditWindowFrame" colspan="2">Employee</td>
-                    <td></td>
-                    <td class="rightEditWindowFrame" colspan="7">
-                        <input id="inputWorking_id" type="text" placeholder="working id">
-                        <!-- <button class="SearchingBotton" onclick="requestSearch()">
-                            search
-                        </button> -->
-                    </td>
-                </tr>
-                <tr>
-                    <td class="leftEditWindowFrame" class="leftEditWindowFrame" colspan="2">Time</td>
-                    <td></td>
-                    <td class="rightEditWindowFrame" colspan="3">
-                        <input id="inputStartDate" type="date" class="dateContainer" />
-                    </td>
-                    <td colspan="1">to</td>
-                    <td class="rightEditWindowFrame" colspan="3">
-                        <input id="inputEndDate" type="date" class="dateContainer" />
-                    </td>
-                </tr>
-                <tr>
-                    <td class="leftEditWindowFrame" colspan="2">Repeat</td>
-                    <td></td>
-                    <td class="rightEditWindowFrame" colspan="7">
-                        <button class="rightEditWindowFrame" id="enableRepeatButton" status="enabled"
-                            onclick="checkRepeat()">Disable weekly repeat</button>
-                    </td>
-                </tr>
-            </tbody>
-            <tbody id="repeatAttribute" style="color: grey;">
-                <tr>
-                    <td class="leftEditWindowFrame" colspan="2">Interval</td>
-                    <td></td>
-                    <td class="rightEditWindowFrame" colspan="7">
-                        Every <input id="inputRepeatInterval" type="number" class="weekContainer" disabled /> weeks
-                    </td>
-                </tr>
-                <tr>
-                    <td class="leftEditWindowFrame" colspan="2">End</td>
-                    <td></td>
-                    <td class="rightEditWindowFrame" colspan="7">
-                        <label><input id="yearEnd" name="endRepeat" type="radio" disabled checked /> 1 Year (52
-                            weeks)</label>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="leftEditWindowFrame" colspan="2"></td>
-                    <td></td>
-                    <td class="rightEditWindowFrame" colspan="7">
-                        <label><input id="timeEnd" name="endRepeat" type="radio" disabled /> After
-                            <input id="inputTimeEnd" type=" week" class="weekContainer" disabled /> times</label>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="leftEditWindowFrame" colspan="2"></td>
-                    <td></td>
-                    <td class="rightEditWindowFrame" colspan="7">
-                        <label><input id="dateEnd" name="endRepeat" type="radio" disabled /> On date
-                            <input id="inputDateEnd" type="date" class="dateContainer" disabled></label>
-                    </td>
-                </tr>
-            </tbody>
-            <tbody>
-                <tr>
-                    <td class="rightEditWindowFrame" colspan="5">
-                        <button id="EWUpload">Upload</button>
-                    </td>
-                    <td class="leftEditWindowFrame" colspan="5">
-                        <button id="EWDelete">Delete</button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+
+    <div id="editWindow" class="">
+      <button onclick="hideWindow()" class="btn btn-secondary" style="float:right;">×</button>
+      <div class="editWindowFrame" action="none" >
+
+
+        <div class="row justify-content-center w-100"  style="margin-top:5%;">
+          <div class="col-md-2 ml-auto" style="padding-left:4%;">
+              Job Role
+          </div>
+          <div class="col-md-6 mr-auto" style="padding-left:1%;">
+            <div id="jobRoleSelection"></div>
+          </div>
+        </div>
+
+
+
+        <div class="row justify-content-center w-100" style="margin-top:1%;">
+          <div class="col-md-2 ml-auto" style="padding-left:5%;">
+              Employee
+          </div>
+          <div class="col-md-6 mr-auto" style="padding-left:7%;">
+            <input id="inputWorking_id" type="text" placeholder="working id">
+          </div>
+        </div>
+
+
+
+        <div class="row justify-content-center w-100" style="margin-top:1%;" >
+          <div class="col-md-4 ml-auto" style="padding-left:17%;" >
+              Time
+          </div>
+          <div class="col-md-8  mr-auto" style="padding-left:8%;">
+
+            <input id="inputStartDate" type="date" class="dateContainer" />
+              to
+              <input id="inputEndDate" type="date" class="dateContainer" />
+          </div>
+        </div>
+
+          <div class="row justify-content-center w-100" style="margin-top:1%;" >
+            <div class="col-md-2 ml-auto" style="padding-left:2%;">
+                Repeat
+            </div>
+            <div class="col-md-6 mr-auto" style="padding-left:8%;">
+              <button class=" btn btn-secondary" id="enableRepeatButton" status="enabled"
+                  onclick="checkRepeat()">Disable weekly repeat</button>
+            </div>
+          </div>
+
+          <div id="repeatAttribute">
+
+            <div class="row justify-content-center w-100" style="margin-top:1%;" style="padding-left:1%;">
+              <div class="col-md-2 ml-auto">
+                  Interval
+              </div>
+              <div  class="col-md-6 mr-auto" style="padding-left:2%;">
+                  Every <input id="inputRepeatInterval" type="number" class="weekContainer" disabled /> weeks
+              </div>
+            </div>
+
+
+
+          <div class="row justify-content-center w-100" style="margin-top:1%;">
+            <div class="col-md-2 ml-auto">
+                End
+            </div>
+            <div  class="col-md-6 mr-auto">
+              <label><input id="yearEnd" name="endRepeat" type="radio" disabled checked /> 1 Year (52
+                  weeks)</label>
+            </div>
+          </div>
+
+
+          <div class="row justify-content-center w-100" style="margin-top:1%;">
+            <div class="col-md-2 ml-auto">
+
+            </div>
+            <div  class="col-md-6 mr-auto" style="padding-left:3%;">
+              <label><input id="timeEnd" name="endRepeat" type="radio" disabled /> After
+                  <input id="inputTimeEnd" type=" week" class="weekContainer" disabled /> times</label>
+            </div>
+          </div>
+
+
+          <div class="row justify-content-center w-100" style="margin-top:1%;">
+            <div class="col-md-2 ml-auto">
+
+            </div>
+            <div  class="col-md-6 mr-auto" style="padding-left:13%;">
+              <label><input id="dateEnd" name="endRepeat" type="radio" disabled /> On date
+                  <input id="inputDateEnd" type="date" class="dateContainer" disabled></label>
+            </div>
+          </div>
+        </div>
+        <div class="row d-flex w-100">
+          <div class="col-6 mr-auto">
+            <button id="EWUpload" class="btn btn-secondary">Upload</button>
+          </div>
+          <div class="col-6 ml-auto">
+              <button id="EWDelete" class="btn btn-secondary">Delete</button>
+          </div>
+        </div>
+      </div>
+      </div>
     </div>
 
     <!-- request window -->
-    <div id="requestWindow">
-        <table>
+    <div id="requestWindow" class="backG" >
+        <table class="">
             <tr>
                 <td colspan="2" style="text-align: right;">
-                    <button onclick="hideRequestWindow()">×</button>
+                    <button class="btn btn-secondary" onclick="hideRequestWindow()">×</button>
                 </td>
             </tr>
             <tr>
-                <td style="text-align: left;">
-                    <button onclick="requestLeave()">Take leave</buttononclick="">
+                <td style="text-align:center;">
+                    <button onclick="requestLeave()" class="btn btn-secondary">Take leave</buttononclick="">
                 </td>
-                <td style="text-align: right;">
-                    <button onclick="requestEdit()">Edit</button>
+            </tr>
+            <tr>
+                <td style="text-align:center;">
+                    <button onclick="requestEdit()" style="margin-top:6%;" class="btn btn-secondary">Edit</button>
                 </td>
             </tr>
         </table>
     </div>
 
     <!-- login window -->
-    <div id="loginFrame">
+    <div id="loginFrame" >
         <div class="modal-content animate">
             <div class="imgcontainer">
                 <span onclick="hideLoginWindow()" class="close">×</span>
@@ -207,14 +222,13 @@
     </div>
 
     <div id="modal"></div>
-
+  </div>
 </body>
 
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script type="text/javascript" src="./js/AJAX.js"></script>
 <script type="text/javascript" src="./js/build.js"></script>
 <script type="text/javascript" src="./js/navigator.js"></script>
-
 <script type="text/javascript" src="./js/EditWindow.js"></script>
 <script type="text/javascript" src="./js/EmployeeCategory.js"></script>
 <script type="text/javascript" src="./js/TimeSelector.js"></script>

@@ -23,3 +23,7 @@
 .timeSelectorbutton{
     width: 20px;
 }
+
+.timeEdge{
+  border-radius: 20%;
+}

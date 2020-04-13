@@ -1,19 +1,19 @@
 /*TimeTable*/
 
 /* TimeTable_block */
-table.timeTable{
+.timeTable{
     width: 100%;
-    margin-top: 8px;
+    /*margin-top: 8px;
     position: relative;
     background-color: white;
     border: 1.5px;
     border-style: solid;
     border-color: rgb(100, 100, 100);
-    border-collapse: collapse;
+    border-collapse: collapse;*/
 }
 .weekDayBlockRow{
     font-size: 12px;
-    background-color: lightgrey;
+    background-color: black;
     font-family: Arial, Helvetica, sans-serif;
 }
 .weekDayBlockRow>td{
@@ -58,7 +58,16 @@ table.timeTable{
     border-collapse: collapse;
 }
 
-
+#logo{
+  margin-top:0%;
+  width: 300px;
+  height: 100px;
+  margin-right:auto;
+  margin-left: auto;
+  background-image: url("../image/capital-one-logo.png");
+  background-size: cover;
+  background-position: center;
+}
 
 /* Job blocks */
 .JobBlock{

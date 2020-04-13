@@ -14,17 +14,22 @@ function buildEmployeeList() {
     var html = "";
 
     for (var groupIndex = 0; groupIndex < groupList.length; groupIndex++) {
-        html += "<div id=\"" + groupList[groupIndex] + "\" onclick=\"checkNameList(event)\">" + groupList[groupIndex] + "</div>";
+        html+="<div class=\"row   top-buffer" + groupIndex + "\">"
+        html += "<button class=\" btn  btn-secondary customMain\" style=\"min-width:193px;min-height:100px;\"  id=\"" + groupList[groupIndex] + "\" onclick=\"checkNameList(event)\">" + groupList[groupIndex] + "</button>";
         html += "<div id=\"" + groupList[groupIndex] + "NameList\" class=\"employeeNameList\" style=\"display: none;\">";
         var List = nameList[groupList[groupIndex]];
         if (List != null) {
             for (var iCountNameList = 0; iCountNameList < List.length; iCountNameList++) {
-                html += "<div working_id=\"" + List[iCountNameList]['working_id'] + "\" "
+                html+= "<div class=\"row rowList\">"
+                html += "<button class=\"btn btn-secondary btn-block \" working_id=\"" + List[iCountNameList]['working_id'] + "\" "
                     + "job_role=\"" + List[iCountNameList]['job_role'] + "\" "
                     + "onclick=\"popRequestWindow(event)\">"
-                    + List[iCountNameList]['name'] + "</div>";
+                    + List[iCountNameList]['name'] + "</button>";
+
+                html+="</div>"
             }
         }
+        html += "</div>";
         html += "</div>";
     }
 

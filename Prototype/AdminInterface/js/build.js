@@ -23,9 +23,9 @@ function buildEmployeeTable() {
             + status + "</td><td>"
             + employeeInfo[index]["working_id"] + "</td>"
             //+ "<td>" + employeeInfo[index]["group_id"] + "</td>"
-            + "<td><button onclick=\"jumpToTargetProfile(event)\">view</botton></td>"
-            + "<td><button>report</button></td>"
-            + "<td><button onclick=\"deleteEmployee(event)\">delete</botton></td>"
+            + "<td><button class=\"btn btn-secondary\" onclick=\"jumpToTargetProfile(event)\">view</botton></td>"
+            + "<td><button class=\"btn btn-secondary\">report</button></td>"
+            + "<td><button class=\"btn btn-secondary\" onclick=\"deleteEmployee(event)\">delete</botton></td>"
             + "</tr>";
     }
     document.getElementById("employeeTable").innerHTML = html;

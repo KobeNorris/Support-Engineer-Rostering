@@ -1,9 +1,9 @@
 /* AdminInterface.html */
 #employeeCategory{
     position: relative;
-    background-color: darkgrey;
+
     margin-top: 1%;
-    margin-left: 1%;
+    margin-left: 15%;
     height: 94%;
     width: 20%;
     /* display: flex;
@@ -21,7 +21,37 @@
 
 /* SubList */
 .employeeNameList{
-    width:200px;
-    margin-left: 50px;
-    overflow-y:scroll;
+    width:100px;
+    margin-left: 190px;
+    margin-top: 0px;
+    overflow-y:hidden;
+    position: absolute;
+    overflow-x: hidden;
+}
+.rowList{
+  margin-left: 5%;
+}
+
+.top-buffer0{
+  margin-top: 150%;
+  margin-left: 100%;
+}
+
+.top-buffer1{
+  margin-top: 100%;
+  margin-left: 100%;
+}
+
+
+.top-buffer2{
+  margin-top:100%;
+  margin-left: 100%;
+}
+
+.rowh{
+  margin-top:10%;
+}
+
+.customMain{
+  padding: 20px 16px ;
 }

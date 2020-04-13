@@ -14,17 +14,8 @@ var checkPassword;
  * Check the log in state and pop up the password modification window
  */
 function popPasswordWindow() {
-    var url = "./php/account.php"
-    var data = "action=checkPermission";
-
-    AJAX.post(url, data,
-        function (responseText) {
-            if (responseText == "Success")
-                document.getElementById("passwordWindow").style.display = "block";
-            else
-                alert("No permission" + responseText);
-        }
-    );
+    document.getElementById("passwordWindow").style.display = "block";
+    document.getElementById("modal").style.display = "block";
 }
 
 /**
@@ -32,6 +23,7 @@ function popPasswordWindow() {
  */
 function hidePasswordWindow() {
     document.getElementById("passwordWindow").style.display = "none";
+      document.getElementById("modal").style.display = "none";
     document.getElementById("oldPassword").value = "";
     document.getElementById("newPassword").value = "";
     document.getElementById("checkPassword").value = "";
@@ -62,6 +54,7 @@ function checkNewPassword() {
  * Update the old password with new password
  */
 function updatePassword() {
+
     if (checkNewPassword()) {
         var url = "./php/account.php"
         var data = "action=changePassword&oldPassword=" + oldPassword

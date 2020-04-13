@@ -42,8 +42,8 @@ function checkRepeat() {
  *      possible;
  *      2. From employee category: Load target employee's working id
  *
- * @param {*} event 
- * @param {*} parent 
+ * @param {*} event
+ * @param {*} parent
  */
 function openEditWindow(event, parent) {
     var url = "./php/login.php";
@@ -87,7 +87,7 @@ function popWindow() {
 
 /**
  * Pop up edit window from time table
- * @param {*} event 
+ * @param {*} event
  */
 function popWindowTT() {
     if (targetBlock.getAttribute('working_id') == "null")
@@ -108,7 +108,7 @@ function popWindowTT() {
 
 /**
  * Pop up edit window from employee category
- * @param {*} event 
+ * @param {*} event
  */
 function popWindowEC(event) {
     console.log("From EC");

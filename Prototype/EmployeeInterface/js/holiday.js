@@ -10,6 +10,26 @@ var newHolidayStart_date;
 var newHolidayEnd_date;
 var holidayList = [];
 
+
+
+/*
+* Liam Orrill added functionality
+*/
+function popHolidayWindow(){
+  document.getElementById("holidayWindow").style.display = "block";
+    document.getElementById("modal").style.display = "block";
+}
+
+
+function closeHolidayWindow(){
+  document.getElementById("holidayWindow").style.display = "none";
+    document.getElementById("modal").style.display = "none";
+  /*document.getElementById("oldPassword").value = "";
+  document.getElementById("newPassword").value = "";
+  document.getElementById("checkPassword").value = "";*/
+}
+
+
 /**
  * Upload new holiday period to database
  */
