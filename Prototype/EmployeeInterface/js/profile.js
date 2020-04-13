@@ -93,7 +93,7 @@ function updateEmployeeProfile() {
 
                 employeeProfile[0]["account_type"] = document.getElementById("account_type").value;
                 employeeProfile[0]["job_role"] = document.getElementById("job_role").value;
-                console.log(employeeProfile[0]);
+                // console.log(employeeProfile[0]);
                 sendEmployeeProfile();
             }
             else if (responseText == "employee") {
