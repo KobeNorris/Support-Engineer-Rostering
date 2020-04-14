@@ -1,22 +1,26 @@
 /* Request Window */
-#requestWindow{
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 2; /* Sit on top */
-    left:35%;
-    top: 45%;
-    width: 30%;
-    height: 20%;
-    min-width: 200px;
-    min-height: 100px;
-    border: 2px solid black;
-    border-radius: 5px;
-    /*background-color: rgb(255, 255, 255);*/
-    border-collapse: collapse;
-}
-#requestWindow>table{
-    width: 100%;
-}
-.backG{
-  background-color: white;
-}
+
+
+/* Add Zoom Animation */
+  @-webkit-keyframes animatezoom {
+    from {-webkit-transform: scale(0)} 
+    to {-webkit-transform: scale(1)}
+  }
+    
+  @keyframes animatezoom {
+    from {transform: scale(0)} 
+    to {transform: scale(1)}
+  }
+  
+  /* Change styles for span and cancel button on extra small screens */
+  @media screen and (max-width: 300px) {
+    span.psw {
+       display: block;
+       float: none;
+    }
+    .cancelbtn {
+       width: 100%;
+    }
+  }
+  
+  /* </style> */

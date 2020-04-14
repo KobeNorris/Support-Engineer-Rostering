@@ -26,12 +26,4 @@ require_once('loginSystemDatabase/setUpAccountDatabase.php');
 
 require_once('timeTableDatabase/setUpTimeTableDatabase.php');
 require_once('timeTableDatabase/setUpRepeatableTaskDatabase.php');
-
-
-
-
-//creating the database
-
-
-
 ?>

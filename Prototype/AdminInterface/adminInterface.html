@@ -6,62 +6,14 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Admin interface</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-<<<<<<< HEAD
-    <link rel='stylesheet' type='text/css' media='screen' href='adminInterface.css'>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-=======
+    <link rel='stylesheet' type='text/css' media='screen' href='./css/global.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='./css/adminInterface.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='./css/reportEditionWindow.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='./css/createEmployeeWindow.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='./css/warningWindow.css'>
->>>>>>> a44b64766782f68bad8ff7f53457cf490c20bb00
 </head>
 
 <body>
-<<<<<<< HEAD
-  <div id="logo"></div>
-
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col">
-        <h2>Admin Overview</h2>
-      </div>
-      <div class="col d-flex">
-          <div class="ml-auto">
-            <button class="btn btn-secondary " onclick="jumpToTimeTable()">Time table</button>
-            <button onclick="popCreateEmployeeWindow()" class="btn btn-secondary">new</button>
-          </div>
-      </div>
-    </div>
-  </div>
-  <hr>
-
-
-
-<div class="container-fluid">
-
-
-  <div class="row ">
-    <div class="col-md-4"></div>
-    <div class="col-md-4 d-flex justify-content-center">
-      <div class="row mx-auto">
-        <table class="table table-responsive table-hover table-dark" style="color:white;">
-          <thead>
-            <td>Name</td>
-            <td>Status</td>
-            <td>Working ID</td>
-          </thead>
-          <tbody id="employeeTable" style="color:black;"></tbody>
-        </table>
-      </div>
-    </div>
-    <div class="col-md-4"></div>
-    <div class="row mx-auto">
-        <button type="button" class="btn btn-secondary" onclick="popCreateEmployeeWindow()" name="button">New Employee</button>
-    </div>
-  </div>
-</div>
-=======
     <div class="rows">
         <div class="groupNavigationBar">
             <!-- Group tabs are created here -->
@@ -88,125 +40,113 @@
     <!-- <div class=""></div> -->
     <button onclick="jumpToTimeTable()" class="topButton">time table</button>
     <button onclick="popCreateEmployeeWindow()" class="topButton">new</button>
->>>>>>> a44b64766782f68bad8ff7f53457cf490c20bb00
 
     <!-- New employee window framework -->
-    <div id="createEmployeeWindow">
-        <table id="createEmployeeTable">
-            <thead>
-                <td colspan="2">New employee</td>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Working_id</td>
-                    <td>
-                        <input id="newWorking_id" type="text" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>Password</td>
-                    <td>
-                        <input id="newPassword" type="password">
-                    </td>
-                </tr>
-                <tr>
-                    <td>Check_password</td>
-                    <td>
-                        <input id="checkPassword" type="password">
-                    </td>
-                </tr>
-                <tr>
-                    <td><button onclick="createNewEmployee()">submit</button></td>
-                    <td><button onclick="hideCreateEmployeeWindow()">cancel</button></td>
-                </tr>
-            </tbody>
-        </table>
+    <div id="createEmployeeWindow" class="floatWindowMask">
+        <div class="floatWindowFlexWrapper">
+            <div class="floatWindow">
+                <table id="createEmployeeTable" class="floatWindowTable">
+                    <thead>
+                        <td class="floatWindowTitle" colspan="2">New employee</td>
+                    </thead>
+                    <tbody>
+                        <tr></tr>
+                        <tr>
+                            <td>Working_id</td>
+                            <td>
+                                <input id="newWorking_id" type="text" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Password</td>
+                            <td>
+                                <input id="newPassword" type="password">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Check_password</td>
+                            <td>
+                                <input id="checkPassword" type="password">
+                            </td>
+                        </tr>
+                        <tr></tr>
+                        <tr>
+                            <td class="floatWindowButtonContainer">
+                                <button onclick="createNewEmployee()">submit</button>
+                            </td>
+                            <td class="floatWindowButtonContainer">
+                                <button onclick="hideCreateEmployeeWindow()">cancel</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 
     <!-- Report edition window framewark -->
-    <div id="reportEditionWindow">
-        <table id="reportEditionTable">
-            <thead>
-                <tr>
-                    <td colspan="2">
-                        Report Edition Window
-                    </td>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>
-                        Target period
-                    </td>
-                    <td>
-                        <input id="reportTargetPeriod" type="month">
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Target job role
-                    </td>
-                    <td>
-                        <select id='reportTargetJobRole'>
-                            <option value="PrimaryEngineer">
-                                PrimaryEngineer
-                            </option>
-                            <option value="SecondaryEngineer">
-                                SecondaryEngineer
-                            </option>
-                            <option value="EscalationManager">
-                                EscalationManager
-                            </option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Target payment
-                    </td>
-                    <td>
-                        <input id="reportTargetPayment" type="number">
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <button onclick="reportDownloadRequest()">Download</button>
-                    </td>
-                    <td>
-                        <button onclick="hideReportEditionWindow()">Cancel</button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+    <div id="reportEditionWindow" class="floatWindowMask">
+        <div class="floatWindowFlexWrapper">
+            <div class="floatWindow">
+                <table id="reportEditionTable" class="floatWindowTable">
+                    <thead>
+                        <tr>
+                            <td colspan="2" class="floatWindowTitle">
+                                Report Edition Window
+                            </td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr></tr>
+                        <tr>
+                            <td>
+                                Target period
+                            </td>
+                            <td>
+                                <input id="reportTargetPeriod" type="month">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Target job role
+                            </td>
+                            <td>
+                                <select id='reportTargetJobRole'>
+                                    <option value="PrimaryEngineer">
+                                        PrimaryEngineer
+                                    </option>
+                                    <option value="SecondaryEngineer">
+                                        SecondaryEngineer
+                                    </option>
+                                    <option value="EscalationManager">
+                                        EscalationManager
+                                    </option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Target payment
+                            </td>
+                            <td>
+                                <input id="reportTargetPayment" type="number">
+                            </td>
+                        </tr>
+                        <tr></tr>
+                        <tr>
+                            <td class="floatWindowButtonContainer">
+                                <button onclick="reportDownloadRequest()">Download</button>
+                            </td>
+                            <td class="floatWindowButtonContainer">
+                                <button onclick="hideReportEditionWindow()">Cancel</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 
-<<<<<<< HEAD
-<div id="createEmployeeWindow">
-  <div class="modal-content animate">
-      <div class="container text-center">
-          <span onclick="hideCreateEmployeeWindow()" class="close">×</span>
-          <div>
-              <label for=""><b>Working ID</b></label><br>
-              <input id="newWorking_id" type="text">
-          </div>
-          <div>
-              <label for=""><b>Password</b></label><br>
-              <input id="newPassword" type="password" >
-          </div>
-          <div>
-              <label for=""><b>Check Password</b></label><br>
-              <input id="checkPassword" type="password">
-          </div>
-          <div style="margin-top:1%;">
-              <button class="btn btn-secondary" onclick="createNewEmployee()">Submit</button>
-          </div>
-
-      </div>
-  </div>
-</div>
-
-<div id="modal"></div>
-=======
     <!-- Warning Window -->
     <div id="warningWindow">
         <table id="warningTable">
@@ -225,7 +165,6 @@
             </tbody>
         </table>
     </div>
->>>>>>> a44b64766782f68bad8ff7f53457cf490c20bb00
 </body>
 
 <script src='./js/AJAX.js'></script>

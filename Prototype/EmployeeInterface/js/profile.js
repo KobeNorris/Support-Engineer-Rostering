@@ -10,7 +10,7 @@ var targetWorking_id;
 var employeeProfile;
 
 /**
- * Get the employee profile data from database and refresh current page's employee profile
+ * Get the employee profile data from database and refresh current page's employee profile 
  * according to the data
  */
 function refreshEmployeProfile() {
@@ -46,7 +46,7 @@ function editEmployeeProfile() {
     document.getElementById("group_id").disabled = false;
     document.getElementById("email").disabled = false;
     document.getElementById("phone_number").disabled = false;
-    document.getElementById("profileEditButton").innerHTML = "<button class=\"btn btn-secondary\" onclick=\"updateEmployeeProfile()\">Update</button>";
+    document.getElementById("profileEditButton").innerHTML = "<button onclick=\"updateEmployeeProfile()\">Update</button>";
 
     var url = "./php/login.php";
     var data = "action=check";
@@ -93,7 +93,7 @@ function updateEmployeeProfile() {
 
                 employeeProfile[0]["account_type"] = document.getElementById("account_type").value;
                 employeeProfile[0]["job_role"] = document.getElementById("job_role").value;
-                console.log(employeeProfile[0]);
+                // console.log(employeeProfile[0]);
                 sendEmployeeProfile();
             }
             else if (responseText == "employee") {
@@ -115,7 +115,7 @@ function updateEmployeeProfile() {
     document.getElementById("account_type").disabled = true;
     document.getElementById("job_role").disabled = true;
 
-    document.getElementById("profileEditButton").innerHTML = "<button class=\"btn btn-secondary\" onclick=\"editEmployeeProfile()\">Edit</button>";
+    document.getElementById("profileEditButton").innerHTML = "<button onclick=\"editEmployeeProfile()\">Edit</button>";
 }
 
 /**
@@ -143,7 +143,7 @@ var targetImage;
 
 /**
  * Upload taget image with corresponding image id
- *
+ * 
  * @param {*} elementId Target image id
  */
 function upLoadImage(elementId) {
@@ -181,7 +181,7 @@ function refreshEmployePicture() {
 
 /**
  * Upload target image to the database
- *
+ * 
  * @param {*} targetImage Target image
  */
 function sendImageToPHP(targetImage) {

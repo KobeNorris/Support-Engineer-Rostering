@@ -14,10 +14,6 @@ var checkPassword;
  * Check the log in state and pop up the password modification window
  */
 function popPasswordWindow() {
-<<<<<<< HEAD
-    document.getElementById("passwordWindow").style.display = "block";
-    document.getElementById("modal").style.display = "block";
-=======
     var url = "./php/account.php"
     var data = "action=checkPermission";
 
@@ -31,19 +27,13 @@ function popPasswordWindow() {
             }
         }
     );
->>>>>>> a44b64766782f68bad8ff7f53457cf490c20bb00
 }
 
 /**
  * Hide the password modification window and clean the data
  */
 function hidePasswordWindow() {
-<<<<<<< HEAD
-    document.getElementById("passwordWindow").style.display = "none";
-      document.getElementById("modal").style.display = "none";
-=======
     document.getElementById("changePasswordWindow").style.display = "none";
->>>>>>> a44b64766782f68bad8ff7f53457cf490c20bb00
     document.getElementById("oldPassword").value = "";
     document.getElementById("newPassword").value = "";
     document.getElementById("checkPassword").value = "";
@@ -76,7 +66,6 @@ function checkNewPassword() {
  * Update the old password with new password
  */
 function updatePassword() {
-
     if (checkNewPassword()) {
         var url = "./php/account.php"
         var data = "action=changePassword&oldPassword=" + oldPassword

@@ -1,32 +1,31 @@
 /*TimeTable*/
 
 /* TimeTable_block */
-.timeTable{
+table.timeTable{
     width: 100%;
-    /*margin-top: 8px;
+    margin-top: 8px;
     position: relative;
     background-color: white;
     border: 1.5px;
     border-style: solid;
-    border-color: rgb(100, 100, 100);
-    border-collapse: collapse;*/
+    border-color: #B0B0B0;
+    border-collapse: collapse;
 }
 .weekDayBlockRow{
     font-size: 12px;
-    background-color: black;
-    font-family: Arial, Helvetica, sans-serif;
+    background-color: #E0E0E0;
 }
 .weekDayBlockRow>td{
     width: 14.3%;
     border: 1px;
     border-style: solid;
-    border-color:rgb(100, 100, 100);
+    /* border-color:rgb(100, 100, 100); */
+    border-color: #D0D0D0;
     border-collapse: collapse;
 }
 .normalDayBlockRow{
     font-size: 13px;
     height: 13px;
-    font-family: Arial, Helvetica, sans-serif;
 }
 
 
@@ -38,7 +37,7 @@
     color: rgb(163, 163, 163);
     border: 1px;
     border-style: solid;
-    border-color: rgb(100, 100, 100);
+    border-color: #D0D0D0;
     border-collapse: collapse;
 }
 .passedTableBlock{
@@ -46,7 +45,7 @@
     margin: 0;
     border: 1px;
     border-style: solid;
-    border-color: rgb(100, 100, 100);
+    border-color: #D0D0D0;
     border-collapse: collapse;
 }
 .emptyTimeTableBlock{
@@ -54,24 +53,12 @@
     margin: 0;
     border: 1px;
     border-style: solid;
-    border-color: rgb(100, 100, 100);
+    border-color: #D0D0D0;
     border-collapse: collapse;
 }
 
-<<<<<<< HEAD
-#logo{
-  margin-top:0%;
-  width: 300px;
-  height: 100px;
-  margin-right:auto;
-  margin-left: auto;
-  background-image: url("../image/capital-one-logo.png");
-  background-size: cover;
-  background-position: center;
-}
 
-=======
->>>>>>> a44b64766782f68bad8ff7f53457cf490c20bb00
+
 /* Job blocks */
 .JobBlock{
     width: 100%;
@@ -79,11 +66,11 @@
     border: 1px;
     color: white;
     font-size: 13px;
-    font-family: Arial, Helvetica, sans-serif;
     border-style: solid;
     border-top: none;
     border-bottom: none;
-    border-color: rgb(100, 100, 100);
+    border-color: #B0B0B0;
+    border-width: 1px;
     border-collapse: collapse;
 }
 .PrimaryEngineerJobBlock{
@@ -91,7 +78,9 @@
     height: 95%;
     margin-left: auto;
     margin-right: auto;
-    background-color: rgb(160, 0, 0);
+    background-color: #f8d7da /*rgb(160, 0, 0)*/;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
     border-radius: 4px;
 }
 .SecondaryEngineerJobBlock{
@@ -99,7 +88,9 @@
     height: 95%;
     margin-left: auto;
     margin-right: auto;
-    background-color: rgb(0, 0, 160);
+    background-color: #cce5ff/*rgb(0, 0, 160)*/;
+    color: #004085;
+    border: 1px solid #b8daff;
     border-radius: 4px;
 }
 .EscalationManagerJobBlock{
@@ -107,7 +98,9 @@
     height: 95%;
     margin-left: auto;
     margin-right: auto;
-    background-color: rgb(220, 100, 0);
+    background-color: #fff3cd/*rgb(220, 100, 0)*/;
+    color: #856404;
+    border: 1px solid #ffeeba;
     border-radius: 4px;
 }
 .emptyJobBlock{

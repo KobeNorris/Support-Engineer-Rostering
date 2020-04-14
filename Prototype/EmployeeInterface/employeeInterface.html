@@ -6,255 +6,7 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Employee Profile</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-<<<<<<< HEAD
-    <link rel='stylesheet' type='text/css' media='screen' href='employeeInterface.css'>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-</head>
-
-<body>
-<div id="logo"></div>
-
-<div class="container-fluid">
-
-
-        <div class="row">
-          <div class="col">
-                <h2>Edit Profile</h2>
-          </div>
-          <div class="col d-flex">
-            <div class="ml-auto">
-              <button class="btn btn-secondary " onclick="jumpToTimeTable()">Time table</button>
-
-              <button class="btn btn-secondary" onclick="jumpToAdminInterface()">Admin interface</button>
-            </div>
-
-          </div>
-</div>
-
-
-
-</div>
-
-
-<hr>
-<div class="container-fluid">
-
-  <div class="row">
-
-                <div class="col-md-3">
-                <div class="text-center">
-
-                    <div id="profilePic"></div>
-                    <label for="imageUpload" class="textC">Upload new image</label>
-                    <input id="imageUpload" name="imageUpload" type="file" onchange="upLoadImage('imageUpload')">
-                </div>
-              </div>
-
-
-                <div class="col-md-7 personal-info">
-                  <div class="row">
-                    <div class="col-md-6">
-                      <h3>Personal Info</h3>
-                    </div>
-                    <div class="col-md-6 d-flex">
-                      <div class="buttonContainer ml-auto" id="profileEditButton">
-                        <button  class="btn btn-secondary " onclick="editEmployeeProfile()">Edit</button>
-                      </div>
-                    </div>
-                  </div>
-                <form>
-                    <div class="form-group" style="margin-top:-7%;">
-                      <label>Active</label>
-                      <input style="margin-left:10%;"  class="check" id="status" type="checkbox" disabled />
-                    </div>
-                    <div class="form-row">
-                      <div class="form-group col-md-6">
-                        <label for="">Name</label>
-                        <input type="email" class="form-control" id="name" placeholder="" disabled>
-                      </div>
-                      <div class="form-group col-md-6">
-                        <label for="">Working ID</label>
-                        <input type="text" class="form-control" id="working_id" placeholder="" disabled>
-                      </div>
-                    </div>
-
-                    <div class="form-group">
-                      <label for="">Account Type</label>
-                      <input type="text" class="form-control" id="account_type" placeholder="" disabled>
-                    </div>
-
-                    <div class="form-group">
-                      <label for="">Telephone</label>
-                      <input type="text" class="form-control" id="phone_number" disabled>
-                    </div>
-
-
-                    <div class="form-group">
-                      <label for="">Email</label>
-                      <input type="text" class="form-control" id="email" disabled>
-                    </div>
-
-                    <div class="form-row">
-                      <div class="form-group col-md-4">
-                        <label for="inputState">Job Role</label>
-                        <select id="job_role" class="form-control" disabled>
-                          <option id="PrimaryEngineerOption" value="PrimaryEngineer">Primary Engineer</option>
-                          <option id="SecondaryEngineerOption" value="SecondaryEngineer">Secondary Engineer</option>
-                          <option id="EscalationManagerOption" value="EscalationManager">Escalation manager</option>
-                        </select>
-                      </div>
-                      <div class="form-group col-md-4">
-                        <label for="">Group</label>
-                        <input type="text" class="form-control" id="group_id" placeholder="" disabled>
-                      </div>
-                      <div class="form-group col-md-4">
-                        <label for="">Slack ID</label>
-                        <input type="text" class="form-control" id="slack_id" disabled>
-                      </div>
-                    </div>
-                    <!--<div class="form-row">
-                      <div class="form-group col-md 4">
-                        Holiday
-                      </div>
-                      <div class="form-group col-md 4">
-                        Start Date
-                      </div>
-                      <div class="form-group col-md 4">
-                        End Date
-                      </div>
-                    </div> -->
-                  </form>
-                  </div>
-
-                  <div class="col-md-3"></div>
-
-                  <div class="col-md-7">
-                    <div class="row">
-                      <div class=" col-md-4">
-                        <button class="btn btn-secondary" onclick="popPasswordWindow()">Change password</button>
-                      </div>
-                      <div class=" col-md-4">
-                        <button class="btn btn-secondary" onclick="popHolidayWindow()"> Request/Check Holiday & Deployment</button>
-                      </div>
-                      <div class=" col-md-4">
-                        <button class="btn btn-secondary" onclick="logout()">Log out</button>
-                      </div>
-                    </div>
-                  </div>
-            </div>      <!--</form> -->
-  </div>
-
-  <div id="passwordWindow">
-    <div class="modal-content animate">
-        <div class="container text-center">
-            <span onclick="hidePasswordWindow()" class="close">×</span>
-
-            <div>
-                <label for=""><b>Old Password</b></label><br>
-                <input id="oldPassword" type="password">
-            </div>
-            <div>
-                <label for=""><b>New Password</b></label><br>
-                <input id="newPassword" type="password" >
-            </div>
-            <div>
-                <label for=""><b>Check Password</b></label><br>
-                <input id="checkPassword" type="password">
-            </div>
-            <div style="margin-top:1%;">
-                <button class="btn btn-secondary" id="EWUpload">Upload</button>
-            </div>
-            <div style="margin-top:1%;">
-                <button class="btn btn-secondary" id="EWDelete">Delete</button>
-            </div>
-        </div>
-    </div>
-  </div>
-
-
-
-  <div id="holidayWindow">
-    <div class="modal-content animate">
-        <div class="container text-center">
-            <span onclick="closeHolidayWindow()" class="close">×</span>
-
-            <div class="col-md">
-
-              <div class="row">
-
-                <div class="col-md-3">
-                <label for="">Holiday</label>
-                </div>
-                <div class="col-md-3">
-                  <label for="">Start Date</label>
-                </div>
-                <div class="col-md-3">
-                  <label for="">End Date</label>
-                </div>
-                </div>
-
-
-                <div class="row">
-
-                  <div class="col-md-3"></div>
-                  <div class="col-md-3">
-                      <input type="date" id="newHolidayStart_date" name="" value="">
-                  </div>
-
-                  <div class="col-md-3">
-                      <input type="date" id="newHolidayEnd_date" name="" value="">
-                  </div>
-
-                  <div class="col-md-3">
-                      <button type="button" onclick="upLoadHoliday()" class="btn btn-secondary" name="button">Submit</button>
-                  </div>
-                </div>
-                <div class="row d-flex justify-content-center">
-                  <table id="holidayTimetable"></table>
-                </div>
-
-
-
-              <div class="row">
-                <div class="col-md-3">
-                  <label for="">Deployment</label>
-                </div>
-
-                <div class="col-md-3">
-                  <label>Start Date</label>
-                </div>
-
-                <div class="col-md-3">
-                  <label for="">Deployment</label>
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="col-md-3"></div>
-                <div class="col-md-3">
-                    <input type="date" id="newDeploymentStart_date" name="" value="">
-                </div>
-
-                <div class="col-md-3">
-                    <input type="date" id="newDeploymentEnd_date" name="" value="">
-                </div>
-
-                <div class="col-md-3">
-                    <button type="button" class="btn btn-secondary" onclick="upLoadDeployment()" name="button">Submit</button>
-                </div>
-              </div>
-
-              <div class="row d-flex justify-content-center">
-                <table id="deploymentTimetable"></table>
-              </div>
-            </div>
-        </div>
-    </div>
-  </div>
-
-
-  <div id="modal"></div>
-=======
+    <link rel='stylesheet' type='text/css' media='screen' href='./css/global.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='./css/employeeInterface.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='./css/changePasswordWindow.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='./css/warningWindow.css'>
@@ -267,8 +19,10 @@
             <table>
                 <tbody>
                     <tr>
-                        <td colspan="5"><button onclick="jumpToTimeTable()">Time table</button></td>
-                        <td colspan="5"><button onclick="jumpToAdminInterface()">Admin interface</button></td>
+                        <td colspan="5" style="text-align:left;"><button onclick="jumpToTimeTable()">Time table</button>
+                        </td>
+                        <td colspan="5" style="text-align:right;"><button onclick="jumpToAdminInterface()">Admin
+                                interface</button></td>
                     </tr>
                 </tbody>
 
@@ -280,7 +34,7 @@
                     </tr>
                     <tr>
                         <td colspan="10" class="buttonContainer">
-                            <label for="imageUpload">Upload new image</label>
+                            <label for="imageUpload" class="buttonStyle">Upload new image</label>
                             <input id="imageUpload" name="imageUpload" type="file"
                                 onchange="upLoadImage('imageUpload')">
                         </td>
@@ -439,55 +193,63 @@
                     <td colspan="2"><button onclick="upLoadDeployment()">submit</button></td>
                 </tr>
                 <tr>
-                    <td colspan="5"><button onclick="popPasswordWindow()">Change password</button></td>
-                    <td colspan="5"><button onclick="logout()">Log out</button></td>
+                    <td colspan="5" class="buttonContainer">
+                        <button onclick="popPasswordWindow()">Change password</button>
+                    </td>
+                    <td colspan="5" class="buttonContainer">
+                        <button onclick="logout()">Log out</button>
+                    </td>
                 </tr>
             </table>
         </div>
     </div>
 
-    <div id="changePasswordWindow">
-        <table id="changePasswordTable">
-            <thead>
-                <tr>
-                    <td colspan="2">Change Password</td>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>
-                        Old password
-                    </td>
-                    <td>
-                        <input id="oldPassword" type="password">
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        New password
-                    </td>
-                    <td>
-                        <input id="newPassword" type="password">
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Check password
-                    </td>
-                    <td>
-                        <input id="checkPassword" type="password">
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <button onclick="updatePassword()">submit</button>
-                    </td>
-                    <td>
-                        <button onclick="hidePasswordWindow()">cancel</button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+    <div id="changePasswordWindow" class="floatWindowMask">
+        <div class="floatWindowFlexWrapper">
+            <div id="changePasswordInnerWindow" class="floatWindow">
+                <table id="changePasswordTable">
+                    <thead>
+                        <tr>
+                            <td colspan="2" class="floatWindowTitle">Change Password</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                Old password
+                            </td>
+                            <td>
+                                <input id="oldPassword" type="password">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                New password
+                            </td>
+                            <td>
+                                <input id="newPassword" type="password">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Check password
+                            </td>
+                            <td>
+                                <input id="checkPassword" type="password">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="floatWindowButtonContainer">
+                                <button onclick="updatePassword()">submit</button>
+                            </td>
+                            <td class="floatWindowButtonContainer">
+                                <button onclick="hidePasswordWindow()">cancel</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 
     <!-- Warning Window -->
@@ -508,7 +270,6 @@
             </tbody>
         </table>
     </div>
->>>>>>> a44b64766782f68bad8ff7f53457cf490c20bb00
 </body>
 
 <script type="text/javascript" src="./js/AJAX.js"></script>

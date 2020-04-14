@@ -1,24 +1,18 @@
 /* AdminInterface.html */
 #employeeCategory{
-<<<<<<< HEAD
     position: relative;
-
+    background-color: #E0E0E0;
     margin-top: 1%;
-=======
-
-    background-color: darkgrey;
->>>>>>> a44b64766782f68bad8ff7f53457cf490c20bb00
-    margin-left: 15%;
+    margin-left: 1%;
     height: 94%;
-    width: 90%;
-    position: absolute;
-    z-index: 100;
-    bottom: 200px;
-     display: flex;
+    width: 20%;
+    /* display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: flex-start; */
+    border-radius: 0.2rem;
+
 }
 #employeeCategory_frame{
     width: 90%;
@@ -29,68 +23,9 @@
 
 /* SubList */
 .employeeNameList{
-<<<<<<< HEAD
-    width:100px;
-    margin-left: 190px;
-    margin-top: 0px;
-    overflow-y:hidden;
-    position: absolute;
-    overflow-x: hidden;
-}
-.rowList{
-  margin-left: 5%;
-}
-
-.top-buffer0{
-  margin-top: 150%;
-  margin-left: 100%;
-}
-
-.top-buffer1{
-  margin-top: 100%;
-  margin-left: 100%;
-}
-
-
-.top-buffer2{
-  margin-top:100%;
-  margin-left: 100%;
-}
-
-.rowh{
-  margin-top:10%;
-}
-
-.customMain{
-  padding: 20px 16px ;
-}
-=======
     width:200px;
-    margin-left: 30px;
+    margin-left: 50px;
     overflow-y:scroll;
-<<<<<<< HEAD
-    /*margin-bottom: 2000px;*/
-}
-#Grow{
-
-}
-#Customer\ Nottingham{
-  /*margin-top: 33%;*/
-}
-
-
-#Customer\ London{
-}
-
-.nameWidth{
-  width:70%;
-  height: 30px;
-}
-
-  #heighty{
-    /*height:20%;*/
-  }
-=======
 }
 
 #employeeCategory > div{
@@ -98,5 +33,3 @@
     margin-left: 10%;
     cursor: pointer;
 }
->>>>>>> 23549952ed4f9d1474e851730b172ed10dba93fe
->>>>>>> a44b64766782f68bad8ff7f53457cf490c20bb00

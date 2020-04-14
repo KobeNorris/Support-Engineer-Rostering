@@ -42,11 +42,6 @@ function checkRepeat() {
  *      possible;
  *      2. From employee category: Load target employee's working id
  *
-<<<<<<< HEAD
- * @param {*} event
- * @param {*} parent
-=======
->>>>>>> a44b64766782f68bad8ff7f53457cf490c20bb00
  */
 function openEditWindow() {
     var url = "./php/login.php";
@@ -84,7 +79,7 @@ function popWindow() {
 
 /**
  * Pop up edit window from time table
- * @param {*} event
+ * @param {*} event 
  */
 function popWindowTT() {
     if (targetBlock.getAttribute('working_id') == "null")
@@ -101,7 +96,7 @@ function popWindowTT() {
 
 /**
  * Pop up edit window from employee category
- * @param {*} event
+ * @param {*} event 
  */
 function popWindowEC(event) {
     console.log("From EC");
@@ -297,13 +292,6 @@ function getRepeatTask() {
  * Clean the repeatable task's data kept in the edit window
  */
 function cleanRepeatTask() {
-<<<<<<< HEAD
-    document.getElementById("inputRepeatInterval").value = "";
-    document.getElementById("yearEnd").checked = true;
-    document.getElementById("inputTimeEnd").value = "";
-    document.getElementById("inputDateEnd").value = "";
-}
-=======
     // document.getElementById("inputRepeatInterval").value = "";
     // document.getElementById("yearEnd").checked = true;
     // document.getElementById("inputTimeEnd").value = "";
@@ -320,4 +308,3 @@ function cleanRepeatTask() {
         this.disabled = true;
     });
 }
->>>>>>> a44b64766782f68bad8ff7f53457cf490c20bb00

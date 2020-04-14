@@ -11,7 +11,6 @@
  */
 function popCreateEmployeeWindow() {
     document.getElementById("createEmployeeWindow").style.display = "block";
-    document.getElementById("modal").style.display ="block";
 }
 
 /**
@@ -19,7 +18,6 @@ function popCreateEmployeeWindow() {
  */
 function hideCreateEmployeeWindow() {
     document.getElementById("createEmployeeWindow").style.display = "none";
-    document.getElementById("modal").style.display ="none";
     document.getElementById("newWorking_id").value = "";
     document.getElementById("newPassword").value = "";
     document.getElementById("checkPassword").value = "";

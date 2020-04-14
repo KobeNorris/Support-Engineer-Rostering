@@ -1,10 +1,13 @@
+/**
+ * Generate documentations according to rostering system
+ * @copyright 2018-2019 University of Nottingham, Nottingham, United Kingdom
+ * @version 1.0
+ * @author Kejia Wu (KobeNorrisWu@gmail.com)
+ * All rights are reserved.
+ */
+
 var employeeReport;
 var employeeProfile;
-// var targetWorking_id = "scykw1";
-// var targetJobRole = "PrimaryEngineer";
-// var payment = 35.72;
-// var targetYear = 2019;
-// var targetMonth = 12;
 var targetWorking_id;
 var targetJobRole;
 var payment;

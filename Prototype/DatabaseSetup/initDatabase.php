@@ -6,6 +6,4 @@ require_once('employeeDatabase/initEmployeeProfileDatabase.php');
 require_once('loginSystemDatabase/initAccountDatabase.php');
 
 require_once('timeTableDatabase/initTimeTableDatabase.php');
-
-//initialising database
 ?>

@@ -59,16 +59,6 @@ function buildGroupEmployees(group) {
             + employeeInfo[index]["name"] + "</td><td>"
             + status + "</td><td>"
             + employeeInfo[index]["working_id"] + "</td>"
-<<<<<<< HEAD
-            //+ "<td>" + employeeInfo[index]["group_id"] + "</td>"
-            + "<td><button class=\"btn btn-secondary\" onclick=\"jumpToTargetProfile(event)\">view</botton></td>"
-            + "<td><button class=\"btn btn-secondary\">report</button></td>"
-            + "<td><button class=\"btn btn-secondary\" onclick=\"deleteEmployee(event)\">delete</botton></td>"
-            + "</tr>";
-    }
-    document.getElementById("employeeTable").innerHTML = html;
-}
-=======
             + "<td><button onclick=\"jumpToTargetProfile(event)\">view</botton></td>"
             + "<td><button onclick=\"popReportEditionWindow(event)\">report</button></td>"
             + "<td><button onclick=\"deleteEmployee(event)\">delete</botton></td>"
@@ -76,4 +66,3 @@ function buildGroupEmployees(group) {
     }
     document.getElementById("employeeTableBody").innerHTML = html;
 }
->>>>>>> a44b64766782f68bad8ff7f53457cf490c20bb00

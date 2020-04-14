@@ -1,4 +1,4 @@
--/**
+/**
  * Ecapsulation of AJAX.
  * @copyright 2018-2019 University of Nottingham, Ningbo, China - IT Services - ECIS Group.
  * @version 0.2
@@ -13,9 +13,9 @@
 var AJAX = {
     /**
      * @param {string} url  The url to send request to
-     * @param {(reponseText: string) => void} onsuccess
+     * @param {(reponseText: string) => void} onsuccess 
      *          The callback function to be called when request is success. Get responseText as parameter
-     * @param {(errorCode: number) => void} [onerror]
+     * @param {(errorCode: number) => void} [onerror] 
      *          The callback function to be called when request is fail. Get error code as parameter
      */
     get: function (url, onsuccess, onerror) {
@@ -35,7 +35,7 @@ var AJAX = {
         xhr.onreadystatechange = function (event) {
             // When the sever have made response
             if (xhr.readyState == 4)
-                // When
+                // When 
                 if (xhr.status >= 200 && xhr.status <= 299)
                     onsuccess(xhr.responseText);
                 else {
@@ -55,9 +55,9 @@ var AJAX = {
     /**
      * @param {string} url  The url to send request to
      * @param {string} data  The data to send (in string).
-     * @param {(reponseText: string) => void} onsuccess
+     * @param {(reponseText: string) => void} onsuccess 
      *          The callback function to be called when request is success. Get responseText as parameter
-     * @param {(errorCode: number) => void} [onerror]
+     * @param {(errorCode: number) => void} [onerror] 
      *          The callback function to be called when request is fail. Get error code as parameter
      * @param {string} [contentType="application/x-www-form-urlencoded"]
      *          The `Content-type` header of the request. Defaultly `"application/x-www-form-urlencoded"`
