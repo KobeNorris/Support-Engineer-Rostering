@@ -1,13 +1,16 @@
 /* TimeSelector */
 .timeSelector{
     width: 100%;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    /*position: relative;*/
     display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
 }
 #timeSelectorMonthAndYear{
-    width: 180px;
+    /*width: 180px;*/
     text-align: center;
 }
 #timeSelectorMonth{
@@ -15,11 +18,14 @@
     margin-right: 5px;
 }
 #timeSelectorYear{
-    width: 50px;
+    flex-grow: -1;
+    flex-shrink: -1;
     text-align: center;
     margin-left: 5px;
     margin-right: 10px;
+    width: 5em;
 }
 .timeSelectorbutton{
-    width: 20px;
+    height: 1.5em;
+    display: flex;
 }

@@ -1,7 +1,7 @@
 /* AdminInterface.html */
 #employeeCategory{
     position: relative;
-    background-color: darkgrey;
+    background-color: #E0E0E0;
     margin-top: 1%;
     margin-left: 1%;
     height: 94%;
@@ -11,6 +11,8 @@
     flex-wrap: nowrap;
     justify-content: space-between;
     align-items: flex-start; */
+    border-radius: 0.2rem;
+
 }
 #employeeCategory_frame{
     width: 90%;

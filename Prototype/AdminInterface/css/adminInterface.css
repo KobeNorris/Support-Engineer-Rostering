@@ -21,13 +21,16 @@ body{
     width: 30em;
 }
 
+#employeeTable td {
+    padding: 0.35rem 0.5rem;
+    background-color: #D8D8D8;
+}
+
 #employeeTableHead{
-  background-color: #c3c3c3;
 }
 
 #employeeTableBody{
   text-align:center;
-  background-color: #c3c3c3;
 }
 
 /* #newEmployee{
@@ -58,10 +61,12 @@ body{
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 }
 
 #groupButton {
   flex-grow: 1;
+  margin: 0.3rem;
 }
 
 #groupButton:nth-of-type(odd)  {

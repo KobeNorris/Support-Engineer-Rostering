@@ -1,25 +1,5 @@
 /* Request Window */
-#requestWindow{
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 2; /* Sit on top */
-    left:35%;
-    top: 45%;
-    width: 30%;
-    height: 20%;
-    min-width: 200px;
-    min-height: 100px;
-    border: 2px solid black;
-    border-radius: 5px;
-    background-color: rgb(255, 255, 255);
-    border-collapse: collapse;
-    
-    -webkit-animation: animatezoom 0.6s;
-    animation: animatezoom 0.6s
-}
-#requestWindow>table{
-    width: 100%;
-}
+
 
 /* Add Zoom Animation */
   @-webkit-keyframes animatezoom {
