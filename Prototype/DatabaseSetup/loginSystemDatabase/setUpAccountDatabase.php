@@ -11,7 +11,7 @@ try {
     $stmt=$dbh->prepare($sql);
     $stmt->execute();
 
-    echo "Set up account database Success";
+    echo "Set up account database Success\n";
 } catch (PDOException $error) {
     echo 'SQL Query:'.$sql.'</br>';
     echo 'Connection failed:'.$error->getMessage();

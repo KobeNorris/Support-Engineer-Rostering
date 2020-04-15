@@ -18,7 +18,7 @@ try {
     $stmt=$dbh->prepare($sql);
     $stmt->execute();
 
-    echo "Set up employee profile Success";
+    echo "Set up employee profile Success\n";
 } catch (PDOException $error) {
     echo 'SQL Query:'.$sql.'</br>';
     echo 'Connection failed:'.$error->getMessage();

@@ -12,7 +12,7 @@ try {
     $stmt=$dbh->prepare($sql);
     $stmt->execute();
 
-    echo "Set up employee holiday Success";
+    echo "Set up employee holiday Success\n";
 } catch (PDOException $error) {
     echo 'SQL Query:'.$sql.'</br>';
     echo 'Connection failed:'.$error->getMessage();
