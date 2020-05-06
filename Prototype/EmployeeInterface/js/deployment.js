@@ -83,7 +83,7 @@ function deleteDeployment(event) {
 
     AJAX.post(url, data,
         function (responseText) {
-            if (xmlhttp.responseText == "Success")
+            if (responseText == "Success")
                 getEmployeeDeployment();
             else
                 console.log(xmlhttp.responseText);
