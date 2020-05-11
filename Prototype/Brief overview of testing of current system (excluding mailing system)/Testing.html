@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testing</title>
+</head>
+
+<div style="font-size:  larger; font-weight:   bolder;">Testing Process: </div><br>
+
+<table>
+    <tr>
+        <td colspan="2" style="text-align: center; font-weight: bolder;padding-top: 20px;">
+            Timetable Interface</td>
+    </tr>
+    <tr>
+        <td>Log in: </td>
+        <td><span id="login"></span></td>
+    </tr>
+    <tr>
+        <td>Insert normal task: </td>
+        <td><span id="INT"></span></td>
+    </tr>
+    <tr>
+        <td>Delete normal task: </td>
+        <td><span id="DNT"></span></td>
+    </tr>
+    <tr>
+        <td>Insert repeat task: </td>
+        <td><span id="IRT"></span></td>
+    </tr>
+    <tr>
+        <td>Delete repeat task: </td>
+        <td><span id="DRT"></span></td>
+    </tr>
+    <tr>
+        <td>Request leave: </td>
+        <td><span id="RL"></span></td>
+    </tr>
+    <tr>
+        <td>Send mail: </td>
+        <td><span id="SM"></span></td>
+    </tr>
+    <tr>
+        <td>Access employee interface: </td>
+        <td><span id="AEI"></span></td>
+    </tr>
+    <tr>
+        <td> </td>
+    </tr>
+    <tr>
+        <td colspan="2" style="text-align: center; font-weight: bolder;padding-top: 20px;">
+            Employee Interface</td>
+    </tr>
+    <tr>
+        <td>Access profile</td>
+        <td><span id="AP"></span></td>
+    </tr>
+    <tr>
+        <td>Update profile</td>
+        <td><span id="UP"></span></td>
+    </tr>
+    <tr>
+        <td>Change password: </td>
+        <td><span id="CP"></span></td>
+    </tr>
+    <tr>
+        <td>Update holiday: </td>
+        <td><span id="UH"></span></td>
+    </tr>
+    <tr>
+        <td>Delete holiday: </td>
+        <td><span id="DH"></span></td>
+    </tr>
+    <tr>
+        <td>Update deployment: </td>
+        <td><span id="UD"></span></td>
+    </tr>
+    <tr>
+        <td>Delete deployment: </td>
+        <td><span id="DD"></span></td>
+    </tr>
+    <tr>
+        <td>Access admin interface: </td>
+        <td><span id="AAI"></span></td>
+    </tr>
+    <tr>
+        <td>Log out: </td>
+        <td><span id="logout"></span></td>
+        <!-- logout() -->
+    </tr>
+    <tr>
+        <td> </td>
+    </tr>
+    <tr>
+        <td colspan="2" style="text-align: center; font-weight: bolder;padding-top: 20px;">
+            Administrator Interface</td>
+    </tr>
+    <tr>
+        <td>Create employee: </td>
+        <td><span id="CE"></span></td>
+    </tr>
+    <tr>
+        <td>Delete employee: </td>
+        <td><span id="DE"></span></td>
+    </tr>
+    <tr>
+        <td>Access employee category: </td>
+        <td><span id="AEC"></span></td>
+    </tr>
+    <tr>
+        <td>Access employee interface: </td>
+        <td><span id="AEI2"></span></td>
+    </tr>
+    <tr>
+        <td>Access timetable interface: </td>
+        <td><span id="ATI"></span></td>
+    </tr>
+    <tr>
+        <td>Generate report</td>
+        <td><span id="GR"></span></td>
+    </tr>
+    <tr>
+        <td colspan="2" style="text-align: center;padding-top: 20px;">
+            <button onclick="runTest()">Run Test</button>
+        </td>
+    </tr>
+</table>
+
+<body>
+
+</body>
+<script type="text/javascript" src="../TimeTable/js/jquery-3.5.0.min.js"></script>
+<script type="text/javascript" src="../TimeTable/js/AJAX.js"></script>
+<script type="text/javascript" src="../AdminInterface/js/FileSaver.js"></script>
+<script type="text/javascript" src="../AdminInterface/js/xlsx.full.min.js"></script>
+
+<script type="text/javascript" src="./js/TestTimeTable.js"></script>
+<script type="text/javascript" src="./js/TestEmployeeInterface.js"></script>
+<script type="text/javascript" src="./js/TestAdminInterface.js"></script>
+
+</html>
