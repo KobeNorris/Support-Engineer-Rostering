@@ -28,9 +28,7 @@ As a stretch challenge, the project can be extended to automatically email the m
 
 ## Quick Overview
 
-A demonstration video is provided to show basic functionalities:
-
-Path: Report/demonstrationVideo.mp4.
+A demonstration [video](./Report/demonstrationVideo.mp4) is provided to show basic functionalities:
 
 <video controls="">
       <source id="mp4" src="/Report/demonstrationVideo.mp4" type="video/mp4">
