@@ -39,7 +39,11 @@ function login() {
             if (responseText == "Success") {
                 hideLoginWindow();
             } else {
+<<<<<<< HEAD
                 document.getElementById("loginWarning").innerHTML = "Wrong username or password";
+=======
+                popWarningWindow("Wrong username or password");
+>>>>>>> c964a5366fef41695c60fbdd7871ddf2d2de8c1e
             }
         }
     )

@@ -1,0 +1,62 @@
+html{
+  min-height:100%;
+  min-width:100%;
+}
+body{
+  height:100%;
+  background: url('../Image/background.png') no-repeat center center;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+#window{
+  text-align: center;
+}
+#logo{
+  margin-top:1%;
+  width: 300px;
+  height: 120px;
+  margin-right:auto;
+  margin-left: auto;
+  background-image: url("../Image/capital-one-logo.png");
+  background-size: cover;
+  background-position: center;
+}
+#wrapper{
+    padding: 0.6rem 1rem;
+    display: inline-block;
+    background-color: #D0D0D0;
+    border-radius: 0.4rem;
+}
+
+.leftEditWindowFrame{
+    text-align: right;
+    font-weight: bold;
+}
+.rightEditWindowFrame{
+    text-align: left;
+    padding-left: 11.5%;
+}
+#profilePic{
+    width: 100px;
+    height: 100px;
+    margin-right:auto;
+    margin-left: auto;
+    background-image: url("../Image/default_gray.png");
+    background-size: cover;
+    background-position: center;
+    border-radius: 25px;
+}
+#imageUpload {
+    display: none;
+}
+.buttonContainer{
+    text-align: center;
+    padding: 0.6rem;
+}
+
+#passwordWindow{
+    display:none;
+}
+/* need to come back and add media queries for responsive design*/

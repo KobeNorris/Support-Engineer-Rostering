@@ -49,7 +49,11 @@ function deleteEmployee(){
 function getEmployeeInfo(){
     $profileList = array();
 
+<<<<<<< HEAD
     $sql = "SELECT * FROM employee_profile;";
+=======
+    $sql = "SELECT * FROM employee_profile ORDER BY group_id;";
+>>>>>>> c964a5366fef41695c60fbdd7871ddf2d2de8c1e
     try {
         $dbh=PDOProvider();
         $stmt=$dbh->prepare($sql);
@@ -96,7 +100,11 @@ function checkDuplicate($working_id, $employeePassword){
 function uploadEmployee($working_id, $employeePassword){
 
     $sql = "INSERT INTO account VALUES (\"".$working_id."\", \"".$employeePassword."\");";
+<<<<<<< HEAD
     $sql =  $sql."INSERT INTO employee_profile (working_id, status, account_type) VALUES (\"".$working_id."\", \"".false."\", \"employee\");";
+=======
+    $sql =  $sql."INSERT INTO employee_profile (working_id, status, account_type, group_id) VALUES (\"".$working_id."\", \"".false."\", \"employee\", \"\");";
+>>>>>>> c964a5366fef41695c60fbdd7871ddf2d2de8c1e
     
     try {
         $dbh=PDOProvider();

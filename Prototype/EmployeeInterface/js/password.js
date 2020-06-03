@@ -20,9 +20,17 @@ function popPasswordWindow() {
     AJAX.post(url, data,
         function (responseText) {
             if (responseText == "Success")
+<<<<<<< HEAD
                 document.getElementById("passwordWindow").style.display = "block";
             else
                 alert("No permission" + responseText);
+=======
+                document.getElementById("changePasswordWindow").style.display = "block";
+            else {
+                popWarningWindow("No permission" + responseText);
+                // alert("No permission" + responseText);
+            }
+>>>>>>> c964a5366fef41695c60fbdd7871ddf2d2de8c1e
         }
     );
 }
@@ -31,7 +39,11 @@ function popPasswordWindow() {
  * Hide the password modification window and clean the data
  */
 function hidePasswordWindow() {
+<<<<<<< HEAD
     document.getElementById("passwordWindow").style.display = "none";
+=======
+    document.getElementById("changePasswordWindow").style.display = "none";
+>>>>>>> c964a5366fef41695c60fbdd7871ddf2d2de8c1e
     document.getElementById("oldPassword").value = "";
     document.getElementById("newPassword").value = "";
     document.getElementById("checkPassword").value = "";
@@ -48,10 +60,19 @@ function checkNewPassword() {
     checkPassword = document.getElementById("checkPassword").value;
 
     if (oldPassword == "" || newPassword == "" || checkPassword == "") {
+<<<<<<< HEAD
         alert("Blank space detected");
         flag = false;
     } else if (newPassword != checkPassword) {
         alert("Different new passwords");
+=======
+        popWarningWindow("Blank space detected");
+        // alert("Blank space detected");
+        flag = false;
+    } else if (newPassword != checkPassword) {
+        popWarningWindow("Different new passwords");
+        // alert("Different new passwords");
+>>>>>>> c964a5366fef41695c60fbdd7871ddf2d2de8c1e
         flag = false;
     }
 
@@ -71,8 +92,15 @@ function updatePassword() {
             function (responseText) {
                 if (responseText == "Success")
                     hidePasswordWindow();
+<<<<<<< HEAD
                 else
                     alert(responseText);
+=======
+                else {
+                    popWarningWindow(responseText);
+                    // alert(responseText);
+                }
+>>>>>>> c964a5366fef41695c60fbdd7871ddf2d2de8c1e
             }
         );
     }

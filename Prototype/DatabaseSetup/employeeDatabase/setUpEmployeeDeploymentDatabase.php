@@ -12,7 +12,11 @@ try {
     $stmt=$dbh->prepare($sql);
     $stmt->execute();
 
+<<<<<<< HEAD
     echo "Set up employee deployment Success";
+=======
+    echo "Set up employee deployment Success\n";
+>>>>>>> c964a5366fef41695c60fbdd7871ddf2d2de8c1e
 } catch (PDOException $error) {
     echo 'SQL Query:'.$sql.'</br>';
     echo 'Connection failed:'.$error->getMessage();

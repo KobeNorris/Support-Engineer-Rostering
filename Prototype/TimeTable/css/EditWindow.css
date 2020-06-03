@@ -1,5 +1,6 @@
 /* Edit window */
 #editWindow{
+<<<<<<< HEAD
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 2; /* Sit on top */
@@ -14,6 +15,8 @@
     background-color: rgb(255, 255, 255);
     border-collapse: collapse;
     overflow: auto;
+=======
+>>>>>>> c964a5366fef41695c60fbdd7871ddf2d2de8c1e
 }
 
 #editWindow>Label{
@@ -36,20 +39,56 @@
     padding-left: 10px; 
 }
 .dateContainer{
+<<<<<<< HEAD
     width: 130px;
     border: 1px solid rgb(50, 50, 50);
     border-radius:2px;
+=======
+    width: 10em;
+>>>>>>> c964a5366fef41695c60fbdd7871ddf2d2de8c1e
     /* background-color: rgb(210, 210, 210); */
     text-align: center;
 }
 .weekContainer{
+<<<<<<< HEAD
     width: 50px;
     border: 1px solid rgb(50, 50, 50);
     border-radius:2px;
+=======
+    width: 3em;
+>>>>>>> c964a5366fef41695c60fbdd7871ddf2d2de8c1e
     /* background-color: rgb(210, 210, 210); */
     text-align: center;
 }
 #enableRepeatButton{
     width: 60%;
     text-align: center;
+<<<<<<< HEAD
 }
+=======
+}
+
+/* Add Zoom Animation */
+  @-webkit-keyframes animatezoom {
+    from {-webkit-transform: scale(0)} 
+    to {-webkit-transform: scale(1)}
+  }
+    
+  @keyframes animatezoom {
+    from {transform: scale(0)} 
+    to {transform: scale(1)}
+  }
+  
+  /* Change styles for span and cancel button on extra small screens */
+  @media screen and (max-width: 300px) {
+    span.psw {
+       display: block;
+       float: none;
+    }
+    .cancelbtn {
+       width: 100%;
+    }
+  }
+  
+  /* </style> */
+>>>>>>> c964a5366fef41695c60fbdd7871ddf2d2de8c1e

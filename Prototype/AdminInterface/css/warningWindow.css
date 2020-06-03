@@ -1,0 +1,57 @@
+#warningWindow{
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 2; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.6); /* Black w/ opacity */
+}
+
+#warningTable{
+    width: 20em;
+    height: 10em;
+    background-color: white;
+    font-size: 1.2em;
+    text-align: center;
+    margin-top: 8em;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+}
+
+#warningTable>thead{
+    font-size: 1.4em;
+}
+
+#warningTable>tbody>tr{
+    height: 1.5em;
+}
+
+/* Add Zoom Animation */
+  @-webkit-keyframes animatezoom {
+    from {-webkit-transform: scale(0)} 
+    to {-webkit-transform: scale(1)}
+  }
+    
+  @keyframes animatezoom {
+    from {transform: scale(0)} 
+    to {transform: scale(1)}
+  }
+  
+  /* Change styles for span and cancel button on extra small screens */
+  @media screen and (max-width: 300px) {
+    span.psw {
+       display: block;
+       float: none;
+    }
+    .cancelbtn {
+       width: 100%;
+    }
+  }
+  

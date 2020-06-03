@@ -93,7 +93,11 @@ function updateEmployeeProfile() {
 
                 employeeProfile[0]["account_type"] = document.getElementById("account_type").value;
                 employeeProfile[0]["job_role"] = document.getElementById("job_role").value;
+<<<<<<< HEAD
                 console.log(employeeProfile[0]);
+=======
+                // console.log(employeeProfile[0]);
+>>>>>>> c964a5366fef41695c60fbdd7871ddf2d2de8c1e
                 sendEmployeeProfile();
             }
             else if (responseText == "employee") {
@@ -192,10 +196,21 @@ function sendImageToPHP(targetImage) {
         function (responseText) {
             if (responseText == "Success")
                 location.reload();
+<<<<<<< HEAD
             else if (responseText == "Fail 1")
                 alert("Wrong file type");
             else
                 alert(responseText);
+=======
+            else if (responseText == "Fail 1") {
+                popWarningWindow("Wrong file type");
+                // alert("Wrong file type");
+            }
+            else {
+                popWarningWindow(responseText);
+                // alert(responseText);
+            }
+>>>>>>> c964a5366fef41695c60fbdd7871ddf2d2de8c1e
         }
     );
 }

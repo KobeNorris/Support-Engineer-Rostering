@@ -1,7 +1,11 @@
 /* AdminInterface.html */
 #employeeCategory{
     position: relative;
+<<<<<<< HEAD
     background-color: darkgrey;
+=======
+    background-color: #E0E0E0;
+>>>>>>> c964a5366fef41695c60fbdd7871ddf2d2de8c1e
     margin-top: 1%;
     margin-left: 1%;
     height: 94%;
@@ -11,6 +15,11 @@
     flex-wrap: nowrap;
     justify-content: space-between;
     align-items: flex-start; */
+<<<<<<< HEAD
+=======
+    border-radius: 0.2rem;
+
+>>>>>>> c964a5366fef41695c60fbdd7871ddf2d2de8c1e
 }
 #employeeCategory_frame{
     width: 90%;
@@ -24,4 +33,13 @@
     width:200px;
     margin-left: 50px;
     overflow-y:scroll;
+<<<<<<< HEAD
+=======
+}
+
+#employeeCategory > div{
+    margin-top: 10%;
+    margin-left: 10%;
+    cursor: pointer;
+>>>>>>> c964a5366fef41695c60fbdd7871ddf2d2de8c1e
 }

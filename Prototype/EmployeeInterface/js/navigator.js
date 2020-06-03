@@ -24,8 +24,15 @@ function jumpToAdminInterface() {
         function (responseText) {
             if (responseText == "admin")
                 window.location.href = "../AdminInterface/AdminInterface.html";
+<<<<<<< HEAD
             else
                 alert("No permission");
+=======
+            else {
+                popWarningWindow("No permission");
+                // alert("No permission");
+            }
+>>>>>>> c964a5366fef41695c60fbdd7871ddf2d2de8c1e
         }
     )
 }
@@ -41,8 +48,15 @@ function logout() {
         function (responseText) {
             if (responseText == "Success")
                 jumpToTimeTable();
+<<<<<<< HEAD
             else
                 alert(responseText);
+=======
+            else {
+                popWarningWindow(responseText);
+                // alert(responseText);
+            }
+>>>>>>> c964a5366fef41695c60fbdd7871ddf2d2de8c1e
         }
     )
 }

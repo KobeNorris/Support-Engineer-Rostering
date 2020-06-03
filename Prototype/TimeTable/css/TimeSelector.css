@@ -1,6 +1,7 @@
 /* TimeSelector */
 .timeSelector{
     width: 100%;
+<<<<<<< HEAD
     margin-top: 20px;
     margin-bottom: 20px;
     position: relative;
@@ -8,6 +9,18 @@
 }
 #timeSelectorMonthAndYear{
     width: 180px;
+=======
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    /*position: relative;*/
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+#timeSelectorMonthAndYear{
+    /*width: 180px;*/
+>>>>>>> c964a5366fef41695c60fbdd7871ddf2d2de8c1e
     text-align: center;
 }
 #timeSelectorMonth{
@@ -15,6 +28,7 @@
     margin-right: 5px;
 }
 #timeSelectorYear{
+<<<<<<< HEAD
     width: 50px;
     text-align: center;
     margin-left: 5px;
@@ -22,4 +36,16 @@
 }
 .timeSelectorbutton{
     width: 20px;
+=======
+    flex-grow: -1;
+    flex-shrink: -1;
+    text-align: center;
+    margin-left: 5px;
+    margin-right: 10px;
+    width: 5em;
+}
+.timeSelectorbutton{
+    height: 1.5em;
+    display: flex;
+>>>>>>> c964a5366fef41695c60fbdd7871ddf2d2de8c1e
 }

@@ -19,4 +19,23 @@ function init() {
     getNameList();
     getMonthData();
     refreshTimeSelector();
+<<<<<<< HEAD
+=======
+
+    presentDate = new Date();
+    cleanExpiredDate(presentDate.getFullYear() + "-" + (presentDate.getMonth() + 1) + "-" + presentDate.getDate());
+}
+
+function cleanExpiredDate(presentDate) {
+    var url = "./php/expiredDateCleaner.php";
+    var data = "presentDate=" + presentDate;
+
+    AJAX.post(url, data,
+        function (responseText) {
+            // console.log(responseText);
+            if (responseText != "Succeed")
+                popWarningWindow(responseText);
+        }
+    )
+>>>>>>> c964a5366fef41695c60fbdd7871ddf2d2de8c1e
 }

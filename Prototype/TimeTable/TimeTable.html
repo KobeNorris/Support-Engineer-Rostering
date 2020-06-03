@@ -5,6 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<<<<<<< HEAD
+=======
+    <link rel="stylesheet" type="text/css" href="./css/global.css">
+>>>>>>> c964a5366fef41695c60fbdd7871ddf2d2de8c1e
     <link rel="stylesheet" type="text/css" href="./css/MainSystem.css">
     <link rel="stylesheet" type="text/css" href="./css/EmployeeCategory.css">
     <link rel="stylesheet" type="text/css" href="./css/BlankSpace.css">
@@ -13,6 +17,10 @@
     <link rel="stylesheet" type="text/css" href="./css/EditWindow.css">
     <link rel="stylesheet" type="text/css" href="./css/RequestWindow.css">
     <link rel="stylesheet" type="text/css" href="./css/login.css">
+<<<<<<< HEAD
+=======
+    <link rel="stylesheet" type="text/css" href="./css/warningWindow.css">
+>>>>>>> c964a5366fef41695c60fbdd7871ddf2d2de8c1e
     <title>Engineer Rostering System</title>
 </head>
 
@@ -64,6 +72,7 @@
     </div>
 
     <!-- Section for edit window -->
+<<<<<<< HEAD
     <div id="editWindow">
         <table class="editWindowFrame">
             <tbody>
@@ -75,11 +84,30 @@
                 <td></td>
                 <td class="rightEditWindowFrame" colspan="7">
                     <!-- <select id="jobRoleSelection">
+=======
+    <div id="editWindow" class="floatWindowMask">
+        <div class="floatWindowFlexWrapper">
+            <div class="floatWindow">
+                <div class="floatWindowTopBar">
+                    <button onclick="hideWindow()">×</button>
+                </div>
+                <table class="editWindowFrame" class="floatWindowTable">
+                    <tbody>
+                        <tr>
+                            <td colspan="10" class="floatWindowTitle">Edit Window</td>
+                        </tr>
+                        <tr>
+                            <td class="leftEditWindowFrame" colspan="2">Job Role</td>
+                            <td></td>
+                            <td class="rightEditWindowFrame" colspan="7">
+                                <!-- <select id="jobRoleSelection">
+>>>>>>> c964a5366fef41695c60fbdd7871ddf2d2de8c1e
                         <option value="primary">Primary engineer</option>
                         <option value="secondary">Secondary engineer</option>
                         <option value="manager">Manager</option>
                         <option value="empty"></option>
                     </select> -->
+<<<<<<< HEAD
                     <div id="jobRoleSelection"></div>
                 </td>
                 </tr>
@@ -180,6 +208,114 @@
 
     <!-- login window -->
     <div id="loginFrame">
+=======
+                                <div id="jobRoleSelection"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="leftEditWindowFrame" colspan="2">Employee</td>
+                            <td></td>
+                            <td class="rightEditWindowFrame" colspan="7">
+                                <input id="inputWorking_id" type="text" placeholder="working id">
+                                <!-- <button class="SearchingBotton" onclick="requestSearch()">
+                            search
+                        </button> -->
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="leftEditWindowFrame" class="leftEditWindowFrame" colspan="2">Time</td>
+                            <td></td>
+                            <td class="rightEditWindowFrame" colspan="3">
+                                <input id="inputStartDate" type="date" class="dateContainer" />
+                            </td>
+                            <td colspan="1">to</td>
+                            <td class="rightEditWindowFrame" colspan="3">
+                                <input id="inputEndDate" type="date" class="dateContainer" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="leftEditWindowFrame" colspan="2">Repeat</td>
+                            <td></td>
+                            <td class="rightEditWindowFrame" colspan="7">
+                                <button class="rightEditWindowFrame" id="enableRepeatButton" status="enabled"
+                                    onclick="checkRepeat()">Disable weekly repeat</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody id="repeatAttribute" style="color: grey;">
+                        <tr>
+                            <td class="leftEditWindowFrame" colspan="2">Interval</td>
+                            <td></td>
+                            <td class="rightEditWindowFrame" colspan="7">
+                                Every <input id="inputRepeatInterval" type="number" class="weekContainer" disabled />
+                                weeks
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="leftEditWindowFrame" colspan="2">End</td>
+                            <td></td>
+                            <td class="rightEditWindowFrame" colspan="7">
+                                <label><input id="yearEnd" name="endRepeat" type="radio" disabled checked /> 1 Year (52
+                                    weeks)</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="leftEditWindowFrame" colspan="2"></td>
+                            <td></td>
+                            <td class="rightEditWindowFrame" colspan="7">
+                                <label><input id="timeEnd" name="endRepeat" type="radio" disabled /> After
+                                    <input id="inputTimeEnd" type=" week" class="weekContainer" disabled />
+                                    times</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="leftEditWindowFrame" colspan="2"></td>
+                            <td></td>
+                            <td class="rightEditWindowFrame" colspan="7">
+                                <label><input id="dateEnd" name="endRepeat" type="radio" disabled /> On date
+                                    <input id="inputDateEnd" type="date" class="dateContainer" disabled></label>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td class="rightEditWindowFrame" colspan="5">
+                                <button id="EWUpload">Upload</button>
+                            </td>
+                            <td class="leftEditWindowFrame" colspan="5">
+                                <button id="EWDelete">Delete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- request window -->
+    <div id="requestWindow" class="floatWindowMask">
+        <div class="floatWindowFlexWrapper">
+            <div class="floatWindow">
+                <div class="floatWindowTopBar">
+                    <button onclick="hideRequestWindow()">×</button>
+                </div>
+                <table class="floatWindowTable">
+                    <tr>
+                        <td style="text-align: center;">
+                            <button onclick="requestLeave()">Take leave</buttononclick="">
+                        </td>
+                        <td style="text-align: center;">
+                            <button onclick="requestEdit()">Edit</button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- login window -->
+    <div id="loginFrame" class="floatWindowMask">
+>>>>>>> c964a5366fef41695c60fbdd7871ddf2d2de8c1e
         <div class="modal-content animate">
             <div class="imgcontainer">
                 <span onclick="hideLoginWindow()" class="close">×</span>
@@ -201,16 +337,45 @@
 
                 <button class="loginButton" onclick="login()">Login</button>
             </div>
+<<<<<<< HEAD
 
 
         </div>
     </div>
+=======
+        </div>
+    </div>
+    </div>
+
+    <!-- Warning Window -->
+    <div id="warningWindow">
+        <table id="warningTable">
+            <thead>
+                <tr>
+                    <td>Warning</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td id="warningMessage"></td>
+                </tr>
+                <tr>
+                    <td><button onclick="hideWarningWindow()">confirmed</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+>>>>>>> c964a5366fef41695c60fbdd7871ddf2d2de8c1e
 
     <div id="modal"></div>
 
 </body>
 
+<<<<<<< HEAD
 <script src="http://code.jquery.com/jquery-latest.js"></script>
+=======
+<script type="text/javascript" src="./js/jquery-3.5.0.min.js"></script>
+>>>>>>> c964a5366fef41695c60fbdd7871ddf2d2de8c1e
 <script type="text/javascript" src="./js/AJAX.js"></script>
 <script type="text/javascript" src="./js/build.js"></script>
 <script type="text/javascript" src="./js/navigator.js"></script>
@@ -223,6 +388,11 @@
 <script type="text/javascript" src="./js/navigator.js"></script>
 <script type="text/javascript" src="./js/EmployeeCategory.js"></script>
 <script type="text/javascript" src="./js/RequestWindow.js"></script>
+<<<<<<< HEAD
+=======
+<script type="text/javascript" src="./js/sendMail.js"></script>
+<script type="text/javascript" src="./js/warningWindow.js"></script>
+>>>>>>> c964a5366fef41695c60fbdd7871ddf2d2de8c1e
 
 <script type="text/javascript" src="./js/init.js"></script>
 

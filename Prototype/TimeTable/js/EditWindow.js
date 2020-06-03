@@ -42,10 +42,15 @@ function checkRepeat() {
  *      possible;
  *      2. From employee category: Load target employee's working id
  *
+<<<<<<< HEAD
  * @param {*} event 
  * @param {*} parent 
  */
 function openEditWindow(event, parent) {
+=======
+ */
+function openEditWindow() {
+>>>>>>> c964a5366fef41695c60fbdd7871ddf2d2de8c1e
     var url = "./php/login.php";
     var data = "action=check";
 
@@ -53,6 +58,7 @@ function openEditWindow(event, parent) {
         function (responseText) {
             if (responseText == "admin") {
                 popWindow();
+<<<<<<< HEAD
                 // if (parent == "timeTable")
                 //     popWindowTT(event);
                 // else if (parent == "employeeCategory")
@@ -64,6 +70,17 @@ function openEditWindow(event, parent) {
                 alert("No access permission ");
             else
                 popLoginWindow();
+=======
+            }
+            else if (responseText == "employee") {
+                popWarningWindow("No access permission");
+                // alert("No access permission ");
+            }
+            else if (responseText == "Not log in")
+                popLoginWindow();
+            else
+                console.log(responseText);
+>>>>>>> c964a5366fef41695c60fbdd7871ddf2d2de8c1e
         }
     )
 }
@@ -76,10 +93,13 @@ function popWindow() {
     document.getElementById('jobRoleSelection').innerHTML = targetBlock.getAttribute('job_role');
     document.getElementById('inputStartDate').value = targetBlock.getAttribute('start_date');
     document.getElementById('inputEndDate').value = targetBlock.getAttribute('end_date');
+<<<<<<< HEAD
     // if (document.getElementById('inputWorking_id').innerHTML == "Disable weekly repeat") {
     //     alert("Hello");
     // }
     // // getRepeatTask();
+=======
+>>>>>>> c964a5366fef41695c60fbdd7871ddf2d2de8c1e
 
     document.getElementById('modal').style.display = "block";
     document.getElementById('editWindow').style.display = "block";
@@ -97,10 +117,13 @@ function popWindowTT() {
     document.getElementById('jobRoleSelection').innerHTML = targetBlock.getAttribute('job_role');
     document.getElementById('inputStartDate').value = targetBlock.getAttribute('start_date');
     document.getElementById('inputEndDate').value = targetBlock.getAttribute('end_date');
+<<<<<<< HEAD
     // if (document.getElementById('inputWorking_id').innerHTML == "Disable weekly repeat") {
     //     alert("Hello");
     // }
     // // getRepeatTask();
+=======
+>>>>>>> c964a5366fef41695c60fbdd7871ddf2d2de8c1e
 
     document.getElementById('modal').style.display = "block";
     document.getElementById('editWindow').style.display = "block";
@@ -136,7 +159,12 @@ function hideWindow() {
  * Inser single schedule period info into the edit window
  */
 function getNormalTask() {
+<<<<<<< HEAD
     document.getElementById('inputWorking_id').value = targetBlock.getAttribute('working_id');
+=======
+    if (targetBlock.getAttribute('working_id') != "")
+        document.getElementById('inputWorking_id').value = targetBlock.getAttribute('working_id');
+>>>>>>> c964a5366fef41695c60fbdd7871ddf2d2de8c1e
     document.getElementById('inputStartDate').value = targetBlock.getAttribute('start_date');
     document.getElementById('inputEndDate').value = targetBlock.getAttribute('end_date');
 }
@@ -155,8 +183,15 @@ function normalUpload() {
                 getMonthData();
                 hideWindow();
             }
+<<<<<<< HEAD
             else
                 alert(responseText);
+=======
+            else {
+                popWarningWindow(responseText);
+                // alert(responseText);
+            }
+>>>>>>> c964a5366fef41695c60fbdd7871ddf2d2de8c1e
         }
     );
 }
@@ -175,8 +210,15 @@ function normalDelete() {
                 getMonthData();
                 hideWindow();
             }
+<<<<<<< HEAD
             else
                 alert(responseText);
+=======
+            else {
+                popWarningWindow(responseText);
+                // alert(responseText);
+            }
+>>>>>>> c964a5366fef41695c60fbdd7871ddf2d2de8c1e
         }
     );
 }
@@ -209,8 +251,15 @@ function repeatUpload() {
                 getMonthData();
                 hideWindow();
             }
+<<<<<<< HEAD
             else
                 alert(responseText);
+=======
+            else {
+                popWarningWindow(responseText);
+                // alert(responseText);
+            }
+>>>>>>> c964a5366fef41695c60fbdd7871ddf2d2de8c1e
         }
     );
 }
@@ -229,8 +278,15 @@ function repeatDelete() {
                 getMonthData();
                 hideWindow();
             }
+<<<<<<< HEAD
             else
                 alert(responseText);
+=======
+            else {
+                popWarningWindow(responseText);
+                // alert(responseText);
+            }
+>>>>>>> c964a5366fef41695c60fbdd7871ddf2d2de8c1e
         }
     );
 }
@@ -295,8 +351,26 @@ function getRepeatTask() {
  * Clean the repeatable task's data kept in the edit window
  */
 function cleanRepeatTask() {
+<<<<<<< HEAD
     document.getElementById("inputRepeatInterval").value = "";
     document.getElementById("yearEnd").checked = true;
     document.getElementById("inputTimeEnd").value = "";
     document.getElementById("inputDateEnd").value = "";
+=======
+    // document.getElementById("inputRepeatInterval").value = "";
+    // document.getElementById("yearEnd").checked = true;
+    // document.getElementById("inputTimeEnd").value = "";
+    // document.getElementById("inputDateEnd").value = "";
+    var inputs = $('#repeatAttribute input');
+    var targetButton = document.getElementById("enableRepeatButton");
+
+    targetButton.innerHTML = 'Enable weekly repeat';
+    targetButton.status = 'disabled';
+    document.getElementById("repeatAttribute").style.color = 'grey';
+    document.getElementById("EWUpload").onclick = normalUpload;
+    document.getElementById("EWDelete").onclick = normalDelete;
+    inputs.each(function () {
+        this.disabled = true;
+    });
+>>>>>>> c964a5366fef41695c60fbdd7871ddf2d2de8c1e
 }

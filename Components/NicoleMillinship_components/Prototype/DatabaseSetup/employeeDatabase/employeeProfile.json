@@ -1,0 +1,68 @@
+[
+    {
+        "name": "Kobe",
+        "working_id": "scykw1",
+        "slack_id": "Norris",
+        "email": "scykw1@nottingham.ac.uk",
+        "group_id": "Customer Nottingham",
+        "phone_number": "18030700990",
+        "account_type": "admin",
+        "job_role": "PrimaryEngineer",
+        "status": true
+    },
+    {
+        "name": "Laim",
+        "working_id": "psylo",
+        "slack_id": "Orrill",
+        "email": "psylo@nottingham.ac.uk",
+        "group_id": "Customer Nottingham",
+        "phone_number": "14324120990",
+        "account_type": "employee",
+        "job_role": "PrimaryEngineer",
+        "status": true
+    },
+    {
+        "name": "Gurjyot",
+        "working_id": "psygk2",
+        "slack_id": "Kaur",
+        "email": "psygk2@nottingham.ac.uk",
+        "group_id": "Customer Nottingham",
+        "phone_number": "12345678901",
+        "account_type": "employee",
+        "job_role": "SecondaryEngineer",
+        "status": true
+    },
+    {
+        "name": "Nicole",
+        "working_id": "psynm6",
+        "slack_id": "Millinship",
+        "email": "psynm6@nottingham.ac.uk",
+        "group_id": "Customer Nottingham",
+        "phone_number": "10987654321",
+        "account_type": "employee",
+        "job_role": "SecondaryEngineer",
+        "status": true
+    },
+    {
+        "name": "Tajin",
+        "working_id": "psytt1",
+        "slack_id": "Tasnuva",
+        "email": "psytt1@nottingham.ac.uk",
+        "group_id": "Customer Nottingham",
+        "phone_number": "77777777777",
+        "account_type": "employee",
+        "job_role": "EscalationManager",
+        "status": true
+    },
+    {
+        "name": "Xuanhao",
+        "working_id": "scyxl3",
+        "slack_id": "Li",
+        "email": "scyxl3@nottingham.ac.uk",
+        "group_id": "Customer Nottingham",
+        "phone_number": "00000000000",
+        "account_type": "employee",
+        "job_role": "EscalationManager",
+        "status": true
+    }
+]

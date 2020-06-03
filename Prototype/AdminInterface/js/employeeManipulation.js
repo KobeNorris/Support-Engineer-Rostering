@@ -45,7 +45,12 @@ function createNewEmployee() {
                     hideCreateEmployeeWindow();
                 }
                 else
+<<<<<<< HEAD
                     alert(responseText);
+=======
+                    popWarningWindow(responseText);
+                // alert(responseText);
+>>>>>>> c964a5366fef41695c60fbdd7871ddf2d2de8c1e
             }
         );
     }
@@ -68,7 +73,12 @@ function deleteEmployee(event) {
             if (responseText == "Success")
                 getEmployeeInfo();
             else
+<<<<<<< HEAD
                 alert(responseText);
+=======
+                popWarningWindow(responseText);
+            // alert(responseText);
+>>>>>>> c964a5366fef41695c60fbdd7871ddf2d2de8c1e
         }
     );
 }
@@ -87,17 +97,32 @@ function checkInput() {
     var flag = true;
 
     if (checkPassword != newPassword) {
+<<<<<<< HEAD
         alert("Wrong password check");
+=======
+        popWarningWindow("Wrong password check");
+        // alert("Wrong password check");
+>>>>>>> c964a5366fef41695c60fbdd7871ddf2d2de8c1e
         flag = false;
     }
 
     if (newWorking_id == "") {
+<<<<<<< HEAD
         alert("Working_id could not be empty");
+=======
+        popWarningWindow("Working_id could not be empty");
+        // alert("Working_id could not be empty");
+>>>>>>> c964a5366fef41695c60fbdd7871ddf2d2de8c1e
         flag = false;
     }
 
     if (newPassword == "") {
+<<<<<<< HEAD
         alert("Password could not be empty");
+=======
+        popWarningWindow("Password could not be empty");
+        // alert("Password could not be empty");
+>>>>>>> c964a5366fef41695c60fbdd7871ddf2d2de8c1e
         flag = false;
     }
 

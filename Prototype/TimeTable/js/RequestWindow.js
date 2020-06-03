@@ -31,13 +31,24 @@ function hideRequestWindow() {
 /**
  * TODO To develop the mail system
  */
+<<<<<<< HEAD
 function requestLeave() { }
+=======
+function requestLeave() {
+    requestLeaveRequest();
+    hideRequestWindow();
+}
+>>>>>>> c964a5366fef41695c60fbdd7871ddf2d2de8c1e
 
 /**
  * Request to edit schedule
  */
 function requestEdit() {
+<<<<<<< HEAD
     // openEditWindow(targetBlock, "timeTable");
     openEditWindow(targetBlock);
+=======
+    openEditWindow();
+>>>>>>> c964a5366fef41695c60fbdd7871ddf2d2de8c1e
     hideRequestWindow();
 }
